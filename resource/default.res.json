@@ -1,0 +1,30 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,self_machine_png,main_page_png,game_sky_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "self_machine_png",
+			"type": "image",
+			"url": "assets/self_machine.png"
+		},
+		{
+			"name": "main_page_png",
+			"type": "image",
+			"url": "assets/main_page.png"
+		},
+		{
+			"name": "game_sky_png",
+			"type": "image",
+			"url": "assets/game_sky.png"
+		}
+	]
+}
