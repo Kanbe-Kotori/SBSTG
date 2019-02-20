@@ -1,4 +1,5 @@
 class MainPage extends PageBase {
+    public static readonly INSTANCE:MainPage = new MainPage();
 
     protected constructor() {
         super("main_page");
@@ -9,7 +10,7 @@ class MainPage extends PageBase {
     }
 
     protected doRender() {
-        let sky = MyUtils.createBitmapByName("main_page");
+        let sky = MyUtils.createBitmapByName("main_page_png");
         this.addChild(sky);
         sky.width = this.stage.stageWidth;
         sky.height = this.stage.stageHeight;
