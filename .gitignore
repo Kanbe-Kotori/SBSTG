@@ -1,0 +1,9 @@
+/libs
+/.wing
+/bin-debug
+/template
+egretProperties.json
+index.html
+manifest.json
+tsconfig.json
+wingProperties.json
