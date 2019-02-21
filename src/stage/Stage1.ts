@@ -36,6 +36,7 @@ class Stage1 extends StageBase {
         this.sniper3.startWithDelay(2000);
         this.sniper4.startWithDelay(2000);
         this.sniper5.startWithDelay(2000);
+        this.state = StageState.RUNNING;
     }
 
     public pause() {
@@ -44,11 +45,16 @@ class Stage1 extends StageBase {
         this.sniper3.stop();
         this.sniper4.stop();
         this.sniper5.stop();
+        this.state = StageState.PAUSING;
     }
 
     public restart() {
-        this.pause();
-        this.isBegin = false;
+        this.emitter1.stop();
+        this.sniper2.stop();
+        this.sniper3.stop();
+        this.sniper4.stop();
+        this.sniper5.stop();
+        this.state = StageState.BEFORE_RUNNING;
         this.textfield.text = "3";
         this.timer.reset();
         this.timer.repeatCount = 3;
@@ -56,7 +62,12 @@ class Stage1 extends StageBase {
     }
 
     public end() {
-        this.pause();
+        this.emitter1.stop();
+        this.sniper2.stop();
+        this.sniper3.stop();
+        this.sniper4.stop();
+        this.sniper5.stop();
+        this.state = StageState.END;
         MyUtils.cleanMissile(this);
     }
 }

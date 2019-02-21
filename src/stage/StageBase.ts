@@ -6,7 +6,7 @@ abstract class StageBase extends PageBase {
     protected textfield:egret.TextField;
     protected timer:egret.Timer;
 
-    protected isBegin = false;
+    protected state:StageState = StageState.BEFORE_RUNNING;
 
     protected constructor(name:string, time:number) {
         super(name);
@@ -44,7 +44,7 @@ abstract class StageBase extends PageBase {
     protected onTimerUpdate(event: egret.TimerEvent) {
         let num =  parseInt(this.textfield.text);
         let str = "";
-        if (num > 1 || this.isBegin)
+        if (num > 1 || this.state == StageState.RUNNING)
             str = (num - 1) + "";
         else
             str = "Begin!"
@@ -53,10 +53,9 @@ abstract class StageBase extends PageBase {
     }
 
     protected onTimerEnd(event: egret.TimerEvent) {
-        if (!this.isBegin) {
+        if (this.state == StageState.BEFORE_RUNNING) {
             this.textfield.text = "";
             this.start();
-            this.isBegin = true;
             this.textfield.text = this._time + "";
             this.timer.reset();
             this.timer.repeatCount = this._time;
@@ -81,4 +80,11 @@ abstract class StageBase extends PageBase {
 
     public abstract end();
 
+}
+
+enum StageState {
+	BEFORE_RUNNING,
+	RUNNING,
+	PAUSING,
+	END
 }

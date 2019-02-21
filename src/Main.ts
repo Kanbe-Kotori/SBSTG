@@ -31,7 +31,8 @@ class Main extends egret.DisplayObjectContainer {
     private async runGame() {
         console.info("game start");
         await this.loadResource();
-        this.addChild(MainPage.INSTANCE);
+        //this.addChild(MainPage.INSTANCE);
+        this.addChild(Stage1.INSTANCE);
         //await platform.login();
         //const userInfo = await platform.getUserInfo();
         //console.log(userInfo);

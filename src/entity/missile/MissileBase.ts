@@ -48,6 +48,9 @@ abstract class MissileBase extends egret.Sprite {
         event.updateAfterEvent();
     }
 
+    /**
+     * 检测该子弹是否需要消弹
+     */
     protected abstract shouldSetDead():boolean;
 
     public setDead() {
@@ -71,5 +74,8 @@ abstract class MissileBase extends egret.Sprite {
         return this.localToGlobal(this._shape.x, this._shape.y).y;
     }
 
+    /**
+     * 检测该子弹是否与自机碰撞，自机对象从instance获取
+     */
     public abstract isCollide():boolean;
 }

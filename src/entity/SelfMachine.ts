@@ -84,7 +84,7 @@ class SelfMachine extends egret.Sprite {
             if (i.isCollide()) {
                 //alert("你死了!");
                 console.log("nisile");
-                MyUtils.cleanMissile(this.currentStage);
+                this.currentStage.end();
                 this.currentStage.restart();
                 break;
             }
