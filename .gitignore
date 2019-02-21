@@ -1,7 +1,7 @@
-libs/
-.wing/
-bin-debug/
-template/
+/libs
+/.wing
+/bin-debug
+/template
 egretProperties.json
 index.html
 manifest.json
