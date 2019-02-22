@@ -1,8 +1,8 @@
 class Main extends egret.DisplayObjectContainer {
     public static readonly X = 1080;
     public static readonly Y = 1920;
-    public static readonly UPPER_Y = 240;
-    public static readonly BELOW_Y = 1680;
+    public static readonly UPPER_Y = 0.125;
+    public static readonly BELOW_Y = 0.875;
 
     private constructor() {
         super();
@@ -31,7 +31,7 @@ class Main extends egret.DisplayObjectContainer {
     private async runGame() {
         console.info("game start");
         await this.loadResource();
-        this.addChild(MainPage.INSTANCE);
+        this.addChild(PageMain.INSTANCE);
         //this.addChild(Stage1.INSTANCE);
         //await platform.login();
         //const userInfo = await platform.getUserInfo();

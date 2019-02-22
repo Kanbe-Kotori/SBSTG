@@ -1,6 +1,6 @@
-class MainPage extends PageBase {
+class PageMain extends PageBase {
 
-    public static readonly INSTANCE:MainPage = new MainPage();
+    public static readonly INSTANCE:PageMain = new PageMain();
 
     private btnStart:Button;
 
@@ -25,7 +25,7 @@ class MainPage extends PageBase {
     }
 
     protected onClick() {
-        this.parent.addChild(Stage1.INSTANCE);
+        this.parent.addChild(PageChooseStage.INSTANCE);
         this.parent.removeChild(this);
     }
     
