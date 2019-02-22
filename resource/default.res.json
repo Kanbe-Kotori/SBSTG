@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,main_page_png,game_sky_png",
+			"keys": "description_json,self_machine_png,main_page_png,game_sky_png,btn_start_png",
 			"name": "preload"
 		}
 	],
@@ -25,6 +25,11 @@
 			"name": "game_sky_png",
 			"type": "image",
 			"url": "assets/game_sky.png"
+		},
+		{
+			"name": "btn_start_png",
+			"type": "image",
+			"url": "assets/btn_start.png"
 		}
 	]
 }
