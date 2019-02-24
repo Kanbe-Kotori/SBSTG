@@ -11,8 +11,8 @@ class RainMissile extends StandardMissile {
         return false;
     }
 
-	protected onUpdate(event: egret.TimerEvent) {
-       super.onUpdate(event);
+	public onUpdate() {
+       super.onUpdate();
 	   if (this.getX() < 0) {
 		   this._shape.x += SelfMachine.INSTANCE.currentStage.width;
 	   } else if(this.getX() > SelfMachine.INSTANCE.currentStage.width) {

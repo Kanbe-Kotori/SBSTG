@@ -7,8 +7,6 @@ abstract class MissileBase extends egret.Sprite {
     protected _color:number;
     protected _shape:egret.Shape;
 
-    protected timer:egret.Timer;
-
 	/**
 	 * 新建一个子弹
 	 * @param point 子弹生成位置
@@ -30,22 +28,18 @@ abstract class MissileBase extends egret.Sprite {
 
     protected onAddToStage(event:egret.Event) {
         this._shape = new egret.Shape();
-        this.timer = new egret.Timer(50, 0);
-        this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
-        this.timer.start();
         SelfMachine.INSTANCE.currentStage.array.push(this);
         this.doRender();
     }
 
     protected abstract doRender();
 
-    protected onUpdate(event: egret.TimerEvent) {
+    public onUpdate() {
         this._shape.x += this._vx;
         this._shape.y += this._vy;
         if (this.shouldSetDead()) {
             this.setDead();
         }
-        event.updateAfterEvent();
     }
 
     /**
@@ -57,7 +51,7 @@ abstract class MissileBase extends egret.Sprite {
         if (this.contains(this._shape)) {
             this.removeChild(this._shape);
         }
-        this.timer.stop();
+        this.parent.removeChild(this);
         for (let i: number = 0; i < SelfMachine.INSTANCE.currentStage.array.length; i++) {
 			if (SelfMachine.INSTANCE.currentStage.array[i] == this) {
 				SelfMachine.INSTANCE.currentStage.array.splice(i, 1);

@@ -5,6 +5,7 @@ abstract class StageBase extends PageBase {
 
     protected textfield:egret.TextField;
     protected timer:egret.Timer;
+    protected missile_timer:egret.Timer;
 
     protected state:StageState = StageState.BEFORE_RUNNING;
 
@@ -19,7 +20,12 @@ abstract class StageBase extends PageBase {
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerUpdate, this);
         this.timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE,this.onTimerEnd,this);
         this.timer.start();
+
+        this.missile_timer = new egret.Timer(50, 0);
+        this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
         this.addChild(SelfMachine.INSTANCE);
+        this.missile_timer.start()
+
         SelfMachine.INSTANCE.currentStage = this;
     }
 
@@ -38,7 +44,7 @@ abstract class StageBase extends PageBase {
         this.textfield.size = 50;
         this.textfield.text = "3";
         this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this.addChild( this.textfield );
+        this.addChild(this.textfield);
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
@@ -62,8 +68,14 @@ abstract class StageBase extends PageBase {
             this.timer.start();
         } else {
             this.win();
+        }  
+    }
+
+    protected onMissileUpdate(event: egret.TimerEvent) {
+        for(let i of this.array) {
+            i.onUpdate();
         }
-        
+        event.updateAfterEvent();
     }
 
     protected win() {
