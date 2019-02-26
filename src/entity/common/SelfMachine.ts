@@ -30,8 +30,8 @@ class SelfMachine extends egret.Sprite {
 
     private doRender() {
         this.img = MyUtils.createBitmapByName("self_machine_png");
-        this.img.width = SelfMachine.WIDTH;
-        this.img.height = SelfMachine.HEIGHT;
+        this.img.width = 61;
+        this.img.height = 166;
         this.img.anchorOffsetX = this.img.width/2;
         this.img.anchorOffsetY = this.img.height/2;
         this.img.x = this.stage.stageWidth/2;
