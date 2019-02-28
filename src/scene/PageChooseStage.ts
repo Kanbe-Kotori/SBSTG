@@ -20,11 +20,11 @@ class PageChooseStage extends PageBase {
         sky.alpha = 1;
         this.addChild(sky);
 
-        this.btnStage1 = new Button(320, 100, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.3), "btn_stage1");
+        this.btnStage1 = new Button(550, 150, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.3), "btn_stage1");
         this.btnStage1.setAction(this.onClickStage1);
         this.addChild(this.btnStage1);
 
-        this.btnStage2 = new Button(320, 100, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.6), "btn_stage2");
+        this.btnStage2 = new Button(550, 150, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.6), "btn_stage2");
         this.btnStage2.setAction(this.onClickStage2);
         this.addChild(this.btnStage2);
     }

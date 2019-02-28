@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,main_page_png,game_sky_png,btn_start_png,btn_stage1_png,btn_stage2_png",
+			"keys": "description_json,self_machine_png,main_page_png,game_sky_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png",
 			"name": "preload"
 		}
 	],
@@ -40,6 +40,11 @@
 			"name": "btn_stage2_png",
 			"type": "image",
 			"url": "assets/btn_stage2.png"
+		},
+		{
+			"name": "btn_return_png",
+			"type": "image",
+			"url": "assets/btn_return.png"
 		}
 	]
 }

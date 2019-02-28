@@ -4,10 +4,12 @@ abstract class StageBase extends PageBase {
     protected readonly _time:number;
 
     protected textfield:egret.TextField;
+    private btnReturn:Button;
+
     protected timer:egret.Timer;
     protected missile_timer:egret.Timer;
 
-    protected state:StageState = StageState.BEFORE_RUNNING;
+    public state:StageState = StageState.BEFORE_RUNNING;
 
     protected constructor(name:string, time:number) {
         super(name);
@@ -24,7 +26,7 @@ abstract class StageBase extends PageBase {
         this.missile_timer = new egret.Timer(50, 0);
         this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
         this.addChild(SelfMachine.INSTANCE);
-        this.missile_timer.start()
+        //this.missile_timer.start()
 
         SelfMachine.INSTANCE.currentStage = this;
     }
@@ -43,8 +45,13 @@ abstract class StageBase extends PageBase {
         this.textfield.y = 120;
         this.textfield.size = 50;
         this.textfield.text = "3";
+        this.textfield.textColor = 0x000000;
         this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.textfield);
+
+        this.btnReturn = new Button(160, 160, new egret.Point(480, 1800), "btn_return");
+        this.btnReturn.setAction(this.return);
+        this.addChild(this.btnReturn);
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
@@ -84,9 +91,17 @@ abstract class StageBase extends PageBase {
         this.textfield.text = "niyingle";
     }
 
+    protected return() {
+        this.end();
+        this.parent.addChild(PageMain.INSTANCE);
+        this.parent.removeChild(this);
+    }
+
     public abstract start();
 
     public abstract pause();
+
+    public abstract resume();
 
     public abstract restart();
 

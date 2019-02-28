@@ -50,7 +50,9 @@ class Sniper extends egret.Sprite {
     }
 
     public start() {
-        this.timer.start();
+        if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
+            this.timer.start();
+        }
     }
 
     public stop() {

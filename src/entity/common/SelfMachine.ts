@@ -41,7 +41,7 @@ class SelfMachine extends egret.Sprite {
         this.shape = new egret.Shape();
         this.shape.x = this.stage.stageWidth/2;
         this.shape.y = this.stage.stageHeight/2;
-        this.shape.graphics.beginFill(0xFF0000, 1);
+        this.shape.graphics.beginFill(0x000000, 1);
         this.shape.graphics.drawCircle(0, 0, SelfMachine.SIZE);
         this.shape.graphics.endFill();
         this.addChild( this.shape );

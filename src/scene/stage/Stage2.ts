@@ -10,17 +10,24 @@ class Stage2 extends StageBase {
 
     public start() {
         this.rain.start();
-        //this.sniper2.startWithDelay(2000);
+        this.missile_timer.start();
         this.state = StageState.RUNNING;
     }
 
     public pause() {
         this.rain.stop();
+        this.missile_timer.stop();
         this.state = StageState.PAUSING;
     }
 
+    public resume() {
+        this.rain.start();
+        this.timer.start();
+        this.missile_timer.start();
+        this.state = StageState.RUNNING;
+    }
+
     public restart() {
-        this.rain.stop();
         this.state = StageState.BEFORE_RUNNING;
         this.textfield.text = "3";
         this.timer.reset();
@@ -30,6 +37,8 @@ class Stage2 extends StageBase {
 
     public end() {
         this.rain.stop();
+        this.timer.stop();
+        this.missile_timer.stop();
         this.state = StageState.END;
         MyUtils.cleanMissile(this);
     }
