@@ -30,13 +30,13 @@ class PageChooseStage extends PageBase {
     }
 
     protected onClickStage1() {
-        this.parent.addChild(Stage1.INSTANCE);
-        this.parent.removeChild(this);
+        Main.getMain().addChild(Stage1.INSTANCE);
+        Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
 
      protected onClickStage2() {
-        this.parent.addChild(Stage2.INSTANCE);
-        this.parent.removeChild(this);
+        Main.getMain().addChild(Stage2.INSTANCE);
+        Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
     
 }

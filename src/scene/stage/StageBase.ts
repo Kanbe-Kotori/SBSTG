@@ -92,9 +92,15 @@ abstract class StageBase extends PageBase {
     }
 
     protected return() {
-        this.end();
-        this.parent.addChild(PageMain.INSTANCE);
-        this.parent.removeChild(this);
+        try {
+        let current = SelfMachine.INSTANCE.currentStage;
+        current.end();
+        Main.getMain().removeChild(current);
+        Main.getMain().addChild(PageMain.INSTANCE);
+        } catch(err) {
+            console.log(err);
+        }
+        
     }
 
     public abstract start();

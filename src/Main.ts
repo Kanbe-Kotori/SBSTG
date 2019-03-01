@@ -4,8 +4,11 @@ class Main extends egret.DisplayObjectContainer {
     public static readonly UPPER_Y = 0.125;
     public static readonly BELOW_Y = 0.875;
 
+    private static INSTANCE:Main;
+
     private constructor() {
         super();
+        Main.INSTANCE = this;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
@@ -49,6 +52,10 @@ class Main extends egret.DisplayObjectContainer {
         catch (e) {
             console.error(e);
         }
+    }
+
+    public static getMain() {
+        return Main.INSTANCE;
     }
 
 }
