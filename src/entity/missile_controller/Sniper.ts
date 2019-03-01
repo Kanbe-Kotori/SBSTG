@@ -1,4 +1,4 @@
-class Sniper extends egret.Sprite {
+class Sniper extends ControllerVisible {
 
     private _size:number;
     private _velocity:number;
@@ -7,7 +7,6 @@ class Sniper extends egret.Sprite {
     private _color2:number;
 
     private shape:egret.Shape;
-    private timer:egret.Timer;
 
     /** 
      * 新建一个标准自机狙发射器
@@ -26,43 +25,31 @@ class Sniper extends egret.Sprite {
         this._freq = freq;
         this._color1 = color1;
         this._color2 = color2;
-        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+
+        this.shape = new egret.Shape();
     }
 
-    private onAddToStage(event:egret.Event) {
-        this.shape = new egret.Shape();
+    protected onAddToStage(event:egret.Event) {
+        super.onAddToStage(event);
         this.timer = new egret.Timer(this._freq, 0);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
-        //this.timer.start();
-        this.doRender();
     }
 
-    private doRender() {
+    protected doRender() {
         this.shape.graphics.beginFill(this._color1, 0.5);
         this.shape.graphics.drawCircle(0, 0, this._size);
         this.shape.graphics.endFill();
         this.addChild(this.shape);
     }
 
-    private onUpdate(event: egret.TimerEvent) {
+    protected onUpdate(event: egret.TimerEvent) {
         let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._velocity, 8, this._color2);
         this.parent.addChild(missile);
     }
 
-    public start() {
-        if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
-            this.timer.start();
-        }
-    }
-
-    public stop() {
-        this.timer.stop();
-    }
-
-    public startWithDelay(delay:number) {
-        let timer1 = new egret.Timer(delay, 1);
-        timer1.addEventListener(egret.TimerEvent.TIMER, this.start, this);
-        timer1.start();
+    public setDead() {
+        this.removeChild(this.shape);
+        super.setDead();
     }
 
 }

@@ -1,5 +1,6 @@
 abstract class StageBase extends PageBase {
-    public array:Array<MissileBase> = new Array<MissileBase>();
+    public arrayMissile:Array<MissileBase> = new Array<MissileBase>();
+    public arrayController:Array<ControllerBase> = new Array<ControllerBase>();
 
     protected readonly _time:number;
 
@@ -9,7 +10,7 @@ abstract class StageBase extends PageBase {
     protected timer:egret.Timer;
     protected missile_timer:egret.Timer;
 
-    public state:StageState = StageState.BEFORE_RUNNING;
+    public state:StageState;
 
     protected constructor(name:string, time:number) {
         super(name);
@@ -26,8 +27,8 @@ abstract class StageBase extends PageBase {
         this.missile_timer = new egret.Timer(50, 0);
         this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
         this.addChild(SelfMachine.INSTANCE);
-        //this.missile_timer.start()
 
+        this.state = StageState.BEFORE_RUNNING;
         SelfMachine.INSTANCE.currentStage = this;
     }
 
@@ -62,7 +63,6 @@ abstract class StageBase extends PageBase {
         else
             str = "Begin!"
         this.textfield.text = str;
-        //console.log(this.array.length);
     }
 
     protected onTimerEnd(event: egret.TimerEvent) {
@@ -79,7 +79,7 @@ abstract class StageBase extends PageBase {
     }
 
     protected onMissileUpdate(event: egret.TimerEvent) {
-        for(let i of this.array) {
+        for(let i of this.arrayMissile) {
             i.onUpdate();
         }
         event.updateAfterEvent();
@@ -92,26 +92,69 @@ abstract class StageBase extends PageBase {
     }
 
     protected return() {
-        try {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
         Main.getMain().removeChild(current);
         Main.getMain().addChild(PageMain.INSTANCE);
-        } catch(err) {
-            console.log(err);
-        }
-        
     }
 
-    public abstract start();
+    public start() {
+        this.state = StageState.RUNNING;
+        for (let i of this.arrayController) {
+            i.start();
+        }
+        this.missile_timer.start();
+    }
 
-    public abstract pause();
+    public pause() {
+        this.state = StageState.PAUSING;
+        for (let i of this.arrayController) {
+            i.stop();
+        }
+        this.timer.stop();
+        this.missile_timer.stop();
+    }
 
-    public abstract resume();
+    public resume() {
+        this.state = StageState.RUNNING;
+        for (let i of this.arrayController) {
+            i.start();
+        }
+        this.timer.start();
+        this.missile_timer.start();
+    }
 
-    public abstract restart();
+    /**
+     * 重开时直接用
+     */
+    public restart() {
+        this.state = StageState.BEFORE_RUNNING;
+        for (let i of this.arrayController) {
+            i.stop();
+        }
+        MyUtils.cleanMissile(this);
+        this.missile_timer.stop();
+        this.textfield.text = "3";
+        this.timer.reset();
+        this.timer.repeatCount = 3;
+        this.timer.start();
+    }
 
-    public abstract end();
+    /**
+     * 清除一切，退出关卡前用
+     */
+    public end() {
+        this.state = StageState.END;
+        for (let i of this.arrayController) {
+            i.stop();
+        }
+        this.timer.stop();
+        this.missile_timer.stop();
+        MyUtils.cleanMissile(this);
+        MyUtils.cleanController(this);
+        SelfMachine.INSTANCE.setDead();
+        this.removeChild(SelfMachine.INSTANCE);
+    }
 
 }
 

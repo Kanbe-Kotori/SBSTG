@@ -1,4 +1,4 @@
-class Rain extends egret.Sprite {
+class Rain extends ControllerBase {
 
     private _vmin:number;
     private _vmax:number;
@@ -6,8 +6,6 @@ class Rain extends egret.Sprite {
     private _ang1:number;
     private _ang2:number;
     private _num:number;
-
-    private timer:egret.Timer;
 
     /** 
      * 新建一个雨点发射器
@@ -29,7 +27,7 @@ class Rain extends egret.Sprite {
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
     }
 
-    private onUpdate(event: egret.TimerEvent) {
+    protected onUpdate(event: egret.TimerEvent) {
         let i = 0;
         do {
             var point: egret.Point = new egret.Point(SelfMachine.INSTANCE.currentStage.width * Math.random(), SelfMachine.INSTANCE.currentStage.height * Main.UPPER_Y);
@@ -38,14 +36,6 @@ class Rain extends egret.Sprite {
             let missile = new RainMissile(point, v * Math.cos(theta), v * Math.sin(theta));
             SelfMachine.INSTANCE.currentStage.addChild(missile);
         } while(++i < this._num);
-    }
-
-    public start() {
-        this.timer.start();
-    }
-
-    public stop() {
-        this.timer.stop();
     }
 
 }

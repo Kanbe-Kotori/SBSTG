@@ -7,7 +7,14 @@ class MyUtils {
     }
 
     public static cleanMissile(stage: StageBase) {
-        let array1 = stage.array.slice(0);
+        let array1 = stage.arrayMissile.slice(0);
+        for (let j of array1) {
+            j.setDead();
+        }
+    }
+
+    public static cleanController(stage: StageBase) {
+        let array1 = stage.arrayController.slice(0);
         for (let j of array1) {
             j.setDead();
         }

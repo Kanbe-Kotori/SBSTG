@@ -18,7 +18,6 @@ class SelfMachine extends egret.Sprite {
     }
 
     private onAddToStage(event:egret.Event) {
-        //console.info("player added");
         this.doRender();
         this.img.touchEnabled = true;
         this.img.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
@@ -80,14 +79,22 @@ class SelfMachine extends egret.Sprite {
     }
 
     private onUpdate(event: egret.TimerEvent) {
-        for (let i of SelfMachine.INSTANCE.currentStage.array) {
+        for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
             if (i.isCollide()) {
                 //alert("你死了!");
                 console.log("nisile");
-                this.currentStage.end();
+                //this.currentStage.end();
                 this.currentStage.restart();
                 break;
             }
         }
     }
+
+    public setDead() {
+        this.timer.stop();
+        this.removeChild(this.shape);
+        this.removeChild(this.img);
+        this.currentStage = null;
+    }
+
 }

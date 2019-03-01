@@ -31,54 +31,13 @@ class Stage1 extends StageBase {
     }
 
     public start() {
+        this.state = StageState.RUNNING;
         this.emitter1.start();
         this.sniper2.startWithDelay(2000);
         this.sniper3.startWithDelay(2000);
         this.sniper4.startWithDelay(2000);
         this.sniper5.startWithDelay(2000);
         this.missile_timer.start();
-        this.state = StageState.RUNNING;
     }
-
-    public pause() {
-        this.emitter1.stop();
-        this.sniper2.stop();
-        this.sniper3.stop();
-        this.sniper4.stop();
-        this.sniper5.stop();
-        this.timer.stop();
-        this.missile_timer.stop();
-        this.state = StageState.PAUSING;
-    }
-
-    public resume() {
-        this.emitter1.start();
-        this.sniper2.start();
-        this.sniper3.start();
-        this.sniper4.start();
-        this.sniper5.start();
-        this.timer.start();
-        this.missile_timer.start();
-        this.state = StageState.RUNNING;
-    }
-
-    public restart() {
-        this.state = StageState.BEFORE_RUNNING;
-        this.textfield.text = "3";
-        this.timer.reset();
-        this.timer.repeatCount = 3;
-        this.timer.start();
-    }
-
-    public end() {
-        this.emitter1.stop();
-        this.sniper2.stop();
-        this.sniper3.stop();
-        this.sniper4.stop();
-        this.sniper5.stop();
-        this.timer.stop();
-        this.missile_timer.stop();
-        this.state = StageState.END;
-        MyUtils.cleanMissile(this);
-    }
+    
 }

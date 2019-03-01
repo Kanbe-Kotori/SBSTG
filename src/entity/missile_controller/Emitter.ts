@@ -1,4 +1,4 @@
-class Emitter extends egret.Sprite {
+class Emitter extends ControllerVisible {
 
     private _size:number;
     private _velocity:number;
@@ -10,7 +10,6 @@ class Emitter extends egret.Sprite {
     private _color2:number;
 
     private shape:egret.Shape;
-    private timer:egret.Timer;
 
     /** 
      * 新建一个标准弹幕发射器
@@ -35,25 +34,24 @@ class Emitter extends egret.Sprite {
         this._num = num;
         this._color1 = color1;
         this._color2 = color2;
-        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+
+        this.shape = new egret.Shape();
     }
 
-    private onAddToStage(event:egret.Event) {
-        this.shape = new egret.Shape();
+    protected onAddToStage(event:egret.Event) {
+        super.onAddToStage(event);
         this.timer = new egret.Timer(this._freq, 0);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
-        //this.timer.start();
-        this.doRender();
     }
 
-    private doRender() {
+    protected doRender() {
         this.shape.graphics.beginFill(this._color1, 0.5);
         this.shape.graphics.drawCircle(0, 0, this._size);
         this.shape.graphics.endFill();
-        this.addChild( this.shape );
+        this.addChild(this.shape);
     }
 
-    private onUpdate(event: egret.TimerEvent) {
+    protected onUpdate(event: egret.TimerEvent) {
         //console.info("tick");
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             var point: egret.Point = this.localToGlobal(0,0);
@@ -62,12 +60,9 @@ class Emitter extends egret.Sprite {
         }
     }
 
-    public start() {
-        this.timer.start();
-    }
-
-    public stop() {
-        this.timer.stop();
+    public setDead() {
+        this.removeChild(this.shape);
+        super.setDead();
     }
 
 }

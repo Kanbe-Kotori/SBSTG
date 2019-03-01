@@ -28,7 +28,7 @@ abstract class MissileBase extends egret.Sprite {
 
     protected onAddToStage(event:egret.Event) {
         this._shape = new egret.Shape();
-        SelfMachine.INSTANCE.currentStage.array.push(this);
+        SelfMachine.INSTANCE.currentStage.arrayMissile.push(this);
         this.doRender();
     }
 
@@ -48,13 +48,11 @@ abstract class MissileBase extends egret.Sprite {
     protected abstract shouldSetDead():boolean;
 
     public setDead() {
-        if (this.contains(this._shape)) {
-            this.removeChild(this._shape);
-        }
+        this.removeChild(this._shape);
         this.parent.removeChild(this);
-        for (let i: number = 0; i < SelfMachine.INSTANCE.currentStage.array.length; i++) {
-			if (SelfMachine.INSTANCE.currentStage.array[i] == this) {
-				SelfMachine.INSTANCE.currentStage.array.splice(i, 1);
+        for (let i: number = 0; i < SelfMachine.INSTANCE.currentStage.arrayMissile.length; i++) {
+			if (SelfMachine.INSTANCE.currentStage.arrayMissile[i] == this) {
+				SelfMachine.INSTANCE.currentStage.arrayMissile.splice(i, 1);
 				break;
 			}
 		}
