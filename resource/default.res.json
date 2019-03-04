@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,main_page_png,game_sky_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png",
+			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_reset_png,btn_stage_png,game_sky_png",
 			"name": "preload"
 		}
 	],
@@ -15,16 +15,6 @@
 			"name": "self_machine_png",
 			"type": "image",
 			"url": "assets/self_machine.png"
-		},
-		{
-			"name": "main_page_png",
-			"type": "image",
-			"url": "assets/main_page.png"
-		},
-		{
-			"name": "game_sky_png",
-			"type": "image",
-			"url": "assets/game_sky.png"
 		},
 		{
 			"name": "btn_start_png",
@@ -45,6 +35,31 @@
 			"name": "btn_return_png",
 			"type": "image",
 			"url": "assets/btn_return.png"
+		},
+		{
+			"name": "btn_start2_png",
+			"type": "image",
+			"url": "assets/btn_start2.png"
+		},
+		{
+			"name": "btn_pause_png",
+			"type": "image",
+			"url": "assets/btn_pause.png"
+		},
+		{
+			"name": "btn_reset_png",
+			"type": "image",
+			"url": "assets/btn_reset.png"
+		},
+		{
+			"name": "btn_stage_png",
+			"type": "image",
+			"url": "assets/btn_stage.png"
+		},
+		{
+			"name": "game_sky_png",
+			"type": "image",
+			"url": "assets/game_sky.png"
 		}
 	]
 }
