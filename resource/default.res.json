@@ -2,11 +2,7 @@
 	"groups": [
 		{
 <<<<<<< HEAD
-<<<<<<< HEAD
 			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_reset_png,btn_stage_png,game_sky_png,main_page_png",
-=======
-			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_stage_png,game_sky_png,main_page_png,btn_restart_png",
->>>>>>> 84a310d72f7e21fcd673023ea7748ac77e756311
 =======
 			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_stage_png,game_sky_png,main_page_png,btn_restart_png",
 >>>>>>> 84a310d72f7e21fcd673023ea7748ac77e756311
@@ -69,18 +65,12 @@
 			"type": "image",
 			"url": "assets/main_page.png"
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> 84a310d72f7e21fcd673023ea7748ac77e756311
 		},
 		{
 			"name": "btn_restart_png",
 			"type": "image",
 			"url": "assets/btn_restart.png"
-<<<<<<< HEAD
->>>>>>> 84a310d72f7e21fcd673023ea7748ac77e756311
-=======
 >>>>>>> 84a310d72f7e21fcd673023ea7748ac77e756311
 		}
 	]
