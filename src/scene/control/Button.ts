@@ -29,7 +29,6 @@ class Button extends egret.Sprite {
 	}
 
 	protected onAddToStage(event:egret.Event) {
-        //console.info("btn added");
         this.doRender();
         this.img.touchEnabled = true;
         this.img.addEventListener(egret.TouchEvent.TOUCH_TAP, this._action, this);
@@ -45,5 +44,18 @@ class Button extends egret.Sprite {
         this.img.y = this._pos.y;
         this.addChild(this.img);
     }
+	
+    public static return() {
+        let current = SelfMachine.INSTANCE.currentStage;
+        current.end();
+        Main.getMain().removeChild(current);
+        Main.getMain().addChild(PageMain.INSTANCE);
+		SelfMachine.INSTANCE.currentStage = null;
+    }
+
+	public static restart() {
+		let current = SelfMachine.INSTANCE.currentStage;
+		current.restart();
+	}
 
 }

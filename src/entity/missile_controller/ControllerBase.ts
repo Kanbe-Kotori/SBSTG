@@ -16,9 +16,12 @@ abstract class ControllerBase extends egret.Sprite {
      * 游戏不开始，弹幕不发射
     */
     public start() {
+        if (SelfMachine.INSTANCE.currentStage == null) {
+            return;
+        }
         if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
             this.timer.start();
-        }    
+        }
     }
 
     public stop() {

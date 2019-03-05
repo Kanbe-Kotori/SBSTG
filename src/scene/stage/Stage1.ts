@@ -14,19 +14,19 @@ class Stage1 extends StageBase {
         this.addChild(this.emitter1);
 
         let point2 = new egret.Point(this.stage.stageWidth*0.1, 300);
-        this.sniper2 = new Sniper(point2, 48, 35, 250, 0x00FF00, 0x00FF00);
+        this.sniper2 = new Sniper(point2, 48, 35, 250, 0x007F00, 0x007F00);
         this.addChild(this.sniper2);
 
         let point3 = new egret.Point(this.stage.stageWidth*0.3, 300);
-        this.sniper3 = new Sniper(point3, 48, 35, 250, 0x00FF00, 0x00FF00);
+        this.sniper3 = new Sniper(point3, 48, 35, 250, 0x007F00, 0x007F00);
         this.addChild(this.sniper3);
 
         let point4 = new egret.Point(this.stage.stageWidth*0.7, 300);
-        this.sniper4 = new Sniper(point4, 48, 35, 250, 0x00FF00, 0x00FF00);
+        this.sniper4 = new Sniper(point4, 48, 35, 250, 0x007F00, 0x007F00);
         this.addChild(this.sniper4);
 
         let point5 = new egret.Point(this.stage.stageWidth*0.9, 300);
-        this.sniper5 = new Sniper(point5, 48, 35, 250, 0x00FF00, 0x00FF00);
+        this.sniper5 = new Sniper(point5, 48, 35, 250, 0x007F00, 0x007F00);
         this.addChild(this.sniper5);
     }
 

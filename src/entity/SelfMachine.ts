@@ -1,12 +1,11 @@
 class SelfMachine extends egret.Sprite {
     public static readonly INSTANCE:SelfMachine = new SelfMachine();
-    public static readonly WIDTH = 128;
-    public static readonly HEIGHT = 128;
+    public static readonly WIDTH = 192;
+    public static readonly HEIGHT = 192;
     public static readonly SIZE = 8;
 
     private img:egret.Bitmap;
     private shape:egret.Shape;
-    private timer:egret.Timer;
     private isTouching:boolean = false;
     private distance:egret.Point = new egret.Point();
 
@@ -22,15 +21,12 @@ class SelfMachine extends egret.Sprite {
         this.img.touchEnabled = true;
         this.img.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
         this.img.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
-        this.timer = new egret.Timer(50, 0);
-        this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
-        this.timer.start();
     }
 
     private doRender() {
         this.img = MyUtils.createBitmapByName("self_machine_png");
-        this.img.width = 61;
-        this.img.height = 166;
+        this.img.width = 192;
+        this.img.height = 192;
         this.img.anchorOffsetX = this.img.width/2;
         this.img.anchorOffsetY = this.img.height/2;
         this.img.x = this.stage.stageWidth/2;
@@ -43,7 +39,7 @@ class SelfMachine extends egret.Sprite {
         this.shape.graphics.beginFill(0x000000, 1);
         this.shape.graphics.drawCircle(0, 0, SelfMachine.SIZE);
         this.shape.graphics.endFill();
-        this.addChild( this.shape );
+        this.addChild(this.shape);
     }
 
     private mouseDown(evt:egret.TouchEvent) {
@@ -54,7 +50,7 @@ class SelfMachine extends egret.Sprite {
     }
 
     private mouseMove(evt:egret.TouchEvent) {
-        if( this.isTouching ) {
+        if(this.isTouching) {
             let ax = evt.stageX - this.distance.x; ax = Math.max(ax, SelfMachine.SIZE); ax = Math.min(ax, Main.X - SelfMachine.SIZE);
             let ay = evt.stageY - this.distance.y; ay = Math.max(ay, this.stage.stageHeight * Main.UPPER_Y + SelfMachine.SIZE); ay = Math.min(ay, this.stage.stageHeight * Main.BELOW_Y - SelfMachine.SIZE);
 
@@ -78,20 +74,7 @@ class SelfMachine extends egret.Sprite {
         return this.img.y;
     }
 
-    private onUpdate(event: egret.TimerEvent) {
-        for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
-            if (i.isCollide()) {
-                //alert("你死了!");
-                console.log("nisile");
-                //this.currentStage.end();
-                this.currentStage.restart();
-                break;
-            }
-        }
-    }
-
     public setDead() {
-        this.timer.stop();
         this.removeChild(this.shape);
         this.removeChild(this.img);
         this.currentStage = null;
