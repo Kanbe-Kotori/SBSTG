@@ -6,7 +6,6 @@ abstract class StageBase extends PageBase {
 
     protected textfield:egret.TextField;
     private btnReturn:Button;
-    private btnRestart:Button;
 
     protected timer:egret.Timer;
     protected missile_timer:egret.Timer;
@@ -51,13 +50,9 @@ abstract class StageBase extends PageBase {
         this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.textfield);
 
-        this.btnReturn = new Button(160, 160, new egret.Point(680, 1800), "btn_return");
-        this.btnReturn.setAction(Button.return);
+        this.btnReturn = new Button(160, 160, new egret.Point(480, 1800), "btn_return");
+        this.btnReturn.setAction(this.return);
         this.addChild(this.btnReturn);
-
-        this.btnRestart = new Button(160, 160, new egret.Point(400, 1800), "btn_restart");
-        this.btnRestart.setAction(Button.restart);
-        this.addChild(this.btnRestart);
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
@@ -87,13 +82,6 @@ abstract class StageBase extends PageBase {
         for(let i of this.arrayMissile) {
             i.onUpdate();
         }
-        for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
-            if (i.isCollide()) {
-                console.log("nisile");
-                this.restart();
-                break;
-            }
-        }
         event.updateAfterEvent();
     }
 
@@ -101,6 +89,13 @@ abstract class StageBase extends PageBase {
         //TODO
         this.end();
         this.textfield.text = "niyingle";
+    }
+
+    protected return() {
+        let current = SelfMachine.INSTANCE.currentStage;
+        current.end();
+        Main.getMain().removeChild(current);
+        Main.getMain().addChild(PageMain.INSTANCE);
     }
 
     public start() {
