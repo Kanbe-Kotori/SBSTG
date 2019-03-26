@@ -13,13 +13,13 @@ class PageMain extends PageBase {
     }
 
     protected doRender() {
-        let sky = MyUtils.createBitmapByName("main_page_png");
+        let sky = MyUtils.createBitmapByName(TextureNames.MAIN_PAGE);
         sky.width = this.stage.stageWidth;
         sky.height = this.stage.stageHeight;
         sky.alpha = 1;
         this.addChild(sky);
 
-        this.btnStart = new Button(550, 150, new egret.Point(this.stage.stageWidth/2, this.stage.stageHeight/1.5), "btn_start");
+        this.btnStart = new Button(550, 150, new egret.Point(this.stage.stageWidth/2, this.stage.stageHeight/1.5), TextureNames.BUTTON_START);
         this.btnStart.setAction(this.onClick);
         this.addChild(this.btnStart);
     }

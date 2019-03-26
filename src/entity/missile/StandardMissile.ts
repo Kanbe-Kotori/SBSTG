@@ -3,11 +3,11 @@ class StandardMissile extends MissileBase {
     protected readonly _texture:string;
 
     /**
-	 * 新建一个标准子弹
+	 * 新建一个标准圆形纹理子弹
 	 * @param point 子弹生成位置
 	 * @param vx 子弹x方向初速
 	 * @param vy 子弹y方向初速
-     * @param size 子弹大小,通常指子弹半径
+     * @param size 子弹半径
      * @param texture 子弹纹理
 	 */
     public constructor(point:egret.Point, vx:number, vy:number, size:number, texture:string) {

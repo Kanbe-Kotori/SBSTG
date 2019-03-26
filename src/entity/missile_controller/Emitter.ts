@@ -52,7 +52,7 @@ class Emitter extends ControllerVisible {
         //console.info("tick");
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             var point: egret.Point = this.localToGlobal(0,0);
-            let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, Names.MISSILE_NAME_1);
+            let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, TextureNames.MISSILE_NAME_1);
             this.parent.addChild(missile);
         }
     }

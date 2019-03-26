@@ -13,7 +13,7 @@ class Button extends egret.Sprite {
 	 * @param width 按钮宽度
 	 * @param height 按钮高度
 	 * @param pos 按钮中心坐标
-	 * @param texture 按钮材质名称，不用加下划线png
+	 * @param texture 按钮材质名称
 	 */
 	public constructor(width:number, height:number, pos:egret.Point, texture:string) {
 		super();
@@ -35,7 +35,7 @@ class Button extends egret.Sprite {
     }
 
     protected doRender() {
-        this.img = MyUtils.createBitmapByName(this._texture + "_png");
+        this.img = MyUtils.createBitmapByName(this._texture);
         this.img.width = this._width;
         this.img.height = this._height;
         this.img.anchorOffsetX = this.img.width/2;
