@@ -1,4 +1,7 @@
 abstract class ControllerVisible extends ControllerBase {
+
+	protected _img:egret.Bitmap;
+
 	public constructor() {
 		super();
 	}
@@ -11,6 +14,7 @@ abstract class ControllerVisible extends ControllerBase {
 	protected abstract doRender();
 
 	public setDead() {
+		this.removeChild(this._img);
 		this.parent.removeChild(this);
         super.setDead();
     }

@@ -6,9 +6,8 @@ class Emitter extends ControllerVisible {
     private _ang1:number;
     private _ang2:number;
     private _num:number;
-    private _color1:number;
-
-    private shape:egret.Shape;
+    private _texture:string;
+    private _missile_texture:string;
 
     /** 
      * 新建一个标准弹幕发射器
@@ -20,7 +19,7 @@ class Emitter extends ControllerVisible {
      * @param num 总共发射几条弹幕
      * @param color1 自身颜色
     */
-    public constructor(point:egret.Point, size:number, velocity:number, freq:number, ang1:number, ang2:number, num:number, color1:number) {
+    public constructor(point:egret.Point, size:number, velocity:number, freq:number, ang1:number, ang2:number, num:number, texture:string, missile_texture:string) {
         super();
         this.x = point.x;
         this.y = point.y;
@@ -30,9 +29,8 @@ class Emitter extends ControllerVisible {
         this._ang1 = ang1;
         this._ang2 = ang2;
         this._num = num;
-        this._color1 = color1;
-
-        this.shape = new egret.Shape();
+        this._texture = texture;
+        this._missile_texture = missile_texture;
     }
 
     protected onAddToStage(event:egret.Event) {
@@ -42,24 +40,21 @@ class Emitter extends ControllerVisible {
     }
 
     protected doRender() {
-        this.shape.graphics.beginFill(this._color1, 0.5);
-        this.shape.graphics.drawCircle(0, 0, this._size);
-        this.shape.graphics.endFill();
-        this.addChild(this.shape);
+        this._img = MyUtils.createBitmapByName(this._texture);
+        this._img.width = 2 * this._size;
+        this._img.height = 2 * this._size;
+        this._img.anchorOffsetX = this._img.width/2;
+        this._img.anchorOffsetY = this._img.height/2;
+        this.addChild(this._img);
     }
 
     protected onUpdate(event: egret.TimerEvent) {
         //console.info("tick");
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             var point: egret.Point = this.localToGlobal(0,0);
-            let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, TextureNames.MISSILE_NAME_1);
+            let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, this._missile_texture);
             this.parent.addChild(missile);
         }
-    }
-
-    public setDead() {
-        this.removeChild(this.shape);
-        super.setDead();
     }
 
 }
