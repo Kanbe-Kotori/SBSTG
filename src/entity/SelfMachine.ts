@@ -4,8 +4,8 @@ class SelfMachine extends egret.Sprite {
     public static readonly HEIGHT = 192;
     public static readonly SIZE = 8;
 
-    private img:egret.Bitmap;
-    private shape:egret.Shape;
+    private _img:egret.Bitmap;  //自机图标
+    private _shape:egret.Shape; //自机判定点
     private isTouching:boolean = false;
     private distance:egret.Point = new egret.Point();
 
@@ -18,34 +18,34 @@ class SelfMachine extends egret.Sprite {
 
     private onAddToStage(event:egret.Event) {
         this.doRender();
-        this.img.touchEnabled = true;
-        this.img.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
-        this.img.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
+        this._img.touchEnabled = true;
+        this._img.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
+        this._img.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
     }
 
     private doRender() {
-        this.img = MyUtils.createBitmapByName("self_machine_png");
-        this.img.width = 192;
-        this.img.height = 192;
-        this.img.anchorOffsetX = this.img.width/2;
-        this.img.anchorOffsetY = this.img.height/2;
-        this.img.x = this.stage.stageWidth/2;
-        this.img.y = this.stage.stageHeight/2;
-        this.addChild(this.img);
+        this._img = MyUtils.createBitmapByName("self_machine_png");
+        this._img.width = 256;
+        this._img.height = 256;
+        this._img.anchorOffsetX = this._img.width/2;
+        this._img.anchorOffsetY = this._img.height/2;
+        this._img.x = this.stage.stageWidth/2;
+        this._img.y = this.stage.stageHeight/2;
+        this.addChild(this._img);
         
-        this.shape = new egret.Shape();
-        this.shape.x = this.stage.stageWidth/2;
-        this.shape.y = this.stage.stageHeight/2;
-        this.shape.graphics.beginFill(0x000000, 1);
-        this.shape.graphics.drawCircle(0, 0, SelfMachine.SIZE);
-        this.shape.graphics.endFill();
-        this.addChild(this.shape);
+        this._shape = new egret.Shape();
+        this._shape.x = this.stage.stageWidth/2;
+        this._shape.y = this.stage.stageHeight/2;
+        this._shape.graphics.beginFill(0x000000, 1);
+        this._shape.graphics.drawCircle(0, 0, SelfMachine.SIZE);
+        this._shape.graphics.endFill();
+        this.addChild(this._shape);
     }
 
     private mouseDown(evt:egret.TouchEvent) {
         this.isTouching = true;
-        this.distance.x = evt.stageX - this.shape.x;
-        this.distance.y = evt.stageY - this.shape.y;
+        this.distance.x = evt.stageX - this._shape.x;
+        this.distance.y = evt.stageY - this._shape.y;
         this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.mouseMove, this);
     }
 
@@ -54,10 +54,10 @@ class SelfMachine extends egret.Sprite {
             let ax = evt.stageX - this.distance.x; ax = Math.max(ax, SelfMachine.SIZE); ax = Math.min(ax, Main.X - SelfMachine.SIZE);
             let ay = evt.stageY - this.distance.y; ay = Math.max(ay, this.stage.stageHeight * Main.UPPER_Y + SelfMachine.SIZE); ay = Math.min(ay, this.stage.stageHeight * Main.BELOW_Y - SelfMachine.SIZE);
 
-            this.shape.x = ax;
-            this.shape.y = ay;
-            this.img.x = ax;
-            this.img.y = ay;
+            this._shape.x = ax;
+            this._shape.y = ay;
+            this._img.x = ax;
+            this._img.y = ay;
         }
     }
 
@@ -67,16 +67,16 @@ class SelfMachine extends egret.Sprite {
     }
 
     public getX() {
-        return this.img.x;
+        return this._img.x;
     }
 
     public getY() {
-        return this.img.y;
+        return this._img.y;
     }
 
     public setDead() {
-        this.removeChild(this.shape);
-        this.removeChild(this.img);
+        this.removeChild(this._shape);
+        this.removeChild(this._img);
         this.currentStage = null;
     }
 

@@ -4,7 +4,6 @@ class Sniper extends ControllerVisible {
     private _velocity:number;
     private _freq:number;
     private _color1:number;
-    private _color2:number;
 
     private shape:egret.Shape;
 
@@ -16,7 +15,7 @@ class Sniper extends ControllerVisible {
      * @param color1 自身颜色
      * @param color2 弹幕颜色
     */
-    public constructor(point:egret.Point, size:number, velocity:number, freq:number, color1:number, color2:number) {
+    public constructor(point:egret.Point, size:number, velocity:number, freq:number, color1:number) {
         super();
         this.x = point.x;
         this.y = point.y;
@@ -24,7 +23,6 @@ class Sniper extends ControllerVisible {
         this._velocity = velocity;
         this._freq = freq;
         this._color1 = color1;
-        this._color2 = color2;
 
         this.shape = new egret.Shape();
     }
@@ -43,7 +41,7 @@ class Sniper extends ControllerVisible {
     }
 
     protected onUpdate(event: egret.TimerEvent) {
-        let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._velocity, 8, this._color2);
+        let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._velocity, 8);
         this.parent.addChild(missile);
     }
 

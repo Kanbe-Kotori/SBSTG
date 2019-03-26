@@ -7,7 +7,6 @@ class Emitter extends ControllerVisible {
     private _ang2:number;
     private _num:number;
     private _color1:number;
-    private _color2:number;
 
     private shape:egret.Shape;
 
@@ -20,9 +19,8 @@ class Emitter extends ControllerVisible {
      * @param ang2 终止角度
      * @param num 总共发射几条弹幕
      * @param color1 自身颜色
-     * @param color2 弹幕颜色
     */
-    public constructor(point:egret.Point, size:number, velocity:number, freq:number, ang1:number, ang2:number, num:number, color1:number, color2:number) {
+    public constructor(point:egret.Point, size:number, velocity:number, freq:number, ang1:number, ang2:number, num:number, color1:number) {
         super();
         this.x = point.x;
         this.y = point.y;
@@ -33,7 +31,6 @@ class Emitter extends ControllerVisible {
         this._ang2 = ang2;
         this._num = num;
         this._color1 = color1;
-        this._color2 = color2;
 
         this.shape = new egret.Shape();
     }
@@ -55,7 +52,7 @@ class Emitter extends ControllerVisible {
         //console.info("tick");
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             var point: egret.Point = this.localToGlobal(0,0);
-            let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, this._color2);
+            let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, Names.MISSILE_NAME_1);
             this.parent.addChild(missile);
         }
     }

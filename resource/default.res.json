@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_stage_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png",
+			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_stage_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png",
 			"name": "preload"
 		}
 	],
@@ -70,6 +70,11 @@
 			"name": "btn_info_png",
 			"type": "image",
 			"url": "assets/btn_info.png"
+		},
+		{
+			"name": "missile_standard_png",
+			"type": "image",
+			"url": "assets/missile_standard.png"
 		}
 	]
 }

@@ -1,7 +1,18 @@
 class StandardMissile extends MissileBase {
 
-    public constructor(point:egret.Point, vx:number, vy:number, size:number, color:number) {
-        super(point, vx, vy, size, color);
+    protected readonly _texture:string;
+
+    /**
+	 * 新建一个标准子弹
+	 * @param point 子弹生成位置
+	 * @param vx 子弹x方向初速
+	 * @param vy 子弹y方向初速
+     * @param size 子弹大小,通常指子弹半径
+     * @param texture 子弹纹理
+	 */
+    public constructor(point:egret.Point, vx:number, vy:number, size:number, texture:string) {
+        super(point, vx, vy, size);
+        this._texture = texture;
     }
 
     protected shouldSetDead() {
@@ -15,10 +26,12 @@ class StandardMissile extends MissileBase {
 
     protected doRender() {
         //console.log("render");
-        this._shape.graphics.beginFill(this._color, 1);
-        this._shape.graphics.drawCircle(0, 0, this._size);
-        this._shape.graphics.endFill();
-        this.addChild(this._shape);
+        this._img = MyUtils.createBitmapByName(this._texture);
+        this._img.width = 2 * this._size;
+        this._img.height = 2 * this._size;
+        this._img.anchorOffsetX = this._img.width/2;
+        this._img.anchorOffsetY = this._img.height/2;
+        this.addChild(this._img);
     }
 
     public isCollide() {
