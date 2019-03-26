@@ -7,7 +7,7 @@ class MissileGenerator {
         let dy = y - point.y;
         let vx = velocity * dx / Math.sqrt(dx * dx + dy * dy)
         let vy = velocity * dy / Math.sqrt(dx * dx + dy * dy)
-        let missile = new StandardMissile(point, vx,vy, size, Names.MISSILE_NAME_1);
+        let missile = new StandardMissile(point, vx,vy, size, TextureNames.MISSILE_1);
         return missile;
     }
     

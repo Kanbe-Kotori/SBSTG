@@ -34,7 +34,7 @@ abstract class StageBase extends PageBase {
     }
 
     protected doRender() {
-        let sky = MyUtils.createBitmapByName("game_sky_png");
+        let sky = MyUtils.createBitmapByName(TextureNames.GAME_SKY);
         this.addChild(sky);
         sky.width = this.stage.stageWidth;
         sky.height = this.stage.stageHeight;
@@ -51,11 +51,11 @@ abstract class StageBase extends PageBase {
         this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.textfield);
 
-        this.btnReturn = new Button(160, 160, new egret.Point(680, 1800), "btn_return");
+        this.btnReturn = new Button(160, 160, new egret.Point(680, 1800), TextureNames.BUTTON_RETURN);
         this.btnReturn.setAction(Button.return);
         this.addChild(this.btnReturn);
 
-        this.btnRestart = new Button(160, 160, new egret.Point(400, 1800), "btn_restart");
+        this.btnRestart = new Button(160, 160, new egret.Point(400, 1800), TextureNames.BUTTON_RESTART);
         this.btnRestart.setAction(Button.restart);
         this.addChild(this.btnRestart);
     }

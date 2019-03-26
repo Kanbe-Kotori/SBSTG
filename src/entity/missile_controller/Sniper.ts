@@ -3,28 +3,26 @@ class Sniper extends ControllerVisible {
     private _size:number;
     private _velocity:number;
     private _freq:number;
-    private _color1:number;
-
-    private shape:egret.Shape;
+    private _texture:string;
+    private _missile_texture:string;
 
     /** 
      * 新建一个标准自机狙发射器
+     * @param point 发射器位置
      * @param size 发射器在屏幕上的大小
      * @param velocity 弹幕速度
      * @param freq 多少毫秒一发
      * @param color1 自身颜色
-     * @param color2 弹幕颜色
     */
-    public constructor(point:egret.Point, size:number, velocity:number, freq:number, color1:number) {
+    public constructor(point:egret.Point, size:number, velocity:number, freq:number, texture:string, missile_texture:string) {
         super();
         this.x = point.x;
         this.y = point.y;
         this._size = size;
         this._velocity = velocity;
         this._freq = freq;
-        this._color1 = color1;
-
-        this.shape = new egret.Shape();
+        this._texture = texture;
+        this._missile_texture = missile_texture;
     }
 
     protected onAddToStage(event:egret.Event) {
@@ -34,20 +32,17 @@ class Sniper extends ControllerVisible {
     }
 
     protected doRender() {
-        this.shape.graphics.beginFill(this._color1, 0.5);
-        this.shape.graphics.drawCircle(0, 0, this._size);
-        this.shape.graphics.endFill();
-        this.addChild(this.shape);
+        this._img = MyUtils.createBitmapByName(this._texture);
+        this._img.width = 2 * this._size;
+        this._img.height = 2 * this._size;
+        this._img.anchorOffsetX = this._img.width/2;
+        this._img.anchorOffsetY = this._img.height/2;
+        this.addChild(this._img);
     }
 
     protected onUpdate(event: egret.TimerEvent) {
         let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._velocity, 8);
         this.parent.addChild(missile);
-    }
-
-    public setDead() {
-        this.removeChild(this.shape);
-        super.setDead();
     }
 
 }
