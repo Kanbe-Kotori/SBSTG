@@ -49,7 +49,9 @@ class Emitter extends ControllerVisible {
     }
 
     protected onUpdate(event: egret.TimerEvent) {
-        //console.info("tick");
+        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING) {
+            return;
+        }
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             var point: egret.Point = this.localToGlobal(0,0);
             let missile = new StandardMissile(point, this._velocity * Math.cos(theta), this._velocity * Math.sin(theta), 8, this._missile_texture);

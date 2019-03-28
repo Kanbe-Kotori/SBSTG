@@ -99,8 +99,8 @@ abstract class StageBase extends PageBase {
 
     protected win() {
         //TODO
-        this.end();
         this.textfield.text = "niyingle";
+        this.end();
     }
 
     public start() {
@@ -150,15 +150,12 @@ abstract class StageBase extends PageBase {
      */
     public end() {
         this.state = StageState.END;
-        for (let i of this.arrayController) {
-            i.stop();
-        }
         this.timer.stop();
         this.missile_timer.stop();
         MyUtils.cleanMissile(this);
         MyUtils.cleanController(this);
-        SelfMachine.INSTANCE.setDead();
-        this.removeChild(SelfMachine.INSTANCE);
+        //SelfMachine.INSTANCE.setDead();
+        //this.removeChild(SelfMachine.INSTANCE);
     }
 
 }

@@ -33,10 +33,10 @@ class Stage1 extends StageBase {
     public start() {
         this.state = StageState.RUNNING;
         this.emitter1.start();
-        this.sniper2.startWithDelay(2000);
-        this.sniper3.startWithDelay(2000);
-        this.sniper4.startWithDelay(2000);
-        this.sniper5.startWithDelay(2000);
+        this.sniper2.startWithDelay(1000);
+        this.sniper3.startWithDelay(1000);
+        this.sniper4.startWithDelay(1000);
+        this.sniper5.startWithDelay(1000);
         this.missile_timer.start();
     }
     

@@ -41,6 +41,9 @@ class Sniper extends ControllerVisible {
     }
 
     protected onUpdate(event: egret.TimerEvent) {
+        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING) {
+            return;
+        }
         let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._velocity, 8);
         this.parent.addChild(missile);
     }

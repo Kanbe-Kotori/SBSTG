@@ -48,9 +48,9 @@ class Button extends egret.Sprite {
     public static return() {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
+		SelfMachine.INSTANCE.leaveStage();
         Main.getMain().removeChild(current);
         Main.getMain().addChild(PageMain.INSTANCE);
-		SelfMachine.INSTANCE.currentStage = null;
     }
 
 	public static restart() {
