@@ -5,7 +5,7 @@ class Stage2 extends StageBase {
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
-        this.rain = new Rain(20, 30, 300, 0.4, 0.6, 11);
+        this.rain = new Rain(15, 20, 250, 0.45, 0.55, 10);
     }
 
 }

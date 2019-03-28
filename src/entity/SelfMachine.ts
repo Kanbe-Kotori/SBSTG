@@ -1,7 +1,7 @@
 class SelfMachine extends egret.Sprite {
     public static readonly INSTANCE:SelfMachine = new SelfMachine();
-    public static readonly WIDTH = 192;
-    public static readonly HEIGHT = 192;
+    public static readonly WIDTH = 256;
+    public static readonly HEIGHT = 256;
     public static readonly SIZE = 8;
 
     private _img:egret.Bitmap;  //自机图标
@@ -25,8 +25,8 @@ class SelfMachine extends egret.Sprite {
 
     private doRender() {
         this._img = MyUtils.createBitmapByName("self_machine_png");
-        this._img.width = 256;
-        this._img.height = 256;
+        this._img.width = SelfMachine.WIDTH;
+        this._img.height = SelfMachine.HEIGHT;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
         this._img.x = this.stage.stageWidth/2;
