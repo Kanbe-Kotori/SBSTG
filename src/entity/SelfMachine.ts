@@ -24,7 +24,7 @@ class SelfMachine extends egret.Sprite {
     }
 
     private doRender() {
-        this._img = MyUtils.createBitmapByName("self_machine_png");
+        this._img = MyUtils.createBitmapByName(TextureNames.SELF_MACHINE);
         this._img.width = SelfMachine.WIDTH;
         this._img.height = SelfMachine.HEIGHT;
         this._img.anchorOffsetX = this._img.width/2;

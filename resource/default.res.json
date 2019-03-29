@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_stage_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb_png,smjb2_png,smjb3_png",
+			"keys": "description_json,self_machine_png,btn_start_png,btn_stage1_png,btn_stage2_png,btn_return_png,btn_start2_png,btn_pause_png,btn_stage_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb_png,smjb2_png,smjb3_png,missile_ring_png,missile_water_png",
 			"name": "preload"
 		}
 	],
@@ -90,6 +90,16 @@
 			"name": "smjb3_png",
 			"type": "image",
 			"url": "assets/smjb3.png"
+		},
+		{
+			"name": "missile_ring_png",
+			"type": "image",
+			"url": "assets/missile_ring.png"
+		},
+		{
+			"name": "missile_water_png",
+			"type": "image",
+			"url": "assets/missile_water.png"
 		}
 	]
 }

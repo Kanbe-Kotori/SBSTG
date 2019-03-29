@@ -4,6 +4,7 @@ class PageChooseStage extends PageBase {
 
     private btnStage1:Button;
     private btnStage2:Button;
+    private btnTemp:Button;
 
     protected constructor() {
         super("choose_stage");
@@ -27,6 +28,10 @@ class PageChooseStage extends PageBase {
         this.btnStage2 = new Button(550, 150, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.6), "btn_stage2_png");
         this.btnStage2.setAction(this.onClickStage2);
         this.addChild(this.btnStage2);
+
+        this.btnTemp = new Button(256, 256, new egret.Point(this.stage.stageWidth * 0.9, this.stage.stageHeight * 0.9), TextureNames.SELF_MACHINE);
+        this.btnTemp.setAction(this.temp);
+        this.addChild(this.btnTemp);
     }
 
     protected onClickStage1() {
@@ -34,8 +39,13 @@ class PageChooseStage extends PageBase {
         Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
 
-     protected onClickStage2() {
+    protected onClickStage2() {
         Main.getMain().addChild(Stage2.INSTANCE);
+        Main.getMain().removeChild(PageChooseStage.INSTANCE);
+    }
+
+    protected temp() {
+        Main.getMain().addChild(StageTemp.INSTANCE);
         Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
     

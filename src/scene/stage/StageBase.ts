@@ -51,11 +51,11 @@ abstract class StageBase extends PageBase {
         this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.textfield);
 
-        this.btnReturn = new Button(160, 160, new egret.Point(680, 1800), TextureNames.BUTTON_RETURN);
+        this.btnReturn = new Button(160, 160, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
         this.btnReturn.setAction(Button.return);
         this.addChild(this.btnReturn);
 
-        this.btnRestart = new Button(160, 160, new egret.Point(400, 1800), TextureNames.BUTTON_RESTART);
+        this.btnRestart = new Button(160, 160, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
         this.btnRestart.setAction(Button.restart);
         this.addChild(this.btnRestart);
     }

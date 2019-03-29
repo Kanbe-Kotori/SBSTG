@@ -1,7 +1,7 @@
 class RainMissile extends StandardMissile {
 
-    public constructor(point:egret.Point, vx:number, vy:number) {
-        super(point, vx, vy, 8, TextureNames.MISSILE_1);
+    public constructor(point:egret.Point, vx:number, vy:number, size:number, texture:string) {
+        super(point, vx, vy, size, texture);
     }
 
     protected shouldSetDead() {

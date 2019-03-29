@@ -1,6 +1,8 @@
 class TextureNames {
 	
-	public static readonly MISSILE_1 = "missile_standard_png";
+	public static readonly MISSILE_STANDARD = "missile_standard_png";
+	public static readonly MISSILE_RING = "missile_ring_png";
+	public static readonly MISSILE_WATER = "missile_water_png";
 
 	public static readonly BUTTON_START = "btn_start_png";
 
@@ -9,5 +11,7 @@ class TextureNames {
 
 	public static readonly MAIN_PAGE = "main_page_png";
 	public static readonly GAME_SKY = "game_sky_png";
+
+	public static readonly SELF_MACHINE = "self_machine_png";
 
 }
