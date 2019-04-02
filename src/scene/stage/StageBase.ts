@@ -170,6 +170,9 @@ abstract class StageBase extends PageBase {
 
     public dead() {
         this.state = StageState.END;
+        for (let i of this.arrayController) {
+            i.stop();
+        }
         this.timer.stop();
         this.missile_timer.stop();
         Main.getMain().addChild(Dead.INSTANCE);
