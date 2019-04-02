@@ -5,8 +5,10 @@ abstract class StageBase extends PageBase {
     protected readonly _time:number;
 
     protected textfield:egret.TextField;
+    private btnPause:Button;
     private btnReturn:Button;
     private btnRestart:Button;
+    private btnInfo:Button;
 
     protected timer:egret.Timer;
     protected missile_timer:egret.Timer;
@@ -51,13 +53,21 @@ abstract class StageBase extends PageBase {
         this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.textfield);
 
-        this.btnReturn = new Button(160, 160, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
-        this.btnReturn.setAction(Button.return);
+        this.btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);
+        this.btnPause.setAction(StageBase.click_pause);
+        this.addChild(this.btnPause);
+
+        this.btnRestart = new Button(180, 180, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
+        this.btnRestart.setAction(StageBase.click_restart);
+        this.addChild(this.btnRestart);
+
+        this.btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        this.btnReturn.setAction(StageBase.click_return);
         this.addChild(this.btnReturn);
 
-        this.btnRestart = new Button(160, 160, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
-        this.btnRestart.setAction(Button.restart);
-        this.addChild(this.btnRestart);
+        this.btnInfo = new Button(180, 180, new egret.Point(900, 1800), TextureNames.BUTTON_INFO);
+        this.btnInfo.setAction(StageBase.click_info);
+        this.addChild(this.btnInfo);
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
@@ -90,7 +100,7 @@ abstract class StageBase extends PageBase {
         for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
             if (i.isCollide()) {
                 console.log("nisile");
-                this.restart();
+                this.dead();
                 break;
             }
         }
@@ -157,6 +167,39 @@ abstract class StageBase extends PageBase {
         //SelfMachine.INSTANCE.setDead();
         //this.removeChild(SelfMachine.INSTANCE);
     }
+
+    public dead() {
+        this.state = StageState.END;
+        this.timer.stop();
+        this.missile_timer.stop();
+        Main.getMain().addChild(Dead.INSTANCE);
+    }
+
+    public static click_pause() {
+		let current = SelfMachine.INSTANCE.currentStage;
+        if (current.state != StageState.RUNNING) {
+            return;
+        }
+        current.pause();
+        Main.getMain().addChild(Pause.INSTANCE)
+	}
+    	
+    public static click_return() {
+        let current = SelfMachine.INSTANCE.currentStage;
+        current.end();
+		SelfMachine.INSTANCE.leaveStage();
+        Main.getMain().removeChild(current);
+        Main.getMain().addChild(PageMain.INSTANCE);
+    }
+
+	public static click_restart() {
+		let current = SelfMachine.INSTANCE.currentStage;
+		current.restart();
+	}
+
+    public static click_info() {
+		//TODO
+	}
 
 }
 

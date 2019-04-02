@@ -1,20 +1,20 @@
-class Pause extends Popup {
+class Dead extends Popup {
 
-	public static readonly INSTANCE:Pause = new Pause();
+	public static readonly INSTANCE:Dead = new Dead();
 
 	private _img:egret.Bitmap;
 
-	private btnResume:Button;
 	private btnReturn:Button;
+	private btnInfo:Button;
     private btnRestart:Button;
 
 	protected constructor() {
-        super("pause_popup");
+        super("dead_popup");
     }
 
     protected doRender() {
         super.doRender();
-		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_PAUSE);
+		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_DEAD);
         this._img.width = 600;
         this._img.height = 600;
         this._img.anchorOffsetX = this._img.width/2;
@@ -23,24 +23,22 @@ class Pause extends Popup {
         this._img.y = this.stage.stageHeight/2;
         this.addChild(this._img);
 
-		this.btnResume = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESUME);
-        this.btnResume.setAction(Pause.click_resume);
-        this.addChild(this.btnResume);
-
-		this.btnRestart = new Button(120, 120, new egret.Point(540, 1140), TextureNames.BUTTON_RESTART);
-        this.btnRestart.setAction(Pause.click_restart);
+		this.btnRestart = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESTART);
+        this.btnRestart.setAction(Dead.click_restart);
         this.addChild(this.btnRestart);
 
+		this.btnInfo = new Button(120, 120, new egret.Point(540, 1140), TextureNames.BUTTON_INFO);
+        this.btnInfo.setAction(Dead.click_info);
+        this.addChild(this.btnInfo);
+
 		this.btnReturn = new Button(120, 120, new egret.Point(720, 1140), TextureNames.BUTTON_RETURN);
-        this.btnReturn.setAction(Pause.click_return);
+        this.btnReturn.setAction(Dead.click_return);
         this.addChild(this.btnReturn);
         
     }
 
-	public static click_resume() {
-		Main.getMain().removeChild(Pause.INSTANCE);
-		let current = SelfMachine.INSTANCE.currentStage;
-		current.resume();
+	public static click_info() {
+		//TODO
     }
 
 	public static click_return() {

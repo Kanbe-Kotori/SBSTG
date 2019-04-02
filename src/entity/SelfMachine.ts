@@ -18,7 +18,6 @@ class SelfMachine extends egret.Sprite {
 
     private onAddToStage(event:egret.Event) {
         this.doRender();
-        this._img.touchEnabled = true;
         this._img.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
         this._img.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
     }
@@ -31,6 +30,7 @@ class SelfMachine extends egret.Sprite {
         this._img.anchorOffsetY = this._img.height/2;
         this._img.x = this.stage.stageWidth/2;
         this._img.y = this.stage.stageHeight/2;
+        this._img.touchEnabled = true;
         this.addChild(this._img);
         
         this._shape = new egret.Shape();
