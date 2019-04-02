@@ -45,13 +45,13 @@ class Dead extends Popup {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
 		SelfMachine.INSTANCE.leaveStage();
-        Main.getMain().removeChild(Pause.INSTANCE);
+        Main.getMain().removeChild(Dead.INSTANCE);
         Main.getMain().removeChild(current);
         Main.getMain().addChild(PageMain.INSTANCE);
     }
 
 	public static click_restart() {
-		Main.getMain().removeChild(Pause.INSTANCE);
+		Main.getMain().removeChild(Dead.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.restart();
 	}
