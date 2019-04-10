@@ -9,9 +9,13 @@ class StageTemp extends StageBase {
         this.explosion = new Explosion(
 			0, Main.X,
 			Main.UPPER_Y, Main.Y * 0.5,
-			15, 25, 300, 8, TextureNames.MISSILE_RING, 24);
-		this.rain = new Rain(15, 15, 1000, 0.5, 0.5, 128, "smjb3_png", 1);
-
+			15, 25);
+		this.rain = new Rain(15, 15);
+		this.rain.setFreq(1000);
+        this.rain.setStartAngle(0.5);
+        this.rain.setEndAngle(0.5);
+		this.rain.setMissileSize(128);
+		this.rain.setMissileTexture(TextureNames.MISSILE_RING);
     }
 
 }

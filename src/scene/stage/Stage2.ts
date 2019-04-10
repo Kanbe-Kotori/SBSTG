@@ -5,7 +5,11 @@ class Stage2 extends StageBase {
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
-        this.rain = new Rain(15, 20, 250, 0.45, 0.55, 8, TextureNames.MISSILE_WATER, 10);
+        this.rain = new Rain(15, 20);
+        this.rain.setFreq(250);
+        this.rain.setStartAngle(0.45);
+        this.rain.setEndAngle(0.55);
+        this.rain.setNumber(10);
     }
 
 }

@@ -1,11 +1,17 @@
 abstract class ControllerBase extends egret.Sprite {
 
+    protected _missile_velocity = 20;
+    protected _missile_size = 8;
+    protected _missile_texture = TextureNames.MISSILE_STANDARD;
+    protected _freq = 300;
 	protected timer:egret.Timer;
 
 	public constructor() {
 		super();
         SelfMachine.INSTANCE.currentStage.arrayController.push(this);
 		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+        this.timer = new egret.Timer(this._freq, 0);
+        this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
 	}
 
     protected onAddToStage(event:egret.Event) {}
@@ -44,6 +50,23 @@ abstract class ControllerBase extends egret.Sprite {
 				break;
 			}
 		}
+    }
+
+    public setMissileSize(size:number) {
+        this._missile_size = size;
+    }
+
+    public setMissileVelocity(velocity:number) {
+        this._missile_velocity = velocity;
+    }
+
+    public setMissileTexture(missile_texture:string) {
+        this._missile_texture = missile_texture;
+    }
+
+    public setFreq(freq:number) {
+        this._freq = freq;
+        this.timer.delay = freq;
     }
 	
 }

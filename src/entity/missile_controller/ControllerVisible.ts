@@ -1,5 +1,7 @@
 abstract class ControllerVisible extends ControllerBase {
 
+    protected _size:number;
+    protected _texture:string;
 	protected _img:egret.Bitmap;
 
 	public constructor() {

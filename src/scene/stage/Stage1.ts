@@ -10,23 +10,35 @@ class Stage1 extends StageBase {
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
         let point1 = new egret.Point(Main.X * 0.5, 300);
-        this.emitter1 = new Emitter(point1, 48, 20, 300, 0.25, 0.75, 11, "smjb2_png", TextureNames.MISSILE_WATER);
+        this.emitter1 = new Emitter(point1, 100, "smjb2_png");
+        this.emitter1.setStartAngle(0.25);
+        this.emitter1.setEndAngle(0.75);
+        this.emitter1.setNumber(11);
+        this.emitter1.setMissileTexture(TextureNames.MISSILE_WATER);
         this.addChild(this.emitter1);
 
         let point2 = new egret.Point(Main.X*0.1, 420);
-        this.sniper2 = new Sniper(point2, 48, 17, 200, "smjb_png", TextureNames.MISSILE_STANDARD);
+        this.sniper2 = new Sniper(point2, 100, "smjb_png");
+        this.sniper2.setMissileVelocity(17);
+        this.sniper2.setFreq(200);
         this.addChild(this.sniper2);
 
         let point3 = new egret.Point(Main.X*0.3, 360);
-        this.sniper3 = new Sniper(point3, 48, 17, 200, "smjb_png", TextureNames.MISSILE_STANDARD);
+        this.sniper3 = new Sniper(point3, 100, "smjb_png");
+        this.sniper2.setMissileVelocity(17);
+        this.sniper2.setFreq(200);
         this.addChild(this.sniper3);
 
         let point4 = new egret.Point(Main.X*0.7, 360);
-        this.sniper4 = new Sniper(point4, 48, 17, 200, "smjb_png", TextureNames.MISSILE_STANDARD);
+        this.sniper4 = new Sniper(point4, 100, "smjb_png");
+        this.sniper2.setMissileVelocity(17);
+        this.sniper2.setFreq(200);
         this.addChild(this.sniper4);
 
         let point5 = new egret.Point(Main.X*0.9, 420);
-        this.sniper5 = new Sniper(point5, 48, 17, 200, "smjb_png", TextureNames.MISSILE_STANDARD);
+        this.sniper5 = new Sniper(point5, 100, "smjb_png");
+        this.sniper2.setMissileVelocity(17);
+        this.sniper2.setFreq(200);
         this.addChild(this.sniper5);
     }
 
