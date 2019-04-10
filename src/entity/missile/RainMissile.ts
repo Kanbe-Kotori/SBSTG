@@ -5,7 +5,7 @@ class RainMissile extends StandardMissile {
     }
 
     protected shouldSetDead() {
-        if (this.getY() < SelfMachine.INSTANCE.currentStage.height * Main.UPPER_Y || this.getY() > SelfMachine.INSTANCE.currentStage.height * Main.BELOW_Y) {
+        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y) {
             return true;
         }
         return false;

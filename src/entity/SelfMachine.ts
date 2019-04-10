@@ -28,14 +28,14 @@ class SelfMachine extends egret.Sprite {
         this._img.height = SelfMachine.HEIGHT;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
-        this._img.x = this.stage.stageWidth/2;
-        this._img.y = this.stage.stageHeight/2;
+        this._img.x = Main.X/2;
+        this._img.y = Main.Y/2;
         this._img.touchEnabled = true;
         this.addChild(this._img);
         
         this._shape = new egret.Shape();
-        this._shape.x = this.stage.stageWidth/2;
-        this._shape.y = this.stage.stageHeight/2;
+        this._shape.x = Main.X/2;
+        this._shape.y = Main.Y/2;
         this._shape.graphics.beginFill(0x000000, 1);
         this._shape.graphics.drawCircle(0, 0, SelfMachine.SIZE);
         this._shape.graphics.endFill();
@@ -43,9 +43,6 @@ class SelfMachine extends egret.Sprite {
     }
 
     private mouseDown(evt:egret.TouchEvent) {
-        if (this.isTouching) {
-            return;
-        }
         this.isTouching = true;
         this.distance.x = evt.stageX - this._shape.x;
         this.distance.y = evt.stageY - this._shape.y;
@@ -53,9 +50,9 @@ class SelfMachine extends egret.Sprite {
     }
 
     private mouseMove(evt:egret.TouchEvent) {
-        if(this.isTouching) {
+        if(this.isTouching && (this.currentStage.state == StageState.BEFORE_RUNNING || this.currentStage.state == StageState.RUNNING) ) {
             let ax = evt.stageX - this.distance.x; ax = Math.max(ax, SelfMachine.SIZE); ax = Math.min(ax, Main.X - SelfMachine.SIZE);
-            let ay = evt.stageY - this.distance.y; ay = Math.max(ay, this.stage.stageHeight * Main.UPPER_Y + SelfMachine.SIZE); ay = Math.min(ay, this.stage.stageHeight * Main.BELOW_Y - SelfMachine.SIZE);
+            let ay = evt.stageY - this.distance.y; ay = Math.max(ay, Main.UPPER_Y + SelfMachine.SIZE); ay = Math.min(ay, Main.BELOW_Y - SelfMachine.SIZE);
 
             this._shape.x = ax;
             this._shape.y = ay;

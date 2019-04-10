@@ -9,8 +9,8 @@ abstract class PageBase extends egret.DisplayObjectContainer {
     }
 
     protected onAddToStage(event:egret.Event) {
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        this.width = Main.X;
+        this.height = Main.Y;
         this.doRender();
     }
 

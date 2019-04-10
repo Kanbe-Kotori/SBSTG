@@ -38,19 +38,20 @@ abstract class StageBase extends PageBase {
     protected doRender() {
         let sky = MyUtils.createBitmapByName(TextureNames.GAME_SKY);
         this.addChild(sky);
-        sky.width = this.stage.stageWidth;
-        sky.height = this.stage.stageHeight;
+        sky.width = Main.X;
+        sky.height = Main.Y;
         sky.alpha = 1;
 
         this.textfield = new egret.TextField();
-        this.textfield.width = 600;
+        this.textfield.width = 400;
         this.textfield.height = 120;
-        this.textfield.x = 540;
+        this.textfield.x = 340;
         this.textfield.y = 120;
         this.textfield.size = 50;
         this.textfield.text = "3";
         this.textfield.textColor = 0x000000;
-        this.textfield.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this.textfield.textAlign = egret.HorizontalAlign.CENTER;
+        this.textfield.verticalAlign = egret.VerticalAlign.BOTTOM;
         this.addChild(this.textfield);
 
         this.btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);

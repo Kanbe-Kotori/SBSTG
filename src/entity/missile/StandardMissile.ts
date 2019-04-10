@@ -17,8 +17,8 @@ class StandardMissile extends MissileBase {
 
     protected shouldSetDead() {
         if (this.getX() < 0 || this.getX() > SelfMachine.INSTANCE.currentStage.width
-            || this.getY() < SelfMachine.INSTANCE.currentStage.height * Main.UPPER_Y
-            || this.getY() > SelfMachine.INSTANCE.currentStage.height * Main.BELOW_Y) {
+            || this.getY() < Main.UPPER_Y
+            || this.getY() > Main.BELOW_Y) {
             return true;
         }
         return false;

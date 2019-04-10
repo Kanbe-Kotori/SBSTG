@@ -34,7 +34,7 @@ class Rain extends ControllerBase {
     protected onUpdate(event: egret.TimerEvent) {
         let i = 0;
         do {
-            var point: egret.Point = new egret.Point(SelfMachine.INSTANCE.currentStage.width * Math.random(), SelfMachine.INSTANCE.currentStage.height * Main.UPPER_Y);
+            var point: egret.Point = new egret.Point(SelfMachine.INSTANCE.currentStage.width * Math.random(), Main.UPPER_Y);
             let theta = (this._ang1 + Math.random() * (this._ang2 - this._ang1)) * Math.PI;
             let v = this._vmin + Math.random() * (this._vmax - this._vmin);
             let missile = new RainMissile(point, v * Math.cos(theta), v * Math.sin(theta), this._size, this._texture);

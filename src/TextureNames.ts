@@ -7,8 +7,7 @@ class TextureNames {
 	public static readonly MISSILE_RING = "missile_ring_png";
 	public static readonly MISSILE_WATER = "missile_water_png";
 
-	public static readonly BUTTON_START = "btn_start_png";
-
+	public static readonly BUTTON_NORMAL = "btn_normal_png";
 	public static readonly BUTTON_RETURN = "btn_return_png";
 	public static readonly BUTTON_RESTART = "btn_restart_png";
 	public static readonly BUTTON_PAUSE = "btn_pause_png";

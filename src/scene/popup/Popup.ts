@@ -15,7 +15,7 @@ abstract class Popup extends PageBase {
         this._shape.x = 0;
         this._shape.y = 0;
         this._shape.graphics.beginFill(0x7F7F7F, 0.5);
-		this._shape.graphics.drawRect(0, 0, this.stage.stageWidth, this.stage.stageHeight);
+		this._shape.graphics.drawRect(0, 0, Main.X, Main.Y);
         this._shape.graphics.endFill();
 		this._shape.touchEnabled = true;
         this.addChild(this._shape);

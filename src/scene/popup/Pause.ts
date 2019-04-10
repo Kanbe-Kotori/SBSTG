@@ -19,8 +19,8 @@ class Pause extends Popup {
         this._img.height = 600;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
-        this._img.x = this.stage.stageWidth/2;
-        this._img.y = this.stage.stageHeight/2;
+        this._img.x = Main.X/2;
+        this._img.y = Main.Y/2;
         this.addChild(this._img);
 
 		this.btnResume = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESUME);

@@ -14,12 +14,12 @@ class PageMain extends PageBase {
 
     protected doRender() {
         let sky = MyUtils.createBitmapByName(TextureNames.MAIN_PAGE);
-        sky.width = this.stage.stageWidth;
-        sky.height = this.stage.stageHeight;
+        sky.width = Main.X;
+        sky.height = Main.Y;
         sky.alpha = 1;
         this.addChild(sky);
 
-        this.btnStart = new Button(550, 150, new egret.Point(this.stage.stageWidth/2, this.stage.stageHeight/1.5), TextureNames.BUTTON_START);
+        this.btnStart = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y/1.5), TextureNames.BUTTON_NORMAL, "开始游戏");
         this.btnStart.setAction(this.onClick);
         this.addChild(this.btnStart);
     }

@@ -16,20 +16,20 @@ class PageChooseStage extends PageBase {
 
     protected doRender() {
         let sky = MyUtils.createBitmapByName(TextureNames.MAIN_PAGE);
-        sky.width = this.stage.stageWidth;
-        sky.height = this.stage.stageHeight;
+        sky.width = Main.X;
+        sky.height = Main.Y;
         sky.alpha = 1;
         this.addChild(sky);
 
-        this.btnStage1 = new Button(550, 150, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.3), "btn_stage1_png");
+        this.btnStage1 = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.3), TextureNames.BUTTON_NORMAL, "第一关");
         this.btnStage1.setAction(this.onClickStage1);
         this.addChild(this.btnStage1);
 
-        this.btnStage2 = new Button(550, 150, new egret.Point(this.stage.stageWidth * 0.5, this.stage.stageHeight * 0.6), "btn_stage2_png");
+        this.btnStage2 = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.6), TextureNames.BUTTON_NORMAL, "第二关");
         this.btnStage2.setAction(this.onClickStage2);
         this.addChild(this.btnStage2);
 
-        this.btnTemp = new Button(256, 256, new egret.Point(this.stage.stageWidth * 0.9, this.stage.stageHeight * 0.9), TextureNames.SELF_MACHINE);
+        this.btnTemp = new Button(256, 256, new egret.Point(Main.X * 0.9, Main.Y * 0.9), TextureNames.SELF_MACHINE);
         this.btnTemp.setAction(this.temp);
         this.addChild(this.btnTemp);
     }
