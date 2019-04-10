@@ -16,7 +16,7 @@ abstract class ControllerVisible extends ControllerBase {
 	protected abstract doRender();
 
 	public setDead() {
-		this.removeChild(this._img);
+		this.removeChildren();
 		this.parent.removeChild(this);
         super.setDead();
     }

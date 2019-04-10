@@ -38,6 +38,7 @@ class Pause extends Popup {
     }
 
 	public static click_resume() {
+        Pause.INSTANCE.removeChildren();
 		Main.getMain().removeChild(Pause.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.resume();
@@ -46,13 +47,13 @@ class Pause extends Popup {
 	public static click_return() {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
-		SelfMachine.INSTANCE.leaveStage();
-        Main.getMain().removeChild(Pause.INSTANCE);
-        Main.getMain().removeChild(current);
+        Pause.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
         Main.getMain().addChild(PageMain.INSTANCE);
     }
 
 	public static click_restart() {
+        Pause.INSTANCE.removeChildren();
 		Main.getMain().removeChild(Pause.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.restart();

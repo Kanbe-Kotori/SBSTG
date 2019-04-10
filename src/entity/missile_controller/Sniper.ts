@@ -28,7 +28,7 @@ class Sniper extends ControllerVisible {
             return;
         }
         let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._missile_velocity, this._missile_size, TextureNames.MISSILE_STANDARD);
-        this.parent.addChild(missile);
+        SelfMachine.INSTANCE.currentStage.addChild(missile);
     }
 
 }

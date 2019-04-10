@@ -35,18 +35,21 @@ class PageChooseStage extends PageBase {
     }
 
     protected onClickStage1() {
+        PageChooseStage.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
         Main.getMain().addChild(Stage1.INSTANCE);
-        Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
 
     protected onClickStage2() {
+        PageChooseStage.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
         Main.getMain().addChild(Stage2.INSTANCE);
-        Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
 
     protected temp() {
+        PageChooseStage.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
         Main.getMain().addChild(StageTemp.INSTANCE);
-        Main.getMain().removeChild(PageChooseStage.INSTANCE);
     }
     
 }

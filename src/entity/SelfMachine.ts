@@ -75,9 +75,7 @@ class SelfMachine extends egret.Sprite {
     }
 
     public leaveStage() {
-        this.removeChild(this._shape);
-        this.removeChild(this._img);
-        this.currentStage.removeChild(this);
+        this.removeChildren();
         this.currentStage = null;
     }
 

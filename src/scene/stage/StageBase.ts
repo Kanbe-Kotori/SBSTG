@@ -1,14 +1,10 @@
 abstract class StageBase extends PageBase {
-    public arrayMissile:Array<MissileBase> = new Array<MissileBase>();
-    public arrayController:Array<ControllerBase> = new Array<ControllerBase>();
+    public arrayMissile:Array<MissileBase>;
+    public arrayController:Array<ControllerBase>;
 
     protected readonly _time:number;
 
     protected textfield:egret.TextField;
-    private btnPause:Button;
-    private btnReturn:Button;
-    private btnRestart:Button;
-    private btnInfo:Button;
 
     protected timer:egret.Timer;
     protected missile_timer:egret.Timer;
@@ -22,6 +18,10 @@ abstract class StageBase extends PageBase {
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
+
+        this.arrayMissile = new Array<MissileBase>();
+        this.arrayController = new Array<ControllerBase>();
+
         this.timer = new egret.Timer(1000, 3);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerUpdate, this);
         this.timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE,this.onTimerEnd,this);
@@ -54,21 +54,21 @@ abstract class StageBase extends PageBase {
         this.textfield.verticalAlign = egret.VerticalAlign.BOTTOM;
         this.addChild(this.textfield);
 
-        this.btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);
-        this.btnPause.setAction(StageBase.click_pause);
-        this.addChild(this.btnPause);
+        let btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);
+        btnPause.setAction(StageBase.click_pause);
+        this.addChild(btnPause);
 
-        this.btnRestart = new Button(180, 180, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
-        this.btnRestart.setAction(StageBase.click_restart);
-        this.addChild(this.btnRestart);
+        let btnRestart = new Button(180, 180, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
+        btnRestart.setAction(StageBase.click_restart);
+        this.addChild(btnRestart);
 
-        this.btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
-        this.btnReturn.setAction(StageBase.click_return);
-        this.addChild(this.btnReturn);
+        let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        btnReturn.setAction(StageBase.click_return);
+        this.addChild(btnReturn);
 
-        this.btnInfo = new Button(180, 180, new egret.Point(900, 1800), TextureNames.BUTTON_INFO);
-        this.btnInfo.setAction(StageBase.click_info);
-        this.addChild(this.btnInfo);
+        let btnInfo = new Button(180, 180, new egret.Point(900, 1800), TextureNames.BUTTON_INFO);
+        btnInfo.setAction(StageBase.click_info);
+        this.addChild(btnInfo);
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
@@ -165,8 +165,8 @@ abstract class StageBase extends PageBase {
         this.missile_timer.stop();
         MyUtils.cleanMissile(this);
         MyUtils.cleanController(this);
-        //SelfMachine.INSTANCE.setDead();
-        //this.removeChild(SelfMachine.INSTANCE);
+        this.removeChildren();
+        SelfMachine.INSTANCE.leaveStage();
     }
 
     public dead() {
@@ -191,8 +191,7 @@ abstract class StageBase extends PageBase {
     public static click_return() {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
-		SelfMachine.INSTANCE.leaveStage();
-        Main.getMain().removeChild(current);
+        Main.getMain().removeChildren();
         Main.getMain().addChild(PageMain.INSTANCE);
     }
 

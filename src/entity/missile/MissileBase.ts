@@ -44,7 +44,7 @@ abstract class MissileBase extends egret.Sprite {
     protected abstract shouldSetDead():boolean;
 
     public setDead() {
-        this.removeChild(this._img);
+        this.removeChildren();
         this.parent.removeChild(this);
         for (let i: number = 0; i < SelfMachine.INSTANCE.currentStage.arrayMissile.length; i++) {
 			if (SelfMachine.INSTANCE.currentStage.arrayMissile[i] == this) {

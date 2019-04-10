@@ -25,12 +25,9 @@ class PageMain extends PageBase {
     }
 
     protected onClick() {
-        //try {
+        PageMain.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
         Main.getMain().addChild(PageChooseStage.INSTANCE);
-        Main.getMain().removeChild(PageMain.INSTANCE);
-        //} catch(err) {
-            //console.log(err);
-        //}
     }
     
 }
