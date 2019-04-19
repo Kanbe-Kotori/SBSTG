@@ -109,9 +109,14 @@ abstract class StageBase extends PageBase {
     }
 
     protected win() {
-        //TODO
-        this.textfield.text = "niyingle";
-        this.end();
+        //TODO:LocalStorage
+        this.state = StageState.END;
+        for (let i of this.arrayController) {
+            i.stop();
+        }
+        this.timer.stop();
+        this.missile_timer.stop();
+        Main.getMain().addChild(Win.INSTANCE)
     }
 
     public start() {

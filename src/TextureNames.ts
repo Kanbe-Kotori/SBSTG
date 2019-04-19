@@ -16,6 +16,7 @@ class TextureNames {
 
 	public static readonly POPUP_PAUSE = "popup_pause_png";
 	public static readonly POPUP_DEAD = "popup_dead_png";
+	public static readonly POPUP_WIN = "popup_win_png";
 
 	public static readonly SELF_MACHINE = "self_machine_png";
 
