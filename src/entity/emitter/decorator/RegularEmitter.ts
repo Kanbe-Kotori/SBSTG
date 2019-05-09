@@ -1,21 +1,14 @@
-class Emitter extends ControllerVisible {
+class RegularEmitter extends EmitterDecorator {
 
     private _ang1 = 0;
     private _ang2 = 1;
     private _num = 5;
 
-    /** 
-     * 新建一个标准弹幕发射器
-     * @param size 发射器在屏幕上的大小
-     * @param texture 发射器材质
-    */
-    public constructor(point:egret.Point, size:number, texture:string) {
-        super();
-        this.x = point.x;
+    public constructor(point:egret.Point) {
+		super();
+		this.x = point.x;
         this.y = point.y;
-        this._size = size;
-        this._texture = texture;
-    }
+	}
 
     public setStartAngle(ang:number) {
         this._ang1 = ang;
@@ -29,16 +22,8 @@ class Emitter extends ControllerVisible {
         this._num = num;
     }
 
-    protected doRender() {
-        this._img = MyUtils.createBitmapByName(this._texture);
-        this._img.width = this._size;
-        this._img.height = this._size;
-        this._img.anchorOffsetX = this._img.width/2;
-        this._img.anchorOffsetY = this._img.height/2;
-        this.addChild(this._img);
-    }
-
-    protected onUpdate(event: egret.TimerEvent) {
+    public onUpdate(event: egret.TimerEvent) {
+        this._deco.onUpdate(event);
         if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING) {
             return;
         }

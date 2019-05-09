@@ -1,6 +1,6 @@
 abstract class StageBase extends PageBase {
     public arrayMissile:Array<MissileBase>;
-    public arrayController:Array<ControllerBase>;
+    public arrayController:Array<EmitterBase>;
 
     protected readonly _time:number;
 
@@ -20,7 +20,7 @@ abstract class StageBase extends PageBase {
         super.onAddToStage(event);
 
         this.arrayMissile = new Array<MissileBase>();
-        this.arrayController = new Array<ControllerBase>();
+        this.arrayController = new Array<EmitterBase>();
 
         this.timer = new egret.Timer(1000, 3);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerUpdate, this);

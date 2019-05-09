@@ -1,4 +1,4 @@
-class Explosion extends ControllerBase {
+class Explosion extends EmitterDecorator {
 
 	private _xmin:number;
     private _xmax:number;
@@ -26,7 +26,7 @@ class Explosion extends ControllerBase {
         this._num = num;
     }
 
-    protected onUpdate(event: egret.TimerEvent) {
+    public onUpdate(event: egret.TimerEvent) {
 		let posx = this._xmin + Math.random() * (this._xmax - this._xmin);
 		let posy = this._ymin + Math.random() * (this._ymax - this._ymin);
 		let pos = new egret.Point(posx, posy);

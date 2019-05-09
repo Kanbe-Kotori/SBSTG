@@ -1,10 +1,7 @@
-abstract class ControllerBase extends egret.Sprite {
+abstract class EmitterBase extends egret.Sprite {
 
-    protected _missile_velocity = 20;
-    protected _missile_size = 8;
-    protected _missile_texture = TextureNames.MISSILE_STANDARD;
-    protected _freq = 300;
 	protected timer:egret.Timer;
+    protected _freq = 300;
 
 	public constructor() {
 		super();
@@ -16,7 +13,7 @@ abstract class ControllerBase extends egret.Sprite {
 
     protected onAddToStage(event:egret.Event) {}
 
-	protected abstract onUpdate(event: egret.TimerEvent);
+	public abstract onUpdate(event: egret.TimerEvent);
 
     /**
      * 游戏不开始，弹幕不发射
@@ -52,21 +49,8 @@ abstract class ControllerBase extends egret.Sprite {
 		}
     }
 
-    public setMissileSize(size:number) {
-        this._missile_size = size;
-    }
-
-    public setMissileVelocity(velocity:number) {
-        this._missile_velocity = velocity;
-    }
-
-    public setMissileTexture(missile_texture:string) {
-        this._missile_texture = missile_texture;
-    }
-
     public setFreq(freq:number) {
         this._freq = freq;
         this.timer.delay = freq;
     }
-	
 }

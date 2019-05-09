@@ -1,4 +1,4 @@
-class Rain extends ControllerBase {
+class Rain extends EmitterDecorator {
 
     private _vmin:number;
     private _vmax:number;
@@ -6,11 +6,6 @@ class Rain extends ControllerBase {
     private _ang2 = 1;
     private _num = 1;
 
-    /** 
-     * 新建一个雨点发射器
-     * @param vmin 弹幕最小速度
-     * @param vmax 弹幕最大速度
-    */
     public constructor(vmin:number, vmax:number) {
         super();
         this._vmin = vmin;
@@ -30,7 +25,8 @@ class Rain extends ControllerBase {
         this._num = num;
     }
 
-    protected onUpdate(event: egret.TimerEvent) {
+    public onUpdate(event: egret.TimerEvent) {
+        this._deco.onUpdate(event);
         let i = 0;
         do {
             var point: egret.Point = new egret.Point(SelfMachine.INSTANCE.currentStage.width * Math.random(), Main.UPPER_Y);
