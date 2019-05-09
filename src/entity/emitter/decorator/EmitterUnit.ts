@@ -1,13 +1,13 @@
-abstract class EmitterDecorator extends EmitterBase {
+abstract class EmitterUnit extends EmitterBase {
 
 	protected _missile_velocity = 20;
     protected _missile_size = 8;
     protected _missile_texture = TextureNames.MISSILE_STANDARD;
 
-	protected _deco:EmitterBase;
+	protected _parent_emitter:EmitterBase;
 
 	public decorate(emitter:EmitterBase) {
-        this._deco = emitter;
+        this._parent_emitter = emitter;
 	}
 
 	public setMissileSize(size:number) {

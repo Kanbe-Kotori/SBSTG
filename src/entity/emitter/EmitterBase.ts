@@ -2,6 +2,7 @@ abstract class EmitterBase extends egret.Sprite {
 
 	protected timer:egret.Timer;
     protected _freq = 300;
+    protected _delay = 0;
 
 	public constructor() {
 		super();
@@ -22,6 +23,19 @@ abstract class EmitterBase extends egret.Sprite {
         if (SelfMachine.INSTANCE.currentStage == null) {
             return;
         }
+        if (this._delay != 0) {
+            let timer1 = new egret.Timer(this._delay, 1);
+            timer1.addEventListener(egret.TimerEvent.TIMER, this.resume, this);
+            timer1.start();
+        } else if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
+            this.timer.start();
+        }
+    }
+
+    public resume() {
+        if (SelfMachine.INSTANCE.currentStage == null) {
+            return;
+        }
         if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
             this.timer.start();
         }
@@ -31,10 +45,8 @@ abstract class EmitterBase extends egret.Sprite {
         this.timer.stop();
     }
 
-    public startWithDelay(delay:number) {
-        let timer1 = new egret.Timer(delay, 1);
-        timer1.addEventListener(egret.TimerEvent.TIMER, this.start, this);
-        timer1.start();
+    public setDelay(delay:number) {
+        this._delay = delay;
     }
 
     public setDead() {

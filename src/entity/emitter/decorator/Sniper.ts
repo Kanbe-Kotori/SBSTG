@@ -1,18 +1,13 @@
-class Sniper extends EmitterDecorator {
+class Sniper extends EmitterUnit {
 
     private _num = 1;
 
-    public constructor(point:egret.Point) {
-		super();
-		this.x = point.x;
-        this.y = point.y;
-	}
-
     public onUpdate(event: egret.TimerEvent) {
-        this._deco.onUpdate(event);
         if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING) {
             return;
         }
+        this.x = this._parent_emitter.x;
+        this.y = this._parent_emitter.y;
         let missile = MissileGenerator.createSniperMissile(this.localToGlobal(0,0), this._missile_velocity, this._missile_size, TextureNames.MISSILE_STANDARD);
         SelfMachine.INSTANCE.currentStage.addChild(missile);
     }

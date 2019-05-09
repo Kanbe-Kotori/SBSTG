@@ -139,7 +139,7 @@ abstract class StageBase extends PageBase {
     public resume() {
         this.state = StageState.RUNNING;
         for (let i of this.arrayController) {
-            i.start();
+            i.resume();
         }
         this.timer.start();
         this.missile_timer.start();
