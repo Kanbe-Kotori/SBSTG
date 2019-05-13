@@ -1,4 +1,4 @@
-abstract class EmitterUnit extends EmitterBase {
+abstract class EmitterUpgradeBase extends EmitterBase {
 
 	protected _missile_velocity = 20;
     protected _missile_size = 8;
@@ -6,7 +6,7 @@ abstract class EmitterUnit extends EmitterBase {
 
 	protected _parent_emitter:EmitterBase;
 
-	public decorate(emitter:EmitterBase) {
+	public setParentEmitter(emitter:EmitterBase) {
         this._parent_emitter = emitter;
 	}
 
@@ -20,6 +20,14 @@ abstract class EmitterUnit extends EmitterBase {
 
     public setMissileTexture(missile_texture:string) {
         this._missile_texture = missile_texture;
+    }
+
+    public onUpdate(event: egret.TimerEvent) {
+        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING || this._parent_emitter == null) {
+            return;
+        }
+		this.x = this._parent_emitter.x;
+		this.y = this._parent_emitter.y;
     }
 	
 }

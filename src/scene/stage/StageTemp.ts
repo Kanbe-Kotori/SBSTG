@@ -4,19 +4,17 @@ class StageTemp extends StageBase {
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
 
-
-		let ev = new EmitterVisible(new egret.Point(), 0, null);
-        let deco1_1 = new TeleportingEmitter(
+        let em1 = new EmptyEmitter();
+        let deco1_1 = new TeleportingUpgrade(
 			0, Main.X,
 			Main.UPPER_Y, Main.Y * 0.5);
-		deco1_1.decorate(ev);
-
+		deco1_1.setParentEmitter(em1);
 		let deco1_2 = new RegularEmitter();
         deco1_2.setStartAngle(0);
         deco1_2.setEndAngle(2);
         deco1_2.setNumber(24);
-        deco1_2.decorate(ev);
-		this.addChild(ev);
+        deco1_2.setParentEmitter(em1);
+		this.addChild(deco1_1);
 
 		let rain = new Rain(15, 15);
 		rain.setFreq(1000);

@@ -1,26 +1,23 @@
-class EmitterVisible extends EmitterBase {
+class Visible extends EmitterUpgradeBase {
 
     protected _size:number;
     protected _texture:string;
 	protected _img:egret.Bitmap;
 
-	public constructor(point:egret.Point, size:number, texture:string) {
+	public constructor(size:number, texture:string) {
 		super();
-		this.x = point.x;
-        this.y = point.y;
         this._size = size;
         this._texture = texture;
+		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
 	}
 
 	protected onAddToStage(event:egret.Event) {
-		super.onAddToStage(event);
         this.doRender();
     }
 
 	protected doRender() {
-		if (this._size <= 0) {
-			return;
-		}
+		this.x = this._parent_emitter.x;
+		this.y = this._parent_emitter.y;
 		this._img = MyUtils.createBitmapByName(this._texture);
         this._img.width = this._size;
         this._img.height = this._size;
@@ -35,8 +32,12 @@ class EmitterVisible extends EmitterBase {
         super.setDead();
     }
 
-	public onUpdate(event: egret.TimerEvent) {
-		//Do nothing
+	public setSize(size:number) {
+		this._size = size;
+	}
+
+	public setTexture(texture:string) {
+		this._texture = texture;
 	}
 
 }

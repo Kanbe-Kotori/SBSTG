@@ -7,12 +7,9 @@ abstract class EmitterBase extends egret.Sprite {
 	public constructor() {
 		super();
         SelfMachine.INSTANCE.currentStage.arrayController.push(this);
-		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
         this.timer = new egret.Timer(this._freq, 0);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
 	}
-
-    protected onAddToStage(event:egret.Event) {}
 
 	public abstract onUpdate(event: egret.TimerEvent);
 
@@ -64,5 +61,10 @@ abstract class EmitterBase extends egret.Sprite {
     public setFreq(freq:number) {
         this._freq = freq;
         this.timer.delay = freq;
+    }
+
+    public setPos(point:egret.Point) {
+        this.x = point.x;
+        this.y = point.y;
     }
 }

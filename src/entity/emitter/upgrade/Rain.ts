@@ -1,4 +1,4 @@
-class Rain extends EmitterUnit {
+class Rain extends EmitterUpgradeBase {
 
     private _vmin:number;
     private _vmax:number;
@@ -26,6 +26,7 @@ class Rain extends EmitterUnit {
     }
 
     public onUpdate(event: egret.TimerEvent) {
+        super.onUpdate(event);
         let i = 0;
         do {
             var point: egret.Point = new egret.Point(SelfMachine.INSTANCE.currentStage.width * Math.random(), Main.UPPER_Y);

@@ -1,4 +1,4 @@
-class TeleportingEmitter extends EmitterUnit {
+class TeleportingUpgrade extends EmitterUpgradeBase {
 
 	private _xmin:number;
     private _xmax:number;
@@ -19,11 +19,13 @@ class TeleportingEmitter extends EmitterUnit {
     }
 
     public onUpdate(event: egret.TimerEvent) {
-        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING) {
+        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING || this._parent_emitter == null) {
             return;
         }
         this._parent_emitter.x = this._xmin + Math.random() * (this._xmax - this._xmin);
 		this._parent_emitter.y = this._ymin + Math.random() * (this._ymax - this._ymin);
+        this.x = this._parent_emitter.x;
+        this.y = this._parent_emitter.y;
     }
 
 }

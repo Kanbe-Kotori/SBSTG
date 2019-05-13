@@ -1,4 +1,4 @@
-class RegularEmitter extends EmitterUnit {
+class RegularEmitter extends EmitterUpgradeBase {
 
     private _ang1 = 0;
     private _ang2 = 1;
@@ -17,11 +17,7 @@ class RegularEmitter extends EmitterUnit {
     }
 
     public onUpdate(event: egret.TimerEvent) {
-        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING) {
-            return;
-        }
-        this.x = this._parent_emitter.x;
-        this.y = this._parent_emitter.y;
+        super.onUpdate(event);
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             var point: egret.Point = this.localToGlobal(0,0);
             let missile = new StandardMissile(point, this._missile_velocity * Math.cos(theta), this._missile_velocity * Math.sin(theta), this._missile_size, this._missile_texture);
