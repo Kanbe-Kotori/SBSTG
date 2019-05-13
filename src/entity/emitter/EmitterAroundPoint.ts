@@ -3,6 +3,7 @@ class EmitterAroundPoint extends EmitterBase {
 	protected _period:number;
 	protected _radius:number;
 	protected _theta = 0;
+	protected _init_theta = 0;
 
 	protected shouldRanTheta = false;
 
@@ -22,6 +23,8 @@ class EmitterAroundPoint extends EmitterBase {
 		this.y = this._centre.y;
 		if (this.shouldRanTheta)
 			this.randomTheta();
+		else
+			this._theta = this._init_theta;
 	}
 
 	public onUpdate() {
@@ -35,6 +38,7 @@ class EmitterAroundPoint extends EmitterBase {
 
 	public setTheta(theta:number) {
 		this._theta = theta;
+		this._init_theta = theta;
 	}
 
 	public randomTheta() {

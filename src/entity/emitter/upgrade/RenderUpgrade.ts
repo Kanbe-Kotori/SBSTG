@@ -4,6 +4,13 @@ class RenderUpgrade extends EmitterUpgradeBase {
     protected _texture:string;
 	protected _img:egret.Bitmap;
 
+	/** 
+	 * 构造一个发射器渲染升级。
+	 * 需要setParentEmitter。
+	 * 需要addChild。
+	 * @param size 发射器图片大小
+	 * @param texture 发射器图片材质
+	 */
 	public constructor(size:number, texture:string) {
 		super();
         this._size = size;
@@ -42,6 +49,9 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		this._texture = texture;
 	}
 
+	/**
+	 * 等上级发射器停止后，移动到上级发射器应该在的地方。这样会使上级发射器多停止一次，但问题不大。
+	 */
 	public stop() {
 		super.stop();
 		this._parent_emitter.stop();
