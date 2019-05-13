@@ -1,7 +1,7 @@
 abstract class EmitterBase extends egret.Sprite {
 
 	protected timer:egret.Timer;
-    protected _freq = 300;
+    protected _freq = 250;
     protected _delay = 0;
 
 	public constructor() {

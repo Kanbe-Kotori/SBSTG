@@ -1,4 +1,4 @@
-class RegularEmitter extends EmitterUpgradeBase {
+class RegularEmitterUpgrade extends EmitterUpgradeBase {
 
     private _ang1 = 0;
     private _ang2 = 1;

@@ -1,10 +1,11 @@
-class Rain extends EmitterUpgradeBase {
+class SideEmitterUpgrade extends EmitterUpgradeBase {
 
     private _vmin:number;
     private _vmax:number;
     private _ang1 = 0;
     private _ang2 = 1;
     private _num = 1;
+    private side:Side = Side.TOP;
 
     public constructor(vmin:number, vmax:number) {
         super();
@@ -37,4 +38,8 @@ class Rain extends EmitterUpgradeBase {
         } while(++i < this._num);
     }
 
+}
+
+enum Side {
+    TOP, BOTTOM, LEFT, RIGHT
 }

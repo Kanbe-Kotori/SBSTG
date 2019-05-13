@@ -1,4 +1,4 @@
-class Visible extends EmitterUpgradeBase {
+class RenderUpgrade extends EmitterUpgradeBase {
 
     protected _size:number;
     protected _texture:string;
@@ -23,6 +23,8 @@ class Visible extends EmitterUpgradeBase {
         this._img.height = this._size;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
+		this._img.x = 0;
+		this._img.y = 0;
         this.addChild(this._img);
 	}
 
@@ -38,6 +40,13 @@ class Visible extends EmitterUpgradeBase {
 
 	public setTexture(texture:string) {
 		this._texture = texture;
+	}
+
+	public stop() {
+		super.stop();
+		this._parent_emitter.stop();
+		this.x = this._parent_emitter.x;
+		this.y = this._parent_emitter.y;
 	}
 
 }

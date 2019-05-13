@@ -3,7 +3,7 @@ class Stage2 extends StageBase {
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
-        let rain = new Rain(15, 20);
+        let rain = new SideEmitterUpgrade(15, 20);
         rain.setFreq(250);
         rain.setStartAngle(0.45);
         rain.setEndAngle(0.55);

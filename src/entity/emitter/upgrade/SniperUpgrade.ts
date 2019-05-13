@@ -1,4 +1,4 @@
-class Sniper extends EmitterUpgradeBase {
+class SniperUpgrade extends EmitterUpgradeBase {
 
     private _num = 1;
 
