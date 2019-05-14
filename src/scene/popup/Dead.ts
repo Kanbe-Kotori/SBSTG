@@ -37,11 +37,11 @@ class Dead extends Popup {
         
     }
 
-	public static click_info() {
+	public static click_info(evt:egret.TouchEvent) {
 		//TODO
     }
 
-	public static click_return() {
+	public static click_return(evt:egret.TouchEvent) {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
         Dead.INSTANCE.removeChildren();
@@ -49,7 +49,7 @@ class Dead extends Popup {
         Main.getMain().addChild(PageMain.INSTANCE);
     }
 
-	public static click_restart() {
+	public static click_restart(evt:egret.TouchEvent) {
         Dead.INSTANCE.removeChildren();
 		Main.getMain().removeChild(Dead.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;

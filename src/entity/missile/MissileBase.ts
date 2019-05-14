@@ -30,7 +30,7 @@ abstract class MissileBase extends egret.Sprite {
 
     protected abstract doRender();
 
-    public onUpdate() {
+    public onUpdate(event: egret.TimerEvent) {
         this._img.x += this._vx;
         this._img.y += this._vy;
         if (this.shouldSetDead()) {

@@ -96,7 +96,7 @@ abstract class StageBase extends PageBase {
 
     protected onMissileUpdate(event: egret.TimerEvent) {
         for(let i of this.arrayMissile) {
-            i.onUpdate();
+            i.onUpdate(event);
         }
         for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
             if (i.isCollide()) {
@@ -184,7 +184,7 @@ abstract class StageBase extends PageBase {
         Main.getMain().addChild(Dead.INSTANCE);
     }
 
-    public static click_pause() {
+    public static click_pause(evt:egret.TouchEvent) {
 		let current = SelfMachine.INSTANCE.currentStage;
         if (current.state != StageState.RUNNING) {
             return;
@@ -193,19 +193,19 @@ abstract class StageBase extends PageBase {
         Main.getMain().addChild(Pause.INSTANCE)
 	}
     	
-    public static click_return() {
+    public static click_return(evt:egret.TouchEvent) {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
         Main.getMain().removeChildren();
         Main.getMain().addChild(PageMain.INSTANCE);
     }
 
-	public static click_restart() {
+	public static click_restart(evt:egret.TouchEvent) {
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.restart();
 	}
 
-    public static click_info() {
+    public static click_info(evt:egret.TouchEvent) {
 		//TODO
 	}
 

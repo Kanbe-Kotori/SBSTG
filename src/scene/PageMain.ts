@@ -24,10 +24,10 @@ class PageMain extends PageBase {
         this.addChild(this.btnStart);
     }
 
-    protected onClick() {
+    protected onClick(evt:egret.TouchEvent) {
         PageMain.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(PageChooseStage.INSTANCE);
+        Main.getMain().addChild(Chapters.Chapter1);
     }
     
 }

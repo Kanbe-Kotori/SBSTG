@@ -34,19 +34,19 @@ class PageChooseStage extends PageBase {
         this.addChild(this.btnTemp);
     }
 
-    protected onClickStage1() {
+    protected onClickStage1(evt:egret.TouchEvent) {
         PageChooseStage.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(Stage1.INSTANCE);
     }
 
-    protected onClickStage2() {
+    protected onClickStage2(evt:egret.TouchEvent) {
         PageChooseStage.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(Stage2.INSTANCE);
     }
 
-    protected temp() {
+    protected temp(evt:egret.TouchEvent) {
         PageChooseStage.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(StageTemp.INSTANCE);
