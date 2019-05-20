@@ -15,6 +15,7 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		super();
         this._size = size;
         this._texture = texture;
+		this._freq = 1000;
 		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
 	}
 

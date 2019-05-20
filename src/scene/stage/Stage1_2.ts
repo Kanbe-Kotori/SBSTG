@@ -1,5 +1,5 @@
-class Stage1 extends StageBase {
-    public static readonly INSTANCE:Stage1 = new Stage1("1", 30);
+class Stage1_2 extends StageBase {
+    public static readonly INSTANCE:Stage1_2 = new Stage1_2("stage1_2", 30, "1-2 自机狙进阶");
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
@@ -22,7 +22,7 @@ class Stage1 extends StageBase {
         em2.randomTheta();
         let up2_1 = new RenderUpgrade(100, "smjb_png");
         up2_1.setParentEmitter(em2);
-        up2_1.setFreq(100);
+        up2_1.setFreq(50);
         let up2_2 = new SniperUpgrade();
         up2_2.setParentEmitter(em2);
         up2_2.setMissileVelocity(17);
@@ -35,7 +35,7 @@ class Stage1 extends StageBase {
         em3.randomTheta();
         let up3_1 = new RenderUpgrade(100, "smjb_png");
         up3_1.setParentEmitter(em3);
-        up3_1.setFreq(100);
+        up3_1.setFreq(50);
         let up3_2 = new SniperUpgrade();
         up3_2.setParentEmitter(em3);
         up3_2.setMissileVelocity(17);
@@ -45,10 +45,11 @@ class Stage1 extends StageBase {
 
         let point4 = new egret.Point(756, 360);
         let em4 = new EmitterAroundPoint(point4, 2000, 50);
+        em4.setClockwise(false);
         em4.randomTheta();
         let up4_1 = new RenderUpgrade(100, "smjb_png");
         up4_1.setParentEmitter(em4);
-        up4_1.setFreq(100);
+        up4_1.setFreq(50);
         let up4_2 = new SniperUpgrade();
         up4_2.setParentEmitter(em4);
         up4_2.setMissileVelocity(17);
@@ -58,10 +59,11 @@ class Stage1 extends StageBase {
 
         let point5 = new egret.Point(972, 420);
         let em5 = new EmitterAroundPoint(point5, 2000, 50);
+        em5.setClockwise(false);
         em5.randomTheta();
         let up5_1 = new RenderUpgrade(100, "smjb_png");
         up5_1.setParentEmitter(em5);
-        up5_1.setFreq(100);
+        up5_1.setFreq(50);
         let up5_2 = new SniperUpgrade();
         up5_2.setParentEmitter(em5);
         up5_2.setMissileVelocity(17);

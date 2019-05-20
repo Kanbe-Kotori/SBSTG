@@ -3,17 +3,20 @@ abstract class StageBase extends PageBase {
     public arrayController:Array<EmitterBase>;
 
     protected readonly _time:number;
+    protected readonly _title:string;
 
-    protected textfield:egret.TextField;
+    protected titleText:egret.TextField;
+    protected timeText:egret.TextField;
 
     protected timer:egret.Timer;
     protected missile_timer:egret.Timer;
 
     public state:StageState;
 
-    protected constructor(name:string, time:number) {
+    protected constructor(name:string, time:number, title:string) {
         super(name);
         this._time = time;
+        this._title = title;
     }
 
     protected onAddToStage(event:egret.Event) {
@@ -42,17 +45,30 @@ abstract class StageBase extends PageBase {
         sky.height = Main.Y;
         sky.alpha = 1;
 
-        this.textfield = new egret.TextField();
-        this.textfield.width = 400;
-        this.textfield.height = 120;
-        this.textfield.x = 340;
-        this.textfield.y = 120;
-        this.textfield.size = 50;
-        this.textfield.text = "3";
-        this.textfield.textColor = 0x000000;
-        this.textfield.textAlign = egret.HorizontalAlign.CENTER;
-        this.textfield.verticalAlign = egret.VerticalAlign.BOTTOM;
-        this.addChild(this.textfield);
+        this.titleText = new egret.TextField();
+        this.titleText.width = 1080;
+        this.titleText.height = 120;
+        this.titleText.x = 0;
+        this.titleText.y = 0;
+        this.titleText.size = 72;
+        this.titleText.text = this._title;
+        this.titleText.textColor = 0x000000;
+        this.titleText.fontFamily = "KaiTi";
+        this.titleText.textAlign = egret.HorizontalAlign.CENTER;
+        this.titleText.verticalAlign = egret.VerticalAlign.BOTTOM;
+        this.addChild(this.titleText);
+
+        this.timeText = new egret.TextField();
+        this.timeText.width = 360;
+        this.timeText.height = 120;
+        this.timeText.x = 360;
+        this.timeText.y = 120;
+        this.timeText.size = 48;
+        this.timeText.text = "3";
+        this.timeText.textColor = 0x000000;
+        this.timeText.textAlign = egret.HorizontalAlign.CENTER;
+        this.timeText.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this.addChild(this.timeText);
 
         let btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);
         btnPause.setAction(StageBase.click_pause);
@@ -72,20 +88,20 @@ abstract class StageBase extends PageBase {
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
-        let num =  parseInt(this.textfield.text);
+        let num =  parseInt(this.timeText.text);
         let str = "";
         if (num > 1 || this.state == StageState.RUNNING)
             str = (num - 1) + "";
         else
             str = "Begin!"
-        this.textfield.text = str;
+        this.timeText.text = str;
     }
 
     protected onTimerEnd(event: egret.TimerEvent) {
         if (this.state == StageState.BEFORE_RUNNING) {
-            this.textfield.text = "";
+            this.timeText.text = "";
             this.start();
-            this.textfield.text = this._time + "";
+            this.timeText.text = this._time + "";
             this.timer.reset();
             this.timer.repeatCount = this._time;
             this.timer.start();
@@ -155,7 +171,7 @@ abstract class StageBase extends PageBase {
         }
         MyUtils.cleanMissile(this);
         this.missile_timer.stop();
-        this.textfield.text = "3";
+        this.timeText.text = "3";
         this.timer.reset();
         this.timer.repeatCount = 3;
         this.timer.start();

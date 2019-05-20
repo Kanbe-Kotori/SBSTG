@@ -5,6 +5,7 @@ class EmitterAroundPoint extends EmitterBase {
 	protected _theta = 0;
 	protected _init_theta = 0;
 
+	protected clockwise = true;
 	protected shouldRanTheta = false;
 
 	public constructor(centre:egret.Point, period:number, radius:number) {
@@ -12,7 +13,7 @@ class EmitterAroundPoint extends EmitterBase {
 		this._centre = centre;
 		this._period = period;
 		this._radius = radius;
-		this.setFreq(100);
+		this.setFreq(50);
 		this.x = this._centre.x;
 		this.y = this._centre.y;
 	}
@@ -28,9 +29,12 @@ class EmitterAroundPoint extends EmitterBase {
 	}
 
 	public onUpdate() {
-		this._theta += 2 * Math.PI * this._freq / this._period;
+		let dtheta = 2 * Math.PI * this._freq / this._period;
+		this._theta += this.clockwise? dtheta : -dtheta;
 		if (this._theta >= 2 * Math.PI) {
 			this._theta -= 2 * Math.PI;
+		} else if (this._theta <= 0) {
+			this._theta += 2 * Math.PI;
 		}
 		this.x = this._centre.x + this._radius * Math.sin(this._theta);
 		this.y = this._centre.y - this._radius * Math.cos(this._theta);
@@ -44,5 +48,9 @@ class EmitterAroundPoint extends EmitterBase {
 	public randomTheta() {
 		this.shouldRanTheta = true;
 		this._theta = Math.random() * 2 * Math.PI;
+	}
+
+	public setClockwise(cw:boolean) {
+		this.clockwise = cw;
 	}
 }

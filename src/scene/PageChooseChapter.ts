@@ -5,6 +5,7 @@ class PageChooseChapter extends PageBase {
 
     protected constructor() {
         super("choose_chapter");
+        this.arrayButton = new Array<Button>();
     }
 
     protected onAddToStage(event:egret.Event) {

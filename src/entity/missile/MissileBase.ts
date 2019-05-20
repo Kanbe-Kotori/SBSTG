@@ -30,6 +30,10 @@ abstract class MissileBase extends egret.Sprite {
 
     protected abstract doRender();
 
+    /**
+     * 子弹在每个tick都要进行的动作，例如位置变换。
+     * 子弹tick时间通常为50ms。
+     */
     public onUpdate(event: egret.TimerEvent) {
         this._img.x += this._vx;
         this._img.y += this._vy;

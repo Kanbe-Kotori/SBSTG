@@ -1,5 +1,5 @@
 class StageTemp extends StageBase {
-    public static readonly INSTANCE:StageTemp = new StageTemp("temp", 30);
+    public static readonly INSTANCE:StageTemp = new StageTemp("stage_temp", 30, "测试关卡");
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
