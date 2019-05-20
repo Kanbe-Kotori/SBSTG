@@ -27,7 +27,7 @@ class PageMain extends PageBase {
     protected onClick(evt:egret.TouchEvent) {
         PageMain.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(Chapters.Chapter1);
+        Main.getMain().addChild(Chapters.getChapter("chapter1"));
     }
     
 }

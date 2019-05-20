@@ -16,4 +16,8 @@ abstract class PageBase extends egret.DisplayObjectContainer {
 
     protected abstract doRender();
 
+    public getName() {
+        return this._name;
+    }
+
 }

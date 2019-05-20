@@ -1,14 +1,10 @@
 class PageChapter extends PageBase {
 
-	private arrayButton:Array<Button>;
+	private arrayButton:Array<Button> = new Array<Button>();
 
     public constructor(name:string) {
         super(name);
-		this.arrayButton = new Array<Button>();
-    }
-
-    protected onAddToStage(event:egret.Event) {
-        super.onAddToStage(event);
+        Chapters.arrayChapter.push(this);
     }
 
     protected doRender() {
@@ -24,13 +20,13 @@ class PageChapter extends PageBase {
 
     public addStage(stage:StageBase, name:string, point:egret.Point) {
 		let button = new ButtonWithText(550, 150, point, TextureNames.BUTTON_NORMAL, name);
-        button.setAction(PageChapter.createFunc(stage));
+        button.setAction(PageChapter.createFunc(stage, this));
 		this.arrayButton.push(button);
     }
 
-	public static createFunc(stage:StageBase) {
+	public static createFunc(stage:StageBase, chapter:PageChapter) {
 		let func:Function = function() {
-			PageChooseStage.INSTANCE.removeChildren();
+			chapter.removeChildren();
         	Main.getMain().removeChildren();
         	Main.getMain().addChild(stage);
 		};
