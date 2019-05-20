@@ -47,6 +47,12 @@ class Stage1_1 extends StageBase {
         up4_2.setMissileVelocity(15);
         up4_2.setFreq(300);
         this.addChild(up4_1);
-	}
-    
+
+		let current = SelfMachine.INSTANCE.currentStage;
+        if (current.state != StageState.BEFORE_RUNNING) {
+            return;
+        }
+        current.pause();
+        Main.getMain().addChild(Start.INSTANCE)
+	    }   
 }
