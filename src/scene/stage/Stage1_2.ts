@@ -1,5 +1,5 @@
 class Stage1_2 extends StageBase {
-    public static readonly INSTANCE:Stage1_2 = new Stage1_2("stage1_2", 30, "1-2 自机狙进阶");
+    public static readonly INSTANCE:Stage1_2 = new Stage1_2("1-2", 30);
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);

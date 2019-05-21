@@ -1,5 +1,5 @@
 class Stage1_1 extends StageBase {
-    public static readonly INSTANCE:Stage1_1 = new Stage1_1("stage1_1", 30, "1-1 自机狙练习");
+    public static readonly INSTANCE:Stage1_1 = new Stage1_1("1-1", 30);
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
@@ -47,12 +47,5 @@ class Stage1_1 extends StageBase {
         up4_2.setMissileVelocity(15);
         up4_2.setFreq(300);
         this.addChild(up4_1);
-
-		let current = SelfMachine.INSTANCE.currentStage;
-        if (current.state != StageState.BEFORE_RUNNING) {
-            return;
-        }
-        current.pause();
-        Main.getMain().addChild(Start.INSTANCE)
-	    }   
+	}   
 }

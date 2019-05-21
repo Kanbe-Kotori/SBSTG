@@ -47,6 +47,7 @@ class Main extends egret.DisplayObjectContainer {
             this.addChild(loadingView);
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
+            TextHelper.init();
             Chapters.init();
             this.removeChild(loadingView);
         }

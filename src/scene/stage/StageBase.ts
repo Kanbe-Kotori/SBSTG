@@ -2,8 +2,8 @@ abstract class StageBase extends PageBase {
     public arrayMissile:Array<MissileBase>;
     public arrayController:Array<EmitterBase>;
 
+    protected readonly _uniqueStageID:string;
     protected readonly _time:number;
-    protected readonly _title:string;
 
     protected titleText:egret.TextField;
     protected timeText:egret.TextField;
@@ -13,10 +13,10 @@ abstract class StageBase extends PageBase {
 
     public state:StageState;
 
-    protected constructor(name:string, time:number, title:string) {
-        super(name);
+    protected constructor(id:string, time:number) {
+        super("stage" + id);
+        this._uniqueStageID = id;
         this._time = time;
-        this._title = title;
     }
 
     protected onAddToStage(event:egret.Event) {
@@ -28,7 +28,7 @@ abstract class StageBase extends PageBase {
         this.timer = new egret.Timer(1000, 3);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerUpdate, this);
         this.timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE,this.onTimerEnd,this);
-        this.timer.start();
+        //this.timer.start();
 
         this.missile_timer = new egret.Timer(50, 0);
         this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
@@ -36,6 +36,8 @@ abstract class StageBase extends PageBase {
 
         this.state = StageState.BEFORE_RUNNING;
         SelfMachine.INSTANCE.currentStage = this;
+
+        Main.getMain().addChild(Info.INSTANCE);
     }
 
     protected doRender() {
@@ -51,7 +53,7 @@ abstract class StageBase extends PageBase {
         this.titleText.x = 0;
         this.titleText.y = 0;
         this.titleText.size = 72;
-        this.titleText.text = this._title;
+        this.titleText.text = this._uniqueStageID + " " + TextHelper.getStageNameFromID(this._uniqueStageID);
         this.titleText.textColor = 0x000000;
         this.titleText.fontFamily = "KaiTi";
         this.titleText.textAlign = egret.HorizontalAlign.CENTER;
@@ -206,7 +208,7 @@ abstract class StageBase extends PageBase {
             return;
         }
         current.pause();
-        Main.getMain().addChild(Pause.INSTANCE)
+        Main.getMain().addChild(Pause.INSTANCE);
 	}
     	
     public static click_return(evt:egret.TouchEvent) {
@@ -222,7 +224,12 @@ abstract class StageBase extends PageBase {
 	}
 
     public static click_info(evt:egret.TouchEvent) {
-		//TODO
+		let current = SelfMachine.INSTANCE.currentStage;
+        if (current.state != StageState.RUNNING) {
+            return;
+        }
+        current.pause();
+        Main.getMain().addChild(Info.INSTANCE);
 	}
 
 }

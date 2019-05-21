@@ -4,10 +4,6 @@ class Pause extends Popup {
 
 	private _img:egret.Bitmap;
 
-	private btnResume:Button;
-	private btnReturn:Button;
-    private btnRestart:Button;
-
 	protected constructor() {
         super("pause_popup");
     }
@@ -23,17 +19,17 @@ class Pause extends Popup {
         this._img.y = Main.Y/2;
         this.addChild(this._img);
 
-		this.btnResume = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESUME);
-        this.btnResume.setAction(Pause.click_resume);
-        this.addChild(this.btnResume);
+		let btnResume = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESUME);
+        btnResume.setAction(Pause.click_resume);
+        this.addChild(btnResume);
 
-		this.btnRestart = new Button(120, 120, new egret.Point(540, 1140), TextureNames.BUTTON_RESTART);
-        this.btnRestart.setAction(Pause.click_restart);
-        this.addChild(this.btnRestart);
+		let btnRestart = new Button(120, 120, new egret.Point(540, 1140), TextureNames.BUTTON_RESTART);
+        btnRestart.setAction(Pause.click_restart);
+        this.addChild(btnRestart);
 
-		this.btnReturn = new Button(120, 120, new egret.Point(720, 1140), TextureNames.BUTTON_RETURN);
-        this.btnReturn.setAction(Pause.click_return);
-        this.addChild(this.btnReturn);
+		let btnReturn = new Button(120, 120, new egret.Point(720, 1140), TextureNames.BUTTON_RETURN);
+        btnReturn.setAction(Pause.click_return);
+        this.addChild(btnReturn);
         
     }
 
