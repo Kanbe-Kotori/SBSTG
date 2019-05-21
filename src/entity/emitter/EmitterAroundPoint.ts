@@ -20,12 +20,15 @@ class EmitterAroundPoint extends EmitterBase {
 
 	public stop() {
 		super.stop();
-		this.x = this._centre.x;
-		this.y = this._centre.y;
-		if (this.shouldRanTheta)
+		if (this.shouldRanTheta) {
 			this.randomTheta();
-		else
+			this.x = this._centre.x;
+			this.y = this._centre.y;
+		} else {
 			this._theta = this._init_theta;
+			this.x = this._centre.x + this._radius * Math.sin(this._theta);
+			this.y = this._centre.y - this._radius * Math.cos(this._theta);
+		}
 	}
 
 	public onUpdate() {
@@ -43,6 +46,8 @@ class EmitterAroundPoint extends EmitterBase {
 	public setTheta(theta:number) {
 		this._theta = theta;
 		this._init_theta = theta;
+		this.x = this._centre.x + this._radius * Math.sin(this._theta);
+		this.y = this._centre.y - this._radius * Math.cos(this._theta);
 	}
 
 	public randomTheta() {

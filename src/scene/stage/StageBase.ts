@@ -91,12 +91,7 @@ abstract class StageBase extends PageBase {
 
     protected onTimerUpdate(event: egret.TimerEvent) {
         let num =  parseInt(this.timeText.text);
-        let str = "";
-        if (num > 1 || this.state == StageState.RUNNING)
-            str = (num - 1) + "";
-        else
-            str = "Begin!"
-        this.timeText.text = str;
+        this.timeText.text = (num - 1) + "";
     }
 
     protected onTimerEnd(event: egret.TimerEvent) {
