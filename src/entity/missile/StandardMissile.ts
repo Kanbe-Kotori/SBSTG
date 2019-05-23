@@ -1,25 +1,23 @@
 class StandardMissile extends MissileBase {
 
-    protected readonly _texture:string;
+
+    //如果从左边出去，就从右边飞回来
+    protected isLRConn = false;
 
     /**
 	 * 新建一个标准圆形纹理子弹
-	 * @param point 子弹生成位置
-	 * @param vx 子弹x方向初速
-	 * @param vy 子弹y方向初速
-     * @param size 子弹半径
-     * @param texture 子弹纹理
 	 */
-    public constructor(point:egret.Point, vx:number, vy:number, size:number, texture:string) {
-        super(point, vx, vy, size);
-        this._texture = texture;
+    public constructor() {
+        super();
     }
 
     protected shouldSetDead() {
-        if (this.getX() < 0 || this.getX() > SelfMachine.INSTANCE.currentStage.width
-            || this.getY() < Main.UPPER_Y
-            || this.getY() > Main.BELOW_Y) {
+        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y) {
             return true;
+        }
+        
+        if (this.getX() < 0 || this.getX() > SelfMachine.INSTANCE.currentStage.width) {
+            return !this.isLRConn;
         }
         return false;
     }
@@ -42,6 +40,23 @@ class StandardMissile extends MissileBase {
             return true;
         }
         return false;
+    }
+
+    public onUpdate(event: egret.TimerEvent) {
+       super.onUpdate(event);
+       if (!this.isLRConn) {
+           return;
+       }
+	   if (this.getX() < 0) {
+		   this._img.x += SelfMachine.INSTANCE.currentStage.width;
+	   } else if(this.getX() > SelfMachine.INSTANCE.currentStage.width) {
+           this._img.x += SelfMachine.INSTANCE.currentStage.width;
+       }
+    }
+
+    public setLRConn() {
+        this.isLRConn = true;
+        return this;
     }
 
 }

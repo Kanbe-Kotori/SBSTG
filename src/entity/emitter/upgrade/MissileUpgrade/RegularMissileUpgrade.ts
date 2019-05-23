@@ -1,8 +1,12 @@
-class RegularEmitterUpgrade extends EmitterUpgradeBase {
+class RegularMissileUpgrade extends MissileUpgradeBase {
 
     private _ang1 = 0;
     private _ang2 = 1;
     private _num = 5;
+
+    public constructor(conf:MissileConfig) {
+        super(conf);
+    }
 
     public setStartAngle(ang:number) {
         this._ang1 = ang;
@@ -19,8 +23,11 @@ class RegularEmitterUpgrade extends EmitterUpgradeBase {
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
-            var point: egret.Point = this.localToGlobal(0,0);
-            let missile = new StandardMissile(point, this._missile_velocity * Math.cos(theta), this._missile_velocity * Math.sin(theta), this._missile_size, this._missile_texture);
+            let point = this.localToGlobal(0,0);
+            let v = this._conf.getVelocity();
+            let missile = this._conf.createMissile()
+                            .setPos(point)
+                            .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
             SelfMachine.INSTANCE.currentStage.addChild(missile);
         }
     }

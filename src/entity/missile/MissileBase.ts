@@ -1,26 +1,38 @@
 abstract class MissileBase extends egret.Sprite {
 
-	protected _size:number;
+	protected _size = 8;
+    protected _texture = TextureNames.MISSILE_STANDARD;
 
-    protected _vx:number;
-    protected _vy:number;
+    protected _vx = 0;
+    protected _vy = 0;
+
     protected _img:egret.Bitmap;
 
-	/**
-	 * 新建一个子弹
-	 * @param point 子弹生成位置
-	 * @param vx 子弹x方向初速
-	 * @param vy 子弹y方向初速
-     * @param size 子弹大小,通常指子弹半径
-	 */
-    public constructor(point:egret.Point, vx:number, vy:number, size:number) {
+    public constructor() {
         super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+    }
+
+    public setSize(size:number) {
+        this._size = size;
+        return this;
+    }
+
+    public setTexture(texture:string) {
+        this._texture = texture;
+        return this;
+    }
+
+    public setPos(point:egret.Point) {
         this.x = point.x;
         this.y = point.y;
+        return this;
+    }
+
+    public setVelocity(vx:number, vy:number) {
         this._vx = vx;
         this._vy = vy;
-        this._size = size;
-        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+        return this;
     }
 
     protected onAddToStage(event:egret.Event) {

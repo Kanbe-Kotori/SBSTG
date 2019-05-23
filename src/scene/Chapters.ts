@@ -10,10 +10,10 @@ class Chapters {
 
 		Chapter1.addStage(Stage1_1.INSTANCE, "第一节", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		Chapter1.addStage(Stage1_2.INSTANCE, "第二节", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
+		Chapter1.addStage(Stage1_3.INSTANCE, "第三节", new egret.Point(Main.X * 0.5, Main.Y * 0.75));
 
 		Chapter2.addStage(Stage2_1.INSTANCE, "第一节", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		Chapter2.addStage(StageTemp.INSTANCE, "Test", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
-		Chapter2.addStage(StageTemp2.INSTANCE, "Test2", new egret.Point(Main.X * 0.5, Main.Y * 0.75));
 	}
 
 	public static getChapter(name:string) {

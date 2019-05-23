@@ -1,17 +1,12 @@
-class SideEmitterUpgrade extends EmitterUpgradeBase {
+class SideEmitterUpgrade extends MissileUpgradeBase {
 
-    private _vmin:number;
-    private _vmax:number;
     private _ang1 = 0;
     private _ang2 = 1;
     private _num = 1;
     private side:Side = Side.TOP;
 
-    public constructor(vmin:number, vmax:number) {
-        super();
-        this._vmin = vmin;
-        this._vmax = vmax;
-        this._missile_texture = TextureNames.MISSILE_WATER;
+    public constructor(conf:MissileConfig) {
+        super(conf);
     }
 
     public setStartAngle(ang:number) {
@@ -32,8 +27,11 @@ class SideEmitterUpgrade extends EmitterUpgradeBase {
         do {
             var point: egret.Point = new egret.Point(SelfMachine.INSTANCE.currentStage.width * Math.random(), Main.UPPER_Y);
             let theta = (this._ang1 + Math.random() * (this._ang2 - this._ang1)) * Math.PI;
-            let v = this._vmin + Math.random() * (this._vmax - this._vmin);
-            let missile = new RainMissile(point, v * Math.cos(theta), v * Math.sin(theta), this._missile_size, this._missile_texture);
+            let v = this._conf.getVelocity();
+            let missile = this._conf.createMissile()
+                            .setPos(point)
+                            .setVelocity(v * Math.cos(theta), v * Math.sin(theta))
+                            .setLRConn();
             SelfMachine.INSTANCE.currentStage.addChild(missile);
         } while(++i < this._num);
     }
