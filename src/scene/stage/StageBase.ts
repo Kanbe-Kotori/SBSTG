@@ -28,7 +28,7 @@ abstract class StageBase extends PageBase {
         this.timer = new egret.Timer(1000, 3);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerUpdate, this);
         this.timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE,this.onTimerEnd,this);
-        //this.timer.start();
+        this.timer.start();
 
         this.missile_timer = new egret.Timer(50, 0);
         this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
@@ -37,7 +37,7 @@ abstract class StageBase extends PageBase {
         this.state = StageState.BEFORE_RUNNING;
         SelfMachine.INSTANCE.currentStage = this;
 
-        Main.getMain().addChild(Info.INSTANCE);
+        //Main.getMain().addChild(Info.INSTANCE);
     }
 
     protected doRender() {

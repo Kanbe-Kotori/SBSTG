@@ -4,13 +4,6 @@ class StandardMissile extends MissileBase {
     //如果从左边出去，就从右边飞回来
     protected isLRConn = false;
 
-    /**
-	 * 新建一个标准圆形纹理子弹
-	 */
-    public constructor() {
-        super();
-    }
-
     protected shouldSetDead() {
         if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y) {
             return true;

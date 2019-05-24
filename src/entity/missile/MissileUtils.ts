@@ -2,6 +2,7 @@ class MissileUtils {
 
     public static readonly MISSILE_STANDARD = "STANDARD";
     public static readonly MISSILE_RANDOM_VELOCITY = "RANDOM_VELOCITY";
+    public static readonly MISSILE_VARIABLE_SIZED = "VARIABLE_SIZED";
 
     public static createRingMissile(point:egret.Point, conf:MissileConfig, num:number) {
         let arrayMissile:Array<MissileBase> = new Array<MissileBase>();

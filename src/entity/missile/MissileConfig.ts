@@ -46,6 +46,8 @@ class MissileConfig {
 			case "STANDARD":
 			case "RANDOM_VELOCITY":
 				return new StandardMissile().setSize(this._size).setTexture(this._texture);
+			case "VARIABLE_SIZED":
+				return new VariableSizedMissile().setVariableSize(this._size, this._extra_para[0], this._extra_para[1]).setTexture(this._texture);
 			default:
 				return null;
 		}
