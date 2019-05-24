@@ -44,6 +44,7 @@ abstract class EmitterBase extends egret.Sprite {
 
     public setDelay(delay:number) {
         this._delay = delay;
+        return this;
     }
 
     public setDead() {
@@ -61,10 +62,12 @@ abstract class EmitterBase extends egret.Sprite {
     public setFreq(freq:number) {
         this._freq = freq;
         this.timer.delay = freq;
+        return this;
     }
 
     public setPos(point:egret.Point) {
         this.x = point.x;
         this.y = point.y;
+        return this;
     }
 }

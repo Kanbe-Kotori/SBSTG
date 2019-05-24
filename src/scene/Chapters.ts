@@ -14,6 +14,7 @@ class Chapters {
 
 		Chapter2.addStage(Stage2_1.INSTANCE, "第一节", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		Chapter2.addStage(StageTemp.INSTANCE, "Test", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
+		Chapter2.addStage(StageTemp2.INSTANCE, "Test2", new egret.Point(Main.X * 0.5, Main.Y * 0.75));
 	}
 
 	public static getChapter(name:string) {

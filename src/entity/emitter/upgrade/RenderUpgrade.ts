@@ -44,10 +44,12 @@ class RenderUpgrade extends EmitterUpgradeBase {
 
 	public setSize(size:number) {
 		this._size = size;
+		return this;
 	}
 
 	public setTexture(texture:string) {
 		this._texture = texture;
+		return this;
 	}
 
 	/**

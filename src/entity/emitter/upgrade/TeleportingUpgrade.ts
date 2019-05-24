@@ -16,6 +16,7 @@ class TeleportingUpgrade extends EmitterUpgradeBase {
 
     public setNumber(num:number) {
         this._num = num;
+        return this;
     }
 
     public onUpdate(event: egret.TimerEvent) {

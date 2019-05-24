@@ -24,5 +24,7 @@ class VariableSizedMissile extends StandardMissile{
 		}
 		this._img.width = 2 * this._size;
 		this._img.height = 2 * this._size;
+		this._img.anchorOffsetX = this._img.width/2;
+        this._img.anchorOffsetY = this._img.height/2;
     }
 }

@@ -11,14 +11,17 @@ class SideEmitterUpgrade extends MissileUpgradeBase {
 
     public setStartAngle(ang:number) {
         this._ang1 = ang;
+        return this;
     }
 
     public setEndAngle(ang:number) {
         this._ang2 = ang;
+        return this;
     }
 
     public setNumber(num:number) {
         this._num = num;
+        return this;
     }
 
     public onUpdate(event: egret.TimerEvent) {
