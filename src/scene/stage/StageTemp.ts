@@ -7,8 +7,9 @@ class StageTemp extends StageBase {
         let em1 = new EmptyEmitter();
         let up1_1 = new TeleportingUpgrade(
 			0, Main.X,
-			Main.UPPER_Y, Main.Y * 0.5);
-		up1_1.setParentEmitter(em1);
+			Main.UPPER_Y, Main.Y * 0.5)
+		.setParentEmitter(em1)
+        .setFreq(300);
 		let up1_2 = new RegularMissileUpgrade(new MissileConfig(MissileUtils.MISSILE_STANDARD));
         up1_2.setParentEmitter(em1);
         up1_2.setFreq(300);
