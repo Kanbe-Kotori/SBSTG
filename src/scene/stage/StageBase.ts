@@ -19,6 +19,10 @@ abstract class StageBase extends PageBase {
         this._time = time;
     }
 
+    public getUniqueID() {
+        return this._uniqueStageID;
+    }
+
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
 
