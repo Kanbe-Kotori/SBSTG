@@ -7,15 +7,15 @@ class StageTemp extends StageBase {
 			0, Main.X,
 			Main.UPPER_Y, Main.Y * 0.5)
 		.setParentEmitter(em1)
-        .setFreq(300);
+        .setFreq(200);
 		let up1_2 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_STANDARD)
             )
         .setParentEmitter(em1)
-        .setFreq(300)
+        .setFreq(200)
         .setStartAngle(0)
         .setEndAngle(2)
-        .setNumber(24);
+        .setNumber(36);
 		let up1_3 = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_STANDARD)
                 .setVelocity(15)
@@ -23,7 +23,7 @@ class StageTemp extends StageBase {
                 .setTexture(TextureNames.MISSILE_RING)
             )
         .setParentEmitter(em1)
-		.setFreq(1000)
+		.setFreq(800)
         .setStartAngle(0.5)
         .setEndAngle(0.5);
     }

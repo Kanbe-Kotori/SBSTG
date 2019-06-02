@@ -1,19 +1,21 @@
 class RenderUpgrade extends EmitterUpgradeBase {
 
-    protected _size:number;
+    protected _texture_width:number;
+	protected _texture_height:number
     protected _texture:string;
 	protected _img:egret.Bitmap;
 
 	/** 
 	 * 构造一个发射器渲染升级。
 	 * 需要setParentEmitter。
-	 * 需要addChild。
+	 * 需要renderOnStage。
 	 * @param size 发射器图片大小
 	 * @param texture 发射器图片材质
 	 */
-	public constructor(size:number, texture:string) {
+	public constructor(texture:string, width:number, height:number) {
 		super();
-        this._size = size;
+        this._texture_width = width;
+		this._texture_height = height;
         this._texture = texture;
 		this._freq = 1000;
 		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
@@ -27,8 +29,8 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		this.x = this._parent_emitter.x;
 		this.y = this._parent_emitter.y;
 		this._img = MyUtils.createBitmapByName(this._texture);
-        this._img.width = this._size;
-        this._img.height = this._size;
+        this._img.width = this._texture_width;
+        this._img.height = this._texture_height;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
 		this._img.x = 0;
@@ -41,11 +43,6 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		this.parent.removeChild(this);
         super.setDead();
     }
-
-	public setSize(size:number) {
-		this._size = size;
-		return this;
-	}
 
 	public setTexture(texture:string) {
 		this._texture = texture;

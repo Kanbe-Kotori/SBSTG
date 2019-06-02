@@ -47,6 +47,7 @@ abstract class StageBase extends PageBase {
 
         SelfMachine.INSTANCE.currentStage = this;
         this.addChildAtLayer(SelfMachine.INSTANCE, DrawingLayer.SELF_MACHINE);
+        SelfMachine.INSTANCE.UNDEAD = true;
 
         this.initEmitters();
     }
@@ -133,6 +134,9 @@ abstract class StageBase extends PageBase {
     protected onMissileUpdate(event: egret.TimerEvent) {
         for(let i of this.arrayMissile) {
             i.onUpdate(event);
+        }
+        if (SelfMachine.INSTANCE.UNDEAD) {
+            return;
         }
         for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
             if (i.isCollide()) {

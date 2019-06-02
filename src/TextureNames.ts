@@ -5,8 +5,12 @@ class TextureNames {
 	
 	public static readonly MISSILE_STANDARD = "missile_standard_png";
 	public static readonly MISSILE_RING = "missile_ring_png";
-	public static readonly MISSILE_WATER = "missile_water_png";
-	public static readonly MISSILE_BIG_RED = "missile_big_red_png";
+	public static readonly MISSILE_BLUE = "missile_blue_png";
+	public static readonly MISSILE_RED = "missile_red_png";
+
+	public static readonly FLOWER1 = "flower1_png";
+	public static readonly FLOWER2 = "flower2_png";
+	public static readonly FLOWER3 = "flower3_png";
 
 	public static readonly BUTTON_NORMAL = "btn_normal_png";
 	public static readonly BUTTON_RETURN = "btn_return_png";

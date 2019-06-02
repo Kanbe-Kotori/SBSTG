@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,btn_return_png,btn_pause_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb_png,smjb2_png,smjb3_png,missile_ring_png,missile_water_png,popup_pause_png,btn_resume_png,popup_dead_png,btn_normal_png,popup_win_png,popup_info_png,smjb4_png,missile_big_red_png",
+			"keys": "description_json,self_machine_png,btn_return_png,btn_pause_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb3_png,missile_ring_png,popup_pause_png,btn_resume_png,popup_dead_png,btn_normal_png,popup_win_png,popup_info_png,missile_blue_png,flower1_png,flower2_png,flower3_png,missile_red_png,smjb5_png",
 			"name": "preload"
 		}
 	],
@@ -52,16 +52,6 @@
 			"url": "assets/missile_standard.png"
 		},
 		{
-			"name": "smjb_png",
-			"type": "image",
-			"url": "assets/smjb.png"
-		},
-		{
-			"name": "smjb2_png",
-			"type": "image",
-			"url": "assets/smjb2.png"
-		},
-		{
 			"name": "smjb3_png",
 			"type": "image",
 			"url": "assets/smjb3.png"
@@ -72,9 +62,9 @@
 			"url": "assets/missile_ring.png"
 		},
 		{
-			"name": "missile_water_png",
+			"name": "missile_red_png",
 			"type": "image",
-			"url": "assets/missile_water.png"
+			"url": "assets/missile_red.png"
 		},
 		{
 			"name": "popup_pause_png",
@@ -107,14 +97,29 @@
 			"url": "assets/popup_info.png"
 		},
 		{
-			"name": "smjb4_png",
+			"name": "missile_blue_png",
 			"type": "image",
-			"url": "assets/smjb4.png"
+			"url": "assets/missile_blue.png"
 		},
 		{
-			"name": "missile_big_red_png",
+			"name": "flower1_png",
 			"type": "image",
-			"url": "assets/missile_big_red.png"
+			"url": "assets/flower1.png"
+		},
+		{
+			"name": "flower2_png",
+			"type": "image",
+			"url": "assets/flower2.png"
+		},
+		{
+			"name": "flower3_png",
+			"type": "image",
+			"url": "assets/flower3.png"
+		},
+		{
+			"name": "smjb5_png",
+			"type": "image",
+			"url": "assets/smjb5.png"
 		}
 	]
 }

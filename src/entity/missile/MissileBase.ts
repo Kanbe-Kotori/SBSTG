@@ -6,6 +6,8 @@ abstract class MissileBase extends egret.Sprite {
     protected _vx = 0;
     protected _vy = 0;
 
+    protected _rotate_speed:number = 0;
+
     protected _img:egret.Bitmap;
 
     public constructor() {
@@ -15,6 +17,11 @@ abstract class MissileBase extends egret.Sprite {
 
     public setSize(size:number) {
         this._size = size;
+        return this;
+    }
+
+    public setRotate(rotate:number) {
+        this._rotate_speed = rotate;
         return this;
     }
 
@@ -49,6 +56,7 @@ abstract class MissileBase extends egret.Sprite {
     public onUpdate(event: egret.TimerEvent) {
         this._img.x += this._vx;
         this._img.y += this._vy;
+        this._img.rotation += this._rotate_speed;
         if (this.shouldSetDead()) {
             this.setDead();
         }

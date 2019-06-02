@@ -10,6 +10,7 @@ class SelfMachine extends egret.Sprite {
     private distance:egret.Point = new egret.Point();
 
     public currentStage:StageBase = null;
+    public UNDEAD:boolean = false;
 
     private constructor() {
         super();
