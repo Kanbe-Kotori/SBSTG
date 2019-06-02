@@ -47,7 +47,7 @@ class Win extends Popup {
 
 	public static click_restart(evt:egret.TouchEvent) {
         Win.INSTANCE.removeChildren();
-		Main.getMain().removeChild(Win.INSTANCE);
+        Win.INSTANCE.parent.removeChild(Win.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.restart();
 	}

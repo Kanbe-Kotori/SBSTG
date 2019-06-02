@@ -47,7 +47,7 @@ class Dead extends Popup {
 
 	public static click_restart(evt:egret.TouchEvent) {
         Dead.INSTANCE.removeChildren();
-		Main.getMain().removeChild(Dead.INSTANCE);
+        Dead.INSTANCE.parent.removeChild(Dead.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.restart();
 	}

@@ -13,10 +13,16 @@ abstract class StageBase extends PageBase {
 
     public state:StageState;
 
+    public containers = new Array<egret.DisplayObjectContainer>();
+
     protected constructor(id:string, time:number) {
         super("stage" + id);
         this._uniqueStageID = id;
         this._time = time;
+    }
+
+    public addChildAtLayer(container, layer) {
+        this.containers[layer].addChild(container);
     }
 
     public getUniqueID() {
@@ -25,6 +31,8 @@ abstract class StageBase extends PageBase {
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
+
+        this.state = StageState.BEFORE_RUNNING;
 
         this.arrayMissile = new Array<MissileBase>();
         this.arrayController = new Array<EmitterBase>();
@@ -36,20 +44,31 @@ abstract class StageBase extends PageBase {
 
         this.missile_timer = new egret.Timer(50, 0);
         this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
-        this.addChild(SelfMachine.INSTANCE);
 
-        this.state = StageState.BEFORE_RUNNING;
         SelfMachine.INSTANCE.currentStage = this;
+        this.addChildAtLayer(SelfMachine.INSTANCE, DrawingLayer.SELF_MACHINE);
 
-        //Main.getMain().addChild(Info.INSTANCE);
+        this.initEmitters();
+    }
+
+    protected abstract initEmitters();
+
+    public addMissile(missile:MissileBase) {
+        this.addChildAtLayer(missile, DrawingLayer.MISSILE);
+        this.arrayMissile.push(missile);
     }
 
     protected doRender() {
+        for (let i = 0; i <= 5; i++) {
+            this.containers[i] = new egret.DisplayObjectContainer();
+            this.addChildAt(this.containers[i], i);
+        }
+
         let sky = MyUtils.createBitmapByName(TextureNames.GAME_SKY);
-        this.addChild(sky);
         sky.width = Main.X;
         sky.height = Main.Y;
         sky.alpha = 1;
+        this.addChildAtLayer(sky, DrawingLayer.BACKGROUND);
 
         this.titleText = new egret.TextField();
         this.titleText.width = 1080;
@@ -62,7 +81,7 @@ abstract class StageBase extends PageBase {
         this.titleText.fontFamily = "KaiTi";
         this.titleText.textAlign = egret.HorizontalAlign.CENTER;
         this.titleText.verticalAlign = egret.VerticalAlign.BOTTOM;
-        this.addChild(this.titleText);
+        this.addChildAtLayer(this.titleText, DrawingLayer.CONTROL);
 
         this.timeText = new egret.TextField();
         this.timeText.width = 360;
@@ -74,23 +93,23 @@ abstract class StageBase extends PageBase {
         this.timeText.textColor = 0x000000;
         this.timeText.textAlign = egret.HorizontalAlign.CENTER;
         this.timeText.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this.addChild(this.timeText);
+        this.addChildAtLayer(this.timeText, DrawingLayer.CONTROL);
 
         let btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);
         btnPause.setAction(StageBase.click_pause);
-        this.addChild(btnPause);
+        this.addChildAtLayer(btnPause, DrawingLayer.CONTROL);
 
         let btnRestart = new Button(180, 180, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
         btnRestart.setAction(StageBase.click_restart);
-        this.addChild(btnRestart);
+        this.addChildAtLayer(btnRestart, DrawingLayer.CONTROL);
 
         let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
         btnReturn.setAction(StageBase.click_return);
-        this.addChild(btnReturn);
+        this.addChildAtLayer(btnReturn, DrawingLayer.CONTROL);
 
         let btnInfo = new Button(180, 180, new egret.Point(900, 1800), TextureNames.BUTTON_INFO);
         btnInfo.setAction(StageBase.click_info);
-        this.addChild(btnInfo);
+        this.addChildAtLayer(btnInfo, DrawingLayer.CONTROL);
     }
 
     protected onTimerUpdate(event: egret.TimerEvent) {
@@ -133,7 +152,7 @@ abstract class StageBase extends PageBase {
         }
         this.timer.stop();
         this.missile_timer.stop();
-        Main.getMain().addChild(Win.INSTANCE)
+        this.addChildAtLayer(Win.INSTANCE, DrawingLayer.POPUP)
     }
 
     public start() {
@@ -198,7 +217,7 @@ abstract class StageBase extends PageBase {
         }
         this.timer.stop();
         this.missile_timer.stop();
-        Main.getMain().addChild(Dead.INSTANCE);
+        this.addChildAtLayer(Dead.INSTANCE, DrawingLayer.POPUP);
     }
 
     public static click_pause(evt:egret.TouchEvent) {
@@ -207,7 +226,7 @@ abstract class StageBase extends PageBase {
             return;
         }
         current.pause();
-        Main.getMain().addChild(Pause.INSTANCE);
+        current.addChildAtLayer(Pause.INSTANCE, DrawingLayer.POPUP);
 	}
     	
     public static click_return(evt:egret.TouchEvent) {
@@ -228,7 +247,7 @@ abstract class StageBase extends PageBase {
             return;
         }
         current.pause();
-        Main.getMain().addChild(Info.INSTANCE);
+        current.addChildAtLayer(Info.INSTANCE, DrawingLayer.POPUP);
 	}
 
 }
@@ -238,4 +257,13 @@ enum StageState {
 	RUNNING,
 	PAUSING,
 	END
+}
+
+enum DrawingLayer {
+	BACKGROUND = 0,
+	CONTROL = 1,
+	EMITTER = 2,
+	SELF_MACHINE = 3,
+    MISSILE = 4,
+    POPUP = 5
 }

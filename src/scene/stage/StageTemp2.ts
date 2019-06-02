@@ -1,9 +1,7 @@
 class StageTemp2 extends StageBase {
     public static readonly INSTANCE:StageTemp2 = new StageTemp2("test2", 30);
 
-    protected onAddToStage(event:egret.Event) {
-        super.onAddToStage(event);
-
+    protected initEmitters() {
         let em1 = new EmptyEmitter();
         let up1_1 = new TeleportingUpgrade(
 			0, Main.X * 0.5,
@@ -33,7 +31,6 @@ class StageTemp2 extends StageBase {
         .setStartAngle(0)
         .setEndAngle(2)
         .setNumber(36);
-		this.addChild(em1);
 
         let em2 = new EmptyEmitter();
         let up2_1 = new TeleportingUpgrade(
@@ -67,7 +64,6 @@ class StageTemp2 extends StageBase {
         .setStartAngle(0)
         .setEndAngle(2)
         .setNumber(36);
-		this.addChild(em2);
     }
     
 }

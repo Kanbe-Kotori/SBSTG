@@ -11,7 +11,7 @@ class SniperUpgrade extends MissileUpgradeBase {
         let vx = v * dx / Math.sqrt(dx * dx + dy * dy)
         let vy = v * dy / Math.sqrt(dx * dx + dy * dy)
         let missile = this._conf.createMissile().setPos(point).setVelocity(vx, vy);
-        SelfMachine.INSTANCE.currentStage.addChild(missile);
+        SelfMachine.INSTANCE.currentStage.addMissile(missile);
     }
 
 }

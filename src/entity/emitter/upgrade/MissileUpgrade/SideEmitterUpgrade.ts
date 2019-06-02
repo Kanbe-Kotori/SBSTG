@@ -35,7 +35,7 @@ class SideEmitterUpgrade extends MissileUpgradeBase {
                             .setPos(point)
                             .setVelocity(v * Math.cos(theta), v * Math.sin(theta))
                             .setLRConn();
-            SelfMachine.INSTANCE.currentStage.addChild(missile);
+            SelfMachine.INSTANCE.currentStage.addMissile(missile);
         } while(++i < this._num);
     }
 

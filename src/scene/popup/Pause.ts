@@ -34,10 +34,15 @@ class Pause extends Popup {
     }
 
 	public static click_resume(evt:egret.TouchEvent) {
+        try {
         Pause.INSTANCE.removeChildren();
-		Main.getMain().removeChild(Pause.INSTANCE);
+        Pause.INSTANCE.parent.removeChild(Pause.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.resume();
+        }
+        catch (e) {
+            console.error(e);
+        }
     }
 
 	public static click_return(evt:egret.TouchEvent) {
@@ -50,7 +55,7 @@ class Pause extends Popup {
 
 	public static click_restart(evt:egret.TouchEvent) {
         Pause.INSTANCE.removeChildren();
-		Main.getMain().removeChild(Pause.INSTANCE);
+        Pause.INSTANCE.parent.removeChild(Pause.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
 		current.restart();
 	}

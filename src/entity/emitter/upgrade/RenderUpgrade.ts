@@ -62,4 +62,9 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		this.y = this._parent_emitter.y;
 	}
 
+	public renderOnStage(stage:StageBase) {
+		stage.addChildAtLayer(this, DrawingLayer.EMITTER);
+		return this;
+	}
+
 }

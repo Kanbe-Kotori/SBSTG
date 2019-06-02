@@ -50,7 +50,13 @@ class SelfMachine extends egret.Sprite {
     }
 
     private mouseMove(evt:egret.TouchEvent) {
-        if(this.isTouching && (this.currentStage.state == StageState.BEFORE_RUNNING || this.currentStage.state == StageState.RUNNING) ) {
+        if (this.currentStage == null || this.currentStage == undefined) {
+            return;
+        }
+        if (!(this.currentStage.state == StageState.BEFORE_RUNNING || this.currentStage.state == StageState.RUNNING)) {
+            return;
+        }
+        if(this.isTouching) {
             let ax = evt.stageX - this.distance.x; ax = Math.max(ax, SelfMachine.SIZE); ax = Math.min(ax, Main.X - SelfMachine.SIZE);
             let ay = evt.stageY - this.distance.y; ay = Math.max(ay, Main.UPPER_Y + SelfMachine.SIZE); ay = Math.min(ay, Main.BELOW_Y - SelfMachine.SIZE);
 

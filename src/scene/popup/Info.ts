@@ -37,7 +37,7 @@ class Info extends Popup {
 
 	public static click_start(evt:egret.TouchEvent) {
         Info.INSTANCE.removeChildren();
-		Main.getMain().removeChild(Info.INSTANCE);
+        Info.INSTANCE.parent.removeChild(Info.INSTANCE);
 		let current = SelfMachine.INSTANCE.currentStage;
         if (current.state == StageState.BEFORE_RUNNING || current.state == StageState.END) {
             current.restart();

@@ -53,9 +53,11 @@ class EmitterAroundPoint extends EmitterBase {
 	public randomTheta() {
 		this.shouldRanTheta = true;
 		this._theta = Math.random() * 2 * Math.PI;
+		return this;
 	}
 
 	public setClockwise(cw:boolean) {
 		this.clockwise = cw;
+		return this;
 	}
 }

@@ -36,7 +36,7 @@ abstract class MissileBase extends egret.Sprite {
     }
 
     protected onAddToStage(event:egret.Event) {
-        SelfMachine.INSTANCE.currentStage.arrayMissile.push(this);
+        //SelfMachine.INSTANCE.currentStage.arrayMissile.push(this);
         this.doRender();
     }
 
