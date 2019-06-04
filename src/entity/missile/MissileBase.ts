@@ -3,16 +3,22 @@ abstract class MissileBase extends egret.Sprite {
 	protected _size = 8;
     protected _texture = TextureNames.MISSILE_STANDARD;
 
+    protected _life:number;
+    protected _total_life = -1;
+
     protected _vx = 0;
     protected _vy = 0;
 
-    protected _rotate_speed:number = 0;
+    protected _handler:Array<MissileEventHandler> = [];
 
-    protected _img:egret.Bitmap;
+    public _img:egret.Bitmap;
 
     public constructor() {
         super();
+        this._life = 0;
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+        this.addEventListener(MissileEvent.TICK,this.SpecialLogic1,this);
+        this.addEventListener(MissileEvent.EDGE,this.SpecialLogic2,this);
     }
 
     public setSize(size:number) {
@@ -20,8 +26,17 @@ abstract class MissileBase extends egret.Sprite {
         return this;
     }
 
-    public setRotate(rotate:number) {
-        this._rotate_speed = rotate;
+    public getSize() {
+        return this._size;
+    }
+
+    public addHandler(handler:MissileEventHandler) {
+        this._handler.push(handler);
+        return this;
+    }
+
+    public setHandlerArray(handlers:Array<MissileEventHandler>) {
+        this._handler = handlers;
         return this;
     }
 
@@ -42,6 +57,10 @@ abstract class MissileBase extends egret.Sprite {
         return this;
     }
 
+    public getLife() {
+        return this._life;
+    }
+
     protected onAddToStage(event:egret.Event) {
         //SelfMachine.INSTANCE.currentStage.arrayMissile.push(this);
         this.doRender();
@@ -54,12 +73,41 @@ abstract class MissileBase extends egret.Sprite {
      * 子弹tick时间通常为50ms。
      */
     public onUpdate(event: egret.TimerEvent) {
+        this._life++;
         this._img.x += this._vx;
         this._img.y += this._vy;
-        this._img.rotation += this._rotate_speed;
+        if (this.hasSpecialLogic(TickEventHandler)) {
+            let event = new MissileTickEvent();
+            this.dispatchEvent(event);
+        }
         if (this.shouldSetDead()) {
             this.setDead();
         }
+    }
+
+    public SpecialLogic1(event: MissileTickEvent) {
+        for (let i of this._handler) {
+            if (i instanceof TickEventHandler) {
+                i.trigger(this);
+            }
+        }
+    }
+
+    public SpecialLogic2(event: MissileEdgeEvent) {
+        for (let i of this._handler) {
+            if (i instanceof EdgeEventHandler) {
+                i.trigger(this);
+            }
+        }
+    }
+    
+    protected hasSpecialLogic(type):boolean {
+        for (let i of this._handler) {
+            if (i instanceof type) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -90,4 +138,17 @@ abstract class MissileBase extends egret.Sprite {
      * 检测该子弹是否与自机碰撞，自机对象从instance获取
      */
     public abstract isCollide():boolean;
+
+    public getEdge():Side {
+        if (this.getY() < Main.UPPER_Y) {
+            return Side.TOP;
+        } else if (this.getY() > Main.BELOW_Y) {
+            return Side.BOTTOM;
+        } else if (this.getX() < 0) {
+            return Side.LEFT;
+        } else if (this.getX() > Main.X) {
+            return Side.RIGHT;
+        }
+        return null;
+    }
 }

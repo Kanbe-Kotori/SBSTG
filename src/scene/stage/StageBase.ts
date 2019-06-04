@@ -47,7 +47,7 @@ abstract class StageBase extends PageBase {
 
         SelfMachine.INSTANCE.currentStage = this;
         this.addChildAtLayer(SelfMachine.INSTANCE, DrawingLayer.SELF_MACHINE);
-        SelfMachine.INSTANCE.UNDEAD = true;
+        //SelfMachine.INSTANCE.UNDEAD = true;
 
         this.initEmitters();
     }

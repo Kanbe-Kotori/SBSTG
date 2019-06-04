@@ -1,16 +1,14 @@
 class StandardMissile extends MissileBase {
 
-
-    //如果从左边出去，就从右边飞回来
-    protected isLRConn = false;
-
     protected shouldSetDead() {
-        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y) {
-            return true;
-        }
-        
-        if (this.getX() < 0 || this.getX() > SelfMachine.INSTANCE.currentStage.width) {
-            return !this.isLRConn;
+        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y || this.getX() < 0 || this.getX() > SelfMachine.INSTANCE.currentStage.width) {
+            if (!this.hasSpecialLogic(EdgeEventHandler)) {
+                return true;
+            } else {
+                let event:MissileEdgeEvent = new MissileEdgeEvent();
+                this.dispatchEvent(event);
+                return false;
+            }
         }
         return false;
     }
@@ -33,23 +31,6 @@ class StandardMissile extends MissileBase {
             return true;
         }
         return false;
-    }
-
-    public onUpdate(event: egret.TimerEvent) {
-       super.onUpdate(event);
-       if (!this.isLRConn) {
-           return;
-       }
-	   if (this.getX() < 0) {
-		   this._img.x += SelfMachine.INSTANCE.currentStage.width;
-	   } else if(this.getX() > SelfMachine.INSTANCE.currentStage.width) {
-           this._img.x += SelfMachine.INSTANCE.currentStage.width;
-       }
-    }
-
-    public setLRConn() {
-        this.isLRConn = true;
-        return this;
     }
 
 }

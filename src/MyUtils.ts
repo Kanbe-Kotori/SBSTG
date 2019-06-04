@@ -21,3 +21,7 @@ class MyUtils {
     }
 
 }
+
+enum Side {
+    TOP, BOTTOM, LEFT, RIGHT
+}

@@ -9,13 +9,23 @@ class StageTemp2 extends StageBase {
 		.setParentEmitter(em1)
         .setFreq(800);
 		let up1_2 = new RegularMissileUpgrade(
-			new MissileConfig(MissileUtils.MISSILE_VARIABLE_SIZED)
+			new MissileConfig(MissileUtils.MISSILE_STANDARD)
 				.setSize(320)
 				.setVelocity(18)
 				.setTexture("smjb5_png")
-				.setExtraPara(MissileUtils.SIZE_FINAL_PARA, 64)
-				.setExtraPara(MissileUtils.SIZE_CHANGE_PARA, 64)
-                .setRotate(9)
+                .addHandler(
+                    new TickEventHandler(
+                        function(missile:MissileBase) {
+                            let size = Math.max(missile.getSize() - 3.2, 64);
+                            missile.setSize(size);
+                            missile._img.width = 2 * size;
+		                    missile._img.height = 2 * size;
+		                    missile._img.anchorOffsetX = size;
+                            missile._img.anchorOffsetY = size;
+                            missile._img.rotation += 9;
+                        })
+                    .setStartTicks(0)
+                    .setDurationTicks(80))
 			)
         .setParentEmitter(em1)
         .setFreq(800)
@@ -42,13 +52,23 @@ class StageTemp2 extends StageBase {
         .setFreq(800)
         .setDelay(400);
 		let up2_2 = new RegularMissileUpgrade(
-			new MissileConfig(MissileUtils.MISSILE_VARIABLE_SIZED)
+			new MissileConfig(MissileUtils.MISSILE_STANDARD)
 				.setSize(320)
 				.setVelocity(16)
 				.setTexture("smjb5_png")
-				.setExtraPara(MissileUtils.SIZE_FINAL_PARA, 64)
-				.setExtraPara(MissileUtils.SIZE_CHANGE_PARA, 64)
-                .setRotate(-9)
+				.addHandler(
+                    new TickEventHandler(
+                        function(missile:MissileBase) {
+                            let size = Math.max(missile.getSize() - 3.2, 64);
+                            missile.setSize(size);
+                            missile._img.width = 2 * size;
+		                    missile._img.height = 2 * size;
+		                    missile._img.anchorOffsetX = size;
+                            missile._img.anchorOffsetY = size;
+                            missile._img.rotation -= 9;
+                        })
+                    .setStartTicks(0)
+                    .setDurationTicks(80))
 			)
         .setParentEmitter(em2)
         .setFreq(800)
