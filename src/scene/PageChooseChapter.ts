@@ -21,6 +21,9 @@ class PageChooseChapter extends PageBase {
         for (let i of this.arrayButton) {
 			this.addChild(i);
 		}
+        let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        btnReturn.setAction(PageChooseChapter.click_return);
+        this.addChild(btnReturn);
     }
 
     public addChapter(chapter:PageChapter, name:string, point:egret.Point) {
@@ -37,5 +40,11 @@ class PageChooseChapter extends PageBase {
 		};
         return func;
 	}
+
+    public static click_return(evt:egret.TouchEvent) {
+        PageChooseChapter.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(PageMain.INSTANCE);
+    }
     
 }

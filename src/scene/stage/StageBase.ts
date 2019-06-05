@@ -55,12 +55,13 @@ abstract class StageBase extends PageBase {
     protected abstract initEmitters();
 
     public addMissile(missile:MissileBase) {
-        this.addChildAtLayer(missile, DrawingLayer.MISSILE);
+        let layer = missile.isBottomLayer? DrawingLayer.BOTTOM_MISSILE : DrawingLayer.UPPER_MISSILE;
+        this.addChildAtLayer(missile, layer);
         this.arrayMissile.push(missile);
     }
 
     protected doRender() {
-        for (let i = 0; i <= 5; i++) {
+        for (let i = 0; i <= 6; i++) {
             this.containers[i] = new egret.DisplayObjectContainer();
             this.addChildAt(this.containers[i], i);
         }
@@ -267,7 +268,8 @@ enum DrawingLayer {
 	BACKGROUND = 0,
 	CONTROL = 1,
 	EMITTER = 2,
-	SELF_MACHINE = 3,
-    MISSILE = 4,
-    POPUP = 5
+    BOTTOM_MISSILE = 3,
+	SELF_MACHINE = 4,
+    UPPER_MISSILE = 5,
+    POPUP = 6
 }

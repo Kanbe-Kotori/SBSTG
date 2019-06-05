@@ -16,16 +16,17 @@ class StageTemp2 extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         function(missile:MissileBase) {
-                            let size = Math.max(missile.getSize() - 3.2, 64);
+                            let size = Math.max(missile.getSize() - 3, 64);
                             missile.setSize(size);
                             missile._img.width = 2 * size;
 		                    missile._img.height = 2 * size;
 		                    missile._img.anchorOffsetX = size;
                             missile._img.anchorOffsetY = size;
                             missile._img.rotation += 9;
-                        })
-                    .setStartTicks(0)
-                    .setDurationTicks(80))
+                        }
+                    )
+                )
+                .setBottomLayer()
 			)
         .setParentEmitter(em1)
         .setFreq(800)
@@ -40,6 +41,7 @@ class StageTemp2 extends StageBase {
         )
         .setParentEmitter(em1)
         .setFreq(400)
+        .setDelay(400)
         .setStartAngle(0)
         .setEndAngle(2)
         .setNumber(36);
@@ -59,16 +61,17 @@ class StageTemp2 extends StageBase {
 				.addHandler(
                     new TickEventHandler(
                         function(missile:MissileBase) {
-                            let size = Math.max(missile.getSize() - 3.2, 64);
+                            let size = Math.max(missile.getSize() - 3, 64);
                             missile.setSize(size);
                             missile._img.width = 2 * size;
 		                    missile._img.height = 2 * size;
 		                    missile._img.anchorOffsetX = size;
                             missile._img.anchorOffsetY = size;
                             missile._img.rotation -= 9;
-                        })
-                    .setStartTicks(0)
-                    .setDurationTicks(80))
+                        }
+                    )
+                )
+                .setBottomLayer()
 			)
         .setParentEmitter(em2)
         .setFreq(800)
@@ -84,7 +87,7 @@ class StageTemp2 extends StageBase {
         )
         .setParentEmitter(em2)
         .setFreq(400)
-        .setDelay(400)
+        .setDelay(800)
         .setStartAngle(0)
         .setEndAngle(2)
         .setNumber(36);

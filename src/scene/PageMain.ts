@@ -2,8 +2,6 @@ class PageMain extends PageBase {
 
     public static readonly INSTANCE:PageMain = new PageMain();
 
-    private btnStart:Button;
-
     protected constructor() {
         super("main_page");
     }
@@ -19,15 +17,25 @@ class PageMain extends PageBase {
         sky.alpha = 1;
         this.addChild(sky);
 
-        this.btnStart = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y/1.5), TextureNames.BUTTON_NORMAL, "开始游戏");
-        this.btnStart.setAction(this.onClick);
-        this.addChild(this.btnStart);
+        let btnStart = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.55), TextureNames.BUTTON_NORMAL, "开始游戏");
+        btnStart.setAction(PageMain.click_start);
+        this.addChild(btnStart);
+
+        let btnHelp = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.75), TextureNames.BUTTON_NORMAL, "帮助");
+        btnHelp.setAction(PageMain.click_help);
+        this.addChild(btnHelp);
     }
 
-    protected onClick(evt:egret.TouchEvent) {
+    public static click_start(evt:egret.TouchEvent) {
         PageMain.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(PageChooseChapter.INSTANCE);
+    }
+
+    public static click_help(evt:egret.TouchEvent) {
+        PageMain.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(PageHelp.INSTANCE);
     }
     
 }

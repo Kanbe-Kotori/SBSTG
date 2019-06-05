@@ -1,10 +1,10 @@
 abstract class PageBase extends egret.DisplayObjectContainer {
 
-    protected readonly _name:string;
+    protected readonly _page_name:string;
 
 	protected constructor(name:string) {
         super();
-        this._name = name;
+        this._page_name = name;
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
     }
 
@@ -17,7 +17,7 @@ abstract class PageBase extends egret.DisplayObjectContainer {
     protected abstract doRender();
 
     public getName() {
-        return this._name;
+        return this._page_name;
     }
 
 }

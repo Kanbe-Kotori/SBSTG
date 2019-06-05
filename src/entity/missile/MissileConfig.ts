@@ -5,6 +5,7 @@ class MissileConfig {
 	private _size = 8;
 	private _extra_para:number[] = [];
     protected _handler:Array<MissileEventHandler> = [];
+	private isBottomLayer = false;
 
 	public constructor(type:string) {
 		this._type = type;
@@ -19,6 +20,12 @@ class MissileConfig {
         this._velocity = velocity;
 		return this;
     }
+
+	public setBottomLayer() {
+        this.isBottomLayer = true;
+		return this;
+    }
+
 
 	public addHandler(handler:MissileEventHandler) {
         this._handler.push(handler);
@@ -48,7 +55,7 @@ class MissileConfig {
 	public createMissile() {
 		switch(this._type) {
 			case MissileUtils.MISSILE_STANDARD:
-				return new StandardMissile().setSize(this._size).setTexture(this._texture).setHandlerArray(this._handler);
+				return new StandardMissile().setSize(this._size).setTexture(this._texture).setHandlerArray(this._handler).setBottomLayer(this.isBottomLayer);
 			default:
 				return null;
 		}

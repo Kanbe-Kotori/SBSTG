@@ -20,6 +20,15 @@ class MyUtils {
         }
     }
 
+    public static removeFromArray(object:any, array:Array<any>) {
+        for (let i: number = 0; i < array.length; i++) {
+			if (array[i] == object) {
+				array.splice(i, 1);
+				break;
+			}
+		}
+    }
+
 }
 
 enum Side {

@@ -12,6 +12,7 @@ abstract class MissileBase extends egret.Sprite {
     protected _handler:Array<MissileEventHandler> = [];
 
     public _img:egret.Bitmap;
+    public isBottomLayer = false;
 
     public constructor() {
         super();
@@ -61,6 +62,11 @@ abstract class MissileBase extends egret.Sprite {
         return this._life;
     }
 
+    public setBottomLayer(bool:boolean) {
+        this.isBottomLayer = bool;
+		return this;
+    }
+
     protected onAddToStage(event:egret.Event) {
         //SelfMachine.INSTANCE.currentStage.arrayMissile.push(this);
         this.doRender();
@@ -79,6 +85,15 @@ abstract class MissileBase extends egret.Sprite {
         if (this.hasSpecialLogic(TickEventHandler)) {
             let event = new MissileTickEvent();
             this.dispatchEvent(event);
+        }
+        if (this._handler.length > 0) {
+            let clone = this._handler.slice(0);
+            for (let i: number = 0; i < this._handler.length; i++) {
+			    if (this._handler[i].shouldSetDead()) {
+                    MyUtils.removeFromArray(this._handler[i], clone);
+			    }
+		    }
+            this._handler = clone;
         }
         if (this.shouldSetDead()) {
             this.setDead();
@@ -118,12 +133,7 @@ abstract class MissileBase extends egret.Sprite {
     public setDead() {
         this.removeChildren();
         this.parent.removeChild(this);
-        for (let i: number = 0; i < SelfMachine.INSTANCE.currentStage.arrayMissile.length; i++) {
-			if (SelfMachine.INSTANCE.currentStage.arrayMissile[i] == this) {
-				SelfMachine.INSTANCE.currentStage.arrayMissile.splice(i, 1);
-				break;
-			}
-		}
+        MyUtils.removeFromArray(this, SelfMachine.INSTANCE.currentStage.arrayMissile);
     }
 
     public getX() {
