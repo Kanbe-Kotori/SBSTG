@@ -18,6 +18,14 @@ class RegularMissileUpgrade extends MissileUpgradeBase {
         return this;
     }
 
+    public getStartAngle() {
+        return this._ang1;
+    }
+
+    public getEndAngle() {
+        return this._ang2;
+    }
+
     public setNumber(num:number) {
         this._num = num;
         return this;

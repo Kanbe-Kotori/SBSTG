@@ -26,7 +26,6 @@ class MissileConfig {
 		return this;
     }
 
-
 	public addHandler(handler:MissileEventHandler) {
         this._handler.push(handler);
         return this;
@@ -55,7 +54,10 @@ class MissileConfig {
 	public createMissile() {
 		switch(this._type) {
 			case MissileUtils.MISSILE_STANDARD:
-				return new StandardMissile().setSize(this._size).setTexture(this._texture).setHandlerArray(this._handler).setBottomLayer(this.isBottomLayer);
+				let missile = new StandardMissile().setSize(this._size).setTexture(this._texture).setBottomLayer(this.isBottomLayer);
+				for (let i of this._handler)
+					missile.addHandler(i.clone());
+				return missile;
 			default:
 				return null;
 		}

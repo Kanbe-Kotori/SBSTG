@@ -11,5 +11,9 @@ class TickEventHandler extends MissileEventHandler {
 		let tick = missile.getLife();
 		return tick >= this._startTicks && this.triggerTimes != 0;
 	}
+
+	public clone() {
+		return new TickEventHandler(this._func).setTriggerTimes(this.triggerTimes);
+	}
 	
 }

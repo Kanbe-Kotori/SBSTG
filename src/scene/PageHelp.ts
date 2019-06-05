@@ -34,9 +34,9 @@ class PageHelp extends PageBase {
         this.addChild(this.titleText);
 
 		this.contentText = new egret.TextField();
-        this.contentText.width = 1080;
+        this.contentText.width = 1000;
         this.contentText.height = 1440;
-        this.contentText.x = 0;
+        this.contentText.x = 40;
         this.contentText.y = 240;
         this.contentText.size = 48;
         this.contentText.text = TextHelper.help_text;

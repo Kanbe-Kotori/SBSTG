@@ -24,7 +24,7 @@ class StageTemp2 extends StageBase {
                             missile._img.anchorOffsetY = size;
                             missile._img.rotation += 9;
                         }
-                    )
+                    ).setTriggerTimes(100)
                 )
                 .setBottomLayer()
 			)
@@ -69,7 +69,7 @@ class StageTemp2 extends StageBase {
                             missile._img.anchorOffsetY = size;
                             missile._img.rotation -= 9;
                         }
-                    )
+                    ).setTriggerTimes(100)
                 )
                 .setBottomLayer()
 			)

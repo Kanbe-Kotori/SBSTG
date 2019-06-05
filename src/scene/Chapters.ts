@@ -11,6 +11,7 @@ class Chapters {
 		Chapter1.addStage(Stage1_1.INSTANCE, "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		Chapter1.addStage(Stage1_2.INSTANCE, "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		Chapter1.addStage(Stage1_3.INSTANCE, "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		Chapter1.addStage(Stage1_4.INSTANCE, "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 
 		Chapter2.addStage(Stage2_1.INSTANCE, "第一节", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		Chapter2.addStage(StageTemp.INSTANCE, "Test", new egret.Point(Main.X * 0.5, Main.Y * 0.5));

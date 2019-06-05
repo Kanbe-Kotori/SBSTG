@@ -18,8 +18,9 @@ class Stage2_1 extends StageBase {
                             } else {
                                 missile.setDead();
                             }
-                        })
+                        }
                     )
+                )
             )
         .setFreq(250)
         .setStartAngle(0.45)

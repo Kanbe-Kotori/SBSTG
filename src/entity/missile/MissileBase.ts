@@ -36,11 +36,6 @@ abstract class MissileBase extends egret.Sprite {
         return this;
     }
 
-    public setHandlerArray(handlers:Array<MissileEventHandler>) {
-        this._handler = handlers;
-        return this;
-    }
-
     public setTexture(texture:string) {
         this._texture = texture;
         return this;
