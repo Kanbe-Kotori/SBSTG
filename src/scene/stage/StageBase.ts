@@ -19,6 +19,7 @@ abstract class StageBase extends PageBase {
         super("stage" + id);
         this._uniqueStageID = id;
         this._time = time;
+        Chapters.registerStage(this._uniqueStageID, this);
     }
 
     public addChildAtLayer(container, layer) {
@@ -97,19 +98,19 @@ abstract class StageBase extends PageBase {
         this.timeText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChildAtLayer(this.timeText, DrawingLayer.CONTROL);
 
-        let btnPause = new Button(180, 180, new egret.Point(180, 1800), TextureNames.BUTTON_PAUSE);
+        let btnPause = new Button(180, 180, new egret.Point(180, 1800)).setTexture(TextureNames.BUTTON_PAUSE);
         btnPause.setAction(StageBase.click_pause);
         this.addChildAtLayer(btnPause, DrawingLayer.CONTROL);
 
-        let btnRestart = new Button(180, 180, new egret.Point(420, 1800), TextureNames.BUTTON_RESTART);
+        let btnRestart = new Button(180, 180, new egret.Point(420, 1800)).setTexture(TextureNames.BUTTON_RESTART);
         btnRestart.setAction(StageBase.click_restart);
         this.addChildAtLayer(btnRestart, DrawingLayer.CONTROL);
 
-        let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(StageBase.click_return);
         this.addChildAtLayer(btnReturn, DrawingLayer.CONTROL);
 
-        let btnInfo = new Button(180, 180, new egret.Point(900, 1800), TextureNames.BUTTON_INFO);
+        let btnInfo = new Button(180, 180, new egret.Point(900, 1800)).setTexture(TextureNames.BUTTON_INFO);
         btnInfo.setAction(StageBase.click_info);
         this.addChildAtLayer(btnInfo, DrawingLayer.CONTROL);
     }
@@ -141,7 +142,7 @@ abstract class StageBase extends PageBase {
         }
         for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
             if (i.isCollide()) {
-                console.log("nisile");
+                //console.log("nisile");
                 this.dead();
                 break;
             }
@@ -150,7 +151,7 @@ abstract class StageBase extends PageBase {
     }
 
     protected win() {
-        //TODO:LocalStorage
+        LocalData.setStage(this._uniqueStageID, STAGE_DATA.PASSED);
         this.state = StageState.END;
         for (let i of this.arrayController) {
             i.stop();

@@ -19,15 +19,15 @@ class Win extends Popup {
         this._img.y = Main.Y/2;
         this.addChild(this._img);
 
-		let btnRestart = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESTART);
+        let btnRestart = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_RESTART);
         btnRestart.setAction(Win.click_restart);
         this.addChild(btnRestart);
 
-		let btnInfo = new Button(120, 120, new egret.Point(540, 1140), TextureNames.BUTTON_INFO);
+        let btnInfo = new Button(120, 120, new egret.Point(540, 1140)).setTexture(TextureNames.BUTTON_INFO);
         btnInfo.setAction(Win.click_info);
         this.addChild(btnInfo);
 
-		let btnReturn = new Button(120, 120, new egret.Point(720, 1140), TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(120, 120, new egret.Point(720, 1140)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(Win.click_return);
         this.addChild(btnReturn);
         

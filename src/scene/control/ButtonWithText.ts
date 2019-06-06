@@ -3,10 +3,10 @@ class ButtonWithText extends Button {
 	protected _text:string;
 	protected textfield:egret.TextField;
 
-    protected _color = 0xFFFFFF
+    protected _color = 0xFFFFFF;
 
-	public constructor(width:number, height:number, pos:egret.Point, texture:string, text:string) {
-		super(width, height, pos, texture);
+	public constructor(width:number, height:number, pos:egret.Point, text:string) {
+		super(width, height, pos);
 		this._text = text;
 	}
 

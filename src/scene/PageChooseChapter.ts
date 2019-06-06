@@ -21,13 +21,13 @@ class PageChooseChapter extends PageBase {
         for (let i of this.arrayButton) {
 			this.addChild(i);
 		}
-        let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(PageChooseChapter.click_return);
         this.addChild(btnReturn);
     }
 
     public addChapter(chapter:PageChapter, name:string, point:egret.Point) {
-		let button = new ButtonWithText(550, 150, point, TextureNames.BUTTON_NORMAL, name);
+		let button = new ButtonWithText(550, 150, point, name);
         button.setAction(PageChooseChapter.createFunc(chapter));
 		this.arrayButton.push(button);
     }

@@ -4,8 +4,8 @@ class Stage2_1 extends StageBase {
     protected initEmitters() {
         let rain = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_STANDARD)
-                .setVelocity(15)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 20)
+                .setVelocity(14)
+                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 18)
                 .setTexture(TextureNames.MISSILE_BLUE)
                 .addHandler(
                     new EdgeEventHandler(
@@ -23,8 +23,8 @@ class Stage2_1 extends StageBase {
                 )
             )
         .setFreq(250)
-        .setStartAngle(0.45)
-        .setEndAngle(0.55)
+        .setStartAngle(0.4)
+        .setEndAngle(0.6)
         .setNumber(10);
     }
 

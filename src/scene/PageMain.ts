@@ -17,11 +17,11 @@ class PageMain extends PageBase {
         sky.alpha = 1;
         this.addChild(sky);
 
-        let btnStart = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.55), TextureNames.BUTTON_NORMAL, "开始游戏");
+        let btnStart = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.55), "开始游戏");
         btnStart.setAction(PageMain.click_start);
         this.addChild(btnStart);
 
-        let btnHelp = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.75), TextureNames.BUTTON_NORMAL, "帮助");
+        let btnHelp = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.75), "帮助");
         btnHelp.setAction(PageMain.click_help);
         this.addChild(btnHelp);
     }

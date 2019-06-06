@@ -1,6 +1,7 @@
 class PageChapter extends PageBase {
 
-	private arrayButton:Array<Button> = new Array<Button>();
+	//private arrayButton:Array<Button> = new Array<Button>();
+    private _stage_map:{[index:string]:Button} = {};
     private _chapter_name:string;
 
     protected titleText:egret.TextField;
@@ -31,20 +32,26 @@ class PageChapter extends PageBase {
         this.titleText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.titleText);
 
-		for (let i of this.arrayButton) {
-			this.addChild(i);
+		for (let i in this._stage_map) {
+            let button = this._stage_map[i];
+            button.setAction(PageChapter.createFunc(Chapters.getStage(i), this));
+            if (LocalData.getStage(i) == STAGE_DATA.PASSED) {
+                button.setTexture(TextureNames.MISSILE_STANDARD);   //暂用
+            }
+            this.addChild(button);
 		}
 
-        let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(PageChapter.click_return);
         this.addChild(btnReturn);
     }
 
-    public addStage(stage:StageBase, name:string, point:egret.Point) {
-		let button = new ButtonWithText(160, 160, point, TextureNames.MISSILE_RING, name);
+    public addStage(stage_id:string, button_text:string, point:egret.Point) {
+        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.MISSILE_RING);
         button.setColor(0x000000);
-        button.setAction(PageChapter.createFunc(stage, this));
-		this.arrayButton.push(button);
+        this._stage_map[stage_id] = button;
+        //button.setAction(PageChapter.createFunc(stage, this));
+		//this.arrayButton.push(button);
     }
 
 	public static createFunc(stage:StageBase, chapter:PageChapter) {

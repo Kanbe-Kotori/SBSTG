@@ -2,7 +2,7 @@ class Button extends egret.Sprite {
 
 	protected _width:number;
 	protected _height:number;
-	protected _texture:string;
+	protected _texture:string = TextureNames.BUTTON_NORMAL;
 	protected _pos:egret.Point;
 	protected _action:Function;
 
@@ -15,17 +15,21 @@ class Button extends egret.Sprite {
 	 * @param pos 按钮中心坐标
 	 * @param texture 按钮材质名称
 	 */
-	public constructor(width:number, height:number, pos:egret.Point, texture:string) {
+	public constructor(width:number, height:number, pos:egret.Point) {
 		super();
 		this._width = width;
 		this._height = height;
 		this._pos = pos;
-		this._texture = texture;
 		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
 	}
 
 	public setAction(action:Function) {
 		this._action = action;
+	}
+
+	public setTexture(texture:string) {
+		this._texture = texture;
+		return this;
 	}
 
 	protected onAddToStage(event:egret.Event) {

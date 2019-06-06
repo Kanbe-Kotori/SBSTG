@@ -22,7 +22,7 @@ class Info extends Popup {
         let current = SelfMachine.INSTANCE.currentStage;
         //TODO 根据current绘制Info图像
 
-		let btnStart = new Button(120, 120, new egret.Point(540, 1240), TextureNames.BUTTON_RESUME);
+        let btnStart = new Button(120, 120, new egret.Point(540, 1240)).setTexture(TextureNames.BUTTON_RESUME);
         btnStart.setAction(Info.click_start);
         this.addChild(btnStart);
     }

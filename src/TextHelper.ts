@@ -14,6 +14,7 @@ class TextHelper {
 		TextHelper.stageName["1-3"] = "自机狙进阶";
 		TextHelper.stageName["1-4"] = "还是自机狙";
 		TextHelper.stageName["2-1"] = "雨";
+		TextHelper.stageName["2-2"] = "大雨";
 		TextHelper.stageName["test"] = "流矢";
 		TextHelper.stageName["test2"] = "耀斑";
 	}

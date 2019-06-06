@@ -19,15 +19,15 @@ class Pause extends Popup {
         this._img.y = Main.Y/2;
         this.addChild(this._img);
 
-		let btnResume = new Button(120, 120, new egret.Point(360, 1140), TextureNames.BUTTON_RESUME);
+        let btnResume = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_RESUME);
         btnResume.setAction(Pause.click_resume);
         this.addChild(btnResume);
 
-		let btnRestart = new Button(120, 120, new egret.Point(540, 1140), TextureNames.BUTTON_RESTART);
+        let btnRestart = new Button(120, 120, new egret.Point(540, 1140)).setTexture(TextureNames.BUTTON_RESTART);
         btnRestart.setAction(Pause.click_restart);
         this.addChild(btnRestart);
 
-		let btnReturn = new Button(120, 120, new egret.Point(720, 1140), TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(120, 120, new egret.Point(720, 1140)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(Pause.click_return);
         this.addChild(btnReturn);
         

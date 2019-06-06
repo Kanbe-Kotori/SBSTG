@@ -10,8 +10,8 @@ class LocalData {
 		}
 	}
 
-	public static getStage(stg:StageBase) {
-		let str = "stage" + stg.getUniqueID();
+	public static getStage(stage_id:string):STAGE_DATA {
+		let str = "stage" + stage_id;
 		switch (egret.localStorage.getItem(str)) {
 			case LocalData.PASSED:
 				return STAGE_DATA.PASSED;
@@ -21,6 +21,24 @@ class LocalData {
 			default:
 				return STAGE_DATA.NOT_PASSED;
 		}
+	}
+
+	private static getStr(data:STAGE_DATA) {
+		switch (data) {
+			case STAGE_DATA.NOT_PASSED:
+				return LocalData.NOT_PASSED;
+			case STAGE_DATA.SKIPPED:
+				return LocalData.SKIPPED;
+			case STAGE_DATA.PASSED:
+				return LocalData.PASSED;
+			default:
+				return null;
+		}
+	}
+
+	public static setStage(stage_id:string, data:STAGE_DATA) {
+		let str = "stage" + stage_id;
+		egret.localStorage.setItem(str, LocalData.getStr(data));
 	}
 }
 

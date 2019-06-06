@@ -46,7 +46,7 @@ class PageHelp extends PageBase {
         this.contentText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.contentText);
 
-        let btnReturn = new Button(180, 180, new egret.Point(660, 1800), TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(PageChooseChapter.click_return);
         this.addChild(btnReturn);
     }

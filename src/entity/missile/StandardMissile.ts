@@ -1,7 +1,7 @@
 class StandardMissile extends MissileBase {
 
     protected shouldSetDead() {
-        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y || this.getX() < 0 || this.getX() > SelfMachine.INSTANCE.currentStage.width) {
+        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y || this.getX() < 0 || this.getX() > Main.X) {
             if (!this.hasSpecialLogic(EdgeEventHandler)) {
                 return true;
             } else {
