@@ -5,7 +5,7 @@ class Stage1_3 extends StageBase {
 
         let point1 = new egret.Point(540, 600);
         let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER3, 200, 200).setParentEmitter(em1).renderOnStage(this);
+        let up1_1 = new RenderUpgrade(TextureNames.FLOWER3, 200, 320).setParentEmitter(em1).renderOnStage(this);
         let up1_2 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_STANDARD)
                 .setTexture(TextureNames.MISSILE_BLUE)

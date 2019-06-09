@@ -6,7 +6,9 @@ class TextureNames {
 	public static readonly MISSILE_STANDARD = "missile_standard_png";
 	public static readonly MISSILE_RING = "missile_ring_png";
 	public static readonly MISSILE_BLUE = "missile_blue_png";
+	public static readonly MISSILE_GREEN = "missile_green_png";
 	public static readonly MISSILE_RED = "missile_red_png";
+	public static readonly MISSILE_LIANZI = "missile_lianzi_png";
 
 	public static readonly FLOWER1 = "flower1_png";
 	public static readonly FLOWER2 = "flower2_png";
@@ -23,6 +25,8 @@ class TextureNames {
 	public static readonly POPUP_DEAD = "popup_dead_png";
 	public static readonly POPUP_INFO = "popup_info_png";
 	public static readonly POPUP_WIN = "popup_win_png";
+	
+	public static readonly CHAPTER_FINISH = "chapter_finish_png";
 
 	public static readonly SELF_MACHINE = "self_machine_png";
 

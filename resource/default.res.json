@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,btn_return_png,btn_pause_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb3_png,missile_ring_png,popup_pause_png,btn_resume_png,popup_dead_png,btn_normal_png,popup_win_png,popup_info_png,missile_blue_png,flower1_png,flower2_png,flower3_png,missile_red_png,smjb5_png",
+			"keys": "description_json,self_machine_png,btn_return_png,btn_pause_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb3_png,missile_ring_png,popup_pause_png,btn_resume_png,popup_dead_png,btn_normal_png,popup_win_png,popup_info_png,missile_blue_png,flower1_png,flower2_png,flower3_png,missile_red_png,smjb5_png,missile_green_png,zidan_huaban1_png,zidan_huaban2_png,zidan_huaban3_png,chapter_finish_png",
 			"name": "preload"
 		}
 	],
@@ -120,6 +120,31 @@
 			"name": "smjb5_png",
 			"type": "image",
 			"url": "assets/smjb5.png"
+		},
+		{
+			"name": "missile_green_png",
+			"type": "image",
+			"url": "assets/missile_green.png"
+		},
+		{
+			"name": "zidan_huaban1_png",
+			"type": "image",
+			"url": "assets/zidan_huaban1.png"
+		},
+		{
+			"name": "zidan_huaban2_png",
+			"type": "image",
+			"url": "assets/zidan_huaban2.png"
+		},
+		{
+			"name": "zidan_huaban3_png",
+			"type": "image",
+			"url": "assets/zidan_huaban3.png"
+		},
+		{
+			"name": "chapter_finish_png",
+			"type": "image",
+			"url": "assets/chapter_finish.png"
 		}
 	]
 }

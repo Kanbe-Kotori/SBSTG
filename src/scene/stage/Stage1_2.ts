@@ -4,17 +4,16 @@ class Stage1_2 extends StageBase {
     protected initEmitters() {
         let point1 = new egret.Point(540, 300);
         let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER3, 100, 100).setParentEmitter(em1).renderOnStage(this);
+        let up1_1 = new RenderUpgrade(TextureNames.FLOWER3, 110, 170).setParentEmitter(em1).renderOnStage(this);
         let up1_2 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_STANDARD)
-                .setTexture(TextureNames.MISSILE_BLUE)
+                .setTexture(TextureNames.MISSILE_GREEN)
             )
         .setParentEmitter(em1)
         .setFreq(300)
         .setStartAngle(0.25)
         .setEndAngle(0.75)
         .setNumber(11);
-
         let point2 = new egret.Point(108, 420);
         let em2 = new EmitterAroundPoint(point2, 2000, 50).randomTheta();
         let up2_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em2).setFreq(50).renderOnStage(this);
