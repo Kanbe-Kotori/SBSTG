@@ -27,9 +27,8 @@ class EllipticalMissile extends MissileBase {
     public isCollide() {
         let dx:number = this.getX() - SelfMachine.INSTANCE.getX();
         let dy:number = this.getY() - SelfMachine.INSTANCE.getY();
-        let theta = Math.atan(dy / dx);
-        dx -= SelfMachine.SIZE * Math.cos(theta);
-        dy -= SelfMachine.SIZE * Math.sin(theta);
+        dx -= SelfMachine.SIZE * dx / Math.sqrt(dx * dx + dy * dy);
+        dy -= SelfMachine.SIZE * dy / Math.sqrt(dx * dx + dy * dy);
         let cost = Math.cos(this._ang);
         let sint = Math.sin(this._ang);
         let flag = Math.pow(cost * dx + sint * dy, 2) / Math.pow(this._missile_width / 2, 2) +
@@ -41,9 +40,17 @@ class EllipticalMissile extends MissileBase {
     }
 
 	public onUpdate(event: egret.TimerEvent) {
-		let ang = Math.atan(this._vx / this._vy);
-		this._img.rotation = - ang / Math.PI * 180;
-		this._ang = ang;
+        if (this._vy == 0) {
+            let ang = this._vx >= 0? -Math.PI / 2 : Math.PI / 2;
+        } else if (this._vy > 0) {
+            let ang = Math.atan(this._vx / this._vy);
+            this._img.rotation = - ang / Math.PI * 180;
+            this._ang = ang;
+        } else {
+            let ang = Math.atan(this._vx / this._vy) + Math.PI;
+            this._img.rotation = - ang / Math.PI * 180;
+            this._ang = ang;
+        }
 		super.onUpdate(event);
 	}
 

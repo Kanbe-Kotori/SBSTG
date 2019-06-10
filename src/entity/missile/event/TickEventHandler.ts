@@ -13,7 +13,7 @@ class TickEventHandler extends MissileEventHandler {
 	}
 
 	public clone() {
-		return new TickEventHandler(this._func).setTriggerTimes(this.triggerTimes);
+		return new TickEventHandler(this._func).setStartTicks(this._startTicks).setTriggerTimes(this.triggerTimes);
 	}
 	
 }

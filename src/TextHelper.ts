@@ -13,6 +13,7 @@ class TextHelper {
 		TextHelper.stageName["1-2"] = "莲子加特林";
 		TextHelper.stageName["1-3"] = "蒲公英旋涡";
 		TextHelper.stageName["1-4"] = "致命蒲公英";
+		TextHelper.stageName["1-5"] = "致命蒲公英II";
 		TextHelper.stageName["2-1"] = "雨";
 		TextHelper.stageName["2-2"] = "大雨";
 		TextHelper.stageName["test"] = "流矢";

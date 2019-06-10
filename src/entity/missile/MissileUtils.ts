@@ -20,8 +20,8 @@ class MissileUtils {
         let dx = x - point.x;
         let dy = y - point.y;
         let v = conf.getVelocity();
-        let vx = v * dx / Math.sqrt(dx * dx + dy * dy)
-        let vy = v * dy / Math.sqrt(dx * dx + dy * dy)
+        let vx = v * dx / Math.sqrt(dx * dx + dy * dy);
+        let vy = v * dy / Math.sqrt(dx * dx + dy * dy);
         let missile = conf.createMissile().setPos(point).setVelocity(vx, vy);
         return missile;
     }

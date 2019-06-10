@@ -47,7 +47,7 @@ class PageChapter extends PageBase {
     }
 
     public addStage(stage_id:string, button_text:string, point:egret.Point) {
-        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.MISSILE_RING);
+        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.CHAPTER_NOT_FINISH);
         button.setColor(0x000000);
         this._stage_map[stage_id] = button;
         //button.setAction(PageChapter.createFunc(stage, this));
