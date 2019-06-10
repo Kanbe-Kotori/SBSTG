@@ -5,9 +5,9 @@ class Stage1_3 extends StageBase {
 
         let point1 = new egret.Point(540, 600);
         let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER3, 200, 320).setParentEmitter(em1).renderOnStage(this);
+        let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 200, 200).setParentEmitter(em1).renderOnStage(this);
         let up1_2 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_BLUE)
             )
         .setParentEmitter(em1)
@@ -20,9 +20,10 @@ class Stage1_3 extends StageBase {
         em2.setTheta(0);
         let up2_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em2).setFreq(50).renderOnStage(this);
         let up2_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(15, 18)
+                .setTexture(TextureNames.MISSILE_PETAL2)
                 .setVelocity(13)
-                .setTexture(TextureNames.MISSILE_RED)
             )
         .setParentEmitter(em2)
         .setFreq(200);
@@ -31,9 +32,10 @@ class Stage1_3 extends StageBase {
         em3.setTheta(2/3);
         let up3_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em3).setFreq(50).renderOnStage(this);
         let up3_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(15, 18)
+                .setTexture(TextureNames.MISSILE_PETAL2)
                 .setVelocity(13)
-                .setTexture(TextureNames.MISSILE_RED)
             )
         .setParentEmitter(em3)
         .setFreq(200);
@@ -42,9 +44,10 @@ class Stage1_3 extends StageBase {
         em4.setTheta(4/3);
         let up4_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em4).setFreq(50).renderOnStage(this);
         let up4_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(15, 18)
+                .setTexture(TextureNames.MISSILE_PETAL2)
                 .setVelocity(13)
-                .setTexture(TextureNames.MISSILE_RED)
             )
         .setParentEmitter(em4)
         .setFreq(200);
@@ -54,7 +57,9 @@ class Stage1_3 extends StageBase {
 		em5.setClockwise(false);
         let up5_1 = new RenderUpgrade(TextureNames.FLOWER2, 120, 80).setParentEmitter(em5).setFreq(50).renderOnStage(this);
         let up5_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(15, 18)
+                .setTexture(TextureNames.MISSILE_PETAL3)
                 .setVelocity(13)
             )
         .setParentEmitter(em5)
@@ -65,7 +70,9 @@ class Stage1_3 extends StageBase {
 		em6.setClockwise(false);
         let up6_1 = new RenderUpgrade(TextureNames.FLOWER2, 120, 80).setParentEmitter(em6).setFreq(50).renderOnStage(this);
         let up6_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(15, 18)
+                .setTexture(TextureNames.MISSILE_PETAL3)
                 .setVelocity(13)
             )
         .setParentEmitter(em6)
@@ -76,7 +83,9 @@ class Stage1_3 extends StageBase {
 		em7.setClockwise(false);
         let up7_1 = new RenderUpgrade(TextureNames.FLOWER2, 120, 80).setParentEmitter(em7).setFreq(50).renderOnStage(this);
         let up7_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(15, 18)
+                .setTexture(TextureNames.MISSILE_PETAL3)
                 .setVelocity(13)
             )
         .setParentEmitter(em7)

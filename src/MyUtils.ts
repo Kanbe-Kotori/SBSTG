@@ -29,6 +29,14 @@ class MyUtils {
 		}
     }
 
+    public static createReasonablePos(point:egret.Point) {
+        point.x = Math.max(0, point.x);
+        point.x = Math.min(Main.X, point.x);
+        point.y = Math.max(Main.UPPER_Y, point.y);
+        point.y = Math.min(Main.BELOW_Y, point.y);
+        return point;
+    }
+
 }
 
 enum Side {

@@ -1,21 +1,21 @@
-class Stage1_4 extends StageBase {
-    public static readonly INSTANCE:Stage1_4 = new Stage1_4("1-4", 30);
+class Stage1_5 extends StageBase {
+    public static readonly INSTANCE:Stage1_5 = new Stage1_5("1-4", 30);
 
     protected initEmitters() {
 
         let point1 = new egret.Point(540, 600);
         let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER3, 200, 320).setParentEmitter(em1).renderOnStage(this);
+        let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 200, 320).setParentEmitter(em1).renderOnStage(this);
         let up1_2 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_BLUE)
 				.addHandler(
                     new EdgeEventHandler(
                         function(missile:MissileBase) {
                             if (missile.getY() < Main.UPPER_Y + 720) {
 								let missile1 = MissileUtils.createSniperMissile(
-									missile.localToGlobal(missile._img.x, missile._img.y),
-									new MissileConfig(MissileUtils.MISSILE_STANDARD)
+                                    missile.getPos(),
+									new MissileConfig(MissileUtils.MISSILE_ROUND)
 										.setVelocity(15)
 										.setTexture(TextureNames.MISSILE_RED)
 								);

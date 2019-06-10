@@ -9,10 +9,10 @@ class TextHelper {
 		"\tNulladev开发组群：159628975";
 
 	public static init() {
-		TextHelper.stageName["1-1"] = "自机狙入门";
-		TextHelper.stageName["1-2"] = "自机狙练习";
-		TextHelper.stageName["1-3"] = "自机狙进阶";
-		TextHelper.stageName["1-4"] = "还是自机狙";
+		TextHelper.stageName["1-1"] = "荷塘初探";
+		TextHelper.stageName["1-2"] = "莲子加特林";
+		TextHelper.stageName["1-3"] = "蒲公英旋涡";
+		TextHelper.stageName["1-4"] = "致命蒲公英";
 		TextHelper.stageName["2-1"] = "雨";
 		TextHelper.stageName["2-2"] = "大雨";
 		TextHelper.stageName["test"] = "流矢";

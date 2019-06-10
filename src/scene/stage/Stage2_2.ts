@@ -3,7 +3,7 @@ class Stage2_2 extends StageBase {
 
     protected initEmitters() {
         let rain1 = new SideEmitterUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(14)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 18)
                 .setTexture(TextureNames.MISSILE_BLUE)
@@ -28,9 +28,9 @@ class Stage2_2 extends StageBase {
         .setNumber(6);
 
 		let rain2 = new SideEmitterUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(18)
-				.setSize(16)
+				.setSize(16, 16)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 24)
                 .setTexture(TextureNames.MISSILE_BLUE)
                 .addHandler(
@@ -41,6 +41,15 @@ class Stage2_2 extends StageBase {
                                 missile._img.x += Main.X;
                             } else if (side == Side.RIGHT) {
                                 missile._img.x -= Main.X;
+                            } else if (side == Side.BOTTOM) {
+                                let theta = (1 + Math.random()) * Math.PI;
+                                let missile1 = new RoundMissile()
+                                    .setPos(MyUtils.createReasonablePos(missile.getPos()))
+                                    .setVelocity(10 * Math.cos(theta), 10 * Math.sin(theta))
+                                    .setTexture(TextureNames.MISSILE_STANDARD)
+                                    .setSize(16, 16);
+                                SelfMachine.INSTANCE.currentStage.addMissile(missile1);
+                                missile.setDead();
                             } else {
                                 missile.setDead();
                             }

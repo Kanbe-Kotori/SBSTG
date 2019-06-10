@@ -1,6 +1,7 @@
 class MissileUtils {
 
-    public static readonly MISSILE_STANDARD = "STANDARD";
+    public static readonly MISSILE_ROUND = "ROUND";
+    public static readonly MISSILE_ELLIPTICAL = "ELLIPTICAL";
 
     public static readonly RANDOM_VELOCITY_PARA = 0;
 

@@ -3,7 +3,7 @@ class Stage2_1 extends StageBase {
 
     protected initEmitters() {
         let rain = new SideEmitterUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(14)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 18)
                 .setTexture(TextureNames.MISSILE_BLUE)

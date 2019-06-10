@@ -9,15 +9,15 @@ class StageTemp2 extends StageBase {
 		.setParentEmitter(em1)
         .setFreq(800);
 		let up1_2 = new RegularMissileUpgrade(
-			new MissileConfig(MissileUtils.MISSILE_STANDARD)
-				.setSize(320)
+			new MissileConfig(MissileUtils.MISSILE_ROUND)
+				.setSize(320, 320)
 				.setVelocity(18)
 				.setTexture("smjb5_png")
                 .addHandler(
                     new TickEventHandler(
                         function(missile:MissileBase) {
-                            let size = Math.max(missile.getSize() - 3, 64);
-                            missile.setSize(size);
+                            let size = Math.max(missile.getWidth() - 3, 64);
+                            missile.setSize(size, size);
                             missile._img.width = 2 * size;
 		                    missile._img.height = 2 * size;
 		                    missile._img.anchorOffsetX = size;
@@ -34,10 +34,9 @@ class StageTemp2 extends StageBase {
         .setEndAngle(0.5)
         .setNumber(1);
 		let up1_3 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
             .setTexture(TextureNames.MISSILE_RED)
             .setVelocity(15)
-            .setSize(8)
         )
         .setParentEmitter(em1)
         .setFreq(400)
@@ -54,15 +53,15 @@ class StageTemp2 extends StageBase {
         .setFreq(800)
         .setDelay(400);
 		let up2_2 = new RegularMissileUpgrade(
-			new MissileConfig(MissileUtils.MISSILE_STANDARD)
-				.setSize(320)
+			new MissileConfig(MissileUtils.MISSILE_ROUND)
+				.setSize(320, 320)
 				.setVelocity(16)
 				.setTexture("smjb5_png")
 				.addHandler(
                     new TickEventHandler(
                         function(missile:MissileBase) {
-                            let size = Math.max(missile.getSize() - 3, 64);
-                            missile.setSize(size);
+                            let size = Math.max(missile.getWidth() - 3, 64);
+                            missile.setSize(size, size);
                             missile._img.width = 2 * size;
 		                    missile._img.height = 2 * size;
 		                    missile._img.anchorOffsetX = size;
@@ -80,10 +79,9 @@ class StageTemp2 extends StageBase {
         .setEndAngle(0.5)
         .setNumber(1);
 		let up2_3 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
             .setTexture(TextureNames.MISSILE_RED)
             .setVelocity(15)
-            .setSize(8)
         )
         .setParentEmitter(em2)
         .setFreq(400)

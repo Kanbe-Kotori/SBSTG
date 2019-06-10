@@ -1,6 +1,7 @@
 abstract class MissileBase extends egret.Sprite {
 
-	protected _size = 8;
+	protected _missile_width = 8;
+    protected _missile_height = 8;
     protected _texture = TextureNames.MISSILE_STANDARD;
 
     protected _life:number;
@@ -22,13 +23,18 @@ abstract class MissileBase extends egret.Sprite {
         this.addEventListener(MissileEvent.EDGE,this.SpecialLogic2,this);
     }
 
-    public setSize(size:number) {
-        this._size = size;
+    public setSize(width:number, height:number) {
+        this._missile_width = width;
+        this._missile_height = height;
         return this;
     }
 
-    public getSize() {
-        return this._size;
+    public getWidth() {
+        return this._missile_width;
+    }
+
+    public getHeight() {
+        return this._missile_height;
     }
 
     public addHandler(handler:MissileEventHandler) {
@@ -126,6 +132,7 @@ abstract class MissileBase extends egret.Sprite {
     protected abstract shouldSetDead():boolean;
 
     public setDead() {
+        this._handler = null;
         this.removeChildren();
         this.parent.removeChild(this);
         MyUtils.removeFromArray(this, SelfMachine.INSTANCE.currentStage.arrayMissile);
@@ -137,6 +144,10 @@ abstract class MissileBase extends egret.Sprite {
 
     public getY() {
         return this.localToGlobal(this._img.x, this._img.y).y;
+    }
+
+    public getPos() {
+        return this.localToGlobal(this._img.x, this._img.y)
     }
 
     /**

@@ -9,7 +9,7 @@ class StageTemp extends StageBase {
 		.setParentEmitter(em1)
         .setFreq(200);
 		let up1_2 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
             )
         .setParentEmitter(em1)
         .setFreq(200)
@@ -17,10 +17,17 @@ class StageTemp extends StageBase {
         .setEndAngle(2)
         .setNumber(36);
 		let up1_3 = new SideEmitterUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_STANDARD)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(15)
-                .setSize(128)
+                .setSize(128, 128)
                 .setTexture(TextureNames.MISSILE_RING)
+                .addHandler(
+                    new TickEventHandler(
+                        function(missile:MissileBase) {
+                            missile._img.rotation -= 9;
+                        }
+                    ).setTriggerTimes(100)
+                )
             )
         .setParentEmitter(em1)
 		.setFreq(800)

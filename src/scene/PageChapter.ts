@@ -36,7 +36,7 @@ class PageChapter extends PageBase {
             let button = this._stage_map[i];
             button.setAction(PageChapter.createFunc(Chapters.getStage(i), this));
             if (LocalData.getStage(i) == STAGE_DATA.PASSED) {
-                button.setTexture(TextureNames.CHAPTER_FINISH);   //已修改
+                button.setTexture(TextureNames.CHAPTER_FINISH);
             }
             this.addChild(button);
 		}
