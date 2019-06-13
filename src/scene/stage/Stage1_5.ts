@@ -32,9 +32,9 @@ class Stage1_5 extends StageBase {
         .setParentEmitter(em1)
         .setFreq(300)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 32)
         .setNumber(32);
-		let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setRad(2 / 19.2 / 20);
+        let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setTPR(19.2);
 	}
 	
 }

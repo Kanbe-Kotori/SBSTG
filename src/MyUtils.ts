@@ -37,6 +37,14 @@ class MyUtils {
         return point;
     }
 
+    public static ang2rad(ang:number) {
+        return ang / 180 * Math.PI;
+    }
+
+    public static rad2ang(rad:number) {
+        return rad * 180 / Math.PI;
+    }
+
 }
 
 enum Side {

@@ -1,8 +1,8 @@
 class EmitterRotateUpgrade extends EmitterUpgradeBase {
-	private _rad:number = 2 / 10 / 20;
+	/** 转一圈所需秒数 */
+	private _tpr:number = 10;
 
-	private _init_ang1:number;
-	private _init_ang2:number;
+	private _init_ang:number;
 
 	public constructor() {
 		super();
@@ -13,8 +13,7 @@ class EmitterRotateUpgrade extends EmitterUpgradeBase {
         this._parent_emitter = emitter;
 		if (this._parent_emitter instanceof RegularMissileUpgrade) {
 			let r = <RegularMissileUpgrade>(this._parent_emitter);
-			this._init_ang1 = r.getStartAngle();
-			this._init_ang2 = r.getEndAngle();
+			this._init_ang = r.getStartAngle();
 		}
         return this;
 	}
@@ -23,21 +22,20 @@ class EmitterRotateUpgrade extends EmitterUpgradeBase {
         super.onUpdate(event);
         if (this._parent_emitter instanceof RegularMissileUpgrade) {
 			let r = <RegularMissileUpgrade>(this._parent_emitter);
-			r.setStartAngle(r.getStartAngle() + this._rad);
-			r.setEndAngle(r.getEndAngle() + this._rad);
+			r.setStartAngle(r.getStartAngle() + 360 / this._tpr / 20);
 		}
     }
 
-	public setRad(rad:number) {
-        this._rad = rad;
+	/** 转一圈所需秒数 */
+	public setTPR(tpr:number) {
+        this._tpr = tpr;
         return this;
     }
 
 	public start() {
 		if (this._parent_emitter instanceof RegularMissileUpgrade) {
 			let r = <RegularMissileUpgrade>(this._parent_emitter);
-			r.setStartAngle(this._init_ang1);
-			r.setEndAngle(this._init_ang2);
+			r.setStartAngle(this._init_ang);
 		}
 		super.start();
 	}

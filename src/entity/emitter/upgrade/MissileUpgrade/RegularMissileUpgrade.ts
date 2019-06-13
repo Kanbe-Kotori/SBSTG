@@ -1,7 +1,7 @@
 class RegularMissileUpgrade extends MissileUpgradeBase {
 
-    private _ang1 = 0;
-    private _ang2 = 1;
+    private _ang = 0;
+    private _step = 45;
     private _num = 5;
 
     public constructor(conf:MissileConfig) {
@@ -9,48 +9,39 @@ class RegularMissileUpgrade extends MissileUpgradeBase {
     }
 
     public setStartAngle(ang:number) {
-        this._ang1 = ang;
+        this._ang = ang;
         return this;
     }
 
-    public setEndAngle(ang:number) {
-        this._ang2 = ang;
+    public setStep(step:number) {
+        this._step = step;
         return this;
     }
-
-    public getStartAngle() {
-        return this._ang1;
-    }
-
-    public getEndAngle() {
-        return this._ang2;
-    }
-
+    
     public setNumber(num:number) {
         this._num = num;
         return this;
     }
 
+    public getStartAngle() {
+        return this._ang;
+    }
+
+    public getStep() {
+        return this._step;
+    }
+
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
-        if (this._ang2 - this._ang1 >= 1.9) {
-            for (var theta = this._ang1 * Math.PI; theta < this._ang2 * Math.PI; theta += 2 * Math.PI / this._num) {
-                let point = this.localToGlobal(0,0);
-                let v = this._conf.getVelocity();
-                let missile = this._conf.createMissile()
-                                .setPos(point)
-                                .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
-                SelfMachine.INSTANCE.currentStage.addMissile(missile);
-            }
-            return;
-        }
-        for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
+        let theta = this._ang;
+        let i = 0;
+        while (i++ < this._num) {
+            let theta1 = MyUtils.ang2rad(theta);
             let point = this.localToGlobal(0,0);
             let v = this._conf.getVelocity();
-            let missile = this._conf.createMissile()
-                            .setPos(point)
-                            .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
+            let missile = this._conf.createMissile().setPos(point).setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
             SelfMachine.INSTANCE.currentStage.addMissile(missile);
+            theta += this._step;
         }
     }
 

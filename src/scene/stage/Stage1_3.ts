@@ -13,7 +13,7 @@ class Stage1_3 extends StageBase {
         .setParentEmitter(em1)
         .setFreq(300)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 32)
         .setNumber(32);
 
         let em2 = new EmitterAroundEmitter(em1, 3000, 240);

@@ -1,7 +1,7 @@
 class SideEmitterUpgrade extends MissileUpgradeBase {
 
     private _ang1 = 0;
-    private _ang2 = 1;
+    private _ang2 = 180;
     private _num = 1;
     private _side:Side = Side.TOP;
 
@@ -47,15 +47,16 @@ class SideEmitterUpgrade extends MissileUpgradeBase {
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
         let i = 0;
-        do {
+        while(i++ < this._num) {
             var point = this.getPointFromSide();
-            let theta = (this._ang1 + Math.random() * (this._ang2 - this._ang1)) * Math.PI;
+            let theta = (this._ang1 + Math.random() * (this._ang2 - this._ang1));
+            theta = MyUtils.ang2rad(theta);
             let v = this._conf.getVelocity();
             let missile = this._conf.createMissile()
                             .setPos(point)
                             .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
             SelfMachine.INSTANCE.currentStage.addMissile(missile);
-        } while(++i < this._num);
+        }
     }
 
 }

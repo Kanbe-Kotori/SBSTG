@@ -23,8 +23,8 @@ class Stage2_1 extends StageBase {
                 )
             )
         .setFreq(250)
-        .setStartAngle(0.4)
-        .setEndAngle(0.6)
+        .setStartAngle(75)
+        .setEndAngle(105)
         .setNumber(8);
     }
 

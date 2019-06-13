@@ -11,8 +11,8 @@ class Stage1_2 extends StageBase {
             )
         .setParentEmitter(em1)
         .setFreq(300)
-        .setStartAngle(0.25)
-        .setEndAngle(0.75)
+        .setStartAngle(45)
+        .setStep(90 / 10)
         .setNumber(11);
 
         let point2 = new egret.Point(108, 420);

@@ -23,8 +23,8 @@ class Stage2_2 extends StageBase {
                 )
             )
         .setFreq(250)
-        .setStartAngle(0.4)
-        .setEndAngle(0.6)
+        .setStartAngle(75)
+        .setEndAngle(105)
         .setNumber(5);
 
 		let rain2 = new SideEmitterUpgrade(
@@ -58,8 +58,8 @@ class Stage2_2 extends StageBase {
                 )
             )
         .setFreq(250)
-        .setStartAngle(0.45)
-        .setEndAngle(0.55)
+        .setStartAngle(85)
+        .setEndAngle(95)
         .setNumber(2);
 	}
 }

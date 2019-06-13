@@ -15,9 +15,9 @@ class StageTemp3 extends StageBase {
         .setParentEmitter(em1)
         .setFreq(200)
         .setStartAngle(0)
-        .setEndAngle(1)
+        .setStep(180 / 15)
         .setNumber(16);
-		let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setRad(2 / 90);
+        let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setTPR(4.5);
 		let up1_4 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_BLUE)
@@ -28,9 +28,9 @@ class StageTemp3 extends StageBase {
         .setFreq(150)
 		.setDelay(4000)
         .setStartAngle(0)
-        .setEndAngle(0.25)
-        .setNumber(12);
-		let up1_5 = new EmitterRotateUpgrade().setParentEmitter(up1_4).setRad(-2 / 30);
+        .setStep(45 / 9)
+        .setNumber(10);
+		let up1_5 = new EmitterRotateUpgrade().setParentEmitter(up1_4).setTPR(-1.5);
 		let up1_6 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_RING)
@@ -48,9 +48,9 @@ class StageTemp3 extends StageBase {
         .setFreq(400)
 		.setDelay(8000)
         .setStartAngle(0)
-        .setEndAngle(0.1)
+        .setStep(15)
         .setNumber(2);
-		let up1_7 = new EmitterRotateUpgrade().setParentEmitter(up1_6).setRad(-2 / 60);
+		let up1_7 = new EmitterRotateUpgrade().setParentEmitter(up1_6).setTPR(-3);
 		let up1_8 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_RED)
@@ -60,9 +60,9 @@ class StageTemp3 extends StageBase {
         .setFreq(100)
 		.setDelay(12000)
         .setStartAngle(0)
-        .setEndAngle(0.1)
+        .setStep(15 / 5)
         .setNumber(6);
-		let up1_9 = new EmitterRotateUpgrade().setParentEmitter(up1_8).setRad(2 / 80);
+		let up1_9 = new EmitterRotateUpgrade().setParentEmitter(up1_8).setTPR(4);
 		let up1_10 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
@@ -73,9 +73,9 @@ class StageTemp3 extends StageBase {
         .setFreq(150)
 		.setDelay(16000)
         .setStartAngle(0)
-        .setEndAngle(0.1)
+        .setStep(15 / 3)
         .setNumber(4);
-		let up1_11 = new EmitterRotateUpgrade().setParentEmitter(up1_10).setRad(-2 / 40);
+		let up1_11 = new EmitterRotateUpgrade().setParentEmitter(up1_10).setTPR(-2);
 	}
 	
 }

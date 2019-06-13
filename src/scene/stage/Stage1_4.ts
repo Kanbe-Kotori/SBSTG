@@ -34,9 +34,9 @@ class Stage1_4 extends StageBase {
         .setParentEmitter(em1)
         .setFreq(300)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 16)
         .setNumber(16);
-		let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setRad(2 / 6 / 20);
+        let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setTPR(6);
 		
 		let point2 = new egret.Point(360, 900);
         let em2 = new EmptyEmitter().setPos(point2);
@@ -53,9 +53,9 @@ class Stage1_4 extends StageBase {
         .setFreq(300)
 		.setDelay(1000)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 12)
         .setNumber(12);
-		let up2_3 = new EmitterRotateUpgrade().setParentEmitter(up2_2).setRad(2 / 6 / 20);
+		let up2_3 = new EmitterRotateUpgrade().setParentEmitter(up2_2).setTPR(6);
 
 		let point3 = new egret.Point(720, 900);
         let em3 = new EmptyEmitter().setPos(point3);
@@ -72,9 +72,9 @@ class Stage1_4 extends StageBase {
         .setFreq(300)
 		.setDelay(1000)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 12)
         .setNumber(12);
-		let up3_3 = new EmitterRotateUpgrade().setParentEmitter(up3_2).setRad(2 / 6 / 20);
+		let up3_3 = new EmitterRotateUpgrade().setParentEmitter(up3_2).setTPR(6);
 
 		let point4 = new egret.Point(540, 720);
 		let em4 = new EmptyEmitter().setPos(point4);
@@ -86,8 +86,8 @@ class Stage1_4 extends StageBase {
         .setParentEmitter(em4)
         .setFreq(250)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 8)
         .setNumber(8);
-		let up4_3 = new EmitterRotateUpgrade().setParentEmitter(up4_2).setRad(2 / 12 / 20);
+		let up4_3 = new EmitterRotateUpgrade().setParentEmitter(up4_2).setTPR(12);
 	}
 }

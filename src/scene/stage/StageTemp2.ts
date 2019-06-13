@@ -30,8 +30,7 @@ class StageTemp2 extends StageBase {
 			)
         .setParentEmitter(em1)
         .setFreq(800)
-        .setStartAngle(0.5)
-        .setEndAngle(0.5)
+        .setStartAngle(90)
         .setNumber(1);
 		let up1_3 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
@@ -42,7 +41,7 @@ class StageTemp2 extends StageBase {
         .setFreq(400)
         .setDelay(400)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 32)
         .setNumber(32);
 
         let em2 = new EmptyEmitter();
@@ -75,8 +74,7 @@ class StageTemp2 extends StageBase {
         .setParentEmitter(em2)
         .setFreq(800)
         .setDelay(400)
-        .setStartAngle(0.5)
-        .setEndAngle(0.5)
+        .setStartAngle(90)
         .setNumber(1);
 		let up2_3 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
@@ -87,9 +85,9 @@ class StageTemp2 extends StageBase {
         .setFreq(400)
         .setDelay(800)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 32)
         .setNumber(32);
-        let up2_4 = new EmitterRotateUpgrade().setParentEmitter(up2_3).setRad(2 / 25.6 / 20);
+        let up2_4 = new EmitterRotateUpgrade().setParentEmitter(up2_3).setTPR(25.6);
     }
     
 }

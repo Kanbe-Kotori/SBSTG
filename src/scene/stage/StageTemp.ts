@@ -14,7 +14,7 @@ class StageTemp extends StageBase {
         .setParentEmitter(em1)
         .setFreq(200)
         .setStartAngle(0)
-        .setEndAngle(2)
+        .setStep(360 / 24)
         .setNumber(24);
 		let up1_3 = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
@@ -32,8 +32,8 @@ class StageTemp extends StageBase {
             )
         .setParentEmitter(em1)
 		.setFreq(800)
-        .setStartAngle(0.5)
-        .setEndAngle(0.5);
+        .setStartAngle(90)
+        .setEndAngle(90);
     }
 
 }
