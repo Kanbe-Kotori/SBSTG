@@ -2,13 +2,13 @@ class PageChapter extends PageBase {
 
 	//private arrayButton:Array<Button> = new Array<Button>();
     private _stage_map:{[index:string]:Button} = {};
-    private _chapter_name:string;
+    private _chapter_index:number;
 
     protected titleText:egret.TextField;
 
-    public constructor(name:string) {
-        super("chapter" + Chapters.arrayChapter.length + 1);
-        this._chapter_name = name;
+    public constructor(index:number) {
+        super();
+        this._chapter_index = index;
         Chapters.arrayChapter.push(this);
     }
 
@@ -25,7 +25,7 @@ class PageChapter extends PageBase {
         this.titleText.x = 0;
         this.titleText.y = 120;
         this.titleText.size = 72;
-        this.titleText.text = this._chapter_name;
+        this.titleText.text = TextHelper.getChapterName(this._chapter_index);
         this.titleText.textColor = 0x000000;
         this.titleText.fontFamily = "KaiTi";
         this.titleText.textAlign = egret.HorizontalAlign.CENTER;
@@ -36,7 +36,7 @@ class PageChapter extends PageBase {
             let button = this._stage_map[i];
             button.setAction(PageChapter.createFunc(Chapters.getStage(i), this));
             if (LocalData.getStage(i) == STAGE_DATA.PASSED) {
-                button.setTexture(TextureNames.CHAPTER_FINISH);
+                button.setTexture(TextureNames.STAGE_FINISH);
             }
             this.addChild(button);
 		}
@@ -47,7 +47,7 @@ class PageChapter extends PageBase {
     }
 
     public addStage(stage_id:string, button_text:string, point:egret.Point) {
-        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.CHAPTER_NOT_FINISH);
+        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.STAGE_NOT_FINISH);
         button.setColor(0x000000);
         this._stage_map[stage_id] = button;
         //button.setAction(PageChapter.createFunc(stage, this));

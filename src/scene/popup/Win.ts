@@ -4,10 +4,6 @@ class Win extends Popup {
 
 	private _img:egret.Bitmap;
 
-	protected constructor() {
-        super("win_popup");
-    }
-
     protected doRender() {
         super.doRender();
 		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_WIN);

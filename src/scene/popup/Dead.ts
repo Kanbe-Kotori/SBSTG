@@ -4,10 +4,6 @@ class Dead extends Popup {
 
 	private _img:egret.Bitmap;
 
-	protected constructor() {
-        super("dead_popup");
-    }
-
     protected doRender() {
         super.doRender();
 		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_DEAD);

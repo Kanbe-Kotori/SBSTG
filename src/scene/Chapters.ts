@@ -4,8 +4,8 @@ class Chapters {
 	private static _stage_map:{[index:string]:StageBase} = {};
 	
 	public static init() {
-		let Chapter1 = new PageChapter("荷塘与自机狙");
-		let Chapter2 = new PageChapter("雨与随机弹");
+		let Chapter1 = new PageChapter(0);
+		let Chapter2 = new PageChapter(1);
 		PageChooseChapter.INSTANCE.addChapter(Chapter1, "第一章", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		PageChooseChapter.INSTANCE.addChapter(Chapter2, "第二章", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
 
@@ -19,15 +19,7 @@ class Chapters {
 		Chapter2.addStage("2-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		Chapter2.addStage("test", "Test1", new egret.Point(Main.X * 0.25, Main.Y * 0.5));
 		Chapter2.addStage("test2", "Test2", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
-	}
-
-	public static getChapter(name:string) {
-		for (let i of Chapters.arrayChapter) {
-			if (i.getName() == name) {
-				return i;
-			}
-		}
-		return null;
+		Chapter2.addStage("test3", "Test3", new egret.Point(Main.X * 0.75, Main.Y * 0.5));
 	}
 
 	public static getStage(id:string) {

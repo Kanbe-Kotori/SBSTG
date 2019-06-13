@@ -33,6 +33,17 @@ class RegularMissileUpgrade extends MissileUpgradeBase {
 
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
+        if (this._ang2 - this._ang1 >= 1.9) {
+            for (var theta = this._ang1 * Math.PI; theta < this._ang2 * Math.PI; theta += 2 * Math.PI / this._num) {
+                let point = this.localToGlobal(0,0);
+                let v = this._conf.getVelocity();
+                let missile = this._conf.createMissile()
+                                .setPos(point)
+                                .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
+                SelfMachine.INSTANCE.currentStage.addMissile(missile);
+            }
+            return;
+        }
         for (var theta = Math.PI * this._ang1; theta <= Math.PI * this._ang2; theta += Math.PI * (this._ang2 - this._ang1) / (this._num - 1) ) {
             let point = this.localToGlobal(0,0);
             let v = this._conf.getVelocity();

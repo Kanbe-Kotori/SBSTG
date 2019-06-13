@@ -2,10 +2,6 @@ abstract class Popup extends PageBase {
 
 	protected _shape:egret.Shape;
 
-	protected constructor(name:string) {
-        super(name);
-    }
-
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
     }

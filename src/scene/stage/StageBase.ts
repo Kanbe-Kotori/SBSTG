@@ -16,7 +16,7 @@ abstract class StageBase extends PageBase {
     public containers = new Array<egret.DisplayObjectContainer>();
 
     protected constructor(id:string, time:number) {
-        super("stage" + id);
+        super();
         this._uniqueStageID = id;
         this._time = time;
         Chapters.registerStage(this._uniqueStageID, this);

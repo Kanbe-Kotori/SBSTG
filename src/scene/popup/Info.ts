@@ -4,10 +4,6 @@ class Info extends Popup {
 
 	private _img:egret.Bitmap;
 
-	protected constructor() {
-        super("info_popup");
-    }
-
     protected doRender() {
         super.doRender();
 		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_INFO);

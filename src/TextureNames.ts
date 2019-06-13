@@ -30,8 +30,8 @@ class TextureNames {
 	public static readonly POPUP_INFO = "popup_info_png";
 	public static readonly POPUP_WIN = "popup_win_png";
 	
-	public static readonly CHAPTER_NOT_FINISH = "chapter_not_finish_png";
-	public static readonly CHAPTER_FINISH = "missile_ring_png";
+	public static readonly STAGE_NOT_FINISH = "stage_not_finish_png";
+	public static readonly STAGE_FINISH = "stage_finish_png";
 
 	public static readonly SELF_MACHINE = "self_machine_png";
 

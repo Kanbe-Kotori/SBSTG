@@ -15,19 +15,20 @@ class StageTemp extends StageBase {
         .setFreq(200)
         .setStartAngle(0)
         .setEndAngle(2)
-        .setNumber(36);
+        .setNumber(24);
 		let up1_3 = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(15)
-                .setSize(128, 128)
+                .setSize(256, 256)
                 .setTexture(TextureNames.MISSILE_RING)
-                .addHandler(
+                .setBottomLayer()
+                /*.addHandler(
                     new TickEventHandler(
                         function(missile:MissileBase) {
                             missile._img.rotation -= 9;
                         }
                     ).setTriggerTimes(100)
-                )
+                )*/
             )
         .setParentEmitter(em1)
 		.setFreq(800)

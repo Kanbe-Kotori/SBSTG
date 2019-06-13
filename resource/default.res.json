@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,self_machine_png,btn_return_png,btn_pause_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb3_png,missile_ring_png,popup_pause_png,btn_resume_png,popup_dead_png,btn_normal_png,popup_win_png,popup_info_png,missile_blue_png,flower1_png,flower2_png,flower3_png,missile_red_png,smjb5_png,missile_lianzi_png,missile_petal1_png,missile_petal2_png,missile_petal3_png,flower8_png,chapter_not_finish_png,missile_green_png",
+			"keys": "description_json,self_machine_png,btn_return_png,btn_pause_png,game_sky_png,main_page_png,btn_restart_png,btn_info_png,missile_standard_png,smjb3_png,popup_pause_png,btn_resume_png,popup_dead_png,btn_normal_png,popup_win_png,popup_info_png,missile_blue_png,flower1_png,flower2_png,flower3_png,missile_red_png,smjb5_png,missile_lianzi_png,missile_petal1_png,missile_petal2_png,missile_petal3_png,flower8_png,missile_green_png,stage_not_finish_png,stage_finish_png,missile_ring_png",
 			"name": "preload"
 		}
 	],
@@ -55,11 +55,6 @@
 			"name": "smjb3_png",
 			"type": "image",
 			"url": "assets/smjb3.png"
-		},
-		{
-			"name": "missile_ring_png",
-			"type": "image",
-			"url": "assets/missile_ring.png"
 		},
 		{
 			"name": "missile_red_png",
@@ -147,14 +142,24 @@
 			"url": "assets/flower8.png"
 		},
 		{
-			"name": "chapter_not_finish_png",
-			"type": "image",
-			"url": "assets/chapter_not_finish.png"
-		},
-		{
 			"name": "missile_green_png",
 			"type": "image",
 			"url": "assets/missile_green.png"
+		},
+		{
+			"name": "stage_not_finish_png",
+			"type": "image",
+			"url": "assets/stage_not_finish.png"
+		},
+		{
+			"name": "stage_finish_png",
+			"type": "image",
+			"url": "assets/stage_finish.png"
+		},
+		{
+			"name": "missile_ring_png",
+			"type": "image",
+			"url": "assets/missile_ring.png"
 		}
 	]
 }

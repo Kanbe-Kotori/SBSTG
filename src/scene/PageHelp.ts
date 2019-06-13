@@ -5,10 +5,6 @@ class PageHelp extends PageBase {
 	protected titleText:egret.TextField;
 	protected contentText:egret.TextField;
 
-    protected constructor() {
-        super("help_page");
-    }
-
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
     }

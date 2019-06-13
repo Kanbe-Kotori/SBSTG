@@ -4,7 +4,7 @@ class PageChooseChapter extends PageBase {
 	private arrayButton:Array<Button>;
 
     protected constructor() {
-        super("choose_chapter");
+        super();
         this.arrayButton = new Array<Button>();
     }
 

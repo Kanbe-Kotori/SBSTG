@@ -4,6 +4,8 @@ abstract class EmitterBase extends egret.Sprite {
     protected _freq = 250;
     protected _delay = 0;
 
+    protected _delay_timer;
+
 	public constructor() {
 		super();
         SelfMachine.INSTANCE.currentStage.arrayController.push(this);
@@ -21,11 +23,18 @@ abstract class EmitterBase extends egret.Sprite {
             return;
         }
         if (this._delay != 0) {
-            let timer1 = new egret.Timer(this._delay, 1);
-            timer1.addEventListener(egret.TimerEvent.TIMER, this.resume, this);
-            timer1.start();
+            this._delay_timer = new egret.Timer(this._delay, 1);
+            this._delay_timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE, this.run, this);
+            this._delay_timer.start();
         } else if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
             this.timer.start();
+        }
+    }
+
+    protected run() {
+        if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
+            this.timer.start();
+            this._delay_timer = null;
         }
     }
 
@@ -33,13 +42,20 @@ abstract class EmitterBase extends egret.Sprite {
         if (SelfMachine.INSTANCE.currentStage == null) {
             return;
         }
-        if (SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING) {
-            this.timer.start();
+        if (this._delay != 0 && this._delay_timer != null) {
+            this._delay_timer.start();
+            return;
         }
+        this.run();
     }
 
     public stop() {
-        this.timer.stop();
+        if (this.timer != null) {
+            this.timer.stop();
+        }
+        if (this._delay_timer != null) {
+            this._delay_timer.stop();
+        }
     }
 
     public setDelay(delay:number) {
@@ -48,9 +64,7 @@ abstract class EmitterBase extends egret.Sprite {
     }
 
     public setDead() {
-        if (this.timer != null) {
-            this.timer.stop();
-        }
+        this.stop();
         for (let i: number = 0; i < SelfMachine.INSTANCE.currentStage.arrayController.length; i++) {
 			if (SelfMachine.INSTANCE.currentStage.arrayController[i] == this) {
 				SelfMachine.INSTANCE.currentStage.arrayController.splice(i, 1);

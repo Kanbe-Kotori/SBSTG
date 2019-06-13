@@ -1,5 +1,7 @@
 class TextHelper {
+	private static chapterName:string[] = [];
 	private static stageName:{[index:string]: string} = {};
+
 	public static help_text = "\t在本游戏中，你将通过触摸控制一只小金鱼进行冒险。\n\n" + 
 		"\t和其他常见的STG，也就是俗称的打飞机类游戏不同的是，你没有任何攻击能力（毕竟你只是一只小金鱼）。\n\n" + 
 		"\t你的获胜条件是在规定时间内躲避屏幕上的所有弹幕，没错，只要撞到任何一颗就会死（毕竟你只是一只小金鱼）。\n\n" + 
@@ -9,12 +11,15 @@ class TextHelper {
 		"\tNulladev开发组群：159628975";
 
 	public static init() {
+		TextHelper.chapterName[0] = "第一章 荷塘";
+		TextHelper.chapterName[1] = "第二章 雨";
+
 		TextHelper.stageName["1-1"] = "荷塘初探";
 		TextHelper.stageName["1-2"] = "莲子加特林";
 		TextHelper.stageName["1-3"] = "蒲公英旋涡";
 		TextHelper.stageName["1-4"] = "致命蒲公英";
 		TextHelper.stageName["1-5"] = "致命蒲公英II";
-		TextHelper.stageName["2-1"] = "雨";
+		TextHelper.stageName["2-1"] = "细雨";
 		TextHelper.stageName["2-2"] = "大雨";
 		TextHelper.stageName["test"] = "流矢";
 		TextHelper.stageName["test2"] = "耀斑";
@@ -22,6 +27,10 @@ class TextHelper {
 
 	public static getStageNameFromID(id:string) {
 		return TextHelper.stageName[id];
+	}
+
+	public static getChapterName(index:number) {
+		return TextHelper.chapterName[index];
 	}
 
 }

@@ -14,14 +14,14 @@ class Stage1_3 extends StageBase {
         .setFreq(300)
         .setStartAngle(0)
         .setEndAngle(2)
-        .setNumber(36);
+        .setNumber(32);
 
         let em2 = new EmitterAroundEmitter(em1, 3000, 240);
         em2.setTheta(0);
         let up2_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em2).setFreq(50).renderOnStage(this);
         let up2_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(15, 18)
+                .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
                 .setVelocity(13)
             )
@@ -33,7 +33,7 @@ class Stage1_3 extends StageBase {
         let up3_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em3).setFreq(50).renderOnStage(this);
         let up3_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(15, 18)
+                .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
                 .setVelocity(13)
             )
@@ -45,7 +45,7 @@ class Stage1_3 extends StageBase {
         let up4_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em4).setFreq(50).renderOnStage(this);
         let up4_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(15, 18)
+                .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
                 .setVelocity(13)
             )
@@ -58,7 +58,7 @@ class Stage1_3 extends StageBase {
         let up5_1 = new RenderUpgrade(TextureNames.FLOWER2, 120, 80).setParentEmitter(em5).setFreq(50).renderOnStage(this);
         let up5_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(15, 18)
+                .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL3)
                 .setVelocity(13)
             )
@@ -71,7 +71,7 @@ class Stage1_3 extends StageBase {
         let up6_1 = new RenderUpgrade(TextureNames.FLOWER2, 120, 80).setParentEmitter(em6).setFreq(50).renderOnStage(this);
         let up6_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(15, 18)
+                .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL3)
                 .setVelocity(13)
             )
@@ -84,7 +84,7 @@ class Stage1_3 extends StageBase {
         let up7_1 = new RenderUpgrade(TextureNames.FLOWER2, 120, 80).setParentEmitter(em7).setFreq(50).renderOnStage(this);
         let up7_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(15, 18)
+                .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL3)
                 .setVelocity(13)
             )

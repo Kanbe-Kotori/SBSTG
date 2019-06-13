@@ -4,10 +4,6 @@ class Pause extends Popup {
 
 	private _img:egret.Bitmap;
 
-	protected constructor() {
-        super("pause_popup");
-    }
-
     protected doRender() {
         super.doRender();
 		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_PAUSE);

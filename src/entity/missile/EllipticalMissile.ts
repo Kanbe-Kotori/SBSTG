@@ -17,8 +17,8 @@ class EllipticalMissile extends MissileBase {
 
     protected doRender() {
         this._img = MyUtils.createBitmapByName(this._texture);
-        this._img.width = 2 * this._missile_width;
-        this._img.height = 2 * this._missile_height;
+        this._img.width = this._missile_width;
+        this._img.height = this._missile_height;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
         this.addChild(this._img);

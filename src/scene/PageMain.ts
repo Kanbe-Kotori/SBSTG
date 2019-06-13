@@ -2,10 +2,6 @@ class PageMain extends PageBase {
 
     public static readonly INSTANCE:PageMain = new PageMain();
 
-    protected constructor() {
-        super("main_page");
-    }
-
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
     }

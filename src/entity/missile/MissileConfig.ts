@@ -2,8 +2,8 @@ class MissileConfig {
 	private _type:string;
 	private _texture = TextureNames.MISSILE_STANDARD;
 	private _velocity = 20;
-	private _width = 8;
-	private _height = 8;
+	private _width = 24;
+	private _height = 24;
 	private _extra_para:number[] = [];
     protected _handler:Array<MissileEventHandler> = [];
 	private isBottomLayer = false;
@@ -56,7 +56,7 @@ class MissileConfig {
 	public createMissile() {
 		switch(this._type) {
 			case MissileUtils.MISSILE_ROUND:
-				let missile1 = new RoundMissile().setRadius(this._width).setTexture(this._texture).setBottomLayer(this.isBottomLayer);
+				let missile1 = new RoundMissile().setSize(this._width, this._height).setTexture(this._texture).setBottomLayer(this.isBottomLayer);
 				for (let i of this._handler)
 					missile1.addHandler(i.clone());
 				return missile1;
