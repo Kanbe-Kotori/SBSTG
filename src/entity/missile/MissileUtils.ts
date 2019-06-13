@@ -14,16 +14,16 @@ class MissileUtils {
         return arrayMissile;
     }
     
-    public static createSniperMissile(point:egret.Point, conf:MissileConfig) {
-        let x = SelfMachine.INSTANCE.getX();
-        let y = SelfMachine.INSTANCE.getY();
-        let dx = x - point.x;
-        let dy = y - point.y;
-        let v = conf.getVelocity();
-        let vx = v * dx / Math.sqrt(dx * dx + dy * dy);
-        let vy = v * dy / Math.sqrt(dx * dx + dy * dy);
-        let missile = conf.createMissile().setPos(point).setVelocity(vx, vy);
-        return missile;
+    public static getSniperAngle(point:egret.Point) {
+        let dx = SelfMachine.INSTANCE.getX() - point.x;
+        let dy = SelfMachine.INSTANCE.getY() - point.y;
+        if (dx == 0) {
+            return dy >= 0? Math.PI / 2 : - Math.PI / 2;
+        } else if (dx > 0) {
+            return Math.atan(dy / dx);
+        } else {
+            return Math.atan(dy / dx) + Math.PI;
+        }
     }
     
 }

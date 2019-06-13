@@ -9,19 +9,20 @@ class Stage1_5 extends StageBase {
         let up1_2 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTexture(TextureNames.MISSILE_PETAL1)
 				.setVelocity(20)
 				.addHandler(
                     new EdgeEventHandler(
                         function(missile:MissileBase) {
                             if (missile.getY() < Main.UPPER_Y + 720) {
-								let missile1 = MissileUtils.createSniperMissile(
-                                    missile.getPos(),
-									new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+								let point = missile.getPos();
+                                let theta = MissileUtils.getSniperAngle(point);
+                                let missile1 = 
+                                    new EllipticalMissile()
                                         .setSize(30, 36)
-                                        .setTexture(TextureNames.MISSILE_PETAL1)
-                                        .setVelocity(15)
-								);
+                                        .setTexture(TextureNames.MISSILE_PETAL2)
+                                        .setPos(point)
+                                        .setVelocity(15 * Math.cos(theta), 15 * Math.sin(theta));
         						SelfMachine.INSTANCE.currentStage.addMissile(missile1);
                             }
 							missile.setDead();

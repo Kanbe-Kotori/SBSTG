@@ -7,14 +7,17 @@ class Stage1_3 extends StageBase {
         let em1 = new EmptyEmitter().setPos(point1);
         let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 200, 200).setParentEmitter(em1).renderOnStage(this);
         let up1_2 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setTexture(TextureNames.MISSILE_BLUE)
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL1)
+				.setVelocity(20)
             )
         .setParentEmitter(em1)
         .setFreq(300)
         .setStartAngle(0)
         .setStep(360 / 32)
         .setNumber(32);
+        let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setTPR(19.2);
 
         let em2 = new EmitterAroundEmitter(em1, 3000, 240);
         em2.setTheta(0);
@@ -26,6 +29,7 @@ class Stage1_3 extends StageBase {
                 .setVelocity(13)
             )
         .setParentEmitter(em2)
+        .setDiv(1)
         .setFreq(200);
 
         let em3 = new EmitterAroundEmitter(em1, 3000, 240);
@@ -38,6 +42,7 @@ class Stage1_3 extends StageBase {
                 .setVelocity(13)
             )
         .setParentEmitter(em3)
+        .setDiv(1)
         .setFreq(200);
 
         let em4 = new EmitterAroundEmitter(em1, 3000, 240);
@@ -50,6 +55,7 @@ class Stage1_3 extends StageBase {
                 .setVelocity(13)
             )
         .setParentEmitter(em4)
+        .setDiv(1)
         .setFreq(200);
 
 		let em5 = new EmitterAroundEmitter(em1, 3000, 240);
@@ -63,6 +69,7 @@ class Stage1_3 extends StageBase {
                 .setVelocity(13)
             )
         .setParentEmitter(em5)
+        .setDiv(1)
         .setFreq(200);
 
 		let em6 = new EmitterAroundEmitter(em1, 3000, 240);
@@ -76,6 +83,7 @@ class Stage1_3 extends StageBase {
                 .setVelocity(13)
             )
         .setParentEmitter(em6)
+        .setDiv(1)
         .setFreq(200);
 
 		let em7 = new EmitterAroundEmitter(em1, 3000, 240);
@@ -89,6 +97,7 @@ class Stage1_3 extends StageBase {
                 .setVelocity(13)
             )
         .setParentEmitter(em7)
+        .setDiv(1)
         .setFreq(200);
     }
     

@@ -12,6 +12,9 @@ class Stage1_1 extends StageBase {
                 .setVelocity(15)
         )
         .setParentEmitter(em1)
+        .setNumber(7)
+        .setStep(15)
+        .setDiv(1)
         .setFreq(300);
 
 		let point2 = new egret.Point(Main.X * 0.4, 300);
@@ -24,6 +27,9 @@ class Stage1_1 extends StageBase {
                 .setVelocity(15)
         )
         .setParentEmitter(em2)
+        .setNumber(7)
+        .setStep(15)
+        .setDiv(1)
         .setFreq(300);
 
 		let point3 = new egret.Point(Main.X * 0.6, 300);
@@ -36,6 +42,9 @@ class Stage1_1 extends StageBase {
                 .setVelocity(15)
         )
         .setParentEmitter(em3)
+        .setNumber(7)
+        .setStep(15)
+        .setDiv(1)
         .setFreq(300);
 
 		let point4 = new egret.Point(Main.X * 0.8, 300);
@@ -48,6 +57,9 @@ class Stage1_1 extends StageBase {
                 .setVelocity(15)
         )
         .setParentEmitter(em4)
+        .setNumber(7)
+        .setStep(15)
+        .setDiv(1)
         .setFreq(300);
 	}
 }
