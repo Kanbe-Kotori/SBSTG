@@ -24,7 +24,7 @@ class StageTemp extends StageBase {
                 .setBottomLayer()
                 /*.addHandler(
                     new TickEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
                             missile._img.rotation -= 9;
                         }
                     ).setTriggerTimes(100)

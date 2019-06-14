@@ -15,7 +15,7 @@ class StageTemp2 extends StageBase {
 				.setTexture("smjb5_png")
                 .addHandler(
                     new TickEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
                             let size = Math.max(missile.getWidth() - 3, 60);
                             missile.setSize(size, size);
                             missile._img.width = 2 * size;
@@ -58,7 +58,7 @@ class StageTemp2 extends StageBase {
 				.setTexture("smjb5_png")
 				.addHandler(
                     new TickEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
                             let size = Math.max(missile.getWidth() - 3, 60);
                             missile.setSize(size, size);
                             missile._img.width = 2 * size;

@@ -33,7 +33,7 @@ class PageChooseChapter extends PageBase {
     }
 
 	public static createFunc(chapter:PageChapter) {
-		let func:Function = function() {
+		let func:Function = () => {
 			PageChooseChapter.INSTANCE.removeChildren();
         	Main.getMain().removeChildren();
         	Main.getMain().addChild(chapter);

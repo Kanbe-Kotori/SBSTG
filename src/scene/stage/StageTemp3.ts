@@ -41,7 +41,7 @@ class StageTemp3 extends StageBase {
 				.setVelocity(16)
 				/*.addHandler(
                     new TickEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
                             missile._img.rotation -= 9;
                         }
                     ).setTriggerTimes(100)

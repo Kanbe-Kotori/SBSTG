@@ -55,7 +55,7 @@ class PageChapter extends PageBase {
     }
 
 	public static createFunc(stage:StageBase, chapter:PageChapter) {
-		let func:Function = function() {
+		let func:Function = () => {
 			chapter.removeChildren();
         	Main.getMain().removeChildren();
         	Main.getMain().addChild(stage);

@@ -9,7 +9,7 @@ class Stage2_2 extends StageBase {
                 .setTexture(TextureNames.MISSILE_BLUE)
                 .addHandler(
                     new EdgeEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
                                 missile._img.x += Main.X;
@@ -35,7 +35,7 @@ class Stage2_2 extends StageBase {
                 .setTexture(TextureNames.MISSILE_BLUE)
                 .addHandler(
                     new EdgeEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
                                 missile._img.x += Main.X;

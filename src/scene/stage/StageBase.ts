@@ -3,12 +3,13 @@ abstract class StageBase extends PageBase {
     public arrayController:Array<EmitterBase>;
 
     protected readonly _uniqueStageID:string;
-    protected readonly _time:number;
+    protected readonly _total_time:number;
+    protected _current_tick;
 
     protected titleText:egret.TextField;
     protected timeText:egret.TextField;
 
-    protected timer:egret.Timer;
+    protected tick_timer:egret.Timer;
     protected missile_timer:egret.Timer;
 
     public state:StageState;
@@ -18,7 +19,7 @@ abstract class StageBase extends PageBase {
     protected constructor(id:string, time:number) {
         super();
         this._uniqueStageID = id;
-        this._time = time;
+        this._total_time = time;
         Chapters.registerStage(this._uniqueStageID, this);
     }
 
@@ -30,18 +31,22 @@ abstract class StageBase extends PageBase {
         return this._uniqueStageID;
     }
 
+    public getCurrentTick() {
+        return Math.max(this._current_tick, 0);
+    }
+
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
 
+        this._current_tick = -60;
         this.state = StageState.BEFORE_RUNNING;
 
         this.arrayMissile = new Array<MissileBase>();
         this.arrayController = new Array<EmitterBase>();
 
-        this.timer = new egret.Timer(1000, 3);
-        this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerUpdate, this);
-        this.timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE,this.onTimerEnd,this);
-        this.timer.start();
+        this.tick_timer = new egret.Timer(50);
+        this.tick_timer.addEventListener(egret.TimerEvent.TIMER, this.onTickUpdate, this);
+        this.tick_timer.start();
 
         this.missile_timer = new egret.Timer(50, 0);
         this.missile_timer.addEventListener(egret.TimerEvent.TIMER, this.onMissileUpdate, this);
@@ -115,22 +120,19 @@ abstract class StageBase extends PageBase {
         this.addChildAtLayer(btnInfo, DrawingLayer.CONTROL);
     }
 
-    protected onTimerUpdate(event: egret.TimerEvent) {
-        let num =  parseInt(this.timeText.text);
-        this.timeText.text = (num - 1) + "";
-    }
-
-    protected onTimerEnd(event: egret.TimerEvent) {
-        if (this.state == StageState.BEFORE_RUNNING) {
-            this.timeText.text = "";
+    protected onTickUpdate(event: egret.TimerEvent) {
+        this._current_tick++;
+        if (this._current_tick < 0){
+            this.timeText.text = Math.floor(- this._current_tick / 20 + 0.95) + "";
+        } else if(this._current_tick == 0) {
+            this.timeText.text = this._total_time + "";
             this.start();
-            this.timeText.text = this._time + "";
-            this.timer.reset();
-            this.timer.repeatCount = this._time;
-            this.timer.start();
         } else {
-            this.win();
-        }  
+            this.timeText.text = Math.floor(30 - this._current_tick / 20 + 0.95) + "";
+            if (this._current_tick >= this._total_time * 20) {
+                this.win();
+            }
+        }      
     }
 
     protected onMissileUpdate(event: egret.TimerEvent) {
@@ -156,7 +158,7 @@ abstract class StageBase extends PageBase {
         for (let i of this.arrayController) {
             i.stop();
         }
-        this.timer.stop();
+        this.tick_timer.stop();
         this.missile_timer.stop();
         this.addChildAtLayer(Win.INSTANCE, DrawingLayer.POPUP)
     }
@@ -174,7 +176,7 @@ abstract class StageBase extends PageBase {
         for (let i of this.arrayController) {
             i.stop();
         }
-        this.timer.stop();
+        this.tick_timer.stop();
         this.missile_timer.stop();
     }
 
@@ -183,7 +185,7 @@ abstract class StageBase extends PageBase {
         for (let i of this.arrayController) {
             i.resume();
         }
-        this.timer.start();
+        this.tick_timer.start();
         this.missile_timer.start();
     }
 
@@ -196,11 +198,10 @@ abstract class StageBase extends PageBase {
             i.stop();
         }
         MyUtils.cleanMissile(this);
-        this.missile_timer.stop();
+        this.tick_timer.stop();
+        this._current_tick = -60;
         this.timeText.text = "3";
-        this.timer.reset();
-        this.timer.repeatCount = 3;
-        this.timer.start();
+        this.tick_timer.start();
     }
 
     /**
@@ -208,7 +209,7 @@ abstract class StageBase extends PageBase {
      */
     public end() {
         this.state = StageState.END;
-        this.timer.stop();
+        this.tick_timer.stop();
         this.missile_timer.stop();
         MyUtils.cleanMissile(this);
         MyUtils.cleanController(this);
@@ -221,7 +222,7 @@ abstract class StageBase extends PageBase {
         for (let i of this.arrayController) {
             i.stop();
         }
-        this.timer.stop();
+        this.tick_timer.stop();
         this.missile_timer.stop();
         this.addChildAtLayer(Dead.INSTANCE, DrawingLayer.POPUP);
     }

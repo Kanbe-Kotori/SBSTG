@@ -4,13 +4,13 @@ class Stage1_4 extends StageBase {
     protected initEmitters() {
 
 		let handler1 = new TickEventHandler(
-						function(missile:MissileBase) {
+						(missile:MissileBase) => {
                             missile.setVelocity(0,0);
                         }
 					).setTriggerTimes(1);
 
 		let handler2 = new TickEventHandler(
-                        function(missile:MissileBase) {
+                        (missile:MissileBase) => {
 							let x = SelfMachine.INSTANCE.getX();
         					let y = SelfMachine.INSTANCE.getY();
 							let dx = x - missile.getX();
