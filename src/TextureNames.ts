@@ -12,6 +12,7 @@ class TextureNames {
 	public static readonly MISSILE_PETAL1 = "missile_petal1_png";
 	public static readonly MISSILE_PETAL2 = "missile_petal2_png";
 	public static readonly MISSILE_PETAL3 = "missile_petal3_png";
+	public static readonly MISSILE_PETAL4 = "missile_petal4_png";
 
 	public static readonly FLOWER1 = "flower1_png";
 	public static readonly FLOWER2 = "flower2_png";
