@@ -13,16 +13,20 @@ class TextHelper {
 	public static init() {
 		TextHelper.chapterName[0] = "第一章 荷塘";
 		TextHelper.chapterName[1] = "第二章 雨";
+		TextHelper.chapterName[2] = "第三章 放飞自我";
 
 		TextHelper.stageName["1-1"] = "荷塘初探";
 		TextHelper.stageName["1-2"] = "莲子加特林";
 		TextHelper.stageName["1-3"] = "蒲公英旋涡";
 		TextHelper.stageName["1-4"] = "致命蒲公英";
 		TextHelper.stageName["1-5"] = "致命蒲公英II";
+
 		TextHelper.stageName["2-1"] = "细雨";
-		TextHelper.stageName["2-2"] = "大雨";
+		TextHelper.stageName["2-3"] = "大雨";
+
 		TextHelper.stageName["test"] = "流矢";
 		TextHelper.stageName["test2"] = "耀斑";
+		TextHelper.stageName["test3"] = "？？？";
 	}
 
 	public static getStageNameFromID(id:string) {

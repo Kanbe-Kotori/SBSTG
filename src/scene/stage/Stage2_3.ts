@@ -1,5 +1,5 @@
-class Stage2_2 extends StageBase {
-	public static readonly INSTANCE:Stage2_2 = new Stage2_2("2-2", 30);
+class Stage2_3 extends StageBase {
+	public static readonly INSTANCE:Stage2_3 = new Stage2_3("2-3", 30);
 
     protected initEmitters() {
         let rain1 = new SideEmitterUpgrade(
@@ -45,7 +45,7 @@ class Stage2_2 extends StageBase {
                                 let theta = (1 + Math.random()) * Math.PI;
                                 let missile1 = new RoundMissile()
                                     .setPos(MyUtils.createReasonablePos(missile.getPos()))
-                                    .setVelocity(9 * Math.cos(theta), 9 * Math.sin(theta))
+                                    .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
                                     .setTexture(TextureNames.MISSILE_STANDARD)
                                     .setSize(36, 36);
                                 SelfMachine.INSTANCE.currentStage.addMissile(missile1);

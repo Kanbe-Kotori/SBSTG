@@ -6,8 +6,10 @@ class Chapters {
 	public static init() {
 		let Chapter1 = new PageChapter(0);
 		let Chapter2 = new PageChapter(1);
+		let Chapter3 = new PageChapter(2);
 		PageChooseChapter.INSTANCE.addChapter(Chapter1, "第一章", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
-		PageChooseChapter.INSTANCE.addChapter(Chapter2, "第二章", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
+		PageChooseChapter.INSTANCE.addChapter(Chapter2, "第二章", new egret.Point(Main.X * 0.5, Main.Y * 0.45));
+		PageChooseChapter.INSTANCE.addChapter(Chapter3, "第三章", new egret.Point(Main.X * 0.5, Main.Y * 0.65));
 
 		Chapter1.addStage("1-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		Chapter1.addStage("1-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
@@ -16,10 +18,11 @@ class Chapters {
 		Chapter1.addStage("1-5", "5", new egret.Point(Main.X * 0.5, Main.Y * 0.4));
 
 		Chapter2.addStage("2-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
-		Chapter2.addStage("2-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
-		Chapter2.addStage("test", "Test1", new egret.Point(Main.X * 0.25, Main.Y * 0.5));
-		Chapter2.addStage("test2", "Test2", new egret.Point(Main.X * 0.5, Main.Y * 0.5));
-		Chapter2.addStage("test3", "Test3", new egret.Point(Main.X * 0.75, Main.Y * 0.5));
+		Chapter2.addStage("2-3", "3", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
+
+		Chapter3.addStage("test", "T1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		Chapter3.addStage("test2", "T2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
+		Chapter3.addStage("test3", "T3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 	}
 
 	public static getStage(id:string) {

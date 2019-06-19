@@ -27,8 +27,9 @@ class EllipticalMissile extends MissileBase {
     public isCollide() {
         let dx:number = this.getX() - SelfMachine.INSTANCE.getX();
         let dy:number = this.getY() - SelfMachine.INSTANCE.getY();
-        dx -= SelfMachine.SIZE * dx / Math.sqrt(dx * dx + dy * dy);
-        dy -= SelfMachine.SIZE * dy / Math.sqrt(dx * dx + dy * dy);
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        dx -= SelfMachine.SIZE * dx / dist;
+        dy -= SelfMachine.SIZE * dy / dist;
         let cost = Math.cos(this._ang);
         let sint = Math.sin(this._ang);
         let flag = Math.pow(cost * dx + sint * dy, 2) / Math.pow(this._missile_width / 2, 2) +

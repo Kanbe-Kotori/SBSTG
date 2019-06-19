@@ -5,24 +5,23 @@ class Stage1_5 extends StageBase {
 
         let point1 = new egret.Point(540, 600);
         let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 200, 200).setParentEmitter(em1).setFreq(50).renderOnStage(this);
+        let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 150, 170).setParentEmitter(em1).setFreq(50).renderOnStage(this);
         let up1_2 = new RegularMissileUpgrade(
-           new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL1)
+           new MissileConfig(MissileUtils.MISSILE_ROUND)
+                .setTexture(TextureNames.MISSILE_PETAL4)
 				.setVelocity(20)
 				.addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
                             if (missile.getEdge() == Side.TOP) {
-								let point = missile.getPos();
+								let point = MyUtils.createReasonablePos(missile.getPos());
                                 let theta = MissileUtils.getSniperAngle(point) + MyUtils.ang2rad(1) * (2 * Math.random() - 1);
                                 let missile1 = 
                                     new EllipticalMissile()
                                         .setSize(30, 36)
                                         .setTexture(TextureNames.MISSILE_PETAL2)
                                         .setPos(point)
-                                        .setVelocity(15 * Math.cos(theta), 15 * Math.sin(theta));
+                                        .setVelocity(12 * Math.cos(theta), 12 * Math.sin(theta));
         						SelfMachine.INSTANCE.currentStage.addMissile(missile1);
                             }
 							missile.setDead();
