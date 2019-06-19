@@ -22,6 +22,7 @@ class TextHelper {
 		TextHelper.stageName["1-5"] = "致命蒲公英II";
 
 		TextHelper.stageName["2-1"] = "细雨";
+		TextHelper.stageName["2-2"] = "雨中花";
 		TextHelper.stageName["2-3"] = "大雨";
 
 		TextHelper.stageName["test"] = "流矢";
