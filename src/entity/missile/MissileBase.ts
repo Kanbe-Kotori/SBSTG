@@ -1,4 +1,4 @@
-abstract class MissileBase extends egret.Sprite {
+abstract class MissileBase {
 
 	protected _missile_width = 8;
     protected _missile_height = 8;
@@ -7,6 +7,8 @@ abstract class MissileBase extends egret.Sprite {
     protected _life:number;
     protected _total_life = -1;
 
+    protected _posX = 0;
+    protected _posY = 0;
     protected _vx = 0;
     protected _vy = 0;
 
@@ -16,11 +18,7 @@ abstract class MissileBase extends egret.Sprite {
     public isBottomLayer = false;
 
     public constructor() {
-        super();
         this._life = 0;
-        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
-        this.addEventListener(MissileEvent.TICK,this.SpecialLogic1,this);
-        this.addEventListener(MissileEvent.EDGE,this.SpecialLogic2,this);
     }
 
     public setSize(width:number, height:number) {
@@ -48,8 +46,8 @@ abstract class MissileBase extends egret.Sprite {
     }
 
     public setPos(point:egret.Point) {
-        this.x = point.x;
-        this.y = point.y;
+        this._posX = point.x;
+        this._posY = point.y;
         return this;
     }
 
@@ -63,17 +61,19 @@ abstract class MissileBase extends egret.Sprite {
         return this._life;
     }
 
+    public addToStage(stage:StageBase) {
+        let layer = this.isBottomLayer? DrawingLayer.BOTTOM_MISSILE : DrawingLayer.UPPER_MISSILE;
+        this.initIMG();
+        stage.addChildAtLayer(this._img, layer);
+        stage.arrayMissile.push(this);
+    }
+
     public setBottomLayer(bool:boolean) {
         this.isBottomLayer = bool;
 		return this;
     }
 
-    protected onAddToStage(event:egret.Event) {
-        //SelfMachine.INSTANCE.currentStage.arrayMissile.push(this);
-        this.doRender();
-    }
-
-    protected abstract doRender();
+    public abstract initIMG();
 
     /**
      * 子弹在每个tick都要进行的动作，例如位置变换。
@@ -81,43 +81,36 @@ abstract class MissileBase extends egret.Sprite {
      */
     public onUpdate(event: egret.TimerEvent) {
         this._life++;
-        this._img.x += this._vx;
-        this._img.y += this._vy;
-        if (this.hasSpecialLogic(TickEventHandler)) {
-            let event = new MissileTickEvent();
-            this.dispatchEvent(event);
-        }
-        if (this._handler.length > 0) {
-            let clone = this._handler.slice(0);
-            for (let i: number = 0; i < this._handler.length; i++) {
-			    if (this._handler[i].shouldSetDead()) {
-                    MyUtils.removeFromArray(this._handler[i], clone);
-			    }
-		    }
-            this._handler = clone;
-        }
+        this._posX += this._vx;
+        this._posY += this._vy;
+        this._img.x = this._posX;
+        this._img.y = this._posY;
+
         if (this.shouldSetDead()) {
             this.setDead();
         }
     }
 
-    public SpecialLogic1(event: MissileTickEvent) {
-        for (let i of this._handler) {
+    public static TickLogic(event: MissileTickEvent) {
+        for (let i of event.getMissile()._handler) {
             if (i instanceof TickEventHandler) {
-                i.trigger(this);
+                i.trigger(event.getMissile());
             }
         }
     }
 
-    public SpecialLogic2(event: MissileEdgeEvent) {
-        for (let i of this._handler) {
+    public static EdgeLogic(event: MissileEdgeEvent) {
+        for (let i of event.getMissile()._handler) {
             if (i instanceof EdgeEventHandler) {
-                i.trigger(this);
+                i.trigger(event.getMissile());
             }
         }
     }
     
-    protected hasSpecialLogic(type):boolean {
+    public hasSpecialLogic(type):boolean {
+        if (this._handler == null) {
+            return false;
+        }
         for (let i of this._handler) {
             if (i instanceof type) {
                 return true;
@@ -133,21 +126,21 @@ abstract class MissileBase extends egret.Sprite {
 
     public setDead() {
         this._handler = null;
-        this.removeChildren();
-        this.parent.removeChild(this);
+        if (this._img != null && this._img.parent != null)
+            this._img.parent.removeChild(this._img);
         MyUtils.removeFromArray(this, SelfMachine.INSTANCE.currentStage.arrayMissile);
     }
 
     public getX() {
-        return this.localToGlobal(this._img.x, this._img.y).x;
+        return this._posX;
     }
 
     public getY() {
-        return this.localToGlobal(this._img.x, this._img.y).y;
+        return this._posY;
     }
 
     public getPos() {
-        return this.localToGlobal(this._img.x, this._img.y)
+        return new egret.Point(this._posX, this._posY);
     }
 
     /**

@@ -21,6 +21,9 @@ abstract class StageBase extends PageBase {
         this._uniqueStageID = id;
         this._total_time = time;
         Chapters.registerStage(this._uniqueStageID, this);
+
+        this.addEventListener(MissileEvent.TICK, MissileBase.TickLogic, this);
+        this.addEventListener(MissileEvent.EDGE, MissileBase.EdgeLogic, this);
     }
 
     public addChildAtLayer(container, layer) {
@@ -53,18 +56,12 @@ abstract class StageBase extends PageBase {
 
         SelfMachine.INSTANCE.currentStage = this;
         this.addChildAtLayer(SelfMachine.INSTANCE, DrawingLayer.SELF_MACHINE);
-        //SelfMachine.INSTANCE.UNDEAD = true;
+        SelfMachine.INSTANCE.UNDEAD = true;
 
         this.initEmitters();
     }
 
     protected abstract initEmitters();
-
-    public addMissile(missile:MissileBase) {
-        let layer = missile.isBottomLayer? DrawingLayer.BOTTOM_MISSILE : DrawingLayer.UPPER_MISSILE;
-        this.addChildAtLayer(missile, layer);
-        this.arrayMissile.push(missile);
-    }
 
     protected doRender() {
         for (let i = 0; i <= 6; i++) {
@@ -138,13 +135,16 @@ abstract class StageBase extends PageBase {
     protected onMissileUpdate(event: egret.TimerEvent) {
         for(let i of this.arrayMissile) {
             i.onUpdate(event);
+            if (i.hasSpecialLogic(TickEventHandler)) {
+                let event = new MissileTickEvent(i);
+                this.dispatchEvent(event);
+            }
         }
         if (SelfMachine.INSTANCE.UNDEAD) {
             return;
         }
         for (let i of SelfMachine.INSTANCE.currentStage.arrayMissile) {
             if (i.isCollide()) {
-                //console.log("nisile");
                 this.dead();
                 break;
             }

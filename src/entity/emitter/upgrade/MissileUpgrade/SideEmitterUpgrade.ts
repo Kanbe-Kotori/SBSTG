@@ -55,7 +55,7 @@ class SideEmitterUpgrade extends MissileUpgradeBase {
             let missile = this._conf.createMissile()
                             .setPos(point)
                             .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
-            SelfMachine.INSTANCE.currentStage.addMissile(missile);
+            missile.addToStage(SelfMachine.INSTANCE.currentStage);
         }
     }
 

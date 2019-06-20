@@ -22,7 +22,7 @@ class Stage1_5 extends StageBase {
                                         .setTexture(TextureNames.MISSILE_PETAL2)
                                         .setPos(point)
                                         .setVelocity(12 * Math.cos(theta), 12 * Math.sin(theta));
-        						SelfMachine.INSTANCE.currentStage.addMissile(missile1);
+                                missile1.addToStage(SelfMachine.INSTANCE.currentStage);
                             }
 							missile.setDead();
                         }

@@ -48,7 +48,7 @@ class Stage2_3 extends StageBase {
                                     .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
                                     .setTexture(TextureNames.MISSILE_STANDARD)
                                     .setSize(36, 36);
-                                SelfMachine.INSTANCE.currentStage.addMissile(missile1);
+                                missile1.addToStage(SelfMachine.INSTANCE.currentStage);
                                 missile.setDead();
                             } else {
                                 missile.setDead();

@@ -40,7 +40,7 @@ class RegularMissileUpgrade extends MissileUpgradeBase {
             let point = this.localToGlobal(0,0);
             let v = this._conf.getVelocity();
             let missile = this._conf.createMissile().setPos(point).setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
-            SelfMachine.INSTANCE.currentStage.addMissile(missile);
+            missile.addToStage(SelfMachine.INSTANCE.currentStage);
             theta += this._step;
         }
     }

@@ -28,7 +28,7 @@ class SniperUpgrade extends MissileUpgradeBase {
         theta -= (this._num - 1) / 2 * MyUtils.ang2rad(this._step);
         while(i++ < this._num) {
             let missile = this._conf.createMissile().setPos(point).setVelocity(v * Math.cos(theta), v * Math.sin(theta));
-            SelfMachine.INSTANCE.currentStage.addMissile(missile);
+            missile.addToStage(SelfMachine.INSTANCE.currentStage);
             theta += MyUtils.ang2rad(this._step);
         }       
     }
