@@ -36,7 +36,8 @@ class StageTemp3 extends StageBase {
 		let up1_6 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_GREEN)
-				.setSize(128, 128)
+				.setSize(256, 256)
+                .setBottomLayer()
 				.setVelocity(16)
 				.addHandler(
                     new TickEventHandler(
@@ -50,7 +51,7 @@ class StageTemp3 extends StageBase {
         .setFreq(400)
 		.setDelay(8000)
         .setStartAngle(0)
-        .setStep(15)
+        .setStep(20)
         .setNumber(2);
 		let up1_7 = new EmitterRotateUpgrade().setParentEmitter(up1_6).setTPR(-2.5);
 

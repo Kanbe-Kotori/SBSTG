@@ -133,7 +133,7 @@ abstract class StageBase extends PageBase {
     }
 
     protected onMissileUpdate(event: egret.TimerEvent) {
-        for(let i of this.arrayMissile) {
+        for(let i of this.arrayMissile.slice(0)) {
             i.onUpdate(event);
             if (i.hasSpecialLogic(TickEventHandler)) {
                 let event = new MissileTickEvent(i);
