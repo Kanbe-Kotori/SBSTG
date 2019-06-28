@@ -57,6 +57,17 @@ abstract class MissileBase {
         return this;
     }
 
+    public setTotalVelocity(v:number) {
+        let _v = this.getVelocity();
+        this._vx = v * this._vx / _v;
+        this._vy = v * this._vy / _v;
+        return this;
+    }
+
+    public getVelocity() {
+        return Math.sqrt(this._vx * this._vx + this._vy * this._vy);
+    }
+
     public getLife() {
         return this._life;
     }

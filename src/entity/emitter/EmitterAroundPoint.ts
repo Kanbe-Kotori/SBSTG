@@ -14,20 +14,20 @@ class EmitterAroundPoint extends EmitterBase {
 		this._period = period;
 		this._radius = radius;
 		this.setFreq(50);
-		this.x = this._centre.x;
-		this.y = this._centre.y;
+		this._posX = this._centre.x;
+		this._posY = this._centre.y;
 	}
 
 	public stop() {
 		super.stop();
 		if (this.shouldRanTheta) {
 			this.randomTheta();
-			this.x = this._centre.x;
-			this.y = this._centre.y;
+			this._posX = this._centre.x;
+			this._posY = this._centre.y;
 		} else {
 			this._theta = this._init_theta;
-			this.x = this._centre.x + this._radius * Math.sin(this._theta);
-			this.y = this._centre.y - this._radius * Math.cos(this._theta);
+			this._posX = this._centre.x + this._radius * Math.sin(this._theta);
+			this._posY = this._centre.y - this._radius * Math.cos(this._theta);
 		}
 	}
 
@@ -39,15 +39,15 @@ class EmitterAroundPoint extends EmitterBase {
 		} else if (this._theta <= 0) {
 			this._theta += 2 * Math.PI;
 		}
-		this.x = this._centre.x + this._radius * Math.sin(this._theta);
-		this.y = this._centre.y - this._radius * Math.cos(this._theta);
+		this._posX = this._centre.x + this._radius * Math.sin(this._theta);
+		this._posY = this._centre.y - this._radius * Math.cos(this._theta);
 	}
 
 	public setTheta(theta:number) {
 		this._theta = theta;
 		this._init_theta = theta;
-		this.x = this._centre.x + this._radius * Math.sin(this._theta);
-		this.y = this._centre.y - this._radius * Math.cos(this._theta);
+		this._posX = this._centre.x + this._radius * Math.sin(this._theta);
+		this._posY = this._centre.y - this._radius * Math.cos(this._theta);
 	}
 
 	public randomTheta() {

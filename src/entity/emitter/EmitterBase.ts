@@ -1,4 +1,7 @@
-abstract class EmitterBase extends egret.Sprite {
+abstract class EmitterBase {
+
+    protected _posX;
+    protected _posY;
 
 	protected timer:egret.Timer;
     protected _freq = 250;
@@ -7,7 +10,6 @@ abstract class EmitterBase extends egret.Sprite {
     protected _delay_timer;
 
 	public constructor() {
-		super();
         SelfMachine.INSTANCE.currentStage.arrayController.push(this);
         this.timer = new egret.Timer(this._freq, 0);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
@@ -80,8 +82,20 @@ abstract class EmitterBase extends egret.Sprite {
     }
 
     public setPos(point:egret.Point) {
-        this.x = point.x;
-        this.y = point.y;
+        this._posX = point.x;
+        this._posY = point.y;
         return this;
+    }
+
+    public getPos() {
+        return new egret.Point(this._posX, this._posY);
+    }
+
+    public getX() {
+        return this._posX;
+    }
+
+    public getY() {
+        return this._posY;
     }
 }

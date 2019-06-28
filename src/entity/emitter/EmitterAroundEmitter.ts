@@ -15,20 +15,18 @@ class EmitterAroundEmitter extends EmitterBase {
 		this._period = period;
 		this._radius = radius;
 		this.setFreq(50);
-		this.x = this._parent_emitter.x;
-		this.y = this._parent_emitter.y;
+		this.setPos(this._parent_emitter.getPos());
 	}
 
 	public stop() {
 		super.stop();
 		if (this.shouldRanTheta) {
 			this.randomTheta();
-			this.x = this._parent_emitter.x;
-			this.y = this._parent_emitter.y;
+			this.setPos(this._parent_emitter.getPos());
 		} else {
 			this._theta = this._init_theta;
-			this.x = this._parent_emitter.x + this._radius * Math.sin(this._theta);
-			this.y = this._parent_emitter.y - this._radius * Math.cos(this._theta);
+			this._posX = this._parent_emitter.getX() + this._radius * Math.sin(this._theta);
+			this._posY = this._parent_emitter.getY() - this._radius * Math.cos(this._theta);
 		}
 	}
 
@@ -40,8 +38,8 @@ class EmitterAroundEmitter extends EmitterBase {
 		} else if (this._theta <= 0) {
 			this._theta += 2 * Math.PI;
 		}
-		this.x = this._parent_emitter.x + this._radius * Math.sin(this._theta);
-		this.y = this._parent_emitter.y - this._radius * Math.cos(this._theta);
+		this._posX = this._parent_emitter.getX() + this._radius * Math.sin(this._theta);
+		this._posY = this._parent_emitter.getY() - this._radius * Math.cos(this._theta);
 	}
 
 	/**
@@ -51,8 +49,8 @@ class EmitterAroundEmitter extends EmitterBase {
 		this.shouldRanTheta = false;
 		this._theta = theta * Math.PI;
 		this._init_theta = theta * Math.PI;
-		this.x = this._parent_emitter.x + this._radius * Math.sin(this._theta);
-		this.y = this._parent_emitter.y - this._radius * Math.cos(this._theta);
+		this._posX = this._parent_emitter.getX() + this._radius * Math.sin(this._theta);
+		this._posY = this._parent_emitter.getY() - this._radius * Math.cos(this._theta);
 	}
 
 	public randomTheta() {

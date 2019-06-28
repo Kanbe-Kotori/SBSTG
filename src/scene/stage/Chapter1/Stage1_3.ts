@@ -28,8 +28,8 @@ class Stage1_3 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em2)
-        .setNumber(3)
-        .setStep(120)
+        .setNumber(5)
+        .setStep(72)
         .setDiv(1)
         .setFreq(200);
 
@@ -43,8 +43,8 @@ class Stage1_3 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em3)
-        .setNumber(3)
-        .setStep(120)
+        .setNumber(5)
+        .setStep(72)
         .setDiv(1)
         .setFreq(200);
 
@@ -58,8 +58,8 @@ class Stage1_3 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em4)
-        .setNumber(3)
-        .setStep(120)
+        .setNumber(5)
+        .setStep(72)
         .setDiv(1)
         .setFreq(200);
 
@@ -74,8 +74,8 @@ class Stage1_3 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em5)
-        .setNumber(3)
-        .setStep(120)
+        .setNumber(5)
+        .setStep(72)
         .setDiv(1)
         .setFreq(200);
 
@@ -90,8 +90,8 @@ class Stage1_3 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em6)
-        .setNumber(3)
-        .setStep(120)
+        .setNumber(5)
+        .setStep(72)
         .setDiv(1)
         .setFreq(200);
 
@@ -106,8 +106,8 @@ class Stage1_3 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em7)
-        .setNumber(3)
-        .setStep(120)
+        .setNumber(5)
+        .setStep(72)
         .setDiv(1)
         .setFreq(200);
     }

@@ -23,10 +23,9 @@ class TeleportingUpgrade extends EmitterUpgradeBase {
         if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING || this._parent_emitter == null) {
             return;
         }
-        this._parent_emitter.x = this._xmin + Math.random() * (this._xmax - this._xmin);
-		this._parent_emitter.y = this._ymin + Math.random() * (this._ymax - this._ymin);
-        this.x = this._parent_emitter.x;
-        this.y = this._parent_emitter.y;
+        let point = new egret.Point(this._xmin + Math.random() * (this._xmax - this._xmin), this._ymin + Math.random() * (this._ymax - this._ymin));
+        this._parent_emitter.setPos(point);
+        this.setPos(point);
     }
 
 }

@@ -18,29 +18,30 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		this._texture_height = height;
         this._texture = texture;
 		this._freq = 1000;
-		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
 	}
 
-	protected onAddToStage(event:egret.Event) {
-        this.doRender();
-    }
-
-	protected doRender() {
-		this.x = this._parent_emitter.x;
-		this.y = this._parent_emitter.y;
+	protected createIMG() {
+		this.setPos(this._parent_emitter.getPos());
 		this._img = MyUtils.createBitmapByName(this._texture);
         this._img.width = this._texture_width;
         this._img.height = this._texture_height;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
-		this._img.x = 0;
-		this._img.y = 0;
-        this.addChild(this._img);
+		this._img.x = this._posX;
+		this._img.y = this._posY;
 	}
 
+	public onUpdate(event: egret.TimerEvent) {
+        super.onUpdate(event);
+		this._img.x = this._posX;
+		this._img.y = this._posY;
+    }
+
 	public setDead() {
-		this.removeChildren();
-		this.parent.removeChild(this);
+		if (this._img != null && this._img.parent != null) {
+			this._img.parent.removeChild(this._img);
+		}
+		this._img = null;
         super.setDead();
     }
 
@@ -55,12 +56,12 @@ class RenderUpgrade extends EmitterUpgradeBase {
 	public stop() {
 		super.stop();
 		this._parent_emitter.stop();
-		this.x = this._parent_emitter.x;
-		this.y = this._parent_emitter.y;
+		this.setPos(this._parent_emitter.getPos());
 	}
 
 	public renderOnStage(stage:StageBase) {
-		stage.addChildAtLayer(this, DrawingLayer.EMITTER);
+		this.createIMG();
+		stage.addChildAtLayer(this._img, DrawingLayer.EMITTER);
 		return this;
 	}
 

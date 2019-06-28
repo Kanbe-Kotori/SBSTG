@@ -23,7 +23,15 @@ class Stage1_2 extends StageBase {
         let up2_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(20)
+                .setVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
+                    )
+                    .setTriggerTimes(20)
+                )
             )
         .setParentEmitter(em2)
         .setFreq(200)
@@ -35,7 +43,15 @@ class Stage1_2 extends StageBase {
         let up3_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(20)
+                .setVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
+                    )
+                    .setTriggerTimes(20)
+                )
             )
         .setParentEmitter(em3)
         .setFreq(200)
@@ -47,7 +63,15 @@ class Stage1_2 extends StageBase {
         let up4_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(20)
+                .setVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
+                    )
+                    .setTriggerTimes(20)
+                )
             )
         .setParentEmitter(em4)
         .setFreq(200)
@@ -59,7 +83,15 @@ class Stage1_2 extends StageBase {
         let up5_2 = new SniperUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(20)
+                .setVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
+                    )
+                    .setTriggerTimes(20)
+                )
             )
         .setParentEmitter(em5)
         .setFreq(200)

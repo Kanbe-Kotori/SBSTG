@@ -11,7 +11,7 @@ class Stage1_4 extends StageBase {
                 .setVelocity(20)
             )
         .setParentEmitter(em1)
-        .setFreq(250)
+        .setFreq(150)
         .setStartAngle(0)
         .setStep(360 / 6)
         .setNumber(6);
@@ -19,10 +19,10 @@ class Stage1_4 extends StageBase {
         let up1_4 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_PETAL4)
-                .setVelocity(25)
+                .setVelocity(20)
             )
         .setParentEmitter(em1)
-        .setFreq(200)
+        .setFreq(150)
         .setStartAngle(0)
         .setStep(360 / 6)
         .setNumber(6);
@@ -35,15 +35,14 @@ class Stage1_4 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-				.setVelocity(10)
+				.setVelocity(15)
 				.addHandler(
                     new TickEventHandler(
 						(missile:MissileBase) => {
-                            missile.setVelocity(0,0);
+                            missile.setTotalVelocity(missile.getVelocity() - 1);
                         }
 					)
-                    .setTriggerTimes(1)
-                    .setStartTicks(15)
+                    .setTriggerTimes(15)
                 )
 				.addHandler(
                     new TickEventHandler(
@@ -53,22 +52,31 @@ class Stage1_4 extends StageBase {
 							let dx = x - missile.getX();
 							let dy = y - missile.getY();
                             let dist = Math.sqrt(dx * dx + dy * dy);
-							let vx = 12 * dx / dist;
-        					let vy = 12 * dy / dist;
+							let vx = 10 * dx / dist;
+        					let vy = 10 * dy / dist;
                             missile.setVelocity(vx, vy);
                         }
 					)
                     .setTriggerTimes(1)
-                    .setStartTicks(30)
+                    .setStartTicks(20)
+                )
+                .addHandler(
+                    new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                        }
+					)
+                    .setTriggerTimes(20)
+                    .setStartTicks(20)
                 )
             )
         .setParentEmitter(em2)
         .setFreq(300)
 		.setDelay(1000)
         .setStartAngle(0)
-        .setStep(360 / 8)
-        .setNumber(8);
-		let up2_3 = new EmitterRotateUpgrade().setParentEmitter(up2_2).setTPR(6);
+        .setStep(360 / 6)
+        .setNumber(6);
+		let up2_3 = new EmitterRotateUpgrade().setParentEmitter(up2_2).setTPR(4);
 
 		let point3 = new egret.Point(720, 720);
         let em3 = new EmptyEmitter().setPos(point3);
@@ -77,15 +85,14 @@ class Stage1_4 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL1)
-				.setVelocity(10)
+				.setVelocity(15)
 				.addHandler(
                     new TickEventHandler(
 						(missile:MissileBase) => {
-                            missile.setVelocity(0,0);
+                            missile.setTotalVelocity(missile.getVelocity() - 1);
                         }
 					)
-                    .setTriggerTimes(1)
-                    .setStartTicks(15)
+                    .setTriggerTimes(15)
                 )
 				.addHandler(
                     new TickEventHandler(
@@ -95,22 +102,31 @@ class Stage1_4 extends StageBase {
 							let dx = x - missile.getX();
 							let dy = y - missile.getY();
                             let dist = Math.sqrt(dx * dx + dy * dy);
-							let vx = 12 * dx / dist;
-        					let vy = 12 * dy / dist;
+							let vx = 10 * dx / dist;
+        					let vy = 10 * dy / dist;
                             missile.setVelocity(vx, vy);
                         }
 					)
                     .setTriggerTimes(1)
-                    .setStartTicks(30)
+                    .setStartTicks(20)
+                )
+                .addHandler(
+                    new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                        }
+					)
+                    .setTriggerTimes(20)
+                    .setStartTicks(20)
                 )
             )
         .setParentEmitter(em3)
         .setFreq(300)
 		.setDelay(1000)
         .setStartAngle(0)
-        .setStep(360 / 8)
-        .setNumber(8);
-		let up3_3 = new EmitterRotateUpgrade().setParentEmitter(up3_2).setTPR(-6);
+        .setStep(360 / 6)
+        .setNumber(6);
+		let up3_3 = new EmitterRotateUpgrade().setParentEmitter(up3_2).setTPR(-4);
 
 	}
 }

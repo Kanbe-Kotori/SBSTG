@@ -16,4 +16,9 @@ class CustomPathUpgrade extends EmitterUpgradeBase {
 		this._parent_emitter.setPos(this._path(time));
     }
 
+    public stop() {
+		super.stop();
+        this._parent_emitter.setPos(this._path(0));
+    }
+
 }

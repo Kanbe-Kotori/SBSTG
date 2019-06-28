@@ -12,8 +12,7 @@ abstract class EmitterUpgradeBase extends EmitterBase {
         if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING || this._parent_emitter == null) {
             return;
         }
-		this.x = this._parent_emitter.x;
-		this.y = this._parent_emitter.y;
+        this.setPos(this._parent_emitter.getPos());
     }
 	
 }

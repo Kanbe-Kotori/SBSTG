@@ -10,7 +10,7 @@ class StageTemp2 extends StageBase {
         .setFreq(800);
 		let up1_2 = new RegularMissileUpgrade(
 			new MissileConfig(MissileUtils.MISSILE_ROUND)
-				.setSize(300, 300)
+				.setSize(360, 360)
 				.setVelocity(18)
 				.setTexture("smjb5_png")
                 .addHandler(

@@ -5,4 +5,8 @@ abstract class MissileUpgradeBase extends EmitterUpgradeBase {
 		super();
 		this._conf = conf;
 	}
+
+	public getConf() {
+		return this._conf;
+	}
 }
