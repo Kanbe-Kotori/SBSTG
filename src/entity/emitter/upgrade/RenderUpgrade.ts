@@ -20,15 +20,23 @@ class RenderUpgrade extends EmitterUpgradeBase {
 		this._freq = 1000;
 	}
 
+	public setPos(point:egret.Point) {
+        this._posX = point.x;
+        this._posY = point.y;
+		if (this._img != null) {
+			this._img.x = this._posX;
+			this._img.y = this._posY;
+		}
+        return this;
+    }
+
 	protected createIMG() {
-		this.setPos(this._parent_emitter.getPos());
 		this._img = MyUtils.createBitmapByName(this._texture);
         this._img.width = this._texture_width;
         this._img.height = this._texture_height;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
-		this._img.x = this._posX;
-		this._img.y = this._posY;
+		this.setPos(this._parent_emitter.getPos());
 	}
 
 	public onUpdate(event: egret.TimerEvent) {

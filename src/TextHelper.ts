@@ -15,11 +15,12 @@ class TextHelper {
 		TextHelper.chapterName[1] = "第二章 雨";
 		TextHelper.chapterName[2] = "第三章 放飞自我";
 
-		TextHelper.stageName["1-1"] = "荷塘初探";
-		TextHelper.stageName["1-2"] = "莲子加特林";
-		TextHelper.stageName["1-3"] = "蒲公英旋涡";
-		TextHelper.stageName["1-4"] = "致命蒲公英";
-		TextHelper.stageName["1-5"] = "致命蒲公英II";
+		TextHelper.stageName["1-1"] = "初探";
+		TextHelper.stageName["1-2"] = "加特林";
+		TextHelper.stageName["1-3"] = "旋涡";
+		TextHelper.stageName["1-4"] = "加速";
+		TextHelper.stageName["1-5"] = "反射";
+		TextHelper.stageName["1-6"] = "爆裂";
 
 		TextHelper.stageName["2-1"] = "细雨";
 		TextHelper.stageName["2-2"] = "雨中花";

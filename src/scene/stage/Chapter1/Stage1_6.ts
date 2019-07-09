@@ -50,12 +50,12 @@ class Stage1_6 extends StageBase {
 														.setPos(missile.getPos())
 														.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
 														.addHandler(
-														new TickEventHandler(
-															(missile:MissileBase) => {
-																missile.setTotalVelocity(missile.getVelocity() - 0.5);
-															}
-														)
-														.setTriggerTimes(30)
+															new TickEventHandler(
+																(missile:MissileBase) => {
+																	missile.setTotalVelocity(missile.getVelocity() - 0.5);
+																}
+															)
+															.setTriggerTimes(30)
 													)
 												missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 											}
@@ -104,12 +104,12 @@ class Stage1_6 extends StageBase {
 														.setPos(missile.getPos())
 														.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
 														.addHandler(
-														new TickEventHandler(
-															(missile:MissileBase) => {
-																missile.setTotalVelocity(missile.getVelocity() - 0.5);
-															}
-														)
-														.setTriggerTimes(30)
+															new TickEventHandler(
+																(missile:MissileBase) => {
+																	missile.setTotalVelocity(missile.getVelocity() - 0.5);
+																}
+															)
+															.setTriggerTimes(30)
 													)
 												missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 											}
