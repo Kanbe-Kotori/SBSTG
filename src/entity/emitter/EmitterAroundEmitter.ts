@@ -31,6 +31,9 @@ class EmitterAroundEmitter extends EmitterBase {
 	}
 
 	public onUpdate() {
+		if (!this.shouldUpdate()) {
+			return;
+		}
 		let dtheta = 2 * Math.PI * this._freq / this._period;
 		this._theta += this.clockwise? dtheta : -dtheta;
 		if (this._theta >= 2 * Math.PI) {

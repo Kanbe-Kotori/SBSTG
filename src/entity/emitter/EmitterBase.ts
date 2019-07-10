@@ -6,16 +6,26 @@ abstract class EmitterBase {
 	protected timer:egret.Timer;
     protected _freq = 250;
     protected _run_delay = 0;
-
     protected _delay_timer;
+
+    protected _looper = 0;
 
 	public constructor() {
         SelfMachine.INSTANCE.currentStage.arrayController.push(this);
-        this.timer = new egret.Timer(this._freq, 0);
+        this.timer = new egret.Timer(50);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
 	}
 
 	public abstract onUpdate(event: egret.TimerEvent);
+
+    protected shouldUpdate():boolean {
+        this._looper++;
+        if (this._looper >= this._freq / 50) {
+            this._looper -= this._freq / 50;
+            return true;
+        }
+        return false;
+    }
 
     /**
      * 游戏不开始，弹幕不发射
@@ -77,7 +87,6 @@ abstract class EmitterBase {
 
     public setFreq(freq:number) {
         this._freq = freq;
-        this.timer.delay = freq;
         return this;
     }
 

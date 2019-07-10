@@ -6,7 +6,6 @@ class EmitterRotateUpgrade extends EmitterUpgradeBase {
 
 	public constructor() {
 		super();
-		this.timer.delay = 50;
 	}
 
 	public setParentEmitter(emitter:EmitterBase) {

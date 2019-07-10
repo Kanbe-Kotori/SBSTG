@@ -40,6 +40,9 @@ class RenderUpgrade extends EmitterUpgradeBase {
 	}
 
 	public onUpdate(event: egret.TimerEvent) {
+		if (!this.shouldUpdate()) {
+			return;
+		}
         super.onUpdate(event);
 		this._img.x = this._posX;
 		this._img.y = this._posY;

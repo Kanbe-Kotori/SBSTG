@@ -46,6 +46,9 @@ class SideEmitterUpgrade extends MissileUpgradeBase {
 
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
+        if (!this.shouldUpdate()) {
+			return;
+		}
         let i = 0;
         while(i++ < this._num) {
             var point = this.getPointFromSide();

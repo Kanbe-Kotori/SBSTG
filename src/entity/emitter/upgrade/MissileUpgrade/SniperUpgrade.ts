@@ -21,6 +21,9 @@ class SniperUpgrade extends MissileUpgradeBase {
 
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
+        if (!this.shouldUpdate()) {
+			return;
+		}
         let theta = MissileUtils.getSniperAngle(this.getPos()) + MyUtils.ang2rad(this._div) * (2 * Math.random() - 1);
         let v = this._conf.getVelocity();
         let i = 0;

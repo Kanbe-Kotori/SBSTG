@@ -9,6 +9,9 @@ class CustomMissileUpgrade extends EmitterUpgradeBase {
 
 	public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
+		if (!this.shouldUpdate()) {
+			return;
+		}
 		this._func(this);
     }
 

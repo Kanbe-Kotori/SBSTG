@@ -20,6 +20,9 @@ class TeleportingUpgrade extends EmitterUpgradeBase {
     }
 
     public onUpdate(event: egret.TimerEvent) {
+        if (!this.shouldUpdate()) {
+			return;
+		}
         if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage.state != StageState.RUNNING || this._parent_emitter == null) {
             return;
         }

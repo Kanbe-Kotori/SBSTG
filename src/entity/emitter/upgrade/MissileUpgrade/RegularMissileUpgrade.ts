@@ -33,6 +33,9 @@ class RegularMissileUpgrade extends MissileUpgradeBase {
 
     public onUpdate(event: egret.TimerEvent) {
         super.onUpdate(event);
+        if (!this.shouldUpdate()) {
+			return;
+		}
         let theta = this._ang;
         let i = 0;
         while (i++ < this._num) {
