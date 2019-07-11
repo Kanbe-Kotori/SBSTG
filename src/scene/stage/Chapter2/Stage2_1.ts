@@ -1,5 +1,4 @@
 class Stage2_1 extends StageBase {
-    public static readonly INSTANCE:Stage2_1 = new Stage2_1("2-1", 30);
 
     protected initEmitters() {
         let rain = new SideEmitterUpgrade(

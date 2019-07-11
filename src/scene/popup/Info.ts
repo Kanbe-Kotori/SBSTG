@@ -6,17 +6,42 @@ class Info extends Popup {
 
     protected doRender() {
         super.doRender();
-		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_INFO);
-        this._img.width = 800;
-        this._img.height = 800;
+		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_LONG);
+        this._img.width = 720;
+        this._img.height = 1080;
         this._img.anchorOffsetX = this._img.width/2;
         this._img.anchorOffsetY = this._img.height/2;
         this._img.x = Main.X/2;
-        this._img.y = Main.Y/2;
+        this._img.y = 900;
         this.addChild(this._img);
 
+        let title = new egret.TextField();
+        title.x = 270;
+        title.y = 480;
+        title.width = 540;
+        title.height = 90;
+        title.text = "关卡提示";
+        title.size = 64;
+        title.textColor = 0x000000;
+        title.fontFamily = "KaiTi";
+        title.bold = true;
+        title.textAlign = egret.HorizontalAlign.CENTER;
+        title.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this.addChild(title);
+
         let current = SelfMachine.INSTANCE.currentStage;
-        //TODO 根据current绘制Info图像
+        let info = new egret.TextField();
+        info.x = 270;
+        info.y = 600;
+        info.width = 540;
+        info.height = 600;
+        info.text = TextHelper.getStageInfoFromID(current.getUniqueID());
+        info.size = 48;
+        info.textColor = 0x000000;
+        info.fontFamily = "KaiTi";
+        info.textAlign = egret.HorizontalAlign.LEFT;
+        info.verticalAlign = egret.VerticalAlign.TOP;
+        this.addChild(info);
 
         let btnStart = new Button(120, 120, new egret.Point(540, 1240)).setTexture(TextureNames.BUTTON_RESUME);
         btnStart.setAction(Info.click_start);

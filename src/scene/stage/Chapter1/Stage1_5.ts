@@ -1,5 +1,4 @@
 class Stage1_5 extends StageBase {
-    public static readonly INSTANCE:Stage1_5 = new Stage1_5("1-5", 30);
 
     protected initEmitters() {
 

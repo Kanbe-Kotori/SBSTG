@@ -1,5 +1,4 @@
 class Stage1_2 extends StageBase {
-    public static readonly INSTANCE:Stage1_2 = new Stage1_2("1-2", 30);
 
     protected initEmitters() {
         let point1 = new egret.Point(540, 300);

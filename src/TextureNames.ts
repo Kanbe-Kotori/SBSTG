@@ -26,9 +26,10 @@ class TextureNames {
 	public static readonly BUTTON_INFO = "btn_info_png";
 	public static readonly BUTTON_RESUME = "btn_resume_png";
 
+	public static readonly POPUP_SQUARE = "popup_square_png";
+	public static readonly POPUP_LONG = "popup_long_png";
 	public static readonly POPUP_PAUSE = "popup_pause_png";
 	public static readonly POPUP_DEAD = "popup_dead_png";
-	public static readonly POPUP_INFO = "popup_info_png";
 	public static readonly POPUP_WIN = "popup_win_png";
 	
 	public static readonly STAGE_NOT_FINISH = "stage_not_finish_png";
