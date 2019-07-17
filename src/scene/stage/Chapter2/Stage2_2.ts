@@ -24,7 +24,7 @@ class Stage2_2 extends StageBase {
         .setFreq(250)
         .setStartAngle(75)
         .setEndAngle(105)
-        .setNumber(8);
+        .setNumber(7);
 
 		let point2 = new egret.Point(Main.X * 0.4, 420);
 		let em2 = new EmptyEmitter().setPos(point2);

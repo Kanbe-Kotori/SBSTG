@@ -46,7 +46,7 @@ class Pause extends Popup {
         current.end();
         Pause.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(PageMain.INSTANCE);
+        Main.getMain().addChild(SelfMachine.INSTANCE.currentChapter);
     }
 
 	public static click_restart(evt:egret.TouchEvent) {

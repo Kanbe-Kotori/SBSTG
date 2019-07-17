@@ -40,6 +40,14 @@ class LocalData {
 		let str = "stage" + stage_id;
 		egret.localStorage.setItem(str, LocalData.getStr(data));
 	}
+
+	public static isFirstTime() {
+		if (egret.localStorage.getItem("first") == undefined) {
+			egret.localStorage.setItem("first", "false");
+			return true;
+		}
+		return false;
+	}
 }
 
 enum STAGE_DATA {

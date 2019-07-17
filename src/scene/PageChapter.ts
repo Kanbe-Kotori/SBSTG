@@ -64,7 +64,9 @@ class PageChapter extends PageBase {
 	}
 
     public static click_return(evt:egret.TouchEvent) {
+        SelfMachine.INSTANCE.currentChapter.removeChildren();
         Main.getMain().removeChildren();
+        SelfMachine.INSTANCE.currentChapter = null;
         Main.getMain().addChild(PageChooseChapter.INSTANCE);
     }
     

@@ -59,7 +59,7 @@ abstract class StageBase extends PageBase {
 
         SelfMachine.INSTANCE.currentStage = this;
         this.addChildAtLayer(SelfMachine.INSTANCE, DrawingLayer.SELF_MACHINE);
-        SelfMachine.INSTANCE.UNDEAD = true;
+        //SelfMachine.INSTANCE.UNDEAD = true;
 
         this.initEmitters();
     }
@@ -128,7 +128,7 @@ abstract class StageBase extends PageBase {
             this.timeText.text = this._total_time + "";
             this.start();
         } else {
-            this.timeText.text = Math.floor(30 - this._current_tick / 20 + 0.95) + "";
+            this.timeText.text = Math.floor(this._total_time - this._current_tick / 20 + 0.95) + "";
             if (this._current_tick >= this._total_time * 20) {
                 this.win();
             }
@@ -243,7 +243,7 @@ abstract class StageBase extends PageBase {
         let current = SelfMachine.INSTANCE.currentStage;
         current.end();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(PageMain.INSTANCE);
+        Main.getMain().addChild(SelfMachine.INSTANCE.currentChapter);
     }
 
 	public static click_restart(evt:egret.TouchEvent) {

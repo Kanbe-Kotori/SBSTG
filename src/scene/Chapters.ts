@@ -12,11 +12,11 @@ class Chapters {
 		PageChooseChapter.INSTANCE.addChapter(chapter2, "第二章", new egret.Point(Main.X * 0.5, Main.Y * 0.45));
 		PageChooseChapter.INSTANCE.addChapter(chapter3, "第三章", new egret.Point(Main.X * 0.5, Main.Y * 0.65));
 
-		let stage1_1 = new Stage1_1("1-1", 30);
+		let stage1_1 = new Stage1_1("1-1", 20);
 		let stage1_2 = new Stage1_2("1-2", 30);
 		let stage1_3 = new Stage1_3("1-3", 30);
-		let stage1_4 = new Stage1_4("1-4", 30);
-		let stage1_5 = new Stage1_5("1-5", 30);
+		let stage1_4 = new Stage1_4("1-4", 20);
+		let stage1_5 = new Stage1_5("1-5", 20);
 		let stage1_6 = new Stage1_6("1-6", 30);
 		let stage1_ex = new Stage1_EX("1-ex", 30);
 
@@ -45,12 +45,14 @@ class Chapters {
 		stage1_3._next_stage = stage1_4;
 		stage1_4._next_stage = stage1_5;
 		stage1_5._next_stage = stage1_6;
+		stage1_6._next_stage = stage1_ex;
 	
 		stage1_2._front_stage = stage1_1;
 		stage1_3._front_stage = stage1_2;
 		stage1_4._front_stage = stage1_3;
 		stage1_5._front_stage = stage1_4;
 		stage1_6._front_stage = stage1_5;
+		stage1_ex._front_stage = stage1_6;
 	}
 
 	public static getStage(id:string) {

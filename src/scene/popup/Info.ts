@@ -48,14 +48,6 @@ class Info extends Popup {
         this.addChild(btnStart);
     }
 
-	public static click_return(evt:egret.TouchEvent) {
-        let current = SelfMachine.INSTANCE.currentStage;
-        current.end();
-        Info.INSTANCE.removeChildren();
-        Main.getMain().removeChildren();
-        Main.getMain().addChild(PageMain.INSTANCE);
-    }
-
 	public static click_start(evt:egret.TouchEvent) {
         Info.INSTANCE.removeChildren();
         Info.INSTANCE.parent.removeChild(Info.INSTANCE);

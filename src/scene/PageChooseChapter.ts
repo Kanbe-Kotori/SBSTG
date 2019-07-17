@@ -37,6 +37,7 @@ class PageChooseChapter extends PageBase {
 			PageChooseChapter.INSTANCE.removeChildren();
         	Main.getMain().removeChildren();
         	Main.getMain().addChild(chapter);
+            SelfMachine.INSTANCE.currentChapter = chapter;
 		};
         return func;
 	}

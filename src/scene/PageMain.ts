@@ -20,6 +20,10 @@ class PageMain extends PageBase {
         let btnHelp = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.75), "帮助");
         btnHelp.setAction(PageMain.click_help);
         this.addChild(btnHelp);
+
+        if (LocalData.isFirstTime()) {
+            this.addChild(FirstTime.INSTANCE);
+        }
     }
 
     public static click_start(evt:egret.TouchEvent) {
