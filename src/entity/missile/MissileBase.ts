@@ -42,6 +42,9 @@ abstract class MissileBase {
 
     public setTexture(texture:string) {
         this._texture = texture;
+        if (this._img != null) {
+            this._img.texture = RES.getRes(texture);
+        }
         return this;
     }
 
@@ -66,6 +69,10 @@ abstract class MissileBase {
 
     public getVelocity() {
         return Math.sqrt(this._vx * this._vx + this._vy * this._vy);
+    }
+
+    public getTexture() {
+        return this._texture;
     }
 
     public getLife() {

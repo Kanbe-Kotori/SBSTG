@@ -8,7 +8,7 @@ class StageTemp3 extends StageBase {
         let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 200, 200).setParentEmitter(em1).renderOnStage(this);
 
         let up1_2 = new RegularMissileUpgrade(
-           new MissileConfig(MissileUtils.MISSILE_ROUND)
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_PETAL4)
 				.setVelocity(18)
             )

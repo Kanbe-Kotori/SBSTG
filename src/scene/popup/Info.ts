@@ -34,7 +34,7 @@ class Info extends Popup {
         info.x = 270;
         info.y = 600;
         info.width = 540;
-        info.height = 600;
+        info.height = 720;
         info.text = TextHelper.getStageInfoFromID(current.getUniqueID());
         info.size = 48;
         info.textColor = 0x000000;
@@ -43,7 +43,7 @@ class Info extends Popup {
         info.verticalAlign = egret.VerticalAlign.TOP;
         this.addChild(info);
 
-        let btnStart = new Button(120, 120, new egret.Point(540, 1240)).setTexture(TextureNames.BUTTON_RESUME);
+        let btnStart = new Button(120, 120, new egret.Point(540, 1320)).setTexture(TextureNames.BUTTON_RESUME);
         btnStart.setAction(Info.click_start);
         this.addChild(btnStart);
     }

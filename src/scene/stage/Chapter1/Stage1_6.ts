@@ -68,8 +68,8 @@ class Stage1_6 extends StageBase {
 					}
 				}
             )
-        .setParentEmitter(em1)
-        .setFreq(1000);
+			.setParentEmitter(em1)
+			.setFreq(1000);
 
 		let up1_5 = 
 			new CustomMissileUpgrade(
@@ -122,9 +122,9 @@ class Stage1_6 extends StageBase {
 					}
 				}
             )
-        .setParentEmitter(em1)
-        .setFreq(1000)
-		.setDelay(500);
+			.setParentEmitter(em1)
+			.setFreq(1000)
+			.setDelay(500);
 	}
 
 }

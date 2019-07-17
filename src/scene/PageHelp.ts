@@ -35,8 +35,10 @@ class PageHelp extends PageBase {
         this.contentText.x = 40;
         this.contentText.y = 240;
         this.contentText.size = 48;
-        this.contentText.text = TextHelper.help_text;
-        this.contentText.textColor = 0x009900;
+        this.contentText.textFlow = TextHelper.help_text;
+        this.contentText.textColor = 0x000000;
+        this.contentText.strokeColor = 0xffffff;
+        this.contentText.stroke = 2;
         this.contentText.fontFamily = "KaiTi";
         this.contentText.textAlign = egret.HorizontalAlign.LEFT;
         this.contentText.verticalAlign = egret.VerticalAlign.MIDDLE;

@@ -4,7 +4,7 @@ class TeleportingUpgrade extends EmitterUpgradeBase {
     private _xmax:number;
 	private _ymin:number;
     private _ymax:number;
-    private _num = 24;
+    private _pos;
 
     public constructor(xmin:number, xmax:number, ymin:number, ymax:number) {
         super();
@@ -14,10 +14,11 @@ class TeleportingUpgrade extends EmitterUpgradeBase {
         this._ymax = ymax;
     }
 
-    public setNumber(num:number) {
-        this._num = num;
+    public setParentEmitter(emitter:EmitterBase) {
+        this._parent_emitter = emitter;
+        this._pos = emitter.getPos();
         return this;
-    }
+	}
 
     public onUpdate(event: egret.TimerEvent) {
         if (!this.shouldUpdate()) {
@@ -29,6 +30,12 @@ class TeleportingUpgrade extends EmitterUpgradeBase {
         let point = new egret.Point(this._xmin + Math.random() * (this._xmax - this._xmin), this._ymin + Math.random() * (this._ymax - this._ymin));
         this._parent_emitter.setPos(point);
         this.setPos(point);
+    }
+
+    public stop() {
+		super.stop();
+        if (this._pos != null)
+            this._parent_emitter.setPos(this._pos);
     }
 
 }
