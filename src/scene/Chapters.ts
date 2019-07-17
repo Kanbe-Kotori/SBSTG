@@ -13,7 +13,7 @@ class Chapters {
 		PageChooseChapter.INSTANCE.addChapter(chapter3, "第三章", new egret.Point(Main.X * 0.5, Main.Y * 0.65));
 
 		let stage1_1 = new Stage1_1("1-1", 20);
-		let stage1_2 = new Stage1_2("1-2", 30);
+		let stage1_2 = new Stage1_2("1-2", 20);
 		let stage1_3 = new Stage1_3("1-3", 30);
 		let stage1_4 = new Stage1_4("1-4", 20);
 		let stage1_5 = new Stage1_5("1-5", 20);
@@ -21,7 +21,7 @@ class Chapters {
 		let stage1_ex = new Stage1_EX("1-ex", 30);
 
 		let stage2_1 = new Stage2_1("2-1", 30);
-		let stage2_2 = new Stage2_2("2-2", 30);
+		let stage2_2 = new Stage2_2("2-2", 20);
 		let stage2_3 = new Stage2_3("2-3", 30);
 
 		chapter1.addStage("1-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));

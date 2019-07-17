@@ -19,6 +19,9 @@ abstract class StageBase extends PageBase {
     public _front_stage = null;
     public _next_stage = null;
 
+    private isTouching:boolean = false;
+    private distance:egret.Point = new egret.Point();
+
     public constructor(id:string, time:number) {
         super();
         this._uniqueStageID = id;
@@ -77,6 +80,9 @@ abstract class StageBase extends PageBase {
         sky.height = Main.Y;
         sky.alpha = 1;
         this.addChildAtLayer(sky, DrawingLayer.BACKGROUND);
+        sky.touchEnabled = true;
+        sky.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
+        sky.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
 
         this.titleText = new egret.TextField();
         this.titleText.width = 1080;
@@ -118,6 +124,32 @@ abstract class StageBase extends PageBase {
         let btnInfo = new Button(180, 180, new egret.Point(900, 1800)).setTexture(TextureNames.BUTTON_INFO);
         btnInfo.setAction(StageBase.click_info);
         this.addChildAtLayer(btnInfo, DrawingLayer.CONTROL);
+    }
+
+    private mouseDown(evt:egret.TouchEvent) {
+        this.isTouching = true;
+        this.distance.x = evt.stageX - SelfMachine.INSTANCE.getX();
+        this.distance.y = evt.stageY - SelfMachine.INSTANCE.getY();
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.mouseMove, this);
+    }
+
+    private mouseMove(evt:egret.TouchEvent) {
+        if (SelfMachine.INSTANCE.currentStage == null || SelfMachine.INSTANCE.currentStage == undefined) {
+            return;
+        }
+        if (!(SelfMachine.INSTANCE.currentStage.state == StageState.BEFORE_RUNNING || SelfMachine.INSTANCE.currentStage.state == StageState.RUNNING)) {
+            return;
+        }
+        if(this.isTouching) {
+            let ax = evt.stageX - this.distance.x; ax = Math.max(ax, SelfMachine.SIZE); ax = Math.min(ax, Main.X - SelfMachine.SIZE);
+            let ay = evt.stageY - this.distance.y; ay = Math.max(ay, Main.UPPER_Y + SelfMachine.SIZE); ay = Math.min(ay, Main.BELOW_Y - SelfMachine.SIZE);
+            SelfMachine.INSTANCE.setPos(new egret.Point(ax, ay));
+        }
+    }
+
+    private mouseUp(evt:egret.TouchEvent) {
+        this.isTouching = false;
+        this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.mouseMove, this);
     }
 
     protected onTickUpdate(event: egret.TimerEvent) {

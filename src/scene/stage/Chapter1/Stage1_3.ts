@@ -8,7 +8,7 @@ class Stage1_3 extends StageBase {
         let up1_2 = new RegularMissileUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_PETAL4)
-				.setVelocity(15)
+				.setVelocity(16)
             )
         .setParentEmitter(em1)
         .setFreq(300)
@@ -24,13 +24,13 @@ class Stage1_3 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(20)
+                .setVelocity(24)
             )
         .setParentEmitter(em2)
         .setNumber(5)
         .setStep(72)
         .setDiv(1)
-        .setFreq(200);
+        .setFreq(300);
 
         let em3 = new EmitterAroundEmitter(em1, 5000, 240);
         em3.setTheta(2/3);
@@ -39,13 +39,13 @@ class Stage1_3 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(20)
+                .setVelocity(24)
             )
         .setParentEmitter(em3)
         .setNumber(5)
         .setStep(72)
         .setDiv(1)
-        .setFreq(200);
+        .setFreq(300);
 
         let em4 = new EmitterAroundEmitter(em1, 5000, 240);
         em4.setTheta(4/3);
@@ -54,13 +54,13 @@ class Stage1_3 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(20)
+                .setVelocity(24)
             )
         .setParentEmitter(em4)
         .setNumber(5)
         .setStep(72)
         .setDiv(1)
-        .setFreq(200);
+        .setFreq(300);
 
 		let em5 = new EmitterAroundEmitter(em1, 5000, 240);
         em5.setTheta(1/3);
@@ -70,13 +70,13 @@ class Stage1_3 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL1)
-                .setVelocity(20)
+                .setVelocity(24)
             )
         .setParentEmitter(em5)
         .setNumber(5)
         .setStep(72)
         .setDiv(1)
-        .setFreq(200);
+        .setFreq(300);
 
 		let em6 = new EmitterAroundEmitter(em1, 5000, 240);
         em6.setTheta(1);
@@ -86,13 +86,13 @@ class Stage1_3 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL1)
-                .setVelocity(20)
+                .setVelocity(24)
             )
         .setParentEmitter(em6)
         .setNumber(5)
         .setStep(72)
         .setDiv(1)
-        .setFreq(200);
+        .setFreq(300);
 
 		let em7 = new EmitterAroundEmitter(em1, 5000, 240);
         em7.setTheta(5/3);
@@ -102,13 +102,13 @@ class Stage1_3 extends StageBase {
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL1)
-                .setVelocity(20)
+                .setVelocity(24)
             )
         .setParentEmitter(em7)
         .setNumber(5)
         .setStep(72)
         .setDiv(1)
-        .setFreq(200);
+        .setFreq(300);
     }
     
 }

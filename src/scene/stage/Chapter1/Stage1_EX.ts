@@ -70,11 +70,11 @@ class Stage1_EX extends StageBase {
 									.addHandler(
 										new TickEventHandler(
 											(missile:MissileBase) => {
-												missile.setTotalVelocity(missile.getVelocity() - 1.5);
+												missile.setTotalVelocity(missile.getVelocity() - 1);
 											}
 										)
 										.setStartTicks(20)
-										.setTriggerTimes(20)
+										.setTriggerTimes(30)
 									)
 									.addHandler(
 										new TickEventHandler(
@@ -84,7 +84,7 @@ class Stage1_EX extends StageBase {
 												missile.setTexture(Stage1_EX.nextTexture(missile.getTexture()));
 											}
 										)
-										.setStartTicks(40)
+										.setStartTicks(50)
 										.setTriggerTimes(1)
 									);
 							missile.addToStage(SelfMachine.INSTANCE.currentStage);
