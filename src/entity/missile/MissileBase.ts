@@ -5,7 +5,6 @@ abstract class MissileBase {
     protected _texture = TextureNames.MISSILE_STANDARD;
 
     protected _life:number;
-    protected _total_life = -1;
 
     protected _posX = 0;
     protected _posY = 0;
@@ -57,6 +56,12 @@ abstract class MissileBase {
     public setVelocity(vx:number, vy:number) {
         this._vx = vx;
         this._vy = vy;
+        return this;
+    }
+
+    public addVelocity(vx:number, vy:number) {
+        this._vx += vx;
+        this._vy += vy;
         return this;
     }
 

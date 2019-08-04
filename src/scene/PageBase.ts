@@ -1,8 +1,9 @@
-abstract class PageBase extends egret.DisplayObjectContainer {
+abstract class PageBase extends egret.Sprite {
 
 	protected constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE,this.onRemove,this);
     }
 
     protected onAddToStage(event:egret.Event) {
@@ -10,6 +11,10 @@ abstract class PageBase extends egret.DisplayObjectContainer {
         this.height = Main.Y;
         this.doRender();
     }
+
+    protected onRemove(event:egret.Event) {
+		this.removeChildren();
+	}
 
     protected abstract doRender();
 

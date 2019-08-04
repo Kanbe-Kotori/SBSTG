@@ -47,14 +47,14 @@ class Stage1_6 extends StageBase {
 														.setSize(30, 36)
 														.setTexture(TextureNames.MISSILE_PETAL2)
 														.setPos(missile.getPos())
-														.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
+														.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
 														.addHandler(
 															new TickEventHandler(
 																(missile:MissileBase) => {
 																	missile.setTotalVelocity(missile.getVelocity() - 0.5);
 																}
 															)
-															.setTriggerTimes(30)
+															.setTriggerTimes(40)
 													)
 												missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 											}
@@ -101,14 +101,14 @@ class Stage1_6 extends StageBase {
 														.setSize(30, 36)
 														.setTexture(TextureNames.MISSILE_PETAL1)
 														.setPos(missile.getPos())
-														.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
+														.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
 														.addHandler(
 															new TickEventHandler(
 																(missile:MissileBase) => {
 																	missile.setTotalVelocity(missile.getVelocity() - 0.5);
 																}
 															)
-															.setTriggerTimes(30)
+															.setTriggerTimes(40)
 													)
 												missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 											}

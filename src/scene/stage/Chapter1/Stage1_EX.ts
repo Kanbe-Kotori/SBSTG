@@ -60,7 +60,7 @@ class Stage1_EX extends StageBase {
 										new TickEventHandler(
 											(missile:MissileBase) => {
 												let theta = MissileUtils.getSniperAngle(missile.getPos());
-												missile.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
+												missile.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
 												missile.setTexture(Stage1_EX.nextTexture(missile.getTexture()));
 											}
 										)
@@ -74,7 +74,7 @@ class Stage1_EX extends StageBase {
 											}
 										)
 										.setStartTicks(20)
-										.setTriggerTimes(30)
+										.setTriggerTimes(40)
 									)
 									.addHandler(
 										new TickEventHandler(

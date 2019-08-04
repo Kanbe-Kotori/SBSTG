@@ -14,7 +14,7 @@ abstract class StageBase extends PageBase {
 
     public state:StageState;
 
-    public containers = new Array<egret.DisplayObjectContainer>();
+    public containers = new Array<egret.Sprite>();
 
     public _front_stage = null;
     public _next_stage = null;
@@ -71,7 +71,7 @@ abstract class StageBase extends PageBase {
 
     protected doRender() {
         for (let i = 0; i <= 6; i++) {
-            this.containers[i] = new egret.DisplayObjectContainer();
+            this.containers[i] = new egret.Sprite();
             this.addChildAt(this.containers[i], i);
         }
 
@@ -230,7 +230,7 @@ abstract class StageBase extends PageBase {
     public restart() {
         this.state = StageState.BEFORE_RUNNING;
         for (let i of this.arrayController) {
-            i.stop();
+            i.reset();
         }
         MyUtils.cleanMissile(this);
         this.tick_timer.stop();
@@ -249,7 +249,6 @@ abstract class StageBase extends PageBase {
         MyUtils.cleanMissile(this);
         MyUtils.cleanController(this);
         this.removeChildren();
-        SelfMachine.INSTANCE.leaveStage();
     }
 
     public dead() {

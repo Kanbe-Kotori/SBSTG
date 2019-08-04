@@ -1,4 +1,4 @@
-class Main extends egret.DisplayObjectContainer {
+class Main extends egret.Sprite {
     public static readonly X = 1080;
     public static readonly Y = 1920;
     public static readonly UPPER_Y = 240;
@@ -10,6 +10,7 @@ class Main extends egret.DisplayObjectContainer {
         super();
         Main.INSTANCE = this;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE,this.onRemove,this);
     }
 
     private onAddToStage(event:egret.Event) {        
@@ -27,9 +28,13 @@ class Main extends egret.DisplayObjectContainer {
 
         this.runGame().catch(e => {
             console.log(e);
-        })
-        
+        })     
     }
+
+    protected onRemove(event:egret.Event) {
+		this.removeChildren();
+	}
+
 
     private async runGame() {
         console.info("game start");
@@ -50,8 +55,7 @@ class Main extends egret.DisplayObjectContainer {
             TextHelper.init();
             Chapters.init();
             this.removeChild(loadingView);
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e);
         }
     }

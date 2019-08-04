@@ -70,6 +70,16 @@ abstract class EmitterBase {
         }
     }
 
+    public reset() {
+        this._looper = 0;
+        if (this.timer != null) {
+            this.timer.stop();
+        }
+        if (this._delay_timer != null) {
+            this._delay_timer.stop();
+        }
+    }
+
     public setDelay(delay:number) {
         this._run_delay = delay;
         return this;

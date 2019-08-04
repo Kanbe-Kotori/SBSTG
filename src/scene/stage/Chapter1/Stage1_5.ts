@@ -11,9 +11,20 @@ class Stage1_5 extends StageBase {
             .setParentEmitter(em1);
         let up1_2 = new RenderUpgrade(TextureNames.FLOWER8, 150, 170).setParentEmitter(em1).setFreq(50).renderOnStage(this);
         let up1_3 = new RegularMissileUpgrade(
+            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL3)
+                .setVelocity(20)
+            )
+        .setParentEmitter(em1)
+        .setFreq(400)
+        .setStartAngle(45)
+        .setStep(90 / 5)
+        .setNumber(6);
+        let up1_4 = new RegularMissileUpgrade(
            new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_PETAL4)
-				.setVelocity(20)
+				.setVelocity(15)
 				.addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -45,7 +56,7 @@ class Stage1_5 extends StageBase {
         .setStartAngle(0)
         .setStep(360 / 24)
         .setNumber(24);
-        let up1_4 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setTPR(14.4);
+        let up1_5 = new EmitterRotateUpgrade().setParentEmitter(up1_4).setTPR(14.4);
 	}
 	
 }

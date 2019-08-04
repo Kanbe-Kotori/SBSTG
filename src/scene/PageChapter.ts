@@ -36,7 +36,7 @@ class PageChapter extends PageBase {
             let button = this._stage_map[i];
             button.setAction(PageChapter.createFunc(Chapters.getStage(i), this));
             if (LocalData.getStage(i) == STAGE_DATA.PASSED) {
-                button.setTexture(TextureNames.STAGE_FINISH);
+                button.setTexture(TextureNames.STAGE_FINISHED);
             }
             this.addChild(button);
 		}
@@ -47,7 +47,7 @@ class PageChapter extends PageBase {
     }
 
     public addStage(stage_id:string, button_text:string, point:egret.Point) {
-        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.STAGE_NOT_FINISH);
+        let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.STAGE_UNFINISHED);
         button.setColor(0x000000);
         this._stage_map[stage_id] = button;
         //button.setAction(PageChapter.createFunc(stage, this));
