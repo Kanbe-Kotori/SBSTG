@@ -14,6 +14,7 @@ class SelfMachine extends egret.Sprite {
     private constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE,this.leaveStage,this);
     }
 
     private onAddToStage(event:egret.Event) {

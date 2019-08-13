@@ -21,6 +21,7 @@ class Button extends egret.Sprite {
 		this._height = height;
 		this._pos = pos;
 		this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+		this.addEventListener(egret.Event.REMOVED_FROM_STAGE,this.onRemove,this);
 	}
 
 	public setAction(action:Function) {
@@ -48,5 +49,9 @@ class Button extends egret.Sprite {
         this.img.y = this._pos.y;
         this.addChild(this.img);
     }
+
+	protected onRemove(event:egret.Event) {
+		this.removeChildren();
+	}
 
 }

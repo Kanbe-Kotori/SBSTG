@@ -1,11 +1,17 @@
-class Stage2_3 extends StageBase {
-
-    protected initEmitters() {
+class Stage2_4 extends StageBase {
+	protected initEmitters() {
         let rain1 = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(15)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 20)
                 .setTexture(TextureNames.MISSILE_BLUE)
+				.addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+							missile.addVelocity(4 * Math.random() - 2, 0);
+                        }
+                    )
+                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -32,6 +38,13 @@ class Stage2_3 extends StageBase {
 				.setSize(36, 36)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
                 .setTexture(TextureNames.MISSILE_BLUE)
+				.addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+							missile.addVelocity(8 * Math.random() - 4, 0);
+                        }
+                    )
+                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {

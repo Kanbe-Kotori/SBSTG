@@ -34,8 +34,9 @@ class TextureNames {
 	public static readonly POPUP_DEAD = "popup_dead_png";
 	public static readonly POPUP_WIN = "popup_win_png";
 	
-	public static readonly STAGE_NOT_FINISH = "stage_not_finish_png";
-	public static readonly STAGE_FINISH = "stage_finish_png";
+	public static readonly STAGE_UNFINISHED = "stage_unfinished_png";
+	public static readonly STAGE_FINISHED = "stage_finished_png";
+	public static readonly STAGE_SKIPPED = "stage_skipped_png";
 
 	public static readonly SELF_MACHINE = "self_machine_png";
 
