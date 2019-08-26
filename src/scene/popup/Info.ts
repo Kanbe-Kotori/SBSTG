@@ -2,18 +2,16 @@ class Info extends Popup {
 
 	public static readonly INSTANCE:Info = new Info();
 
-	private _img:egret.Bitmap;
-
     protected doRender() {
         super.doRender();
-		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_LONG);
-        this._img.width = 720;
-        this._img.height = 1080;
-        this._img.anchorOffsetX = this._img.width/2;
-        this._img.anchorOffsetY = this._img.height/2;
-        this._img.x = Main.X/2;
-        this._img.y = 900;
-        this.addChild(this._img);
+		let img = MyUtils.createBitmapByName(TextureNames.POPUP_LONG);
+        img.width = 600;
+        img.height = 600;
+        img.anchorOffsetX = img.width/2;
+        img.anchorOffsetY = img.height/2;
+        img.x = Main.X/2;
+        img.y = Main.Y/2;
+        this.addChild(img);
 
         let title = new egret.TextField();
         title.x = 270;

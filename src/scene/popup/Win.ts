@@ -2,18 +2,16 @@ class Win extends Popup {
 
 	public static readonly INSTANCE:Win = new Win();
 
-	private _img:egret.Bitmap;
-
     protected doRender() {
         super.doRender();
-		this._img = MyUtils.createBitmapByName(TextureNames.POPUP_WIN);
-        this._img.width = 600;
-        this._img.height = 600;
-        this._img.anchorOffsetX = this._img.width/2;
-        this._img.anchorOffsetY = this._img.height/2;
-        this._img.x = Main.X/2;
-        this._img.y = Main.Y/2;
-        this.addChild(this._img);
+		let img = MyUtils.createBitmapByName(TextureNames.POPUP_WIN);
+        img.width = 600;
+        img.height = 600;
+        img.anchorOffsetX = img.width/2;
+        img.anchorOffsetY = img.height/2;
+        img.x = Main.X/2;
+        img.y = Main.Y/2;
+        this.addChild(img);
 
         let btnRestart = new Button(120, 120, new egret.Point(540, 1140)).setTexture(TextureNames.BUTTON_RESTART);
         btnRestart.setAction(Win.click_restart);

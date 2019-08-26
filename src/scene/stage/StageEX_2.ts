@@ -1,5 +1,4 @@
-class StageTemp2 extends StageBase {
-    public static readonly INSTANCE:StageTemp2 = new StageTemp2("test2", 30);
+class StageEX_2 extends StageBase {
 
     protected initEmitters() {
         let em1 = new EmptyEmitter();

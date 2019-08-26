@@ -1,5 +1,4 @@
-class StageTemp3 extends StageBase {
-    public static readonly INSTANCE:StageTemp3 = new StageTemp3("test3", 30);
+class StageEX_3 extends StageBase {
 
     protected initEmitters() {
 
