@@ -3,13 +3,6 @@ class LocalData {
 	public static readonly SKIPPED = "SKIPPED";
 	public static readonly FINISHED = "FINISHED";
 
-	public static registerStage(stg:StageBase) {
-		let str = "stage" + stg.getUniqueID();
-		if (egret.localStorage.getItem(str) == undefined) {
-			egret.localStorage.setItem(str, LocalData.UNFINISHED);
-		}
-	}
-
 	public static getStageData(stg:StageBase):STAGE_DATA {
 		let str = "stage" + stg.getUniqueID();
 		switch (egret.localStorage.getItem(str)) {
@@ -18,12 +11,14 @@ class LocalData {
 			case LocalData.SKIPPED:
 				return STAGE_DATA.SKIPPED;
 			case LocalData.UNFINISHED:
+				return STAGE_DATA.UNFINISHED;
 			default:
+				egret.localStorage.setItem(str, LocalData.UNFINISHED);
 				return STAGE_DATA.UNFINISHED;
 		}
 	}
 
-	private static getStr(data:STAGE_DATA) {
+	private static data2str(data:STAGE_DATA) {
 		switch (data) {
 			case STAGE_DATA.UNFINISHED:
 				return LocalData.UNFINISHED;
@@ -36,17 +31,21 @@ class LocalData {
 		}
 	}
 
-	public static setStage(stage_id:string, data:STAGE_DATA) {
-		let str = "stage" + stage_id;
-		egret.localStorage.setItem(str, LocalData.getStr(data));
+	public static setStageData(stg:StageBase, data:STAGE_DATA) {
+		let str = "stage" + stg.getUniqueID();
+		egret.localStorage.setItem(str, LocalData.data2str(data));
 	}
 
 	public static isFirstTime() {
-		if (egret.localStorage.getItem("first") == undefined) {
-			egret.localStorage.setItem("first", "false");
+		if (egret.localStorage.getItem("first_time") != "no") {
+			egret.localStorage.setItem("first_time", "no");
 			return true;
 		}
 		return false;
+	}
+
+	public static clear() {
+		egret.localStorage.clear();
 	}
 }
 

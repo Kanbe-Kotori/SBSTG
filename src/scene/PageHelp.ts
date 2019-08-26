@@ -20,7 +20,7 @@ class PageHelp extends PageBase {
         this.titleText.width = 1080;
         this.titleText.height = 120;
         this.titleText.x = 0;
-        this.titleText.y = 120;
+        this.titleText.y = 60;
         this.titleText.size = 72;
         this.titleText.text = "我是帮助界面";
         this.titleText.textColor = 0x000000;
@@ -31,9 +31,9 @@ class PageHelp extends PageBase {
 
 		this.contentText = new egret.TextField();
         this.contentText.width = 1000;
-        this.contentText.height = 1440;
+        this.contentText.height = 1320;
         this.contentText.x = 40;
-        this.contentText.y = 240;
+        this.contentText.y = 180;
         this.contentText.size = 48;
         this.contentText.textFlow = TextHelper.help_text;
         this.contentText.textColor = 0x000000;
@@ -44,12 +44,23 @@ class PageHelp extends PageBase {
         this.contentText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.contentText);
 
-        let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);
-        btnReturn.setAction(PageChooseChapter.click_return);
+        let btnReturn = new ButtonWithText(550, 150, new egret.Point(540, 1620), "返回");
+        btnReturn.setAction(PageHelp.click_return);
         this.addChild(btnReturn);
+
+        let btnClear = new ButtonWithText(550, 150, new egret.Point(540, 1800), "清除数据");
+        btnClear.setAction(PageHelp.click_clear);
+        this.addChild(btnClear);
     }
 
     public static click_return(evt:egret.TouchEvent) {
+		PageHelp.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(PageMain.INSTANCE);
+    }
+
+    public static click_clear(evt:egret.TouchEvent) {
+        LocalData.clear();
 		PageHelp.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(PageMain.INSTANCE);

@@ -1,6 +1,6 @@
-class FirstTime extends Popup {
+class ChooseChaper extends Popup {
 
-	public static readonly INSTANCE:FirstTime = new FirstTime();
+	public static readonly INSTANCE:ChooseChaper = new ChooseChaper();
 
 	private _img:egret.Bitmap;
 
@@ -20,7 +20,7 @@ class FirstTime extends Popup {
         text.y = 780;
         text.width = 480;
         text.height = 360;
-        text.text = "欢迎来到一只小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏说明。";
+        text.text = "由于您是第一次打开本游戏，因此请先查看游戏说明。";
         text.size = 48;
         text.textColor = 0x000000;
         text.fontFamily = "KaiTi";

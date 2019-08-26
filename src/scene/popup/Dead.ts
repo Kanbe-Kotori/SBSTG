@@ -31,7 +31,7 @@ class Dead extends Popup {
 
 	public static click_skip(evt:egret.TouchEvent) {
 		let current = SelfMachine.INSTANCE.currentStage;
-        LocalData.setStage(current.getUniqueID(), STAGE_DATA.SKIPPED);
+        LocalData.setStageData(current, STAGE_DATA.SKIPPED);
         current.end();
         Dead.INSTANCE.removeChildren();
         Main.getMain().removeChildren();

@@ -1,15 +1,200 @@
 {
 	"resources": [
 		{
-			"name": "冰雹_png",
+			"name": "btn_info_png",
 			"type": "image",
-			"url": "assets/冰雹.png"
+			"url": "assets/btn_info.png"
+		},
+		{
+			"name": "btn_next_png",
+			"type": "image",
+			"url": "assets/btn_next.png"
+		},
+		{
+			"name": "btn_normal_png",
+			"type": "image",
+			"url": "assets/btn_normal.png"
+		},
+		{
+			"name": "btn_pause_png",
+			"type": "image",
+			"url": "assets/btn_pause.png"
+		},
+		{
+			"name": "btn_restart_png",
+			"type": "image",
+			"url": "assets/btn_restart.png"
+		},
+		{
+			"name": "btn_resume_png",
+			"type": "image",
+			"url": "assets/btn_resume.png"
+		},
+		{
+			"name": "btn_return_png",
+			"type": "image",
+			"url": "assets/btn_return.png"
+		},
+		{
+			"name": "btn_skip_png",
+			"type": "image",
+			"url": "assets/btn_skip.png"
+		},
+		{
+			"name": "egret_icon_png",
+			"type": "image",
+			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "flower0_png",
+			"type": "image",
+			"url": "assets/flower0.png"
+		},
+		{
+			"name": "flower1_png",
+			"type": "image",
+			"url": "assets/flower1.png"
+		},
+		{
+			"name": "flower2_png",
+			"type": "image",
+			"url": "assets/flower2.png"
+		},
+		{
+			"name": "flower3_png",
+			"type": "image",
+			"url": "assets/flower3.png"
+		},
+		{
+			"name": "flower8_png",
+			"type": "image",
+			"url": "assets/flower8.png"
+		},
+		{
+			"name": "game_sky_png",
+			"type": "image",
+			"url": "assets/game_sky.png"
+		},
+		{
+			"name": "main_page_png",
+			"type": "image",
+			"url": "assets/main_page.png"
+		},
+		{
+			"name": "missile_blue_png",
+			"type": "image",
+			"url": "assets/missile_blue.png"
+		},
+		{
+			"name": "missile_green_png",
+			"type": "image",
+			"url": "assets/missile_green.png"
+		},
+		{
+			"name": "missile_lianzi_png",
+			"type": "image",
+			"url": "assets/missile_lianzi.png"
+		},
+		{
+			"name": "missile_petal1_png",
+			"type": "image",
+			"url": "assets/missile_petal1.png"
+		},
+		{
+			"name": "missile_petal2_png",
+			"type": "image",
+			"url": "assets/missile_petal2.png"
+		},
+		{
+			"name": "missile_petal3_png",
+			"type": "image",
+			"url": "assets/missile_petal3.png"
+		},
+		{
+			"name": "missile_petal4_png",
+			"type": "image",
+			"url": "assets/missile_petal4.png"
+		},
+		{
+			"name": "missile_red_png",
+			"type": "image",
+			"url": "assets/missile_red.png"
+		},
+		{
+			"name": "missile_ring_png",
+			"type": "image",
+			"url": "assets/missile_ring.png"
+		},
+		{
+			"name": "missile_standard_png",
+			"type": "image",
+			"url": "assets/missile_standard.png"
+		},
+		{
+			"name": "popup_dead_png",
+			"type": "image",
+			"url": "assets/popup_dead.png"
+		},
+		{
+			"name": "popup_long_png",
+			"type": "image",
+			"url": "assets/popup_long.png"
+		},
+		{
+			"name": "popup_pause_png",
+			"type": "image",
+			"url": "assets/popup_pause.png"
+		},
+		{
+			"name": "popup_square_png",
+			"type": "image",
+			"url": "assets/popup_square.png"
+		},
+		{
+			"name": "popup_win_png",
+			"type": "image",
+			"url": "assets/popup_win.png"
+		},
+		{
+			"name": "self_machine_png",
+			"type": "image",
+			"url": "assets/self_machine.png"
+		},
+		{
+			"name": "smjb3_png",
+			"type": "image",
+			"url": "assets/smjb3.png"
+		},
+		{
+			"name": "smjb5_png",
+			"type": "image",
+			"url": "assets/smjb5.png"
+		},
+		{
+			"name": "stage_finished_png",
+			"type": "image",
+			"url": "assets/stage_finished.png"
+		},
+		{
+			"name": "stage_skipped_png",
+			"type": "image",
+			"url": "assets/stage_skipped.png"
+		},
+		{
+			"name": "stage_unfinished_png",
+			"type": "image",
+			"url": "assets/stage_unfinished.png"
+		},
+		{
+			"name": "missile_hail_png",
+			"type": "image",
+			"url": "assets/missile_hail.png"
 		}
 	],
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "冰雹_png"
+			"keys": "btn_info_png,btn_next_png,btn_normal_png,btn_pause_png,btn_restart_png,btn_resume_png,btn_return_png,btn_skip_png,egret_icon_png,flower0_png,flower1_png,flower2_png,flower3_png,flower8_png,game_sky_png,main_page_png,missile_blue_png,missile_green_png,missile_lianzi_png,missile_petal1_png,missile_petal2_png,missile_petal3_png,missile_petal4_png,missile_red_png,missile_ring_png,missile_standard_png,popup_dead_png,popup_long_png,popup_pause_png,popup_square_png,popup_win_png,self_machine_png,smjb3_png,smjb5_png,stage_finished_png,stage_skipped_png,stage_unfinished_png,missile_hail_png"
 		}
 	]
 }

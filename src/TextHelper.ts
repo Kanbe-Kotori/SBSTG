@@ -14,7 +14,7 @@ class TextHelper {
 			{text: "屏幕的任意位置", style: {"bold": true, "textColor": 0xff0000}},
 			{text: "来控制小金鱼的移动。需要特别说明的是，小金鱼的中弹判定范围"},
 			{text: "只有小金鱼中心的黑点", style: {"bold": true, "textColor": 0xff0000}},
-			{text: "，并不是整条鱼，其实比想象中要简单很多。如果你是一名车万玩家，那这个游戏应该难不倒你。\n\n"},
+			{text: "，并不是整条鱼，所以其实比想象中要简单很多。如果你是一名车万玩家，那这个游戏应该难不倒你。\n\n"},
 			{text: "如果对于过关的思路感到困惑，那么"},
 			{text: "关卡右下角", style: {"bold": true, "textColor": 0xff0000}},
 			{text: "的提示也许能够帮到你。\n\n"},
@@ -74,9 +74,9 @@ class TextHelper {
 		new StageInfo("2-4", "狂风", "还没写");
 		new StageInfo("2-5", "旋涡", "还没写");
 
-		new StageInfo("test", "流矢", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
-		new StageInfo("test2", "耀斑", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
-		new StageInfo("test3", "爆发", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
+		new StageInfo("ex-1", "流矢", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
+		new StageInfo("ex-2", "耀斑", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
+		new StageInfo("ex-3", "爆发", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
 	}
 
 	public static getStageNameFromID(id:string) {

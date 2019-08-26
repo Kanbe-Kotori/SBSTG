@@ -26,7 +26,7 @@ abstract class StageBase extends PageBase {
         super();
         this._uniqueStageID = id;
         this._total_time = time;
-        Chapters.registerStage(this._uniqueStageID, this);
+        Chapters.registerStage(this);
 
         this.addEventListener(MissileEvent.TICK, MissileBase.TickLogic, this);
         this.addEventListener(MissileEvent.EDGE, MissileBase.EdgeLogic, this);
@@ -188,7 +188,7 @@ abstract class StageBase extends PageBase {
     }
 
     protected win() {
-        LocalData.setStage(this._uniqueStageID, STAGE_DATA.FINISHED);
+        LocalData.setStageData(this, STAGE_DATA.FINISHED);
         this.state = StageState.END;
         for (let i of this.arrayController) {
             i.stop();
