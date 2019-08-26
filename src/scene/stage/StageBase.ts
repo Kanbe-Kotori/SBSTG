@@ -188,7 +188,7 @@ abstract class StageBase extends PageBase {
     }
 
     protected win() {
-        LocalData.setStage(this._uniqueStageID, STAGE_DATA.PASSED);
+        LocalData.setStage(this._uniqueStageID, STAGE_DATA.FINISHED);
         this.state = StageState.END;
         for (let i of this.arrayController) {
             i.stop();

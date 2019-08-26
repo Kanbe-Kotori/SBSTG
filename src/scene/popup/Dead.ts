@@ -15,13 +15,13 @@ class Dead extends Popup {
         this._img.y = Main.Y/2;
         this.addChild(this._img);
 
-        let btnRestart = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_RESTART);
+        let btnRestart = new Button(120, 120, new egret.Point(540, 1140)).setTexture(TextureNames.BUTTON_RESTART);
         btnRestart.setAction(Dead.click_restart);
         this.addChild(btnRestart);
 
-        let btnInfo = new Button(120, 120, new egret.Point(540, 1140)).setTexture(TextureNames.BUTTON_INFO);
-        btnInfo.setAction(Dead.click_info);
-        this.addChild(btnInfo);
+        let btnSkip = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_SKIP);
+        btnSkip.setAction(Dead.click_skip);
+        this.addChild(btnSkip);
 
         let btnReturn = new Button(120, 120, new egret.Point(720, 1140)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(Dead.click_return);
@@ -29,8 +29,13 @@ class Dead extends Popup {
         
     }
 
-	public static click_info(evt:egret.TouchEvent) {
-		//TODO
+	public static click_skip(evt:egret.TouchEvent) {
+		let current = SelfMachine.INSTANCE.currentStage;
+        LocalData.setStage(current.getUniqueID(), STAGE_DATA.SKIPPED);
+        current.end();
+        Dead.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(SelfMachine.INSTANCE.currentChapter);
     }
 
 	public static click_return(evt:egret.TouchEvent) {

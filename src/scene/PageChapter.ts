@@ -33,12 +33,19 @@ class PageChapter extends PageBase {
         this.addChild(this.titleText);
 
 		for (let i in this._stage_map) {
-            let button = this._stage_map[i];
-            button.setAction(PageChapter.createFunc(Chapters.getStage(i), this));
-            if (LocalData.getStage(i) == STAGE_DATA.PASSED) {
-                button.setTexture(TextureNames.STAGE_FINISHED);
+            let stage = Chapters.getStage(i);
+            let front = stage._front_stage;
+            if (front == null || LocalData.getStageData(front) == STAGE_DATA.FINISHED || LocalData.getStageData(front) == STAGE_DATA.SKIPPED) {
+                let button = this._stage_map[i];
+                if (LocalData.getStageData(stage) == STAGE_DATA.FINISHED) {
+                    button.setTexture(TextureNames.STAGE_FINISHED);              
+                } else if (LocalData.getStageData(stage) == STAGE_DATA.SKIPPED) {
+                    button.setTexture(TextureNames.STAGE_SKIPPED);              
+                }
+                button.setAction(PageChapter.createFunc(stage, this));
+                this.addChild(button);
             }
-            this.addChild(button);
+            
 		}
 
         let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);

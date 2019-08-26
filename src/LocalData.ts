@@ -1,36 +1,36 @@
 class LocalData {
-	public static readonly NOT_PASSED = "NOT_PASSED";
+	public static readonly UNFINISHED = "UNFINISHED";
 	public static readonly SKIPPED = "SKIPPED";
-	public static readonly PASSED = "PASSED";
+	public static readonly FINISHED = "FINISHED";
 
 	public static registerStage(stg:StageBase) {
 		let str = "stage" + stg.getUniqueID();
 		if (egret.localStorage.getItem(str) == undefined) {
-			egret.localStorage.setItem(str, LocalData.NOT_PASSED);
+			egret.localStorage.setItem(str, LocalData.UNFINISHED);
 		}
 	}
 
-	public static getStage(stage_id:string):STAGE_DATA {
-		let str = "stage" + stage_id;
+	public static getStageData(stg:StageBase):STAGE_DATA {
+		let str = "stage" + stg.getUniqueID();
 		switch (egret.localStorage.getItem(str)) {
-			case LocalData.PASSED:
-				return STAGE_DATA.PASSED;
+			case LocalData.FINISHED:
+				return STAGE_DATA.FINISHED;
 			case LocalData.SKIPPED:
 				return STAGE_DATA.SKIPPED;
-			case LocalData.NOT_PASSED:
+			case LocalData.UNFINISHED:
 			default:
-				return STAGE_DATA.NOT_PASSED;
+				return STAGE_DATA.UNFINISHED;
 		}
 	}
 
 	private static getStr(data:STAGE_DATA) {
 		switch (data) {
-			case STAGE_DATA.NOT_PASSED:
-				return LocalData.NOT_PASSED;
+			case STAGE_DATA.UNFINISHED:
+				return LocalData.UNFINISHED;
 			case STAGE_DATA.SKIPPED:
 				return LocalData.SKIPPED;
-			case STAGE_DATA.PASSED:
-				return LocalData.PASSED;
+			case STAGE_DATA.FINISHED:
+				return LocalData.FINISHED;
 			default:
 				return null;
 		}
@@ -51,7 +51,7 @@ class LocalData {
 }
 
 enum STAGE_DATA {
-	NOT_PASSED,
-	PASSED,
+	UNFINISHED,
+	FINISHED,
 	SKIPPED
 }

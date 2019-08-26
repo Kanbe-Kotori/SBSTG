@@ -26,7 +26,7 @@ class TextHelper {
 	public static init() {
 		TextHelper.chapterName[0] = "第一章 荷塘";
 		TextHelper.chapterName[1] = "第二章 雨";
-		TextHelper.chapterName[2] = "第三章 放飞自我";
+		TextHelper.chapterName[2] = "第三章 其他";
 
 		new StageInfo(
 			"1-1",
