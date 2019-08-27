@@ -5,8 +5,8 @@ class Info extends Popup {
     protected doRender() {
         super.doRender();
 		let img = MyUtils.createBitmapByName(TextureNames.POPUP_LONG);
-        img.width = 600;
-        img.height = 600;
+        img.width = 720;
+        img.height = 1080;
         img.anchorOffsetX = img.width/2;
         img.anchorOffsetY = img.height/2;
         img.x = Main.X/2;

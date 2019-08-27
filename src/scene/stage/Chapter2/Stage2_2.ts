@@ -1,7 +1,7 @@
 class Stage2_2 extends StageBase {
 
     protected initEmitters() {
-        let rain = new SideEmitterUpgrade(
+        let rain1 = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(15)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 20)
@@ -24,37 +24,50 @@ class Stage2_2 extends StageBase {
         .setFreq(250)
         .setStartAngle(75)
         .setEndAngle(105)
-        .setNumber(7);
+        .setNumber(5);
 
-		let point2 = new egret.Point(Main.X * 0.4, 420);
-		let em2 = new EmptyEmitter().setPos(point2);
-        let up2_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em2).renderOnStage(this);
-        let up2_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(15)
-        )
-        .setParentEmitter(em2)
-        .setNumber(7)
-        .setStep(30)
-        .setDiv(1)
-        .setFreq(300);
-
-		let point3 = new egret.Point(Main.X * 0.6, 420);
-		let em3 = new EmptyEmitter().setPos(point3);
-        let up3_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em3).renderOnStage(this);
-        let up3_2 = new SniperUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(15)
-        )
-        .setParentEmitter(em3)
-        .setNumber(7)
-        .setStep(30)
-        .setDiv(1)
-        .setFreq(300);
-    }
-
+		let rain2 = new SideEmitterUpgrade(
+            new MissileConfig(MissileUtils.MISSILE_ROUND)
+                .setVelocity(20)
+				.setSize(36, 36)
+                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
+                .setTexture(TextureNames.MISSILE_BLUE)
+                .addHandler(
+                    new EdgeEventHandler(
+                        (missile:MissileBase) => {
+                            let side = missile.getEdge();
+                            if (side == Side.LEFT) {
+                                missile._img.x += Main.X;
+                            } else if (side == Side.RIGHT) {
+                                missile._img.x -= Main.X;
+                            } else if (side == Side.BOTTOM) {
+                                let theta = (1 + Math.random()) * Math.PI;
+                                let missile1 = new RoundMissile()
+                                    .setPos(MyUtils.createReasonablePos(missile.getPos()))
+                                    .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
+                                    .setTexture(TextureNames.MISSILE_STANDARD)
+                                    .setSize(36, 36)
+                                    .addHandler(
+										new TickEventHandler(
+											(missile:MissileBase) => {
+												missile.setDead();
+											}
+										)
+										.setStartTicks(90)
+										.setTriggerTimes(1)
+									);
+                                missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+                                missile.setDead();
+                            } else {
+                                missile.setDead();
+                            }
+                        }
+                    )
+                )
+            )
+        .setFreq(250)
+        .setStartAngle(85)
+        .setEndAngle(95)
+        .setNumber(2);
+	}
 }

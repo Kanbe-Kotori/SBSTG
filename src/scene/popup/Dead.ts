@@ -17,11 +17,11 @@ class Dead extends Popup {
         btnRestart.setAction(Dead.click_restart);
         this.addChild(btnRestart);
 
-        let btnSkip = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_SKIP);
+        let btnSkip = new Button(120, 120, new egret.Point(720, 1140)).setTexture(TextureNames.BUTTON_SKIP);
         btnSkip.setAction(Dead.click_skip);
         this.addChild(btnSkip);
 
-        let btnReturn = new Button(120, 120, new egret.Point(720, 1140)).setTexture(TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(Dead.click_return);
         this.addChild(btnReturn);
         

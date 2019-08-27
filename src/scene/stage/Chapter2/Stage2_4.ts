@@ -1,17 +1,12 @@
 class Stage2_4 extends StageBase {
+
 	protected initEmitters() {
-        let rain1 = new SideEmitterUpgrade(
+        let rain = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(15)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 20)
+                .setVelocity(20)
+				.setSize(36, 36)
+                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
                 .setTexture(TextureNames.MISSILE_BLUE)
-				.addHandler(
-                    new TickEventHandler(
-                        (missile:MissileBase) => {
-							missile.addVelocity(4 * Math.random() - 2, 0);
-                        }
-                    )
-                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -30,57 +25,38 @@ class Stage2_4 extends StageBase {
         .setFreq(250)
         .setStartAngle(75)
         .setEndAngle(105)
-        .setNumber(5);
-
-		let rain2 = new SideEmitterUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(20)
-				.setSize(36, 36)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
-                .setTexture(TextureNames.MISSILE_BLUE)
-				.addHandler(
-                    new TickEventHandler(
-                        (missile:MissileBase) => {
-							missile.addVelocity(8 * Math.random() - 4, 0);
-                        }
-                    )
-                )
-                .addHandler(
-                    new EdgeEventHandler(
-                        (missile:MissileBase) => {
-                            let side = missile.getEdge();
-                            if (side == Side.LEFT) {
-                                missile._img.x += Main.X;
-                            } else if (side == Side.RIGHT) {
-                                missile._img.x -= Main.X;
-                            } else if (side == Side.BOTTOM) {
-                                let theta = (1 + Math.random()) * Math.PI;
-                                let missile1 = new RoundMissile()
-                                    .setPos(MyUtils.createReasonablePos(missile.getPos()))
-                                    .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
-                                    .setTexture(TextureNames.MISSILE_STANDARD)
-                                    .setSize(36, 36)
-                                    .addHandler(
-										new TickEventHandler(
-											(missile:MissileBase) => {
-												missile.setDead();
-											}
-										)
-										.setStartTicks(90)
-										.setTriggerTimes(1)
-									);
-                                missile1.addToStage(SelfMachine.INSTANCE.currentStage);
-                                missile.setDead();
-                            } else {
-                                missile.setDead();
-                            }
-                        }
-                    )
-                )
-            )
-        .setFreq(250)
-        .setStartAngle(85)
-        .setEndAngle(95)
         .setNumber(2);
+
+		let up1_4 = 
+			new CustomMissileUpgrade(
+				(emitter:CustomMissileUpgrade) => {
+					let i = 0;
+					while (i++ < 5) {
+						let point = MissileUtils.createEdgePoint();
+						let missile = 
+							new RoundMissile()
+								.setRadius(12)
+								.setTexture(TextureNames.MISSILE_BLUE)
+								.setPos(point)
+								.addHandler(
+									new TickEventHandler(
+										(missile:MissileBase) => {
+											let dx = 540 - missile.getX();
+											let dy = 600 - missile.getY();
+											let d = Math.sqrt(dx * dx + dy * dy);
+											if (d < 8) {
+												missile.setDead();
+												return;
+											}
+											missile.setVelocity(15 * dx / d, 15 * dy / d);
+											missile.addVelocity(0.04 * dy, - 0.04 * dx);
+										}
+									)
+								);
+						missile.addToStage(SelfMachine.INSTANCE.currentStage);
+					}
+				}
+			)
+			.setFreq(100);
 	}
 }

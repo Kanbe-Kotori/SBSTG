@@ -1,62 +1,24 @@
 class Stage2_5 extends StageBase {
 
-	protected initEmitters() {
+     protected initEmitters() {
         let rain = new SideEmitterUpgrade(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(20)
-				.setSize(36, 36)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
-                .setTexture(TextureNames.MISSILE_BLUE)
+                .setVelocity(0)
+                .setTexture(TextureNames.MISSILE_HAIL)
                 .addHandler(
-                    new EdgeEventHandler(
+                    new TickEventHandler(
                         (missile:MissileBase) => {
-                            let side = missile.getEdge();
-                            if (side == Side.LEFT) {
-                                missile._img.x += Main.X;
-                            } else if (side == Side.RIGHT) {
-                                missile._img.x -= Main.X;
-                            } else {
-                                missile.setDead();
-                            }
+                            missile.addVelocity(0, 2 * Math.random());
                         }
                     )
+                    .setTriggerTimes(40)
                 )
             )
-        .setFreq(250)
-        .setStartAngle(75)
-        .setEndAngle(105)
-        .setNumber(2);
+        .setFreq(50)
+        .setStartAngle(85)
+        .setEndAngle(95)
+        .setNumber(3);
+    }
 
-		let up1_4 = 
-			new CustomMissileUpgrade(
-				(emitter:CustomMissileUpgrade) => {
-					let i = 0;
-					while (i++ < 5) {
-						let point = MissileUtils.createEdgePoint();
-						let missile = 
-							new RoundMissile()
-								.setRadius(12)
-								.setTexture(TextureNames.MISSILE_BLUE)
-								.setPos(point)
-								.addHandler(
-									new TickEventHandler(
-										(missile:MissileBase) => {
-											let dx = 540 - missile.getX();
-											let dy = 600 - missile.getY();
-											let d = Math.sqrt(dx * dx + dy * dy);
-											if (d < 8) {
-												missile.setDead();
-												return;
-											}
-											missile.setVelocity(15 * dx / d, 15 * dy / d);
-											missile.addVelocity(0.04 * dy, - 0.04 * dx);
-										}
-									)
-								);
-						missile.addToStage(SelfMachine.INSTANCE.currentStage);
-					}
-				}
-			)
-			.setFreq(100);
-	}
+	
 }

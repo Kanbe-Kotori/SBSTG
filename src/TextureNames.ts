@@ -5,6 +5,7 @@ class TextureNames {
 	
 	public static readonly MISSILE_STANDARD = "missile_standard_png";
 	public static readonly MISSILE_RING = "missile_ring_png";
+	public static readonly MISSILE_RING_RED = "missile_ring_red_png";
 	public static readonly MISSILE_BLUE = "missile_blue_png";
 	public static readonly MISSILE_GREEN = "missile_green_png";
 	public static readonly MISSILE_RED = "missile_red_png";
@@ -13,6 +14,7 @@ class TextureNames {
 	public static readonly MISSILE_PETAL2 = "missile_petal2_png";
 	public static readonly MISSILE_PETAL3 = "missile_petal3_png";
 	public static readonly MISSILE_PETAL4 = "missile_petal4_png";
+	public static readonly MISSILE_HAIL = "missile_hail_png";
 
 	public static readonly FLOWER0 = "flower0_png";
 	public static readonly FLOWER1 = "flower1_png";

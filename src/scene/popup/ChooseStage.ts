@@ -33,15 +33,15 @@ class ChooseStage extends Popup {
         title.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(title);
 
-        let btnReturn = new Button(120, 120, new egret.Point(360, 1140)).setTexture(TextureNames.BUTTON_RETURN);
+        let btnReturn = new Button(120, 120, new egret.Point(360, 1080)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(ChooseStage.click_return);
         this.addChild(btnReturn);
 
-        let btnStart = new Button(120, 120, new egret.Point(540, 1140)).setTexture(TextureNames.BUTTON_RESUME);
+        let btnStart = new Button(120, 120, new egret.Point(540, 1080)).setTexture(TextureNames.BUTTON_RESUME);
         btnStart.setAction(ChooseStage.click_start);
         this.addChild(btnStart);
 
-        let btnSkip = new Button(120, 120, new egret.Point(720, 1140)).setTexture(TextureNames.BUTTON_SKIP);
+        let btnSkip = new Button(120, 120, new egret.Point(720, 1080)).setTexture(TextureNames.BUTTON_SKIP);
         btnSkip.setAction(ChooseStage.click_skip);
         this.addChild(btnSkip);
     }
