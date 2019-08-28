@@ -22,7 +22,7 @@ class Chapters {
 
 		let stage2_1 = new Stage2_1("2-1", 30);
 		let stage2_2 = new Stage2_2("2-2", 20);
-		let stage2_3 = new Stage2_3("2-3", 30);
+		let stage2_3 = new Stage2_3("2-3", 20);
 		let stage2_4 = new Stage2_4("2-4", 20);
 		let stage2_5 = new Stage2_5("2-5", 20);
 
@@ -30,6 +30,7 @@ class Chapters {
 
 		let stageEX_1 = new StageEX_1("ex-1", 30);
 		let stageEX_3 = new StageEX_3("ex-3", 30);
+		let stageEX_4 = new StageEX_4("ex-4", 30);
 
 		chapter1.addStage("1-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		chapter1.addStage("1-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
@@ -49,6 +50,7 @@ class Chapters {
 
 		chapter3.addStage("ex-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		chapter3.addStage("ex-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		chapter3.addStage("ex-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 
 		stage1_1._next_stage = stage1_2;
 		stage1_2._next_stage = stage1_3;
