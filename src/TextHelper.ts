@@ -92,6 +92,7 @@ class TextHelper {
 
 		new StageInfo("ex-1", "流矢", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
 		new StageInfo("ex-3", "爆发", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
+		new StageInfo("ex-4", "没想好", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
 	}
 
 	public static getStageNameFromID(id:string) {

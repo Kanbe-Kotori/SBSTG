@@ -53,7 +53,7 @@ class Main extends egret.Sprite {
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
             TextHelper.init();
-            Chapters.init();
+            StageData.init();
             this.removeChild(loadingView);
         } catch (e) {
             console.error(e);

@@ -1,4 +1,4 @@
-class Chapters {
+class StageData {
 
 	public static readonly arrayChapter:Array<PageChapter> = new Array<PageChapter>();
 	public static readonly arrayStage:Array<StageBase> = new Array<StageBase>();
@@ -29,6 +29,7 @@ class Chapters {
 		let stage2_ex = new Stage2_EX("2-ex", 30);
 
 		let stageEX_1 = new StageEX_1("ex-1", 30);
+		let stageEX_2 = new StageEX_2("ex-2", 30);
 		let stageEX_3 = new StageEX_3("ex-3", 30);
 		let stageEX_4 = new StageEX_4("ex-4", 30);
 
@@ -49,6 +50,7 @@ class Chapters {
 		chapter2.addStage("2-ex", "EX", new egret.Point(Main.X * 0.5, Main.Y * 0.55));
 
 		chapter3.addStage("ex-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		chapter3.addStage("ex-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		chapter3.addStage("ex-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 		chapter3.addStage("ex-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 
@@ -82,7 +84,7 @@ class Chapters {
 	}
 
 	public static getStage(id:string) {
-		for (let i of Chapters.arrayStage) {
+		for (let i of StageData.arrayStage) {
 			if (i.getUniqueID() == id) {
 				return i;
 			}
@@ -91,6 +93,6 @@ class Chapters {
 	}
 
 	public static registerStage(stage:StageBase) {
-		Chapters.arrayStage.push(stage);
+		StageData.arrayStage.push(stage);
 	}
 }

@@ -65,8 +65,12 @@ abstract class MissileBase {
         return this;
     }
 
+    /**
+     * 设置子弹总速度且不改变方向。静止子弹无效。
+     */
     public setTotalVelocity(v:number) {
         let _v = this.getVelocity();
+        if (_v == 0) return this;
         this._vx = v * this._vx / _v;
         this._vy = v * this._vy / _v;
         return this;
@@ -74,6 +78,16 @@ abstract class MissileBase {
 
     public getVelocity() {
         return Math.sqrt(this._vx * this._vx + this._vy * this._vy);
+    }
+
+    public getDirection() {
+        if (this._vx == 0) {
+            return this._vy >= 0? Math.PI / 2 : - Math.PI / 2;
+        } else if (this._vx > 0) {
+            return Math.atan(this._vy / this._vx);
+        } else {
+            return Math.atan(this._vy / this._vx) + Math.PI;
+        }
     }
 
     public getTexture() {

@@ -26,7 +26,7 @@ abstract class StageBase extends PageBase {
         super();
         this._uniqueStageID = id;
         this._total_time = time;
-        Chapters.registerStage(this);
+        StageData.registerStage(this);
 
         this.addEventListener(MissileEvent.TICK, MissileBase.TickLogic, this);
         this.addEventListener(MissileEvent.EDGE, MissileBase.EdgeLogic, this);

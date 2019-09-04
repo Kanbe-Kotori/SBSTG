@@ -9,7 +9,7 @@ class PageChapter extends PageBase {
     public constructor(index:number) {
         super();
         this._chapter_index = index;
-        Chapters.arrayChapter.push(this);
+        StageData.arrayChapter.push(this);
     }
 
     protected doRender() {
@@ -33,7 +33,7 @@ class PageChapter extends PageBase {
         this.addChild(this.titleText);
 
 		for (let i in this._stage_map) {
-            let stage = Chapters.getStage(i);
+            let stage = StageData.getStage(i);
             let front = stage._front_stage;
             if (front == null || LocalData.getStageData(front) == STAGE_DATA.FINISHED || LocalData.getStageData(front) == STAGE_DATA.SKIPPED) {
                 let button = this._stage_map[i];
