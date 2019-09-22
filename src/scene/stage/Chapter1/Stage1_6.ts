@@ -22,47 +22,46 @@ class Stage1_6 extends StageBase {
 				let ang = MyUtils.ang2rad(30 + 30 * Math.random());
 				for (let i = 0; i < 4; i++) {
 					let v = 20 + 10 * i;
-					let missile = 
-						new EllipticalMissile()
-							.setSize(120, 90)
-							.setTexture(TextureNames.FLOWER1)
-							.setPos(emitter.getPos())
-							.setVelocity(v * Math.cos(ang), v * Math.sin(ang))
-							.addHandler(
-                                new TickEventHandler(
-                                    (missile:MissileBase) => {
-                                        missile.setTotalVelocity(missile.getVelocity() - v / 20);
-                                    }
-                                )
-								.setTriggerTimes(20)
+					let missile = new EllipticalMissile()
+						.setSize(120, 90)
+						.setTexture(TextureNames.FLOWER1)
+						.setPos(emitter.getPos())
+						.setVelocity(v * Math.cos(ang), v * Math.sin(ang))
+						.addHandler(
+                            new TickEventHandler(
+                                (missile:MissileBase) => {
+                                    missile.setTotalVelocity(missile.getVelocity() - v / 20);
+                                }
                             )
-							.addHandler(
-                                new TickEventHandler(
-                                    (missile:MissileBase) => {
-                                        for (let j = 0; j < 18; j++) {
-											let theta = MissileUtils.getSniperAngle(missile.getPos()) + MyUtils.ang2rad(20 * j + 4 * Math.random() - 2);
-											let missile1 = 
-												new EllipticalMissile()
-													.setSize(30, 36)
-													.setTexture(TextureNames.MISSILE_PETAL2)
-													.setPos(missile.getPos())
-													.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
-													.addHandler(
-														new TickEventHandler(
-															(missile:MissileBase) => {
-																missile.setTotalVelocity(missile.getVelocity() - 0.5);
-															}
-														)
-														.setTriggerTimes(40)
-												)
-											missile1.addToStage(SelfMachine.INSTANCE.currentStage);
-										}
-										missile.setDead();
-                                    }
-                                )
-								.setStartTicks(20)
-								.setTriggerTimes(1)
-                            );
+							.setTriggerTimes(20)
+                        )
+						.addHandler(
+                            new TickEventHandler(
+                                (missile:MissileBase) => {
+                                    for (let j = 0; j < 18; j++) {
+										let theta = MissileUtils.getSniperAngle(missile.getPos()) + MyUtils.ang2rad(20 * j + 4 * Math.random() - 2);
+										let missile1 = 
+											new EllipticalMissile()
+												.setSize(30, 36)
+												.setTexture(TextureNames.MISSILE_PETAL2)
+												.setPos(missile.getPos())
+												.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
+												.addHandler(
+													new TickEventHandler(
+														(missile:MissileBase) => {
+															missile.setTotalVelocity(missile.getVelocity() - 0.5);
+														}
+													)
+													.setTriggerTimes(40)
+											)
+										missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+									}
+									missile.setDead();
+                                }
+                            )
+							.setStartTicks(20)
+							.setTriggerTimes(1)
+                        );
             		missile.addToStage(SelfMachine.INSTANCE.currentStage);
 				}
 			}
@@ -70,53 +69,50 @@ class Stage1_6 extends StageBase {
 		.setParentEmitter(em1)
 		.setFreq(1000);
 
-		let up1_5 = 
-			new CustomMissileUpgrade(
-				(emitter:CustomMissileUpgrade) => {
-					let ang = MyUtils.ang2rad(120 + 30 * Math.random());
-					for (let i = 0; i < 4; i++) {
-						let v = 20 + 10 * i;
-						let missile = 
-							new EllipticalMissile()
-								.setSize(120, 90)
-								.setTexture(TextureNames.FLOWER2)
-								.setPos(emitter.getPos())
-								.setVelocity(v * Math.cos(ang), v * Math.sin(ang))
-								.addHandler(
-                                    new TickEventHandler(
-                                        (missile:MissileBase) => {
-                                            missile.setTotalVelocity(missile.getVelocity() - v / 20);
-                                        }
-                                    )
-									.setTriggerTimes(20)
-                                )
-								.addHandler(
-                                    new TickEventHandler(
-                                        (missile:MissileBase) => {
-                                            for (let j = 0; j < 9; j++) {
-												let theta = MissileUtils.getSniperAngle(missile.getPos()) + MyUtils.ang2rad(40 * j);
-												let missile1 = 
-													new EllipticalMissile()
-														.setSize(30, 36)
-														.setTexture(TextureNames.MISSILE_PETAL1)
-														.setPos(missile.getPos())
-														.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
-														.addHandler(
-															new TickEventHandler(
-																(missile:MissileBase) => {
-																	missile.setTotalVelocity(missile.getVelocity() - 0.5);
-																}
-															)
-															.setTriggerTimes(40)
-													)
-												missile1.addToStage(SelfMachine.INSTANCE.currentStage);
-											}
-											missile.setDead();
-                                        }
-                                    )
-									.setStartTicks(20)
-									.setTriggerTimes(1)
-                                );
+		let up1_5 = new CustomMissileUpgrade(
+			(emitter:CustomMissileUpgrade) => {
+				let ang = MyUtils.ang2rad(120 + 30 * Math.random());
+				for (let i = 0; i < 4; i++) {
+					let v = 20 + 10 * i;
+					let missile = new EllipticalMissile()
+						.setSize(120, 90)
+						.setTexture(TextureNames.FLOWER2)
+						.setPos(emitter.getPos())
+						.setVelocity(v * Math.cos(ang), v * Math.sin(ang))
+						.addHandler(
+                            new TickEventHandler(
+                                (missile:MissileBase) => {
+                                    missile.setTotalVelocity(missile.getVelocity() - v / 20);
+                                }
+                            )
+							.setTriggerTimes(20)
+                        )
+						.addHandler(
+                            new TickEventHandler(
+                                (missile:MissileBase) => {
+                                    for (let j = 0; j < 9; j++) {
+										let theta = MissileUtils.getSniperAngle(missile.getPos()) + MyUtils.ang2rad(40 * j);
+										let missile1 = new EllipticalMissile()
+											.setSize(30, 36)
+											.setTexture(TextureNames.MISSILE_PETAL1)
+											.setPos(missile.getPos())
+											.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
+											.addHandler(
+												new TickEventHandler(
+													(missile:MissileBase) => {
+														missile.setTotalVelocity(missile.getVelocity() - 0.5);
+													}
+												)
+												.setTriggerTimes(40)
+											)
+											missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+										}
+									missile.setDead();
+                                }
+                            )
+							.setStartTicks(20)
+							.setTriggerTimes(1)
+                        );
             			missile.addToStage(SelfMachine.INSTANCE.currentStage);
 					}
 				}

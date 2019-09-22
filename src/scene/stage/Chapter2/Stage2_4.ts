@@ -27,32 +27,31 @@ class Stage2_4 extends StageBase {
         .setEndAngle(105)
         .setNumber(2);
 
-		let up1_4 = 
+		let whirlpool = 
 			new CustomMissileUpgrade(
 				(emitter:CustomMissileUpgrade) => {
 					let i = 0;
 					while (i++ < 5) {
 						let point = MissileUtils.createEdgePoint();
-						let missile = 
-							new RoundMissile()
-								.setRadius(12)
-								.setTexture(TextureNames.MISSILE_BLUE)
-								.setPos(point)
-								.addHandler(
-									new TickEventHandler(
-										(missile:MissileBase) => {
-											let dx = 540 - missile.getX();
-											let dy = 600 - missile.getY();
-											let d = Math.sqrt(dx * dx + dy * dy);
-											if (d < 8) {
-												missile.setDead();
-												return;
-											}
-											missile.setVelocity(15 * dx / d, 15 * dy / d);
-											missile.addVelocity(0.04 * dy, - 0.04 * dx);
+						let missile = new RoundMissile()
+							.setRadius(12)
+							.setTexture(TextureNames.MISSILE_BLUE)
+							.setPos(point)
+							.addHandler(
+								new TickEventHandler(
+									(missile:MissileBase) => {
+										let dx = 540 - missile.getX();
+										let dy = 600 - missile.getY();
+										let d = Math.sqrt(dx * dx + dy * dy);
+										if (d < 8) {
+											missile.setDead();
+											return;
 										}
-									)
-								);
+										missile.setVelocity(15 * dx / d, 15 * dy / d);
+										missile.addVelocity(0.04 * dy, - 0.04 * dx);
+									}
+								)
+							);
 						missile.addToStage(SelfMachine.INSTANCE.currentStage);
 					}
 				}

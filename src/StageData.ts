@@ -24,7 +24,8 @@ class StageData {
 		let stage2_2 = new Stage2_2("2-2", 20);
 		let stage2_3 = new Stage2_3("2-3", 20);
 		let stage2_4 = new Stage2_4("2-4", 20);
-		let stage2_5 = new Stage2_5("2-5", 20);
+		let stage2_5 = new Stage2_5("2-5", 30);
+		let stage2_6 = new Stage2_6("2-6", 30);
 
 		let stage2_ex = new Stage2_EX("2-ex", 30);
 
@@ -46,6 +47,7 @@ class StageData {
 		chapter2.addStage("2-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 		chapter2.addStage("2-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 		chapter2.addStage("2-5", "5", new egret.Point(Main.X * 0.5, Main.Y * 0.4));
+		chapter2.addStage("2-6", "6", new egret.Point(Main.X * 0.75, Main.Y * 0.4));
 
 		chapter2.addStage("2-ex", "EX", new egret.Point(Main.X * 0.5, Main.Y * 0.55));
 
@@ -72,15 +74,15 @@ class StageData {
 		stage2_2._next_stage = stage2_3;
 		stage2_3._next_stage = stage2_4;
 		stage2_4._next_stage = stage2_5;
-		//stage2_5._next_stage = stage2_6;
-		//stage2_6._next_stage = stage2_ex;
+		stage2_5._next_stage = stage2_6;
+		stage2_6._next_stage = stage2_ex;
 	
 		stage2_2._front_stage = stage2_1;
 		stage2_3._front_stage = stage2_2;
 		stage2_4._front_stage = stage2_3;
 		stage2_5._front_stage = stage2_4;
-		//stage2_6._front_stage = stage2_5;
-		//stage2_ex._front_stage = stage2_6;
+		stage2_6._front_stage = stage2_5;
+		stage2_ex._front_stage = stage2_6;
 	}
 
 	public static getStage(id:string) {

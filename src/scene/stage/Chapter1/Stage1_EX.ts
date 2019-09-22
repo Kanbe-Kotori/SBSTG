@@ -4,14 +4,13 @@ class Stage1_EX extends StageBase {
 		let point1 = new egret.Point(540, 600);
         let em1 = new EmptyEmitter().setPos(point1);
 
-        let up1_1 = 
-			new TeleportingUpgrade(
-				240, 840,
-				480, 720
-			)
-			.setParentEmitter(em1)
-        	.setFreq(2000)
-			.setDelay(1950);
+        let up1_1 = new TeleportingUpgrade(
+			240, 840,
+			480, 720
+		)
+		.setParentEmitter(em1)
+        .setFreq(2000)
+		.setDelay(1950);
 
 		let up1_2 = new RenderUpgrade(TextureNames.FLOWER0, 250, 200).setFreq(50).setParentEmitter(em1).renderOnStage(this);
 
