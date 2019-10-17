@@ -1,6 +1,7 @@
-class FirstTime extends Popup {
+class MsgBox extends Popup {
 
-	public static readonly INSTANCE:FirstTime = new FirstTime();
+	public static readonly INSTANCE:MsgBox = new MsgBox();
+    private _text = "";
 
     protected doRender() {
         super.doRender();
@@ -18,7 +19,7 @@ class FirstTime extends Popup {
         text.y = 780;
         text.width = 480;
         text.height = 360;
-        text.text = "欢迎来到一只小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏说明。";
+        text.text = this._text;
         text.size = 48;
         text.textColor = 0x000000;
         text.fontFamily = "KaiTi";
@@ -27,14 +28,23 @@ class FirstTime extends Popup {
         this.addChild(text);
 
         let btnStart = new Button(120, 120, new egret.Point(540, 1080)).setTexture(TextureNames.BUTTON_RESUME);
-        btnStart.setAction(FirstTime.click_start);
+        btnStart.setAction(MsgBox.click_start);
         this.addChild(btnStart);
     }
 
 	public static click_start(evt:egret.TouchEvent) {
-        FirstTime.INSTANCE.removeChildren();
-        Main.getMain().removeChildren();
-        Main.getMain().addChild(PageHelp.INSTANCE);
+        MsgBox.INSTANCE.removeChildren();
+        if (MsgBox.INSTANCE.parent != null) {
+            MsgBox.INSTANCE.parent.removeChild(MsgBox.INSTANCE);
+        } else {
+            Main.getMain().removeChildren();
+            Main.getMain().addChild(PageMain.INSTANCE);
+        }
 	}
+
+    public static showMsgBox(page:PageBase, text:string) {
+        MsgBox.INSTANCE._text = text;
+        page.addChild(MsgBox.INSTANCE);
+    }
 
 }

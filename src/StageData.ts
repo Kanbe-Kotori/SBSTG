@@ -4,17 +4,23 @@ class StageData {
 	public static readonly arrayStage:Array<StageBase> = new Array<StageBase>();
 	
 	public static init() {
-		let chapter1 = new PageChapter(0);
-		let chapter2 = new PageChapter(1);
-		let chapter3 = new PageChapter(2);
+		let jiaocheng = new PageChapter(0);
+		let chapter1 = new PageChapter(1);
+		let chapter2 = new PageChapter(2);
+		let chapter3 = new PageChapter(3);
 
-		PageChooseChapter.INSTANCE.addChapter(chapter1, "第一章", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
-		PageChooseChapter.INSTANCE.addChapter(chapter2, "第二章", new egret.Point(Main.X * 0.5, Main.Y * 0.45));
-		PageChooseChapter.INSTANCE.addChapter(chapter3, "第三章", new egret.Point(Main.X * 0.5, Main.Y * 0.65));
+		PageChooseChapter.INSTANCE.addChapter(jiaocheng, "教程", new egret.Point(Main.X * 0.5, Main.Y * 0.15));
+		PageChooseChapter.INSTANCE.addChapter(chapter1, "第一章", new egret.Point(Main.X * 0.5, Main.Y * 0.35));
+		PageChooseChapter.INSTANCE.addChapter(chapter2, "第二章", new egret.Point(Main.X * 0.5, Main.Y * 0.55));
+		PageChooseChapter.INSTANCE.addChapter(chapter3, "第三章", new egret.Point(Main.X * 0.5, Main.Y * 0.75));
+
+		let stage0_1 = new Stage0_1("0-1", 10);
+		let stage0_2 = new Stage0_2("0-2", 10);
+		let stage0_3 = new Stage0_3("0-3", 20);
 
 		let stage1_1 = new Stage1_1("1-1", 20);
 		let stage1_2 = new Stage1_2("1-2", 20);
-		let stage1_3 = new Stage1_3("1-3", 30);
+		let stage1_3 = new Stage1_3("1-3", 25);
 		let stage1_4 = new Stage1_4("1-4", 20);
 		let stage1_5 = new Stage1_5("1-5", 20);
 		let stage1_6 = new Stage1_6("1-6", 30);
@@ -33,6 +39,10 @@ class StageData {
 		let stageEX_2 = new StageEX_2("ex-2", 30);
 		let stageEX_3 = new StageEX_3("ex-3", 30);
 		let stageEX_4 = new StageEX_4("ex-4", 30);
+
+		jiaocheng.addStage("0-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		jiaocheng.addStage("0-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
+		jiaocheng.addStage("0-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 
 		chapter1.addStage("1-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		chapter1.addStage("1-2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));

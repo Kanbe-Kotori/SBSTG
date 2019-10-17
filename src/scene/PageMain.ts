@@ -26,7 +26,9 @@ class PageMain extends PageBase {
         this.addChild(btnAbout);
 
         if (LocalData.isFirstTime()) {
-            this.addChild(FirstTime.INSTANCE);
+            MsgBox.showMsgBox(this, 
+                "欢迎来到小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。"
+            );
         }
     }
 
