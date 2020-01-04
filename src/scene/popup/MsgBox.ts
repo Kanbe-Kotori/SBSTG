@@ -2,6 +2,7 @@ class MsgBox extends Popup {
 
 	public static readonly INSTANCE:MsgBox = new MsgBox();
     private _text = "";
+    private _func:Function = null;
 
     protected doRender() {
         super.doRender();
@@ -33,6 +34,10 @@ class MsgBox extends Popup {
     }
 
 	public static click_start(evt:egret.TouchEvent) {
+        if (MsgBox.INSTANCE._func != null) {
+            MsgBox.INSTANCE._func();
+            MsgBox.INSTANCE._func = null;
+        }
         MsgBox.INSTANCE.removeChildren();
         if (MsgBox.INSTANCE.parent != null) {
             MsgBox.INSTANCE.parent.removeChild(MsgBox.INSTANCE);
@@ -41,6 +46,10 @@ class MsgBox extends Popup {
             Main.getMain().addChild(PageMain.INSTANCE);
         }
 	}
+
+    public static setCustomAction(func:Function) {
+        MsgBox.INSTANCE._func = func;
+    }
 
     public static showMsgBox(page:PageBase, text:string) {
         MsgBox.INSTANCE._text = text;

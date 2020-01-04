@@ -27,7 +27,7 @@ class Stage2_EX extends StageBase {
                         }
                     ).setTriggerTimes(100)
                 )
-                .setBottomLayer()
+                //.setBottomLayer()
 			)
         .setParentEmitter(em1)
         .setFreq(250)
