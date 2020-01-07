@@ -1,9 +1,9 @@
 class Stage1_1 extends StageBase {
     protected initEmitters() {
 		let point1 = new egret.Point(Main.X * 0.2, 300);
-		let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em1).renderOnStage(this);
-        let up1_2 = new SniperUpgrade(
+		let em1 = new Launcher().setPos(point1);
+        let up1_1 = new RenderLogic(TextureNames.FLOWER1, 120, 90).setParentEmitter(em1).renderOnStage(this);
+        let up1_2 = new Sniper(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
@@ -16,9 +16,9 @@ class Stage1_1 extends StageBase {
         .setFreq(300);
 
 		let point2 = new egret.Point(Main.X * 0.4, 300);
-		let em2 = new EmptyEmitter().setPos(point2);
-        let up2_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em2).renderOnStage(this);
-        let up2_2 = new SniperUpgrade(
+		let em2 = new Launcher().setPos(point2);
+        let up2_1 = new RenderLogic(TextureNames.FLOWER1, 120, 90).setParentEmitter(em2).renderOnStage(this);
+        let up2_2 = new Sniper(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
@@ -31,9 +31,9 @@ class Stage1_1 extends StageBase {
         .setFreq(300);
 
 		let point3 = new egret.Point(Main.X * 0.6, 300);
-		let em3 = new EmptyEmitter().setPos(point3);
-        let up3_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em3).renderOnStage(this);
-        let up3_2 = new SniperUpgrade(
+		let em3 = new Launcher().setPos(point3);
+        let up3_1 = new RenderLogic(TextureNames.FLOWER1, 120, 90).setParentEmitter(em3).renderOnStage(this);
+        let up3_2 = new Sniper(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
@@ -46,9 +46,9 @@ class Stage1_1 extends StageBase {
         .setFreq(300);
 
 		let point4 = new egret.Point(Main.X * 0.8, 300);
-		let em4 = new EmptyEmitter().setPos(point4);
-        let up4_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em4).renderOnStage(this);
-        let up4_2 = new SniperUpgrade(
+		let em4 = new Launcher().setPos(point4);
+        let up4_1 = new RenderLogic(TextureNames.FLOWER1, 120, 90).setParentEmitter(em4).renderOnStage(this);
+        let up4_2 = new Sniper(
             new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)

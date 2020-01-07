@@ -1,4 +1,4 @@
-class SideEmitterUpgrade extends MissileUpgradeBase {
+class SideEmitterUpgrade extends LaunchLogicBase {
 
     private _ang1 = 0;
     private _ang2 = 180;

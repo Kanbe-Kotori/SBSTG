@@ -2,7 +2,7 @@ class Stage1_EX extends StageBase {
 
     protected initEmitters() {
 		let point1 = new egret.Point(540, 600);
-        let em1 = new EmptyEmitter().setPos(point1);
+        let em1 = new Launcher().setPos(point1);
 
         let up1_1 = new TeleportingUpgrade(
 			240, 840,
@@ -12,7 +12,7 @@ class Stage1_EX extends StageBase {
         .setFreq(2000)
 		.setDelay(1950);
 
-		let up1_2 = new RenderUpgrade(TextureNames.FLOWER0, 250, 200).setFreq(50).setParentEmitter(em1).renderOnStage(this);
+		let up1_2 = new RenderLogic(TextureNames.FLOWER0, 250, 200).setFreq(50).setParentEmitter(em1).renderOnStage(this);
 
 		let up1_3 = new CustomMissileUpgrade(
 			(emitter:CustomMissileUpgrade) => {

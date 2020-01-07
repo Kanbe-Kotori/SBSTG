@@ -165,7 +165,7 @@ abstract class MissileBase {
         this._handler = null;
         if (this._img != null && this._img.parent != null)
             this._img.parent.removeChild(this._img);
-        MyUtils.removeFromArray(this, SelfMachine.INSTANCE.currentStage.arrayMissile);
+        MyUtils.removeObjectFromArray(this, SelfMachine.INSTANCE.currentStage.arrayMissile);
     }
 
     public getX() {

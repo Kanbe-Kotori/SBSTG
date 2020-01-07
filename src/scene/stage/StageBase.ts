@@ -1,6 +1,6 @@
 abstract class StageBase extends PageBase {
     public arrayMissile:Array<MissileBase>;
-    public arrayController:Array<EmitterBase>;
+    public arrayLauncher:Array<Launcher>;
 
     protected readonly _uniqueStageID:string;
     protected readonly _total_time:number;
@@ -51,7 +51,7 @@ abstract class StageBase extends PageBase {
         this.state = StageState.BEFORE_RUNNING;
 
         this.arrayMissile = new Array<MissileBase>();
-        this.arrayController = new Array<EmitterBase>();
+        this.arrayLauncher = new Array<Launcher>();
 
         this.tick_timer = new egret.Timer(50);
         this.tick_timer.addEventListener(egret.TimerEvent.TIMER, this.onTickUpdate, this);
@@ -189,8 +189,8 @@ abstract class StageBase extends PageBase {
     protected win() {
         LocalData.setStageData(this, STAGE_DATA.FINISHED);
         this.state = StageState.END;
-        for (let i of this.arrayController) {
-            i.stop();
+        for (let i of this.arrayLauncher) {
+            i.pause();
         }
         this.tick_timer.stop();
         this.missile_timer.stop();
@@ -199,7 +199,7 @@ abstract class StageBase extends PageBase {
 
     public start() {
         this.state = StageState.RUNNING;
-        for (let i of this.arrayController) {
+        for (let i of this.arrayLauncher) {
             i.start();
         }
         this.missile_timer.start();
@@ -207,8 +207,8 @@ abstract class StageBase extends PageBase {
 
     public pause() {
         this.state = StageState.PAUSING;
-        for (let i of this.arrayController) {
-            i.stop();
+        for (let i of this.arrayLauncher) {
+            i.pause();
         }
         this.tick_timer.stop();
         this.missile_timer.stop();
@@ -216,7 +216,7 @@ abstract class StageBase extends PageBase {
 
     public resume() {
         this.state = StageState.RUNNING;
-        for (let i of this.arrayController) {
+        for (let i of this.arrayLauncher) {
             i.resume();
         }
         this.tick_timer.start();
@@ -228,7 +228,7 @@ abstract class StageBase extends PageBase {
      */
     public restart() {
         this.state = StageState.BEFORE_RUNNING;
-        for (let i of this.arrayController) {
+        for (let i of this.arrayLauncher) {
             i.reset();
         }
         MyUtils.cleanMissile(this);
@@ -252,8 +252,8 @@ abstract class StageBase extends PageBase {
 
     public dead() {
         this.state = StageState.END;
-        for (let i of this.arrayController) {
-            i.stop();
+        for (let i of this.arrayLauncher) {
+            i.pause();
         }
         this.tick_timer.stop();
         this.missile_timer.stop();

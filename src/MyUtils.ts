@@ -14,19 +14,20 @@ class MyUtils {
     }
 
     public static cleanController(stage: StageBase) {
-        let array1 = stage.arrayController.slice(0);
+        let array1 = stage.arrayLauncher.slice(0);
         for (let j of array1) {
             j.setDead();
         }
     }
 
-    public static removeFromArray(object:any, array:Array<any>) {
+    public static removeObjectFromArray(object:any, array:Array<any>) {
         for (let i: number = 0; i < array.length; i++) {
 			if (array[i] == object) {
 				array.splice(i, 1);
-				break;
+				return true;
 			}
 		}
+        return false;
     }
 
     public static createReasonablePos(point:egret.Point) {

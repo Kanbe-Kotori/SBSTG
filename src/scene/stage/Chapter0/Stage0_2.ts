@@ -1,21 +1,22 @@
-class Stage0_2 extends StageBase {
+class Stage0_2 extends StageTutorial {
+    public constructor() {
+        super("0-2", 10, "本关学习玩家的判定点大小，站着不动即可过关。");
+    }
     protected initEmitters() {
-		MsgBox.showMsgBox(this, 
-            "本关的过关方法是：不要动！具体原因见关卡提示。"
-        );
 		let point1 = new egret.Point(Main.X * 0.5, 300);
-		let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER1, 120, 90).setParentEmitter(em1).renderOnStage(this);
-        let up1_2 = new RegularMissileUpgrade(
-            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(15)
-            )
-        .setParentEmitter(em1)
-        .setFreq(400)
-        .setStartAngle(0)
-        .setStep(4)
-        .setNumber(90);
+        let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 120, 90).setInitialPos(point1);
+        launcher1.addLogic(
+            new Scatter(
+                launcher1,
+                new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
+                    .setSize(30, 36)
+                    .setTexture(TextureNames.MISSILE_PETAL2)
+                    .setVelocity(15)
+                )
+            .setFreq(400)
+            .setStartAngle(0)
+            .setStep(4)
+            .setNumber(90)
+        );
 	}
 }

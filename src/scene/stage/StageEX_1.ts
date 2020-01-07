@@ -1,13 +1,13 @@
 class StageEX_1 extends StageBase {
 
     protected initEmitters() {
-        let em1 = new EmptyEmitter();
+        let em1 = new Launcher();
         let up1_1 = new TeleportingUpgrade(
 			0, Main.X,
 			Main.UPPER_Y, Main.Y * 0.5)
 		.setParentEmitter(em1)
         .setFreq(200);
-		let up1_2 = new RegularMissileUpgrade(
+		let up1_2 = new Scatter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
             )
         .setParentEmitter(em1)

@@ -1,6 +1,6 @@
 class Stage2_EX extends StageBase {
 	protected initEmitters() {
-        let em1 = new EmptyEmitter();
+        let em1 = new Launcher();
         let up1_1 = new CustomPathUpgrade(
             (t:number) => {
 				return new egret.Point(Math.random() * Main.X * 0.5 + (t % 10)/5 * Main.X * 0.5, Math.random() * 180 + Main.UPPER_Y);
@@ -9,7 +9,7 @@ class Stage2_EX extends StageBase {
         .setParentEmitter(em1)
 		.setFreq(250);
 
-		let up1_2 = new RegularMissileUpgrade(
+		let up1_2 = new Scatter(
 			new MissileConfig(MissileUtils.MISSILE_ROUND)
 				.setSize(600, 600)
 				.setVelocity(17)
@@ -34,7 +34,7 @@ class Stage2_EX extends StageBase {
         .setStartAngle(90)
         .setNumber(1);
         
-		let up1_3 = new RegularMissileUpgrade(
+		let up1_3 = new Scatter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
             .setTexture(TextureNames.MISSILE_RED)
             .setVelocity(15)

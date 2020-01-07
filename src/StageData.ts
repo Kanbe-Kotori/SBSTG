@@ -15,8 +15,8 @@ class StageData {
 		PageChooseChapter.INSTANCE.addChapter(chapter3, "第三章", new egret.Point(Main.X * 0.5, Main.Y * 0.75));
 
 		let stage0_1 = new Stage0_1();
-		let stage0_2 = new Stage0_2("0-2", 10);
-		let stage0_3 = new Stage0_3("0-3", 20);
+		let stage0_2 = new Stage0_2();
+		let stage0_3 = new Stage0_3();
 
 		let stage1_1 = new Stage1_1("1-1", 20);
 		let stage1_2 = new Stage1_2("1-2", 20);

@@ -1,11 +1,11 @@
-class RegularMissileUpgrade extends MissileUpgradeBase {
+class Scatter extends LaunchLogicBase {
 
-    private _ang = 0;
-    private _step = 45;
-    private _num = 5;
+    protected _ang = 0;
+    protected _step = 45;
+    protected _num = 5;
 
-    public constructor(conf:MissileConfig) {
-        super(conf);
+    public constructor(launcher:Launcher, conf:MissileConfig) {
+        super(launcher, conf);
     }
 
     public setStartAngle(ang:number) {
@@ -23,25 +23,13 @@ class RegularMissileUpgrade extends MissileUpgradeBase {
         return this;
     }
 
-    public getStartAngle() {
-        return this._ang;
-    }
-
-    public getStep() {
-        return this._step;
-    }
-
     public onUpdate(event: egret.TimerEvent) {
-        super.onUpdate(event);
-        if (!this.shouldUpdate()) {
-			return;
-		}
         let theta = this._ang;
         let i = 0;
         while (i++ < this._num) {
             let theta1 = MyUtils.ang2rad(theta);
             let v = this._conf.getVelocity();
-            let missile = this._conf.createMissile().setPos(this.getPos()).setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
+            let missile = this._conf.createMissile().setPos(this._launcher.getPos()).setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
             missile.addToStage(SelfMachine.INSTANCE.currentStage);
             theta += this._step;
         }

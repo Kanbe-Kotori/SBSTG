@@ -2,10 +2,10 @@ class Stage1_6 extends StageBase {
 
     protected initEmitters() {
 		let point1 = new egret.Point(540, 600);
-        let em1 = new EmptyEmitter().setPos(point1);
-        let up1_1 = new RenderUpgrade(TextureNames.FLOWER8, 240, 270).setParentEmitter(em1).renderOnStage(this);
+        let em1 = new Launcher().setPos(point1);
+        let up1_1 = new RenderLogic(TextureNames.FLOWER8, 240, 270).setParentEmitter(em1).renderOnStage(this);
 
-		let up1_2 = new RegularMissileUpgrade(
+		let up1_2 = new Scatter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setTexture(TextureNames.MISSILE_PETAL4)
                 .setVelocity(20)
@@ -15,7 +15,7 @@ class Stage1_6 extends StageBase {
         .setStartAngle(0)
         .setStep(360 / 6)
         .setNumber(6);
-		let up1_3 = new EmitterRotateUpgrade().setParentEmitter(up1_2).setTPR(12);
+		let up1_3 = new ScatterRotate().setParentEmitter(up1_2).setTPR(12);
 
         let up1_4 = new CustomMissileUpgrade(
 			(emitter:CustomMissileUpgrade) => {
