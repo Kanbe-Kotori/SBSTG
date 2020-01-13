@@ -1,8 +1,8 @@
 class StageEX_2 extends StageBase {
 
     protected initEmitters() {
-        let hail = new CustomMissileUpgrade(
-			(emitter:CustomMissileUpgrade) => {
+        let hail = new CustomShooter(
+			(emitter:CustomShooter) => {
 				let missile = new RoundMissile()
 					.setSize(32, 32)
 					.setTexture(TextureNames.MISSILE_BLUE)

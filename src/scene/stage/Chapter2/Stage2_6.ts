@@ -1,7 +1,7 @@
 class Stage2_6 extends StageBase {
 
 	protected initEmitters() {
-        let rain1 = new SideEmitterUpgrade(
+        let rain1 = new SideShooter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(20)
 				.setSize(36, 36)
@@ -46,8 +46,8 @@ class Stage2_6 extends StageBase {
         .setNumber(2);
 
 		let flower = 
-			new CustomMissileUpgrade(
-				(emitter:CustomMissileUpgrade) => {
+			new CustomShooter(
+				(emitter:CustomShooter) => {
 					let missile = Stage2_6.initRandomMissile();
 					missile.addToStage(SelfMachine.INSTANCE.currentStage);
 				}

@@ -1,7 +1,7 @@
 class Stage2_1 extends StageBase {
 
     protected initEmitters() {
-        let rain = new SideEmitterUpgrade(
+        let rain = new SideShooter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(15)
                 .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 20)

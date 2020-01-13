@@ -1,12 +1,12 @@
-class SideEmitterUpgrade extends LaunchLogicBase {
+class SideShooter extends ShotLogicBase {
 
     private _ang1 = 0;
     private _ang2 = 180;
     private _num = 1;
     private _side:Side = Side.TOP;
 
-    public constructor(conf:MissileConfig) {
-        super(conf);
+    public constructor(launcher:Launcher, prototype:MissileBase) {
+        super(launcher, prototype);
     }
 
     public setStartAngle(ang:number) {
@@ -45,21 +45,20 @@ class SideEmitterUpgrade extends LaunchLogicBase {
     }
 
     public onUpdate(event: egret.TimerEvent) {
-        super.onUpdate(event);
-        if (!this.shouldUpdate()) {
-			return;
-		}
         let i = 0;
         while(i++ < this._num) {
-            var point = this.getPointFromSide();
+            let missile = this.createMissile();
             let theta = (this._ang1 + Math.random() * (this._ang2 - this._ang1));
             theta = MyUtils.ang2rad(theta);
-            let v = this._conf.getVelocity();
-            let missile = this._conf.createMissile()
-                .setPos(point)
-                .setVelocity(v * Math.cos(theta), v * Math.sin(theta));
+            let v = missile.getVelocity();
+            missile.setVelocity(v * Math.cos(theta), v * Math.sin(theta));
             missile.addToStage(SelfMachine.INSTANCE.currentStage);
         }
     }
+
+    public createMissile() {
+        let point = this.getPointFromSide();
+		return this._missile_prototype.clone().setPos(point);
+	}
 
 }

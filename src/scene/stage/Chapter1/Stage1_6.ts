@@ -17,8 +17,8 @@ class Stage1_6 extends StageBase {
         .setNumber(6);
 		let up1_3 = new ScatterRotate().setParentEmitter(up1_2).setTPR(12);
 
-        let up1_4 = new CustomMissileUpgrade(
-			(emitter:CustomMissileUpgrade) => {
+        let up1_4 = new CustomShooter(
+			(emitter:CustomShooter) => {
 				let ang = MyUtils.ang2rad(30 + 30 * Math.random());
 				for (let i = 0; i < 4; i++) {
 					let v = 20 + 10 * i;
@@ -69,8 +69,8 @@ class Stage1_6 extends StageBase {
 		.setParentEmitter(em1)
 		.setFreq(1000);
 
-		let up1_5 = new CustomMissileUpgrade(
-			(emitter:CustomMissileUpgrade) => {
+		let up1_5 = new CustomShooter(
+			(emitter:CustomShooter) => {
 				let ang = MyUtils.ang2rad(120 + 30 * Math.random());
 				for (let i = 0; i < 4; i++) {
 					let v = 20 + 10 * i;

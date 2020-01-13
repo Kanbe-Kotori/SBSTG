@@ -55,4 +55,17 @@ class EllipticalMissile extends MissileBase {
 		super.onUpdate(event);
 	}
 
+    public clone():MissileBase {
+        let missile = new EllipticalMissile()
+            .setSize(this._missile_width, this._missile_height)
+            .setTexture(this._texture)
+            .setBottomLayer(this.isBottomLayer)
+            .setPos(new egret.Point(this._posX, this._posY))
+            .setVelocity(this._vx, this._vy);
+        for(let i of this._handler) {
+            missile.addHandler(i.clone());
+        }
+        return missile;
+    }
+
 }

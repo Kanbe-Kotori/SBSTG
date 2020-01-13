@@ -1,7 +1,7 @@
 class Stage2_4 extends StageBase {
 
 	protected initEmitters() {
-        let rain = new SideEmitterUpgrade(
+        let rain = new SideShooter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(20)
 				.setSize(36, 36)
@@ -28,8 +28,8 @@ class Stage2_4 extends StageBase {
         .setNumber(2);
 
 		let whirlpool = 
-			new CustomMissileUpgrade(
-				(emitter:CustomMissileUpgrade) => {
+			new CustomShooter(
+				(emitter:CustomShooter) => {
 					let i = 0;
 					while (i++ < 5) {
 						let point = MissileUtils.createEdgePoint();

@@ -14,8 +14,8 @@ class Stage1_EX extends StageBase {
 
 		let up1_2 = new RenderLogic(TextureNames.FLOWER0, 250, 200).setFreq(50).setParentEmitter(em1).renderOnStage(this);
 
-		let up1_3 = new CustomMissileUpgrade(
-			(emitter:CustomMissileUpgrade) => {
+		let up1_3 = new CustomShooter(
+			(emitter:CustomShooter) => {
 				let ang = 360 * Math.random()
 				for (let theta = ang; theta < ang + 360; theta += 360 / 32) {
 					let theta1 = MyUtils.ang2rad(theta);
@@ -32,8 +32,8 @@ class Stage1_EX extends StageBase {
 		.setParentEmitter(em1)
         .setFreq(400);
 
-		let up1_4 = new CustomMissileUpgrade(
-			(emitter:CustomMissileUpgrade) => {
+		let up1_4 = new CustomShooter(
+			(emitter:CustomShooter) => {
 				let ang = 2 * Math.PI * Math.random();
 				let texture = Stage1_EX.randomTexture2();
 				for (let i = 0; i < 3; i++) {

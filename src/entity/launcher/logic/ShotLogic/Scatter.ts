@@ -1,11 +1,11 @@
-class Scatter extends LaunchLogicBase {
+class Scatter extends ShotLogicBase {
 
     protected _ang = 0;
     protected _step = 45;
     protected _num = 5;
 
-    public constructor(launcher:Launcher, conf:MissileConfig) {
-        super(launcher, conf);
+    public constructor(launcher:Launcher, prototype:MissileBase) {
+        super(launcher, prototype);
     }
 
     public setStartAngle(ang:number) {
@@ -27,9 +27,10 @@ class Scatter extends LaunchLogicBase {
         let theta = this._ang;
         let i = 0;
         while (i++ < this._num) {
+            let missile = this.createMissile();
             let theta1 = MyUtils.ang2rad(theta);
-            let v = this._conf.getVelocity();
-            let missile = this._conf.createMissile().setPos(this._launcher.getPos()).setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
+            let v = missile.getVelocity();
+            missile.setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
             missile.addToStage(SelfMachine.INSTANCE.currentStage);
             theta += this._step;
         }

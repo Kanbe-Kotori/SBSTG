@@ -1,7 +1,7 @@
 class Stage2_5 extends StageBase {
 
      protected initEmitters() {
-        let rain = new SideEmitterUpgrade(
+        let rain = new SideShooter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(0)
                 .setTexture(TextureNames.MISSILE_HAIL)

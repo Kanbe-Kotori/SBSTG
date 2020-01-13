@@ -66,13 +66,17 @@ abstract class MissileBase {
     }
 
     /**
-     * 设置子弹总速度且不改变方向。静止子弹无效。
+     * 设置子弹总速度且不改变方向。静止子弹向正下方发射。
      */
     public setTotalVelocity(v:number) {
         let _v = this.getVelocity();
-        if (_v == 0) return this;
-        this._vx = v * this._vx / _v;
-        this._vy = v * this._vy / _v;
+        if (_v <= 0) {
+            this._vx = 0;
+            this._vy = v;
+        } else {
+            this._vx = v * this._vx / _v;
+            this._vy = v * this._vy / _v;
+        }
         return this;
     }
 
@@ -197,4 +201,8 @@ abstract class MissileBase {
         }
         return null;
     }
+
+    /** 制作该子弹的一个复制。 */
+    public abstract clone():MissileBase;
+
 }

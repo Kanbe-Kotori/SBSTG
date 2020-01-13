@@ -1,4 +1,4 @@
-class Sniper extends LaunchLogicBase {
+class Sniper extends ShotLogicBase {
 
     private _step = 15;
     private _num = 1;

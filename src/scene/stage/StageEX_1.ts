@@ -15,7 +15,7 @@ class StageEX_1 extends StageBase {
         .setStartAngle(0)
         .setStep(360 / 24)
         .setNumber(24);
-		let up1_3 = new SideEmitterUpgrade(
+		let up1_3 = new SideShooter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(15)
                 .setSize(256, 256)

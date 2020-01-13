@@ -12,7 +12,6 @@ abstract class MissileEventHandler {
 	public abstract clone():MissileEventHandler;
 	
 	public trigger(missile:MissileBase) {
-		//console.log("trigger!" +missile.getX() +" "+ missile.getY());
 		if (this.shouldTrigger(missile)) {
 			this._func(missile);
 			if (this.triggerTimes > 0)

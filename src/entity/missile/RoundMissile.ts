@@ -37,4 +37,17 @@ class RoundMissile extends MissileBase {
         return false;
     }
 
+    public clone():MissileBase {
+        let missile = new RoundMissile()
+            .setSize(this._missile_width, this._missile_height)
+            .setTexture(this._texture)
+            .setBottomLayer(this.isBottomLayer)
+            .setPos(new egret.Point(this._posX, this._posY))
+            .setVelocity(this._vx, this._vy);
+        for(let i of this._handler) {
+            missile.addHandler(i.clone());
+        }
+        return missile;
+    }
+
 }
