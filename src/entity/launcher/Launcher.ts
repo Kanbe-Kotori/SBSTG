@@ -1,8 +1,8 @@
 class Launcher {
 	protected readonly arrayLogic:Array<LauncherLogicBase> = new Array<LauncherLogicBase>();
 
-	protected _initial_pos:egret.Point;
-	protected _current_pos:egret.Point;
+	protected _initial_pos = new egret.Point();
+	protected _current_pos = new egret.Point();
 
 	public constructor() {
         SelfMachine.INSTANCE.currentStage.arrayLauncher.push(this);

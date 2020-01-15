@@ -18,7 +18,7 @@ class Stage1_2 extends StageBase {
         );
 
         let point2 = new egret.Point(108, 420);
-        let launcher2 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point2);
+        let launcher2 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120);
         launcher2.addLogic(
             new AroundPoint(launcher2, point2, 2000, 50).randomTheta()
         )
@@ -42,7 +42,7 @@ class Stage1_2 extends StageBase {
         );
 
         let point3 = new egret.Point(324, 360);
-        let launcher3 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point3);
+        let launcher3 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120);
         launcher3.addLogic(
             new AroundPoint(launcher3, point3, 2000, 50).randomTheta()
         )
@@ -66,7 +66,7 @@ class Stage1_2 extends StageBase {
         );
 
         let point4 = new egret.Point(756, 360);
-        let launcher4 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point4);
+        let launcher4 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120);
         launcher4.addLogic(
             new AroundPoint(launcher4, point4, 2000, 50).setClockwise(false).randomTheta()
         )
@@ -90,7 +90,7 @@ class Stage1_2 extends StageBase {
         );
 
         let point5 = new egret.Point(972, 420);
-        let launcher5 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point5);
+        let launcher5 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120);
         launcher5.addLogic(
             new AroundPoint(launcher5, point5, 2000, 50).setClockwise(false).randomTheta()
         )

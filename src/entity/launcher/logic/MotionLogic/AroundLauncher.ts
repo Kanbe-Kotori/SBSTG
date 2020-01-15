@@ -1,5 +1,6 @@
-class AroundPoint extends LauncherLogicBase {
-	protected _centre:egret.Point;
+class AroundLauncher extends LauncherLogicBase {
+
+	protected _parent_launcher:Launcher;
 	protected _period:number;
 	protected _radius:number;
 	protected _theta = 0;
@@ -8,9 +9,9 @@ class AroundPoint extends LauncherLogicBase {
 	protected clockwise = true;
 	protected shouldRanTheta = false;
 
-	public constructor(launcher:Launcher, centre:egret.Point, period:number, radius:number) {
+	public constructor(launcher:Launcher, parent_launcher:Launcher, period:number, radius:number) {
 		super(launcher);
-		this._centre = centre;
+		this._parent_launcher = parent_launcher;
 		this._period = period;
 		this._radius = radius;
 		this._launcher.setPos(this.calcPos());
@@ -32,6 +33,7 @@ class AroundPoint extends LauncherLogicBase {
 		this._theta = theta;
 		this._init_theta = theta;
 		this._launcher.setPos(this.calcPos());
+		return this;
 	}
 
 	/** 设置初始角度为随机 */
@@ -59,8 +61,8 @@ class AroundPoint extends LauncherLogicBase {
 	}
 
 	private calcPos() {
-		let x = this._centre.x + this._radius * Math.sin(this._theta);
-		let y = this._centre.y - this._radius * Math.cos(this._theta);
+		let x = this._parent_launcher.getX() + this._radius * Math.sin(this._theta);
+		let y = this._parent_launcher.getY() - this._radius * Math.cos(this._theta);
 		return new egret.Point(x, y);
 	}
 }

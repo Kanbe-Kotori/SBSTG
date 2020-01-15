@@ -8,16 +8,19 @@ class Scatter extends ShotLogicBase {
         super(launcher, prototype);
     }
 
+    /** 设置起始角度 */
     public setStartAngle(ang:number) {
         this._ang = ang;
         return this;
     }
 
+    /** 设置角度步长 */
     public setStep(step:number) {
         this._step = step;
         return this;
     }
     
+    /** 设置每波数量 */
     public setNumber(num:number) {
         this._num = num;
         return this;
