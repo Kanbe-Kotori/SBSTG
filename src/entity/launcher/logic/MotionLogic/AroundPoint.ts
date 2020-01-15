@@ -29,6 +29,7 @@ class AroundPoint extends LauncherLogicBase {
 		this._launcher.setPos(new egret.Point(x, y));
 	}
 
+	/** 设置初始角度 */
 	public setTheta(theta:number) {
 		this._theta = theta;
 		this._init_theta = theta;
@@ -37,12 +38,14 @@ class AroundPoint extends LauncherLogicBase {
 		this._launcher.setPos(new egret.Point(x, y));
 	}
 
+	/** 设置初始角度为随机 */
 	public randomTheta() {
 		this.shouldRanTheta = true;
 		this._theta = Math.random() * 2 * Math.PI;
 		return this;
 	}
 
+	/** 设置旋转方向 */
 	public setClockwise(cw:boolean) {
 		this.clockwise = cw;
 		return this;
@@ -50,6 +53,13 @@ class AroundPoint extends LauncherLogicBase {
 
 	public reset() {
 		super.reset();
-		//TODO
+		if (this.shouldRanTheta) {
+			this._theta = Math.random() * 2 * Math.PI;
+		} else {
+			this._theta = this._init_theta;
+		}
+		let x = this._centre.x + this._radius * Math.sin(this._theta);
+		let y = this._centre.y - this._radius * Math.cos(this._theta);
+		this._launcher.setPos(new egret.Point(x, y));
 	}
 }

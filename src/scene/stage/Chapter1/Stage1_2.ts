@@ -2,99 +2,116 @@ class Stage1_2 extends StageBase {
 
     protected initEmitters() {
         let point1 = new egret.Point(540, 300);
-        let em1 = new Launcher().setPos(point1);
-        let up1_1 = new RenderLogic(TextureNames.FLOWER1, 160, 120).setParentEmitter(em1).renderOnStage(this);
-        let up1_2 = new Scatter(
-            new MissileConfig(MissileUtils.MISSILE_ELLIPTICAL)
-                .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL2)
-                .setVelocity(15)
+        let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 160, 120).setInitialPos(point1);
+        launcher1.addLogic(
+            new Scatter(
+                launcher1,
+                new EllipticalMissile()
+                    .setSize(30, 36)
+                    .setTexture(TextureNames.MISSILE_PETAL2)
+                    .setTotalVelocity(15)
             )
-        .setParentEmitter(em1)
-        .setFreq(400)
-        .setStartAngle(45)
-        .setStep(90 / 10)
-        .setNumber(11);
+            .setFreq(400)
+            .setStartAngle(45)
+            .setStep(90 / 10)
+            .setNumber(11)
+        );
 
         let point2 = new egret.Point(108, 420);
-        let em2 = new EmitterAroundPoint(point2, 2000, 50).randomTheta();
-        let up2_1 = new RenderLogic(TextureNames.FLOWER3, 80, 120).setParentEmitter(em2).setFreq(50).renderOnStage(this);
-        let up2_2 = new Sniper(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(30)
-                .addHandler(
-                    new TickEventHandler(
-                        (missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                        }
+        let launcher2 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point2);
+        launcher2.addLogic(
+            new AroundPoint(launcher2, point2, 2000, 50).randomTheta()
+        )
+        launcher2.addLogic(
+            new Sniper(
+                launcher2,
+                new RoundMissile()
+                    .setTexture(TextureNames.MISSILE_LIANZI)
+                    .setTotalVelocity(30)
+                    .addHandler(
+                        new TickEventHandler(
+                            (missile:MissileBase) => {
+                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                            }
+                        )
+                        .setTriggerTimes(20)
                     )
-                    .setTriggerTimes(20)
-                )
             )
-        .setParentEmitter(em2)
-        .setFreq(200)
-        .setDelay(1000);
+            .setFreq(200)
+            .setDelay(1000)
+        );
 
         let point3 = new egret.Point(324, 360);
-        let em3 = new EmitterAroundPoint(point3, 2000, 50).randomTheta();
-        let up3_1 = new RenderLogic(TextureNames.FLOWER3, 80, 120).setParentEmitter(em3).setFreq(50).renderOnStage(this);
-        let up3_2 = new Sniper(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(30)
-                .addHandler(
-                    new TickEventHandler(
-                        (missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                        }
+        let launcher3 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point3);
+        launcher3.addLogic(
+            new AroundPoint(launcher3, point3, 2000, 50).randomTheta()
+        )
+        launcher3.addLogic(
+            new Sniper(
+                launcher3,
+                new RoundMissile()
+                    .setTexture(TextureNames.MISSILE_LIANZI)
+                    .setTotalVelocity(30)
+                    .addHandler(
+                        new TickEventHandler(
+                            (missile:MissileBase) => {
+                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                            }
+                        )
+                        .setTriggerTimes(20)
                     )
-                    .setTriggerTimes(20)
-                )
             )
-        .setParentEmitter(em3)
-        .setFreq(200)
-        .setDelay(1000);
+            .setFreq(200)
+            .setDelay(1000)
+        );
 
         let point4 = new egret.Point(756, 360);
-        let em4 = new EmitterAroundPoint(point4, 2000, 50).setClockwise(false).randomTheta();
-        let up4_1 = new RenderLogic(TextureNames.FLOWER3, 80, 120).setParentEmitter(em4).setFreq(50).renderOnStage(this);
-        let up4_2 = new Sniper(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(30)
-                .addHandler(
-                    new TickEventHandler(
-                        (missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                        }
+        let launcher4 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point4);
+        launcher4.addLogic(
+            new AroundPoint(launcher4, point4, 2000, 50).setClockwise(false).randomTheta()
+        )
+        launcher4.addLogic(
+            new Sniper(
+                launcher4,
+                new RoundMissile()
+                    .setTexture(TextureNames.MISSILE_LIANZI)
+                    .setTotalVelocity(30)
+                    .addHandler(
+                        new TickEventHandler(
+                            (missile:MissileBase) => {
+                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                            }
+                        )
+                        .setTriggerTimes(20)
                     )
-                    .setTriggerTimes(20)
-                )
             )
-        .setParentEmitter(em4)
-        .setFreq(200)
-        .setDelay(1000);
+            .setFreq(200)
+            .setDelay(1000)
+        );
 
         let point5 = new egret.Point(972, 420);
-        let em5 = new EmitterAroundPoint(point5, 2000, 50).setClockwise(false).randomTheta();
-        let up5_1 = new RenderLogic(TextureNames.FLOWER3, 80, 120).setParentEmitter(em5).setFreq(50).renderOnStage(this);
-        let up5_2 = new Sniper(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setTexture(TextureNames.MISSILE_LIANZI)
-                .setVelocity(30)
-                .addHandler(
-                    new TickEventHandler(
-                        (missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                        }
+        let launcher5 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120).setInitialPos(point5);
+        launcher5.addLogic(
+            new AroundPoint(launcher5, point5, 2000, 50).setClockwise(false).randomTheta()
+        )
+        launcher5.addLogic(
+            new Sniper(
+                launcher5,
+                new RoundMissile()
+                    .setTexture(TextureNames.MISSILE_LIANZI)
+                    .setTotalVelocity(30)
+                    .addHandler(
+                        new TickEventHandler(
+                            (missile:MissileBase) => {
+                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                            }
+                        )
+                        .setTriggerTimes(20)
                     )
-                    .setTriggerTimes(20)
-                )
             )
-        .setParentEmitter(em5)
-        .setFreq(200)
-        .setDelay(1000);
+            .setFreq(200)
+            .setDelay(1000)
+        );
     }
     
 }
