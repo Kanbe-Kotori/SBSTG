@@ -6,9 +6,9 @@ class Stage1_1 extends StageBase {
             new Sniper(
                 launcher1,
                 new EllipticalMissile()
-                    .setSize(30, 36)
-                    .setTexture(TextureNames.MISSILE_PETAL2)
-                    .setTotalVelocity(15)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTotalVelocity(15)
             )
             .setNumber(7)
             .setStep(15)
@@ -22,9 +22,9 @@ class Stage1_1 extends StageBase {
             new Sniper(
                 launcher2,
                 new EllipticalMissile()
-                    .setSize(30, 36)
-                    .setTexture(TextureNames.MISSILE_PETAL2)
-                    .setTotalVelocity(15)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTotalVelocity(15)
             )
             .setNumber(7)
             .setStep(15)
@@ -38,9 +38,9 @@ class Stage1_1 extends StageBase {
             new Sniper(
                 launcher3,
                 new EllipticalMissile()
-                    .setSize(30, 36)
-                    .setTexture(TextureNames.MISSILE_PETAL2)
-                    .setTotalVelocity(15)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTotalVelocity(15)
             )
             .setNumber(7)
             .setStep(15)
@@ -54,9 +54,9 @@ class Stage1_1 extends StageBase {
             new Sniper(
                 launcher4,
                 new EllipticalMissile()
-                    .setSize(30, 36)
-                    .setTexture(TextureNames.MISSILE_PETAL2)
-                    .setTotalVelocity(15)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTotalVelocity(15)
             )
             .setNumber(7)
             .setStep(15)

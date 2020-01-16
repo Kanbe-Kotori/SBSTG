@@ -1,7 +1,7 @@
 abstract class MissileBase {
 
-	protected _missile_width = 8;
-    protected _missile_height = 8;
+	protected _missile_width = 24;
+    protected _missile_height = 24;
     protected _texture = TextureNames.MISSILE_STANDARD;
 
     protected _life:number;

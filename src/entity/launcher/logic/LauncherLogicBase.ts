@@ -24,6 +24,10 @@ abstract class LauncherLogicBase {
         return this;
     }
 
+	public getLauncher() {
+		return this._launcher;
+	}
+
 	public start() {
         if (this._run_delay > 0) {
             this._delay_timer = new egret.Timer(50, this._run_delay / 50);

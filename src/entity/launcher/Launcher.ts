@@ -13,12 +13,6 @@ class Launcher {
 		return this;
 	}
 
-	public setInitialPos(point:egret.Point) {
-		this._initial_pos = point;
-		this._current_pos = point;
-		return this;
-	}
-
     public start() {
         /*if (SelfMachine.INSTANCE.currentStage == null) {
             return;
@@ -53,8 +47,23 @@ class Launcher {
 		MyUtils.removeObjectFromArray(this, SelfMachine.INSTANCE.currentStage.arrayLauncher);
     }
 
+    public setInitialPos(point:egret.Point) {
+		this._initial_pos = point;
+        return this.setPos(point);
+	}
+
     public setPos(point:egret.Point) {
         this._current_pos = point;
+        this.updateRender();
+        return this;
+    }
+
+    private updateRender() {
+        for (let i of this.arrayLogic) {
+            if (i instanceof RenderLogic) {
+                (<RenderLogic>i).updatePos();
+            }
+        }
     }
 
     public getPos() {

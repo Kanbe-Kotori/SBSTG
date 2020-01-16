@@ -1,9 +1,12 @@
 class StageEX_2 extends StageBase {
 
     protected initEmitters() {
-        let hail = new CustomShooter(
-			(emitter:CustomShooter) => {
-				let missile = new RoundMissile()
+		let launcher1 = LauncherFactory.normalLauncher();
+        launcher1.addLogic(
+			new CustomShooter(
+				launcher1,
+				(launcher:Launcher) => {
+					let missile = new RoundMissile()
 					.setSize(32, 32)
 					.setTexture(TextureNames.MISSILE_BLUE)
 					.setPos(StageEX_2.createPos())
@@ -34,20 +37,21 @@ class StageEX_2 extends StageBase {
 								let theta = missile.getDirection() - Math.PI;
 								for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / 16) {
 									let missile1 = new RoundMissile()
-										.setSize(24, 24)
-                                        .setTexture(TextureNames.MISSILE_HAIL)
-                                        .setPos(point)
-                                        .setVelocity(18 * Math.cos(theta + i), 18 * Math.sin(theta + i));
+									.setSize(24, 24)
+                                    .setTexture(TextureNames.MISSILE_HAIL)
+                                    .setPos(point)
+                                    .setVelocity(18 * Math.cos(theta + i), 18 * Math.sin(theta + i));
                                 	missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 								}
 								missile.setDead();
                         	}
 						)
 					)
-				missile.addToStage(SelfMachine.INSTANCE.currentStage);
-			}
-		)
-		.setFreq(400);
+					missile.addToStage(SelfMachine.INSTANCE.currentStage);
+				}
+			)
+			.setFreq(400)
+		);
     }
 
 	protected static createPos() {

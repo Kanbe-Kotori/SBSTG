@@ -1,5 +1,6 @@
 class Stage2_EX extends StageBase {
 	protected initEmitters() {
+        /*
         let em1 = new Launcher();
         let up1_1 = new CustomPathUpgrade(
             (t:number) => {
@@ -44,5 +45,6 @@ class Stage2_EX extends StageBase {
         .setStartAngle(0)
         .setStep(360 / 32)
         .setNumber(32);
+        */
 	}
 }

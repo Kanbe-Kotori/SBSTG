@@ -1,6 +1,7 @@
 class Stage2_4 extends StageBase {
 
 	protected initEmitters() {
+		/*
         let rain = new SideShooter(
             new MissileConfig(MissileUtils.MISSILE_ROUND)
                 .setVelocity(20)
@@ -57,5 +58,6 @@ class Stage2_4 extends StageBase {
 				}
 			)
 			.setFreq(100);
+			*/
 	}
 }

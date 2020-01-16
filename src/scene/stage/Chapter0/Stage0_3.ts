@@ -10,8 +10,8 @@ class Stage0_3 extends StageTutorial {
             new Sniper(
                 launcher1,
                 new RoundMissile()
-                    .setTexture(TextureNames.MISSILE_LIANZI)
-                    .setTotalVelocity(10)
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(10)
             )
             .setFreq(200)
         );

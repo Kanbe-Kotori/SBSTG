@@ -1,6 +1,7 @@
 class StageEX_1 extends StageBase {
 
     protected initEmitters() {
+        /*
         let em1 = new Launcher();
         let up1_1 = new TeleportingUpgrade(
 			0, Main.X,
@@ -27,12 +28,13 @@ class StageEX_1 extends StageBase {
                             missile._img.rotation -= 9;
                         }
                     ).setTriggerTimes(100)
-                )*/
+                )*
             )
         .setParentEmitter(em1)
 		.setFreq(800)
         .setStartAngle(90)
         .setEndAngle(90);
+        */
     }
 
 }

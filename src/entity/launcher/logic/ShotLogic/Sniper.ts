@@ -21,11 +21,12 @@ class Sniper extends ShotLogicBase {
 
     public onUpdate(event: egret.TimerEvent) {
         let theta = MissileUtils.getSniperAngle(this._launcher.getPos()) + MyUtils.ang2rad(this._div) * (2 * Math.random() - 1);
-        let v = this._conf.getVelocity();
         let i = 0;
         theta -= (this._num - 1) / 2 * MyUtils.ang2rad(this._step);
         while(i++ < this._num) {
-            let missile = this._conf.createMissile().setPos(this._launcher.getPos()).setVelocity(v * Math.cos(theta), v * Math.sin(theta));
+            let missile = this.createMissile();
+            let v = missile.getVelocity();
+            missile.setVelocity(v * Math.cos(theta), v * Math.sin(theta));
             missile.addToStage(SelfMachine.INSTANCE.currentStage);
             theta += MyUtils.ang2rad(this._step);
         }       

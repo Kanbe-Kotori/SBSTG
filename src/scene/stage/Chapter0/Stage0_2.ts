@@ -10,10 +10,10 @@ class Stage0_2 extends StageTutorial {
             new Scatter(
                 launcher1,
                 new EllipticalMissile()
-                    .setSize(30, 36)
-                    .setTexture(TextureNames.MISSILE_PETAL2)
-                    .setTotalVelocity(15)
-                )
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTotalVelocity(15)
+            )
             .setFreq(400)
             .setStartAngle(0)
             .setStep(4)

@@ -22,6 +22,10 @@ class RenderLogic extends LauncherLogicBase {
         return this;
     }
 
+	public updatePos() {
+		this.setPos(this._launcher.getPos());
+	}
+
 	protected createIMG() {
 		this._img = MyUtils.createBitmapByName(this._texture);
         this._img.width = this._texture_width;
@@ -32,8 +36,7 @@ class RenderLogic extends LauncherLogicBase {
 	}
 
 	public onUpdate(event: egret.TimerEvent) {
-		this._img.x = this._launcher.getX();
-		this._img.y = this._launcher.getY();
+		this.updatePos();
     }
 
 	public setTexture(texture:string) {

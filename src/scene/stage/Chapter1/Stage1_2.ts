@@ -7,9 +7,9 @@ class Stage1_2 extends StageBase {
             new Scatter(
                 launcher1,
                 new EllipticalMissile()
-                    .setSize(30, 36)
-                    .setTexture(TextureNames.MISSILE_PETAL2)
-                    .setTotalVelocity(15)
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL2)
+                .setTotalVelocity(15)
             )
             .setFreq(400)
             .setStartAngle(45)
@@ -26,16 +26,16 @@ class Stage1_2 extends StageBase {
             new Sniper(
                 launcher2,
                 new RoundMissile()
-                    .setTexture(TextureNames.MISSILE_LIANZI)
-                    .setTotalVelocity(30)
-                    .addHandler(
-                        new TickEventHandler(
-                            (missile:MissileBase) => {
-                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                            }
-                        )
-                        .setTriggerTimes(20)
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
                     )
+                    .setTriggerTimes(20)
+                )
             )
             .setFreq(200)
             .setDelay(1000)
@@ -50,16 +50,16 @@ class Stage1_2 extends StageBase {
             new Sniper(
                 launcher3,
                 new RoundMissile()
-                    .setTexture(TextureNames.MISSILE_LIANZI)
-                    .setTotalVelocity(30)
-                    .addHandler(
-                        new TickEventHandler(
-                            (missile:MissileBase) => {
-                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                            }
-                        )
-                        .setTriggerTimes(20)
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
                     )
+                    .setTriggerTimes(20)
+                )
             )
             .setFreq(200)
             .setDelay(1000)
@@ -74,16 +74,16 @@ class Stage1_2 extends StageBase {
             new Sniper(
                 launcher4,
                 new RoundMissile()
-                    .setTexture(TextureNames.MISSILE_LIANZI)
-                    .setTotalVelocity(30)
-                    .addHandler(
-                        new TickEventHandler(
-                            (missile:MissileBase) => {
-                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                            }
-                        )
-                        .setTriggerTimes(20)
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
                     )
+                    .setTriggerTimes(20)
+                )
             )
             .setFreq(200)
             .setDelay(1000)
@@ -98,16 +98,16 @@ class Stage1_2 extends StageBase {
             new Sniper(
                 launcher5,
                 new RoundMissile()
-                    .setTexture(TextureNames.MISSILE_LIANZI)
-                    .setTotalVelocity(30)
-                    .addHandler(
-                        new TickEventHandler(
-                            (missile:MissileBase) => {
-                                missile.setTotalVelocity(missile.getVelocity() - 0.5);
-                            }
-                        )
-                        .setTriggerTimes(20)
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(30)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5);
+                        }
                     )
+                    .setTriggerTimes(20)
+                )
             )
             .setFreq(200)
             .setDelay(1000)
