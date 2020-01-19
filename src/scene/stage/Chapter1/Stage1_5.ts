@@ -5,7 +5,7 @@ class Stage1_5 extends StageBase {
         let point1 = new egret.Point(540, 600);
         let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER8, 150, 170).setInitialPos(point1);
         launcher1.addLogic(
-            new CustomPathUpgrade(
+            new CustomPath(
                 launcher1,
                 (t:number) => {return new egret.Point(540 + 300 * Math.sin(t * Math.PI / 80), 600);}
             )

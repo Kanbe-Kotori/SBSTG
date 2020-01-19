@@ -1,12 +1,13 @@
 class Stage2_2 extends StageBase {
 
     protected initEmitters() {
-        /*
-        let rain1 = new SideShooter(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(15)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 20)
+        let launcher1 = LauncherFactory.normalLauncher();
+        launcher1.addLogic(
+            new SideShooter(
+                launcher1,
+                new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
+                .setTotalVelocity(15)
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -22,17 +23,20 @@ class Stage2_2 extends StageBase {
                     )
                 )
             )
-        .setFreq(250)
-        .setStartAngle(75)
-        .setEndAngle(105)
-        .setNumber(5);
+            .setFreq(250)
+            .setStartAngle(75)
+            .setEndAngle(105)
+            .setNumber(5)
+            .setExtraVelocity(5)
+        );
 
-		let rain2 = new SideShooter(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(20)
-				.setSize(36, 36)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
+		launcher1.addLogic(
+            new SideShooter(
+                launcher1,
+                new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
+                .setRadius(18)
+                .setTotalVelocity(20)
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -66,10 +70,11 @@ class Stage2_2 extends StageBase {
                     )
                 )
             )
-        .setFreq(250)
-        .setStartAngle(85)
-        .setEndAngle(95)
-        .setNumber(2);
-        */
+            .setFreq(250)
+            .setStartAngle(85)
+            .setEndAngle(95)
+            .setNumber(2)
+            .setExtraVelocity(10)
+        );
 	}
 }

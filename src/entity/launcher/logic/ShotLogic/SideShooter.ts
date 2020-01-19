@@ -3,6 +3,7 @@ class SideShooter extends ShotLogicBase {
     private _ang1 = 0;
     private _ang2 = 180;
     private _num = 1;
+    private _extra_velocity = 0;
     private _side:Side = Side.TOP;
 
     public constructor(launcher:Launcher, prototype:MissileBase) {
@@ -26,6 +27,11 @@ class SideShooter extends ShotLogicBase {
 
     public setSide(side:Side) {
         this._side = side;
+        return this;
+    }
+
+    public setExtraVelocity(num:number) {
+        this._extra_velocity = num;
         return this;
     }
 
@@ -58,7 +64,9 @@ class SideShooter extends ShotLogicBase {
 
     public createMissile() {
         let point = this.getPointFromSide();
-		return this._missile_prototype.clone().setPos(point);
+        let missile = this._missile_prototype.clone();
+        let v = missile.getVelocity() + Math.random() * this._extra_velocity;
+        return missile.setTotalVelocity(v).setPos(point);
 	}
 
 }

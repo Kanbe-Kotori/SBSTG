@@ -1,4 +1,4 @@
-class TeleportingUpgrade extends LauncherLogicBase {
+class Flash extends LauncherLogicBase {
 
 	private _xmin:number;
     private _xmax:number;

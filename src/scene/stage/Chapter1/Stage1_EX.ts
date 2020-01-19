@@ -4,7 +4,7 @@ class Stage1_EX extends StageBase {
 		let point1 = new egret.Point(540, 600);
 		let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER0, 250, 200).setInitialPos(point1);
         launcher1.addLogic(
-			new TeleportingUpgrade(
+			new Flash(
 				launcher1,
 				240, 840,
 				480, 720

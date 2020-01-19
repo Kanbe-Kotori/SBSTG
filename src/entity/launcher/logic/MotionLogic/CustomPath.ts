@@ -1,4 +1,4 @@
-class CustomPathUpgrade extends LauncherLogicBase {
+class CustomPath extends LauncherLogicBase {
 
 	private _path:Function;
 
