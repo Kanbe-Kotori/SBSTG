@@ -48,19 +48,19 @@ class Stage2_2 extends StageBase {
                             } else if (side == Side.BOTTOM) {
                                 let theta = (1 + Math.random()) * Math.PI;
                                 let missile1 = new RoundMissile()
-                                    .setPos(MyUtils.createReasonablePos(missile.getPos()))
-                                    .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
-                                    .setTexture(TextureNames.MISSILE_STANDARD)
-                                    .setSize(36, 36)
-                                    .addHandler(
-										new TickEventHandler(
-											(missile:MissileBase) => {
-												missile.setDead();
-											}
-										)
-										.setStartTicks(90)
-										.setTriggerTimes(1)
-									);
+                                .setPos(MyUtils.createReasonablePos(missile.getPos()))
+                                .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
+                                .setTexture(TextureNames.MISSILE_STANDARD)
+                                .setSize(36, 36)
+                                .addHandler(
+									new TickEventHandler(
+										(missile:MissileBase) => {
+											missile.setDead();
+										}
+									)
+									.setStartTicks(90)
+									.setTriggerTimes(1)
+								);
                                 missile1.addToStage(SelfMachine.INSTANCE.currentStage);
                                 missile.setDead();
                             } else {

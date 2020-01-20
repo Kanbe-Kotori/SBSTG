@@ -1,20 +1,23 @@
 class Stage2_EX extends StageBase {
 	protected initEmitters() {
-        /*
-        let em1 = new Launcher();
-        let up1_1 = new CustomPathUpgrade(
-            (t:number) => {
-				return new egret.Point(Math.random() * Main.X * 0.5 + (t % 10)/5 * Main.X * 0.5, Math.random() * 180 + Main.UPPER_Y);
-			}
-        )
-        .setParentEmitter(em1)
-		.setFreq(250);
-
-		let up1_2 = new Scatter(
-			new MissileConfig(MissileUtils.MISSILE_ROUND)
+        let launcher1 = LauncherFactory.normalLauncher();
+        launcher1.addLogic(
+            new CustomPath(
+                launcher1,
+                (t:number) => {
+				    return new egret.Point(Math.random() * Main.X * 0.5 + (t % 10)/5 * Main.X * 0.5, Math.random() * 180 + Main.UPPER_Y);
+			    }
+            )
+            .setFreq(250)
+        );
+		
+		launcher1.addLogic(
+            new Scatter(
+                launcher1,
+			    new RoundMissile()
+                .setTexture(TextureNames.MISSILE_RING_RED)
 				.setSize(600, 600)
-				.setVelocity(17)
-				.setTexture(TextureNames.MISSILE_RING_RED)
+				.setTotalVelocity(17)
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
@@ -30,21 +33,22 @@ class Stage2_EX extends StageBase {
                 )
                 //.setBottomLayer()
 			)
-        .setParentEmitter(em1)
-        .setFreq(250)
-        .setStartAngle(90)
-        .setNumber(1);
+            .setFreq(250)
+            .setStartAngle(90)
+            .setNumber(1)
+        );
         
-		let up1_3 = new Scatter(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-            .setTexture(TextureNames.MISSILE_RED)
-            .setVelocity(15)
-        )
-        .setParentEmitter(em1)
-        .setFreq(250)
-        .setStartAngle(0)
-        .setStep(360 / 32)
-        .setNumber(32);
-        */
+		launcher1.addLogic(
+            new Scatter(
+                launcher1,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_RED)
+                .setTotalVelocity(15)
+            )
+            .setFreq(250)
+            .setStartAngle(0)
+            .setStep(360 / 32)
+            .setNumber(32)
+        );
 	}
 }

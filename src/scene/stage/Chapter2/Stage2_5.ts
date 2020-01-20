@@ -1,11 +1,13 @@
 class Stage2_5 extends StageBase {
 
      protected initEmitters() {
-         /*
-        let rain = new SideShooter(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(0)
+        let launcher1 = LauncherFactory.normalLauncher();
+        launcher1.addLogic(
+            new SideShooter(
+                launcher1,
+                new RoundMissile()
                 .setTexture(TextureNames.MISSILE_HAIL)
+                .setTotalVelocity(0)
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
@@ -15,11 +17,11 @@ class Stage2_5 extends StageBase {
                     .setTriggerTimes(40)
                 )
             )
-        .setFreq(50)
-        .setStartAngle(85)
-        .setEndAngle(95)
-        .setNumber(3);
-        */
+            .setFreq(50)
+            .setStartAngle(85)
+            .setEndAngle(95)
+            .setNumber(3)
+        );
     }
 	
 }

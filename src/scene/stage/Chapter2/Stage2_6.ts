@@ -1,13 +1,14 @@
 class Stage2_6 extends StageBase {
 
 	protected initEmitters() {
-		/*
-        let rain1 = new SideShooter(
-            new MissileConfig(MissileUtils.MISSILE_ROUND)
-                .setVelocity(20)
+		let launcher1 = LauncherFactory.normalLauncher();
+        launcher1.addLogic(
+			new SideShooter(
+				launcher1,
+            	new RoundMissile()
+				.setTexture(TextureNames.MISSILE_BLUE)
 				.setSize(36, 36)
-                .setExtraPara(MissileUtils.RANDOM_VELOCITY_PARA, 30)
-                .setTexture(TextureNames.MISSILE_BLUE)
+                .setTotalVelocity(20)           
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -19,19 +20,19 @@ class Stage2_6 extends StageBase {
                             } else if (side == Side.BOTTOM) {
                                 let theta = (1 + Math.random()) * Math.PI;
                                 let missile1 = new RoundMissile()
-                                    .setPos(MyUtils.createReasonablePos(missile.getPos()))
-                                    .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
-                                    .setTexture(TextureNames.MISSILE_STANDARD)
-                                    .setSize(36, 36)
-                                    .addHandler(
-										new TickEventHandler(
-											(missile:MissileBase) => {
-												missile.setDead();
-											}
-										)
-										.setStartTicks(90)
-										.setTriggerTimes(1)
-									);
+                                .setPos(MyUtils.createReasonablePos(missile.getPos()))
+                                .setVelocity(8 * Math.cos(theta), 8 * Math.sin(theta))
+                                .setTexture(TextureNames.MISSILE_STANDARD)
+                                .setSize(36, 36)
+                                .addHandler(
+									new TickEventHandler(
+										(missile:MissileBase) => {
+											missile.setDead();
+										}
+									)
+									.setStartTicks(90)
+									.setTriggerTimes(1)
+								);
                                 missile1.addToStage(SelfMachine.INSTANCE.currentStage);
                                 missile.setDead();
                             } else {
@@ -41,19 +42,23 @@ class Stage2_6 extends StageBase {
                     )
                 )
             )
-        .setFreq(250)
-        .setStartAngle(75)
-        .setEndAngle(105)
-        .setNumber(2);
+			.setFreq(250)
+			.setStartAngle(75)
+			.setEndAngle(105)
+			.setNumber(2)
+			.setExtraVelocity(10)
+		);
 
-		let flower = 
+		launcher1.addLogic(
 			new CustomShooter(
-				(emitter:CustomShooter) => {
+				launcher1,
+				(launcher:Launcher) => {
 					let missile = Stage2_6.initRandomMissile();
 					missile.addToStage(SelfMachine.INSTANCE.currentStage);
 				}
 			)
-			.setFreq(250);
+			.setFreq(250)
+		);
 	}
 
 	protected static initRandomMissile():MissileBase {
@@ -150,6 +155,5 @@ class Stage2_6 extends StageBase {
 		}
 		
 		return missile;
-		*/
 	}
 }
