@@ -29,11 +29,11 @@ class Win extends Popup {
 
 	public static click_next(evt:egret.TouchEvent) {
         let current = SelfMachine.INSTANCE.currentStage;
-        if (current._next_stage != null) {
+        if (current.next_stage != null) {
              current.end();
             Win.INSTANCE.removeChildren();
             Main.getMain().removeChildren();
-            Main.getMain().addChild(current._next_stage);
+            Main.getMain().addChild(current.next_stage);
         }      
     }
 

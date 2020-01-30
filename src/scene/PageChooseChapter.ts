@@ -26,8 +26,8 @@ class PageChooseChapter extends PageBase {
         this.addChild(btnReturn);
     }
 
-    public addChapter(chapter:PageChapter, name:string, point:egret.Point) {
-		let button = new ButtonWithText(550, 150, point, name);
+    public addChapter(chapter:PageChapter, point:egret.Point) {
+		let button = new ButtonWithText(550, 150, point, chapter.chapter_name);
         button.setAction(PageChooseChapter.createFunc(chapter));
 		this.arrayButton.push(button);
     }

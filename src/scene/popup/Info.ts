@@ -33,7 +33,7 @@ class Info extends Popup {
         info.y = 600;
         info.width = 540;
         info.height = 720;
-        info.text = TextHelper.getStageInfoFromID(current.getUniqueID());
+        info.text = current.help_text;
         info.size = 48;
         info.textColor = 0x000000;
         info.fontFamily = "KaiTi";

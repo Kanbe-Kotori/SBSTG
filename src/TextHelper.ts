@@ -1,6 +1,4 @@
 class TextHelper {
-	public static chapterName:string[] = [];
-	public static stageList:Array<StageInfo> = [];
 
 	public static help_text = 
 		<Array<egret.ITextElement>>[
@@ -35,31 +33,18 @@ class TextHelper {
 			{text: "如果你在开发、美工、策划方面有一定经验，也欢迎加入Nulladev开发组。群号：159628975。"}
 		];
 
-	public static init() {
-		TextHelper.chapterName[0] = "第零章 教程";
-		TextHelper.chapterName[1] = "第一章 荷塘";
-		TextHelper.chapterName[2] = "第二章 雨";
-		TextHelper.chapterName[3] = "第三章 其他";
+	public static initStageText() {
+		StageData.tutorial1.title = "如何移动";
+		StageData.tutorial2.title = "判定点";
+		StageData.tutorial3.title = "自机狙";
 
-		new StageInfo(
-			"0-1",
-			"如何移动",
-			"玩家可以通过在屏幕上的任何位置划动（而不一定非要拖动小金鱼本身），来1:1地移动小金鱼的位置。"
-		);
-
-		new StageInfo(
-			"0-2",
-			"判定点",
-			"虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。\n\n" +
+		StageData.tutorial1.help_text = "玩家可以通过在屏幕上的任何位置划动（而不一定非要拖动小金鱼本身），来1:1地移动小金鱼的位置。";
+		StageData.tutorial2.help_text = "虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。\n\n" +
 			"小金鱼的中弹判定范围只有中心的黑点，并不是整条鱼，所以本关中看起来花里胡哨的弹幕根本打不到你。"
-		);
+		StageData.tutorial3.help_text = "自机狙属于不掌握技巧就很难应付的类型，因此是STG类游戏中劝退新人的第一道难关。这里教大家一个通用解法，单向微移法。\n\n" +
+			"由于自机狙子弹在瞄准之后，飞行轨迹就不再改变，因此玩家只需要从屏幕的一角向另一个方向缓慢移动，就可以让所有子弹从玩家另一侧擦过。";
 
-		new StageInfo(
-			"0-3",
-			"自机狙",
-			"自机狙属于不掌握技巧就很难应付的类型，因此是STG类游戏中劝退新人的第一道难关。这里教大家一个通用解法，单向微移法。\n\n" +
-			"由于自机狙子弹在瞄准之后，飞行轨迹就不再改变，因此玩家只需要从屏幕的一角向另一个方向缓慢移动，就可以让所有子弹从玩家另一侧擦过。"
-		);
+/*
 
 		new StageInfo(
 			"1-1",
@@ -151,36 +136,7 @@ class TextHelper {
 		new StageInfo("ex-2", "极寒", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
 		new StageInfo("ex-3", "爆发", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
 		new StageInfo("ex-4", "没想好", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
+		*/
 	}
 
-	public static getStageNameFromID(id:string) {
-		for(let i of TextHelper.stageList) {
-			if(i._id == id) return i._name;
-		}
-		return "关卡名称未注册";
-	}
-
-	public static getStageInfoFromID(id:string) {
-		for(let i of TextHelper.stageList) {
-			if(i._id == id) return i._info;
-		}
-		return "关卡名称未注册";
-	}
-
-	public static getChapterName(index:number) {
-		return TextHelper.chapterName[index];
-	}
-
-}
-
-class StageInfo {
-	_id:string;
-	_name:string;
-	_info:string;
-	constructor(id:string, name:string, info:string) {
-		this._id = id;
-		this._name = name;
-		this._info = info;
-		TextHelper.stageList.push(this);
-	}
 }

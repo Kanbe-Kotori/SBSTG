@@ -2,14 +2,19 @@ class PageChapter extends PageBase {
 
 	//private arrayButton:Array<Button> = new Array<Button>();
     private _stage_map:{[index:string]:Button} = {};
-    private _chapter_index:number;
 
+    public chapter_name:string;
     protected titleText:egret.TextField;
 
-    public constructor(index:number) {
+    public constructor(name:string) {
         super();
-        this._chapter_index = index;
-        StageData.arrayChapter.push(this);
+        this.chapter_name = name;
+        try{
+            StageData.arrayChapter.push(this);
+        } catch (e) {
+            console.error(e);
+        }
+        
     }
 
     protected doRender() {
@@ -25,7 +30,7 @@ class PageChapter extends PageBase {
         this.titleText.x = 0;
         this.titleText.y = 120;
         this.titleText.size = 72;
-        this.titleText.text = TextHelper.getChapterName(this._chapter_index);
+        this.titleText.text = this.chapter_name;
         this.titleText.textColor = 0x000000;
         this.titleText.fontFamily = "KaiTi";
         this.titleText.textAlign = egret.HorizontalAlign.CENTER;
@@ -34,7 +39,7 @@ class PageChapter extends PageBase {
 
 		for (let i in this._stage_map) {
             let stage = StageData.getStage(i);
-            let front = stage._front_stage;
+            let front = stage.front_stage;
             if (front == null || LocalData.getStageData(front) == STAGE_DATA.FINISHED || LocalData.getStageData(front) == STAGE_DATA.SKIPPED) {
                 let button = this._stage_map[i];
                 if (LocalData.getStageData(stage) == STAGE_DATA.FINISHED) {

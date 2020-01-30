@@ -24,7 +24,7 @@ class ChooseStage extends Popup {
         title.y = 780;
         title.width = 540;
         title.height = 90;
-        title.text = this._stage.getUniqueID() + " " + TextHelper.getStageNameFromID(this._stage.getUniqueID());
+        title.text = this._stage.title;
         title.size = 64;
         title.textColor = 0x000000;
         title.fontFamily = "KaiTi";

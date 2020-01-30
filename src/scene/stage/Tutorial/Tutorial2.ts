@@ -1,6 +1,6 @@
-class Stage0_2 extends StageTutorial {
+class Tutorial2 extends StageTutorial {
     public constructor() {
-        super("0-2", 10, "本关学习玩家的判定点大小，站着不动即可过关。");
+        super("tut2", 10, "本关学习玩家的判定点大小，站着不动即可过关。");
     }
     
     protected initEmitters() {
