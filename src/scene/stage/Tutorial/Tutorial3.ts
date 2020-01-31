@@ -1,6 +1,6 @@
 class Tutorial3 extends StageTutorial {
     public constructor() {
-        super("tut3", 10, "本关学习自机狙，请点击右下角的i按钮查看帮助。");
+        super("tut3", 10);
     }
     
     protected initEmitters() {

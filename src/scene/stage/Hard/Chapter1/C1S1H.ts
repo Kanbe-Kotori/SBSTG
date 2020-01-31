@@ -1,4 +1,8 @@
-class Stage1_1 extends StageBase {
+class C1S1H extends StageBase {
+    public constructor() {
+        super("c1s1h", 20);
+    }
+
     protected initEmitters() {
 		let point1 = new egret.Point(Main.X * 0.2, 300);
 		let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 120, 90).setInitialPos(point1);

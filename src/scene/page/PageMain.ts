@@ -42,7 +42,7 @@ class PageMain extends PageBase {
     public static click_start(evt:egret.TouchEvent) {
         PageMain.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(PageChooseChapter.INSTANCE);
+        Main.getMain().addChild(ChooseMode.INSTANCE);
     }
 
     public static click_help(evt:egret.TouchEvent) {

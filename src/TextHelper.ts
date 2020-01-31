@@ -34,11 +34,15 @@ class TextHelper {
 		];
 
 	public static initStageText() {
-		StageData.tutorial1.title = "如何移动";
+		StageData.tutorial1.title = "学习移动";
 		StageData.tutorial2.title = "判定点";
 		StageData.tutorial3.title = "自机狙";
 
-		StageData.tutorial1.help_text = "玩家可以通过在屏幕上的任何位置划动（而不一定非要拖动小金鱼本身），来1:1地移动小金鱼的位置。";
+		StageData.tutorial1.tutorial_text = "在本游戏中，玩家可以通过拖动游戏画面的任何部分，来1:1地移动自机位置。由于这里太小，请点击右下角的i按钮查看更多帮助。";
+		StageData.tutorial2.tutorial_text = "在本游戏中，玩家的判定点大小只有金鱼中间的黑点，因此站着不动即可过关。";
+		StageData.tutorial3.tutorial_text = "本关学习自机狙，请点击右下角的i按钮查看帮助。";
+
+		StageData.tutorial1.help_text = "这里是关卡的帮助文本，这里会有一些过关的小技巧，可以帮助你更容易地过关。每一关的帮助文本都不同，如果卡关了记得常来看看。";
 		StageData.tutorial2.help_text = "虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。\n\n" +
 			"小金鱼的中弹判定范围只有中心的黑点，并不是整条鱼，所以本关中看起来花里胡哨的弹幕根本打不到你。"
 		StageData.tutorial3.help_text = "自机狙属于不掌握技巧就很难应付的类型，因此是STG类游戏中劝退新人的第一道难关。这里教大家一个通用解法，单向微移法。\n\n" +

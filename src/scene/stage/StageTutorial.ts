@@ -1,10 +1,9 @@
 abstract class StageTutorial extends StageBase {
 
-	private _text = "";
+	public tutorial_text = "";
 
-	public constructor(id:string, time:number, text:string) {
+	public constructor(id:string, time:number) {
         super(id, time);
-		this._text = text;
     }
 
 	protected onAddToStage(event:egret.Event) {
@@ -14,7 +13,7 @@ abstract class StageTutorial extends StageBase {
 		MsgBox.setCustomAction(
 			() => {SelfMachine.INSTANCE.currentStage.restart();}
 		);
-		MsgBox.showMsgBox(this, this._text);
+		MsgBox.showMsgBox(this, this.tutorial_text);
     }
 
 }

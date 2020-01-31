@@ -1,4 +1,7 @@
-class Stage1_2 extends StageBase {
+class C1S2 extends StageBase {
+    public constructor() {
+        super("c1s2", 20);
+    }
 
     protected initEmitters() {
         let point1 = new egret.Point(540, 300);

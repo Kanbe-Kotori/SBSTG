@@ -8,9 +8,9 @@ class StageData {
 	public static chapter2:PageChapter;
 	public static chapter3:PageChapter;
 
-	public static tutorial1:StageBase;
-	public static tutorial2:StageBase;
-	public static tutorial3:StageBase;
+	public static tutorial1:StageTutorial;
+	public static tutorial2:StageTutorial;
+	public static tutorial3:StageTutorial;
 
 	public static stage1_1:StageBase;
 	public static stage1_2:StageBase;
@@ -48,10 +48,9 @@ class StageData {
 		StageData.chapter2 = new PageChapter("第二章");
 		StageData.chapter3 = new PageChapter("第三章");
 
-		PageChooseChapter.INSTANCE.addChapter(StageData.tutorial, new egret.Point(Main.X * 0.5, Main.Y * 0.15));
-		PageChooseChapter.INSTANCE.addChapter(StageData.chapter1, new egret.Point(Main.X * 0.5, Main.Y * 0.35));
-		PageChooseChapter.INSTANCE.addChapter(StageData.chapter2, new egret.Point(Main.X * 0.5, Main.Y * 0.55));
-		PageChooseChapter.INSTANCE.addChapter(StageData.chapter3, new egret.Point(Main.X * 0.5, Main.Y * 0.75));
+		ModeEasy.INSTANCE.addChapter(StageData.chapter1, new egret.Point(Main.X * 0.5, Main.Y * 0.25));
+		ModeEasy.INSTANCE.addChapter(StageData.chapter2, new egret.Point(Main.X * 0.5, Main.Y * 0.45));
+		ModeEasy.INSTANCE.addChapter(StageData.chapter3, new egret.Point(Main.X * 0.5, Main.Y * 0.65));
 	}
 
 	private static initStages() {
@@ -59,8 +58,8 @@ class StageData {
 		StageData.tutorial2 = new Tutorial2();
 		StageData.tutorial3 = new Tutorial3();
 
-		StageData.stage1_1 = new Stage1_1("1-1", 20);
-		StageData.stage1_2 = new Stage1_2("1-2", 20);
+		StageData.stage1_1 = new C1S1();
+		StageData.stage1_2 = new C1S2();
 		StageData.stage1_3 = new Stage1_3("1-3", 25);
 		StageData.stage1_4 = new Stage1_4("1-4", 20);
 		StageData.stage1_5 = new Stage1_5("1-5", 20);

@@ -9,12 +9,7 @@ class PageChapter extends PageBase {
     public constructor(name:string) {
         super();
         this.chapter_name = name;
-        try{
-            StageData.arrayChapter.push(this);
-        } catch (e) {
-            console.error(e);
-        }
-        
+        StageData.arrayChapter.push(this);
     }
 
     protected doRender() {
@@ -78,7 +73,7 @@ class PageChapter extends PageBase {
         SelfMachine.INSTANCE.currentChapter.removeChildren();
         Main.getMain().removeChildren();
         SelfMachine.INSTANCE.currentChapter = null;
-        Main.getMain().addChild(PageChooseChapter.INSTANCE);
+        Main.getMain().addChild(ChooseMode.INSTANCE);
     }
     
 }
