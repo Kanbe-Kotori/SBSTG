@@ -1,4 +1,7 @@
-class Stage1_EX extends StageBase {
+class C1SEX extends StageBase {
+	public constructor() {
+        super("c1sex", 30);
+    }
 
     protected initEmitters() {
 		let point1 = new egret.Point(540, 600);
@@ -22,7 +25,7 @@ class Stage1_EX extends StageBase {
 						let theta1 = MyUtils.ang2rad(theta);
 						let missile = 
 						new EllipticalMissile()
-						.setTexture(Stage1_EX.randomTexture())
+						.setTexture(C1SEX.randomTexture())
                 		.setSize(30, 36)
 						.setPos(launcher.getPos())
 						.setVelocity(20 * Math.cos(theta1), 20 * Math.sin(theta1));
@@ -38,7 +41,7 @@ class Stage1_EX extends StageBase {
 				launcher1,
 				(launcher:Launcher) => {
 					let ang = 2 * Math.PI * Math.random();
-					let texture = Stage1_EX.randomTexture2();
+					let texture = C1SEX.randomTexture2();
 					for (let i = 0; i < 3; i++) {
 						let v = 12 + 6 * i;
 						for (let j = 0; j < 7; j++) {
@@ -61,7 +64,7 @@ class Stage1_EX extends StageBase {
 									(missile:MissileBase) => {
 										let theta = MissileUtils.getSniperAngle(missile.getPos());
 										missile.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
-										missile.setTexture(Stage1_EX.nextTexture(missile.getTexture()));
+										missile.setTexture(C1SEX.nextTexture(missile.getTexture()));
 									}
 								)
 								.setStartTicks(20)
@@ -81,7 +84,7 @@ class Stage1_EX extends StageBase {
 									(missile:MissileBase) => {
 										let theta = MissileUtils.getSniperAngle(missile.getPos());
 										missile.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
-										missile.setTexture(Stage1_EX.nextTexture(missile.getTexture()));
+										missile.setTexture(C1SEX.nextTexture(missile.getTexture()));
 									}
 								)
 								.setStartTicks(50)

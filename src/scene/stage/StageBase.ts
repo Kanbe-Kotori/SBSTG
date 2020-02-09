@@ -16,8 +16,8 @@ abstract class StageBase extends PageBase {
 
     public containers = new Array<egret.Sprite>();
 
-    public title:string = "";
-    public help_text:string = "";
+    public title:string = "标题还没初始化";
+    public help_text:string = "帮助文本还没初始化";
     public front_stage:StageBase = null;
     public next_stage:StageBase = null;
 

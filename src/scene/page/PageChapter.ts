@@ -70,10 +70,21 @@ class PageChapter extends PageBase {
 	}
 
     public static click_return(evt:egret.TouchEvent) {
-        SelfMachine.INSTANCE.currentChapter.removeChildren();
+        let chapter = SelfMachine.INSTANCE.currentChapter;
+        chapter.removeChildren();
         Main.getMain().removeChildren();
+        Main.getMain().addChild(chapter.getReturnPage());
         SelfMachine.INSTANCE.currentChapter = null;
-        Main.getMain().addChild(ChooseMode.INSTANCE);
+    }
+
+    private getReturnPage() {
+        if (this == StageData.tutorial) {
+            return ChooseMode.INSTANCE;
+        } else if (this == StageData.chapter1h) {
+            return ModeHard.INSTANCE;
+        } else {
+            return ModeEasy.INSTANCE;
+        }
     }
     
 }

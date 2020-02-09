@@ -42,7 +42,7 @@ class ChooseMode extends PageBase {
     public static click_enter_hard(evt:egret.TouchEvent) {
         ChooseMode.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(StageData.tutorial);
+        Main.getMain().addChild(ModeHard.INSTANCE);
     }
 
     public static click_return(evt:egret.TouchEvent) {

@@ -1,6 +1,6 @@
-class ModeEasy extends PageBase {
+class ModeHard extends PageBase {
 
-	public static readonly INSTANCE:ModeEasy = new ModeEasy();
+	public static readonly INSTANCE:ModeHard = new ModeHard();
 	private arrayButton:Array<Button>;
 
 	protected constructor() {
