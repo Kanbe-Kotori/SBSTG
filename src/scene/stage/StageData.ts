@@ -31,6 +31,7 @@ class StageData {
 
 	public static stage1_1h:StageBase;
 	public static stage1_2h:StageBase;
+	public static stage1_3h:StageBase;
 
 	public static stageEX_1:StageBase;
 	public static stageEX_2:StageBase;
@@ -51,7 +52,7 @@ class StageData {
 		StageData.chapter2 = new PageChapter("第二章 暴雨");
 		StageData.chapter3 = new PageChapter("第三章");
 
-		StageData.chapter1h = new PageChapter("第一章 荷塘 困难");
+		StageData.chapter1h = new PageChapter("第一章 荷塘");
 
 		ModeEasy.INSTANCE.addChapter(StageData.chapter1, new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		ModeEasy.INSTANCE.addChapter(StageData.chapter2, new egret.Point(Main.X * 0.5, Main.Y * 0.45));
@@ -83,6 +84,7 @@ class StageData {
 
 		StageData.stage1_1h = new C1S1H();
 		StageData.stage1_2h = new C1S2H();
+		StageData.stage1_3h = new C1S3H();
 
 		StageData.stageEX_1 = new StageEX_1("ex-1", 30);
 		StageData.stageEX_2 = new StageEX_2("ex-2", 30);
@@ -118,6 +120,7 @@ class StageData {
 
 		StageData.chapter1h.addStage("c1s1h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter1h.addStage("c1s2h", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
+		StageData.chapter1h.addStage("c1s3h", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 	}
 
 	private static initRelations() {

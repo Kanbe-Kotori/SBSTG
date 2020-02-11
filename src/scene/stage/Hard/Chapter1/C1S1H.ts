@@ -12,12 +12,25 @@ class C1S1H extends StageBase {
                 new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(15)
+                .setTotalVelocity(18)
             )
             .setNumber(7)
             .setStep(15)
             .setDiv(1)
             .setFreq(300)
+        );
+        launcher1.addLogic(
+            new ScatterRotate(
+                launcher1,    
+                new EllipticalMissile()
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL3)
+                .setTotalVelocity(18)
+            )
+            .setNumber(1)
+            .setFreq(100)
+            .setStartAngle(90)
+            .setPeriod(1)
         );
 
 		let point2 = new egret.Point(Main.X * 0.4, 300);
@@ -28,12 +41,25 @@ class C1S1H extends StageBase {
                 new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(15)
+                .setTotalVelocity(18)
             )
             .setNumber(7)
             .setStep(15)
             .setDiv(1)
             .setFreq(300)
+        );
+        launcher2.addLogic( 
+            new RandomShooter(
+                launcher2,
+                new EllipticalMissile()
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL1)
+                .setTotalVelocity(20)
+            )
+            .setFreq(50)
+            .setStartAngle(45)
+            .setEndAngle(135)
+            .setExtraVelocity(10)
         );
 
 		let point3 = new egret.Point(Main.X * 0.6, 300);
@@ -44,12 +70,25 @@ class C1S1H extends StageBase {
                 new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(15)
+                .setTotalVelocity(18)
             )
             .setNumber(7)
             .setStep(15)
             .setDiv(1)
             .setFreq(300)
+        );
+        launcher3.addLogic( 
+            new RandomShooter(
+                launcher3,
+                new EllipticalMissile()
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL1)
+                .setTotalVelocity(20)
+            )
+            .setFreq(50)
+            .setStartAngle(45)
+            .setEndAngle(135)
+            .setExtraVelocity(10)
         );
 
 		let point4 = new egret.Point(Main.X * 0.8, 300);
@@ -60,12 +99,25 @@ class C1S1H extends StageBase {
                 new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(15)
+                .setTotalVelocity(18)
             )
             .setNumber(7)
             .setStep(15)
             .setDiv(1)
             .setFreq(300)
+        );
+        launcher4.addLogic(
+            new ScatterRotate(
+                launcher4,    
+                new EllipticalMissile()
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL3)
+                .setTotalVelocity(18)
+            )
+            .setNumber(1)
+            .setFreq(100)
+            .setStartAngle(90)
+            .setPeriod(-1)
         );
 	}
 }

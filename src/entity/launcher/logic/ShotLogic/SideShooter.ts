@@ -1,10 +1,10 @@
 class SideShooter extends ShotLogicBase {
 
-    private _ang1 = 0;
-    private _ang2 = 180;
-    private _num = 1;
-    private _extra_velocity = 0;
-    private _side:Side = Side.TOP;
+    protected _ang1 = 0;
+    protected _ang2 = 180;
+    protected _num = 1;
+    protected _extra_velocity = 0;
+    protected _side:Side = Side.TOP;
 
     public constructor(launcher:Launcher, prototype:MissileBase) {
         super(launcher, prototype);

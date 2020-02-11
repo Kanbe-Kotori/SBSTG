@@ -37,12 +37,17 @@ class TextHelper {
 		StageData.tutorial1.title = "学习移动";
 		StageData.tutorial2.title = "判定点";
 		StageData.tutorial3.title = "自机狙";
-		StageData.stage1_1.title = "初探";
-		StageData.stage1_2.title = "莲子";
-		StageData.stage1_3.title = "旋转";
-		StageData.stage1_4.title = "加速";
-		StageData.stage1_5.title = "反射";
-		StageData.stage1_6.title = "爆裂";
+
+		StageData.stage1_1.title = "1-1 初探";
+		StageData.stage1_2.title = "1-2 莲子";
+		StageData.stage1_3.title = "1-3 旋转";
+		StageData.stage1_4.title = "1-4 加速";
+		StageData.stage1_5.title = "1-5 反射";
+		StageData.stage1_6.title = "1-6 爆裂";
+
+		StageData.stage1_1h.title = "1-1H 下马威";
+		StageData.stage1_2h.title = "1-2H 加特林";
+		StageData.stage1_3h.title = "1-3H 扫射";
 
 		StageData.tutorial1.tutorial_text = "在本游戏中，玩家可以通过拖动游戏画面的任何部分，来1:1地移动自机位置。由于这里太小，请点击右下角的i按钮查看更多帮助。";
 		StageData.tutorial2.tutorial_text = "在本游戏中，玩家的判定点大小只有金鱼中间的黑点，因此站着不动即可过关。";

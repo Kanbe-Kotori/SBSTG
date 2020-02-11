@@ -12,7 +12,7 @@ class C1S2 extends StageBase {
                 new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(12)
+                .setTotalVelocity(10)
             )
             .setFreq(500)
             .setStartAngle(45)

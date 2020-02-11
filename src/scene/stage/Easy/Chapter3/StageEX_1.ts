@@ -15,6 +15,7 @@ class StageEX_1 extends StageBase {
             new Scatter(
                 launcher1,
                 new RoundMissile()
+                .setTotalVelocity(15)
             )
             .setFreq(200)
             .setStartAngle(0)

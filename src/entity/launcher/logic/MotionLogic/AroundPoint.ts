@@ -32,6 +32,7 @@ class AroundPoint extends LauncherLogicBase {
 		this._theta = theta;
 		this._init_theta = theta;
 		this._launcher.setPos(this.calcPos());
+		return this;
 	}
 
 	/** 设置初始角度为随机 */

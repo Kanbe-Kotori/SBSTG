@@ -5,7 +5,7 @@ class ScatterRotate extends Scatter {
 	private _init_angle:number;
 
 	public onUpdate(event: egret.TimerEvent) {
-		this._ang += 360 / this._period / 20;
+		this._ang += 360 / this._period * this._freq / 1000;
         super.onUpdate(event);
     }
 

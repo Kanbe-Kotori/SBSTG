@@ -1,6 +1,6 @@
-class C1S3 extends StageBase {
+class C1S3H extends StageBase {
     public constructor() {
-        super("c1s3", 20);
+        super("c1s3h", 20);
     }
 
     protected initEmitters() {
@@ -8,17 +8,61 @@ class C1S3 extends StageBase {
         let point1 = new egret.Point(540, 600);
         let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER8, 150, 170).setInitialPos(point1);
         launcher1.addLogic(
-            new ScatterRotate(
+            new AroundPoint(launcher1, new egret.Point(540, 630), 2000, 30).setTheta(0).setDelay(10000)
+        );
+        launcher1.addLogic(
+            new RandomShooter(
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_PETAL4)
-                .setTotalVelocity(12)
+                .setTotalVelocity(10)
             )
-            .setFreq(500)
+            .setFreq(250)
             .setStartAngle(0)
-            .setStep(360 / 24)
-            .setNumber(24)
-            .setPeriod(24)
+            .setEndAngle(360)
+            .setNumber(36)
+            .setExtraVelocity(20)
+        );
+		launcher1.addLogic(
+            new Sniper(
+                launcher1,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_GREEN)
+                .setSize(256, 256)
+                .setBottomLayer(true)
+                .setTotalVelocity(16)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile._img.rotation -= 9;
+                        }
+                    )
+                    .setTriggerTimes(100)
+                )
+            )
+            .setNumber(1)
+            .setFreq(2000)
+        );
+        launcher1.addLogic(
+            new Sniper(
+                launcher1,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_GREEN)
+                .setSize(256, 256)
+                .setBottomLayer(true)
+                .setTotalVelocity(16)
+                .addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+                            missile._img.rotation -= 9;
+                        }
+                    )
+                    .setTriggerTimes(100)
+                )
+            )
+            .setNumber(1)
+            .setFreq(2000)
+            .setDelay(9000)
         );
 
         let launcher2 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 120, 90);
@@ -33,10 +77,10 @@ class C1S3 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL2)
                 .setTotalVelocity(24)
             )
-            .setNumber(5)
-            .setStep(72)
+            .setNumber(9)
+            .setStep(40)
             .setDiv(1)
-            .setFreq(500)
+            .setFreq(300)
         );
 
         let launcher3 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 120, 90);
@@ -51,10 +95,10 @@ class C1S3 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL2)
                 .setTotalVelocity(24)
             )
-            .setNumber(5)
-            .setStep(72)
+            .setNumber(9)
+            .setStep(40)
             .setDiv(1)
-            .setFreq(500)
+            .setFreq(300)
         );
 
         let launcher4 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 120, 90);
@@ -69,10 +113,10 @@ class C1S3 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL2)
                 .setTotalVelocity(24)
             )
-            .setNumber(5)
-            .setStep(72)
+            .setNumber(9)
+            .setStep(40)
             .setDiv(1)
-            .setFreq(500)
+            .setFreq(300)
         );
 
 		let launcher5 = LauncherFactory.texturedLauncher(TextureNames.FLOWER2, 120, 90);
@@ -87,10 +131,10 @@ class C1S3 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL1)
                 .setTotalVelocity(24)
             )
-            .setNumber(6)
-            .setStep(60)
+            .setNumber(10)
+            .setStep(36)
             .setDiv(1)
-            .setFreq(500)
+            .setFreq(300)
         );
 
 		let launcher6 = LauncherFactory.texturedLauncher(TextureNames.FLOWER2, 120, 90);
@@ -105,10 +149,10 @@ class C1S3 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL1)
                 .setTotalVelocity(24)
             )
-            .setNumber(6)
-            .setStep(60)
+            .setNumber(10)
+            .setStep(36)
             .setDiv(1)
-            .setFreq(500)
+            .setFreq(300)
         );
 
 		let launcher7 = LauncherFactory.texturedLauncher(TextureNames.FLOWER2, 120, 90);
@@ -123,10 +167,10 @@ class C1S3 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL1)
                 .setTotalVelocity(24)
             )
-            .setNumber(6)
-            .setStep(60)
+            .setNumber(10)
+            .setStep(36)
             .setDiv(1)
-            .setFreq(500)
+            .setFreq(300)
         );
     }
     
