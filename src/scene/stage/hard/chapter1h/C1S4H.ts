@@ -1,6 +1,6 @@
-class C1S4 extends StageBase {
+class C1S4H extends StageBase {
     public constructor() {
-        super("c1s4", 20);
+        super("c1s4h", 20);
     }
 
     protected initEmitters() {
@@ -13,13 +13,12 @@ class C1S4 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL4)
                 .setTotalVelocity(20)
             )
-            .setFreq(300)
+            .setFreq(150)
             .setStartAngle(0)
-            .setStep(360 / 4)
-            .setNumber(4)
-            .setPeriod(15)
+            .setStep(360 / 6)
+            .setNumber(6)
+            .setPeriod(12)
         );
-
         launcher1.addLogic(
             new ScatterRotate(
                 launcher1,
@@ -27,12 +26,33 @@ class C1S4 extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL4)
                 .setTotalVelocity(20)
             )
-            .setFreq(300)
+            .setFreq(150)
             .setStartAngle(0)
-            .setStep(360 / 4)
-            .setNumber(4)
-            .setPeriod(-15)
+            .setStep(360 / 6)
+            .setNumber(6)
+            .setPeriod(-12)
         );
+		launcher1.addLogic(
+			new Scatter(
+                launcher1,
+			    new RoundMissile()
+                .setTexture(TextureNames.MISSILE_GREEN)
+                .setTotalVelocity(15)
+				.addHandler(
+					new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                        }
+					)
+					.setTriggerTimes(30)
+				)
+            )
+            .setDelay(500)
+            .setStartAngle(0)
+            .setNumber(32)
+            .setStep(360 / 32)
+            .setFreq(1000)
+		)
 		
 		let point2 = new egret.Point(360, 720);
         let launcher2 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 120, 90).setInitialPos(point2);
@@ -54,7 +74,7 @@ class C1S4 extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            let theta = MissileUtils.getSniperAngle(missile.getPos());
+                            let theta = MissileUtils.getSniperAngle(missile.getPos()) + MyUtils.ang2rad(2) * (2 * Math.random() - 1);
                             missile.setVelocity(10 * Math.cos(theta), 10 * Math.sin(theta));
                         }
                     )
@@ -64,7 +84,7 @@ class C1S4 extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() + 0.5);
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
                         }
                     )
                     .setTriggerTimes(20)
@@ -73,8 +93,8 @@ class C1S4 extends StageBase {
             )
             .setFreq(300)
             .setStartAngle(0)
-            .setStep(360 / 3)
-            .setNumber(3)
+            .setStep(360 / 6)
+            .setNumber(6)
             .setPeriod(4)
         );
 
@@ -118,7 +138,7 @@ class C1S4 extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() + 0.5);
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
                         }
                     )
                     .setTriggerTimes(20)
@@ -127,8 +147,8 @@ class C1S4 extends StageBase {
             )
             .setFreq(300)
             .setStartAngle(0)
-            .setStep(360 / 3)
-            .setNumber(3)
+            .setStep(360 / 6)
+            .setNumber(6)
             .setPeriod(-4)
         );
 

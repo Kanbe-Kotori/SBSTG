@@ -12,9 +12,9 @@ class C1S2 extends StageBase {
                 new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(10)
+                .setTotalVelocity(12)
             )
-            .setFreq(500)
+            .setFreq(750)
             .setStartAngle(45)
             .setStep(90 / 10)
             .setNumber(11)
@@ -37,7 +37,7 @@ class C1S2 extends StageBase {
                     .setTriggerTimes(20)
                 )
             )
-            .setFreq(200)
+            .setFreq(250)
             .setDelay(1000)
         );
 
@@ -58,7 +58,7 @@ class C1S2 extends StageBase {
                     .setTriggerTimes(20)
                 )
             )
-            .setFreq(200)
+            .setFreq(250)
             .setDelay(1000)
         );
 
@@ -79,7 +79,7 @@ class C1S2 extends StageBase {
                     .setTriggerTimes(20)
                 )
             )
-            .setFreq(200)
+            .setFreq(250)
             .setDelay(1000)
         );
 
@@ -100,7 +100,7 @@ class C1S2 extends StageBase {
                     .setTriggerTimes(20)
                 )
             )
-            .setFreq(200)
+            .setFreq(250)
             .setDelay(1000)
         );
     }
