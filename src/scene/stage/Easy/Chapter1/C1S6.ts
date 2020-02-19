@@ -13,7 +13,7 @@ class C1S6 extends StageBase {
 					.setTexture(TextureNames.MISSILE_PETAL4)
 					.setTotalVelocity(20)
             )
-			.setFreq(150)
+			.setFreq(250)
 			.setStartAngle(0)
 			.setStep(360 / 6)
 			.setNumber(6)
@@ -25,8 +25,8 @@ class C1S6 extends StageBase {
 				launcher1,
 				(launcher:Launcher) => {
 					let ang = MyUtils.ang2rad(30 + 30 * Math.random());
-					for (let i = 0; i < 4; i++) {
-						let v = 20 + 10 * i;
+					for (let i = 0; i < 3; i++) {
+						let v = 20 + 15 * i;
 						let missile = new EllipticalMissile()
 						.setSize(120, 90)
 						.setTexture(TextureNames.FLOWER1)
@@ -49,14 +49,14 @@ class C1S6 extends StageBase {
 										.setSize(30, 36)
 										.setTexture(TextureNames.MISSILE_PETAL2)
 										.setPos(missile.getPos())
-										.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
+										.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
 										.addHandler(
 											new TickEventHandler(
 												(missile:MissileBase) => {
 													missile.setTotalVelocity(missile.getVelocity() - 0.5);
 												}
 											)
-											.setTriggerTimes(40)
+											.setTriggerTimes(30)
 										)
 										missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 									}
@@ -78,8 +78,8 @@ class C1S6 extends StageBase {
 				launcher1,
 				(launcher:Launcher) => {
 					let ang = MyUtils.ang2rad(120 + 30 * Math.random());
-					for (let i = 0; i < 4; i++) {
-						let v = 20 + 10 * i;
+					for (let i = 0; i < 3; i++) {
+						let v = 20 + 15 * i;
 						let missile = new EllipticalMissile()
 						.setSize(120, 90)
 						.setTexture(TextureNames.FLOWER2)
@@ -97,19 +97,19 @@ class C1S6 extends StageBase {
 							new TickEventHandler(
 								(missile:MissileBase) => {
 									for (let j = 0; j < 9; j++) {
-										let theta = MissileUtils.getSniperAngle(missile.getPos()) + MyUtils.ang2rad(40 * j);
+										let theta = Math.random() * 360;
 										let missile1 = new EllipticalMissile()
 										.setSize(30, 36)
 										.setTexture(TextureNames.MISSILE_PETAL1)
 										.setPos(missile.getPos())
-										.setVelocity(40 * Math.cos(theta), 40 * Math.sin(theta))
+										.setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta))
 										.addHandler(
 											new TickEventHandler(
 												(missile:MissileBase) => {
 													missile.setTotalVelocity(missile.getVelocity() - 0.5);
 												}
 											)
-											.setTriggerTimes(40)
+											.setTriggerTimes(30)
 										)
 										missile1.addToStage(SelfMachine.INSTANCE.currentStage);
 									}

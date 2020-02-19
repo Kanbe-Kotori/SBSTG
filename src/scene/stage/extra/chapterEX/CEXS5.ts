@@ -1,4 +1,4 @@
-class C1SEXH {
+class CEXS5 {
 	public constructor() {
 	}
 }

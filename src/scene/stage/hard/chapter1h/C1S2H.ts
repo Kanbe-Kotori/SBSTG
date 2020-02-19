@@ -43,6 +43,19 @@ class C1S2H extends StageBase {
             .setFreq(200)
             .setDelay(1000)
         );
+        launcher2.addLogic(
+            new RandomShooter(
+                launcher2,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(10)
+            )
+            .setFreq(200)
+            .setStartAngle(0)
+            .setEndAngle(360)
+            .setNumber(8)
+            .setExtraVelocity(20)
+        );
 
         let point3 = new egret.Point(324, 360);
         let launcher3 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120);
@@ -66,6 +79,19 @@ class C1S2H extends StageBase {
             )
             .setFreq(200)
             .setDelay(1000)
+        );
+        launcher3.addLogic(
+            new RandomShooter(
+                launcher3,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(10)
+            )
+            .setFreq(200)
+            .setStartAngle(0)
+            .setEndAngle(360)
+            .setNumber(8)
+            .setExtraVelocity(20)
         );
 
         let point4 = new egret.Point(756, 360);
@@ -91,6 +117,19 @@ class C1S2H extends StageBase {
             .setFreq(200)
             .setDelay(1000)
         );
+        launcher4.addLogic(
+            new RandomShooter(
+                launcher4,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(10)
+            )
+            .setFreq(200)
+            .setStartAngle(0)
+            .setEndAngle(360)
+            .setNumber(8)
+            .setExtraVelocity(20)
+        );
 
         let point5 = new egret.Point(972, 420);
         let launcher5 = LauncherFactory.texturedLauncher(TextureNames.FLOWER3, 80, 120);
@@ -114,6 +153,19 @@ class C1S2H extends StageBase {
             )
             .setFreq(200)
             .setDelay(1000)
+        );
+        launcher5.addLogic(
+            new RandomShooter(
+                launcher5,
+                new RoundMissile()
+                .setTexture(TextureNames.MISSILE_LIANZI)
+                .setTotalVelocity(10)
+            )
+            .setFreq(200)
+            .setStartAngle(0)
+            .setEndAngle(360)
+            .setNumber(8)
+            .setExtraVelocity(20)
         );
     }
 }

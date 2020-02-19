@@ -41,20 +41,24 @@ class TextHelper {
 		StageData.stage1_1.title = "1-1 初探";
 		StageData.stage1_2.title = "1-2 莲子";
 		StageData.stage1_3.title = "1-3 旋转";
-		StageData.stage1_4.title = "1-4 盛开";
-		StageData.stage1_5.title = "1-5 反射";
+		StageData.stage1_4.title = "1-4 瞄准";
+		StageData.stage1_5.title = "1-5 绽放";
 		StageData.stage1_6.title = "1-6 爆裂";
+		StageData.stage1_7.title = "1-ex 跟踪";
 
 		StageData.stage1_1h.title = "1-1H 下马威";
-		StageData.stage1_2h.title = "1-2H 喷吐";
-		StageData.stage1_3h.title = "1-3H 扫射";
-		StageData.stage1_4h.title = "1-4H 绽放";
+		StageData.stage1_2h.title = "1-2H 莲子霰弹";
+		StageData.stage1_3h.title = "1-3H 加特林";
+		StageData.stage1_4h.title = "1-4H 花瓣扫射";
+		StageData.stage1_5h.title = "1-5H 冲击波";
+		StageData.stage1_6h.title = "1-6H 花朵炸弹";
+		StageData.stage1_7h.title = "1-EX 快速制导";
 
-		StageData.tutorial1.tutorial_text = "在本游戏中，玩家可以通过拖动游戏画面的任何部分，来1:1地移动自机位置。由于这里太小，请点击右下角的i按钮查看更多帮助。";
+		StageData.tutorial1.tutorial_text = "在本游戏中，玩家可以通过拖动游戏画面的任何部分，来1:1地移动自机位置。点击屏幕右下角的i按钮可以查看本关小贴士。";
 		StageData.tutorial2.tutorial_text = "在本游戏中，玩家的判定点大小只有金鱼中间的黑点，因此站着不动即可过关。";
 		StageData.tutorial3.tutorial_text = "本关学习自机狙，请点击右下角的i按钮查看帮助。";
 
-		StageData.tutorial1.help_text = "这里是关卡的帮助文本，这里会有一些过关的小技巧，可以帮助你更容易地过关。每一关的帮助文本都不同，如果卡关了记得常来看看。";
+		StageData.tutorial1.help_text = "这里是关卡的帮助文本，会有一些过关的小技巧，可以帮助你更容易地过关。每一关的帮助文本都不同，如果卡关了记得常来看看。";
 		StageData.tutorial2.help_text = "虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。\n\n" +
 			"小金鱼的中弹判定范围只有中心的黑点，并不是整条鱼，所以本关中看起来花里胡哨的弹幕根本打不到你。"
 		StageData.tutorial3.help_text = "自机狙属于不掌握技巧就很难应付的类型，因此是STG类游戏中劝退新人的第一道难关。这里教大家一个通用解法，单向微移法。\n\n" +

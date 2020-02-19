@@ -7,15 +7,16 @@ abstract class LauncherLogicBase {
 	protected _run_delay = 0;
     protected _delay_timer:egret.Timer;
 
+    protected _ticker = 0;
+
 	public constructor(launcher:Launcher) {
 		this._launcher = launcher;
-		this._timer = new egret.Timer(this._freq);
-        this._timer.addEventListener(egret.TimerEvent.TIMER, this.onUpdate, this);
+		this._timer = new egret.Timer(50);
+        this._timer.addEventListener(egret.TimerEvent.TIMER, this.update, this);
 	}
 
     public setFreq(freq:number) {
         this._freq = freq;
-		this._timer.delay = freq;
         return this;
     }
 
@@ -60,7 +61,18 @@ abstract class LauncherLogicBase {
         }
 	}
 
-	public reset() {}
+	public reset() {
+        this.pause();
+        this._ticker = 0;
+    }
+
+    public update(event: egret.TimerEvent) {
+        if (this._ticker >= this._freq) {
+            this._ticker -= this._freq;
+            this.onUpdate(event);
+        }
+        this._ticker += 50;
+    }
 
 	public abstract onUpdate(event: egret.TimerEvent);
 
