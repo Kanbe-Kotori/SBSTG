@@ -1,4 +1,4 @@
-class C1S1H extends StageBase {
+class C1S1H extends StageTutorial {
     public constructor() {
         super("c1s1h", 20);
     }

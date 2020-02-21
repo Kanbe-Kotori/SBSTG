@@ -31,7 +31,7 @@ class StageData {
 	public static stage2_6:StageBase;
 	public static stage2_ex:StageBase;
 
-	public static stage1_1h:StageBase;
+	public static stage1_1h:StageTutorial;
 	public static stage1_2h:StageBase;
 	public static stage1_3h:StageBase;
 	public static stage1_4h:StageBase;
@@ -60,11 +60,11 @@ class StageData {
 
 		StageData.chapter1h = new PageChapter("第一章 困难");
 
-		ModeEasy.INSTANCE.addChapter(StageData.chapter1, new egret.Point(Main.X * 0.5, Main.Y * 0.25));
-		ModeEasy.INSTANCE.addChapter(StageData.chapter2, new egret.Point(Main.X * 0.5, Main.Y * 0.45));
-		ModeEasy.INSTANCE.addChapter(StageData.chapter3, new egret.Point(Main.X * 0.5, Main.Y * 0.65));
+		ModeEasy.INSTANCE.addChapter(StageData.chapter1, new egret.Point(Main.X * 0.5, Main.Y * 0.2));
+		ModeEasy.INSTANCE.addChapter(StageData.chapter2, new egret.Point(Main.X * 0.5, Main.Y * 0.4));
+		ModeEasy.INSTANCE.addChapter(StageData.chapter3, new egret.Point(Main.X * 0.5, Main.Y * 0.6));
 
-		ModeHard.INSTANCE.addChapter(StageData.chapter1h, new egret.Point(Main.X * 0.5, Main.Y * 0.25));
+		ModeHard.INSTANCE.addChapter(StageData.chapter1h, new egret.Point(Main.X * 0.5, Main.Y * 0.2));
 	}
 
 	private static initStages() {
