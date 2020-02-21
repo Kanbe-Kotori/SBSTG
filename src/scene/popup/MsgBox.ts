@@ -28,7 +28,7 @@ class MsgBox extends Popup {
         text.verticalAlign = egret.VerticalAlign.TOP;
         this.addChild(text);
 
-        let btnStart = new Button(120, 120, new egret.Point(540, 1080)).setTexture(TextureNames.BUTTON_RESUME);
+        let btnStart = new Button(120, 120, new egret.Point(540, 1110)).setTexture(TextureNames.BUTTON_RESUME);
         btnStart.setAction(MsgBox.click_start);
         this.addChild(btnStart);
     }

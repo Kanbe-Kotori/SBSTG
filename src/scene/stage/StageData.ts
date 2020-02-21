@@ -12,8 +12,10 @@ class StageData {
 	public static tutorial1:StageTutorial;
 	public static tutorial2:StageTutorial;
 	public static tutorial3:StageTutorial;
+	public static tutorial4:StageTutorial;
+	public static tutorial5:StageTutorial;
 
-	public static stage1_1:StageBase;
+	public static stage1_1:StageTutorial;
 	public static stage1_2:StageBase;
 	public static stage1_3:StageBase;
 	public static stage1_4:StageBase;
@@ -69,6 +71,8 @@ class StageData {
 		StageData.tutorial1 = new Tutorial1();
 		StageData.tutorial2 = new Tutorial2();
 		StageData.tutorial3 = new Tutorial3();
+		StageData.tutorial4 = new Tutorial4();
+		StageData.tutorial5 = new Tutorial5();
 
 		StageData.stage1_1 = new C1S1();
 		StageData.stage1_2 = new C1S2();
@@ -104,6 +108,8 @@ class StageData {
 		StageData.tutorial.addStage("tut1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.tutorial.addStage("tut2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.tutorial.addStage("tut3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		StageData.tutorial.addStage("tut4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.40));
+		StageData.tutorial.addStage("tut5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.40));
 
 		StageData.chapter1.addStage("c1s1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter1.addStage("c1s2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
