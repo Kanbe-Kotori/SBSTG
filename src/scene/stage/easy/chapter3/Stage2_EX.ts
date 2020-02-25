@@ -23,11 +23,11 @@ class Stage2_EX extends StageBase {
                         (missile:MissileBase) => {
                             let size = Math.max(missile.getWidth() - 6, 210);
                             missile.setSize(size, size);
-                            missile._img.width = size;
-		                    missile._img.height = size;
-		                    missile._img.anchorOffsetX = size / 2;
-                            missile._img.anchorOffsetY = size / 2;
-                            missile._img.rotation += 9;
+                            missile.img.width = size;
+		                    missile.img.height = size;
+		                    missile.img.anchorOffsetX = size / 2;
+                            missile.img.anchorOffsetY = size / 2;
+                            missile.img.rotation += 9;
                         }
                     ).setTriggerTimes(100)
                 )

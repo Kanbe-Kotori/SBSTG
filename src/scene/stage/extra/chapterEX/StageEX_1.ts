@@ -34,7 +34,7 @@ class StageEX_1 extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            missile._img.rotation -= 9;
+                            missile.img.rotation -= 9;
                         }
                     ).setTriggerTimes(100)
                 )

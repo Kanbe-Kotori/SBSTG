@@ -10,10 +10,11 @@ abstract class MissileBase {
     protected _posY = 0;
     protected _vx = 0;
     protected _vy = 0;
+    public ignoreCollideCheck:boolean = false;
 
     protected _handler:Array<MissileEventHandler> = [];
 
-    public _img:egret.Bitmap;
+    public img:egret.Bitmap;
     public isBottomLayer = false;
 
     public constructor() {
@@ -41,8 +42,8 @@ abstract class MissileBase {
 
     public setTexture(texture:string) {
         this._texture = texture;
-        if (this._img != null) {
-            this._img.texture = RES.getRes(texture);
+        if (this.img != null) {
+            this.img.texture = RES.getRes(texture);
         }
         return this;
     }
@@ -55,6 +56,16 @@ abstract class MissileBase {
 
     public setVelocity(vx:number, vy:number) {
         this._vx = vx;
+        this._vy = vy;
+        return this;
+    }
+
+    public setVelocityX(vx:number) {
+        this._vx = vx;
+        return this;
+    }
+
+    public setVelocityY(vy:number) {
         this._vy = vy;
         return this;
     }
@@ -84,6 +95,14 @@ abstract class MissileBase {
         return Math.sqrt(this._vx * this._vx + this._vy * this._vy);
     }
 
+    public getVelocityX() {
+        return this._vx;
+    }
+
+    public getVelocityY() {
+        return this._vy;
+    }
+
     public getDirection() {
         if (this._vx == 0) {
             return this._vy >= 0? Math.PI / 2 : - Math.PI / 2;
@@ -105,7 +124,7 @@ abstract class MissileBase {
     public addToStage(stage:StageBase) {
         let layer = this.isBottomLayer? DrawingLayer.BOTTOM_MISSILE : DrawingLayer.UPPER_MISSILE;
         this.initIMG();
-        stage.addChildAtLayer(this._img, layer);
+        stage.addChildAtLayer(this.img, layer);
         stage.arrayMissile.push(this);
     }
 
@@ -124,8 +143,8 @@ abstract class MissileBase {
         this._life++;
         this._posX += this._vx;
         this._posY += this._vy;
-        this._img.x = this._posX;
-        this._img.y = this._posY;
+        this.img.x = this._posX;
+        this.img.y = this._posY;
 
         if (this.shouldSetDead()) {
             this.setDead();
@@ -167,8 +186,8 @@ abstract class MissileBase {
 
     public setDead() {
         this._handler = null;
-        if (this._img != null && this._img.parent != null)
-            this._img.parent.removeChild(this._img);
+        if (this.img != null && this.img.parent != null)
+            this.img.parent.removeChild(this.img);
         MyUtils.removeObjectFromArray(this, SelfMachine.INSTANCE.currentStage.arrayMissile);
     }
 

@@ -21,6 +21,10 @@ class ChooseMode extends PageBase {
         btnHard.setAction(ChooseMode.click_enter_hard);
         this.addChild(btnHard);
 
+        let btnEX = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.8), "额外关卡");
+        btnEX.setAction(ChooseMode.click_enter_ex);
+        this.addChild(btnEX);
+
         let btnReturn = new Button(180, 180, new egret.Point(660, 1800)).setTexture(TextureNames.BUTTON_RETURN);
         btnReturn.setAction(ChooseMode.click_return);
         this.addChild(btnReturn);
@@ -29,8 +33,8 @@ class ChooseMode extends PageBase {
     public static click_enter_tutorial(evt:egret.TouchEvent) {
         ChooseMode.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
-        Main.getMain().addChild(StageData.tutorial);
-        SelfMachine.INSTANCE.currentChapter = StageData.tutorial;
+        Main.getMain().addChild(StageData.chapter_tutorial);
+        SelfMachine.INSTANCE.currentChapter = StageData.chapter_tutorial;
     }
 
     public static click_enter_easy(evt:egret.TouchEvent) {
@@ -43,6 +47,13 @@ class ChooseMode extends PageBase {
         ChooseMode.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(ModeHard.INSTANCE);
+    }
+
+    public static click_enter_ex(evt:egret.TouchEvent) {
+        ChooseMode.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(StageData.chapter_extra);
+        SelfMachine.INSTANCE.currentChapter = StageData.chapter_tutorial;
     }
 
     public static click_return(evt:egret.TouchEvent) {

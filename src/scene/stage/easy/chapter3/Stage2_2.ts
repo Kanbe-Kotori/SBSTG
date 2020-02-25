@@ -13,9 +13,9 @@ class Stage2_2 extends StageBase {
                         (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
-                                missile._img.x += Main.X;
+                                missile.img.x += Main.X;
                             } else if (side == Side.RIGHT) {
-                                missile._img.x -= Main.X;
+                                missile.img.x -= Main.X;
                             } else {
                                 missile.setDead();
                             }
@@ -42,9 +42,9 @@ class Stage2_2 extends StageBase {
                         (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
-                                missile._img.x += Main.X;
+                                missile.img.x += Main.X;
                             } else if (side == Side.RIGHT) {
-                                missile._img.x -= Main.X;
+                                missile.img.x -= Main.X;
                             } else if (side == Side.BOTTOM) {
                                 let theta = (1 + Math.random()) * Math.PI;
                                 let missile1 = new RoundMissile()

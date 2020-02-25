@@ -16,16 +16,19 @@ class EllipticalMissile extends MissileBase {
     }
 
     public initIMG() {
-        this._img = MyUtils.createBitmapByName(this._texture);
-        this._img.width = this._missile_width * 1.15;
-        this._img.height = this._missile_height * 1.15;
-        this._img.anchorOffsetX = this._img.width/2;
-        this._img.anchorOffsetY = this._img.height/2;
-        this._img.x = this._posX;
-        this._img.y = this._posY;
+        this.img = MyUtils.createBitmapByName(this._texture);
+        this.img.width = this._missile_width * 1.15;
+        this.img.height = this._missile_height * 1.15;
+        this.img.anchorOffsetX = this.img.width/2;
+        this.img.anchorOffsetY = this.img.height/2;
+        this.img.x = this._posX;
+        this.img.y = this._posY;
     }
 
     public isCollide() {
+        if (this.ignoreCollideCheck) {
+            return false;
+        }
         let dx:number = this.getX() - SelfMachine.INSTANCE.getX();
         let dy:number = this.getY() - SelfMachine.INSTANCE.getY();
         let dist = Math.sqrt(dx * dx + dy * dy);
@@ -50,7 +53,7 @@ class EllipticalMissile extends MissileBase {
         } else {
             ang = Math.atan(this._vx / this._vy) + Math.PI;
         }
-        this._img.rotation = - ang / Math.PI * 180;
+        this.img.rotation = - ang / Math.PI * 180;
         this._ang = ang;
 		super.onUpdate(event);
 	}

@@ -34,7 +34,7 @@ class C1S3H extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            missile._img.rotation -= 9;
+                            missile.img.rotation -= 9;
                         }
                     )
                     .setTriggerTimes(100)
@@ -54,7 +54,7 @@ class C1S3H extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            missile._img.rotation -= 9;
+                            missile.img.rotation -= 9;
                         }
                     )
                     .setTriggerTimes(100)
