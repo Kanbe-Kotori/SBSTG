@@ -41,7 +41,7 @@ class C1S5 extends StageBase {
                         .setTexture(TextureNames.MISSILE_PETAL2)
                         .setPos(launcher2.getPos())
                         .setVelocity(30 * Math.cos(theta), 30 * Math.sin(theta));
-                        missile.addToStage(SelfMachine.INSTANCE.currentStage);
+                        missile.addToStage();
                     }            
                     for (let i = 1; i <= 10; i++) {
                         for (let j = 0; j <= 10; j++) {
@@ -60,7 +60,7 @@ class C1S5 extends StageBase {
                                 .setStartTicks(2 * i)
                                 .setTriggerTimes(1)
                             )
-                            missile.addToStage(SelfMachine.INSTANCE.currentStage);
+                            missile.addToStage();
                         }
                     }
                 }

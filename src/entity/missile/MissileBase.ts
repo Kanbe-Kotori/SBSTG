@@ -14,7 +14,7 @@ abstract class MissileBase {
 
     protected _handler:Array<MissileEventHandler> = [];
 
-    public img:egret.Bitmap;
+    protected img:egret.Bitmap;
     public isBottomLayer = false;
 
     public constructor() {
@@ -25,6 +25,20 @@ abstract class MissileBase {
         this._missile_width = width;
         this._missile_height = height;
         return this;
+    }
+
+    public resize(width:number, height:number) {
+        this._missile_width = width;
+        this._missile_height = height;
+        this.img.width = width;
+		this.img.height = height;
+		this.img.anchorOffsetX = width / 2;
+        this.img.anchorOffsetY = height / 2;
+        return this;
+    }
+
+    public rotate(ang:number) {
+        this.img.rotation += ang;
     }
 
     public getWidth() {
@@ -51,6 +65,16 @@ abstract class MissileBase {
     public setPos(point:egret.Point) {
         this._posX = point.x;
         this._posY = point.y;
+        return this;
+    }
+
+    public setPosX(posx:number) {
+        this._posX = posx;
+        return this;
+    }
+
+    public setPosY(posy:number) {
+        this._posY = posy;
         return this;
     }
 
@@ -121,7 +145,8 @@ abstract class MissileBase {
         return this._life;
     }
 
-    public addToStage(stage:StageBase) {
+    public addToStage() {
+        let stage = SelfMachine.INSTANCE.currentStage;
         let layer = this.isBottomLayer? DrawingLayer.BOTTOM_MISSILE : DrawingLayer.UPPER_MISSILE;
         this.initIMG();
         stage.addChildAtLayer(this.img, layer);

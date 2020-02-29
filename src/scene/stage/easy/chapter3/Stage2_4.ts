@@ -14,9 +14,9 @@ class Stage2_4 extends StageBase {
                         (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
-                                missile.img.x += Main.X;
+                                missile.setPosX(missile.getX() + Main.X);
                             } else if (side == Side.RIGHT) {
-                                missile.img.x -= Main.X;
+                                missile.setPosX(missile.getX() - Main.X);
                             } else {
                                 missile.setDead();
                             }
@@ -57,7 +57,7 @@ class Stage2_4 extends StageBase {
 								}
 							)
 						);
-						missile.addToStage(SelfMachine.INSTANCE.currentStage);
+						missile.addToStage();
 					}
 				}
 			)

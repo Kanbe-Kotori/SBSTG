@@ -34,7 +34,7 @@ class Scatter extends ShotLogicBase {
             let theta1 = MyUtils.ang2rad(theta);
             let v = missile.getVelocity();
             missile.setVelocity(v * Math.cos(theta1), v * Math.sin(theta1));
-            missile.addToStage(SelfMachine.INSTANCE.currentStage);
+            missile.addToStage();
             theta += this._step;
         }
     }

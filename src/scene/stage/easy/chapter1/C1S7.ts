@@ -28,7 +28,7 @@ class C1S7 extends StageBase {
                 		.setSize(30, 36)
 						.setPos(launcher.getPos())
 						.setVelocity(14 * Math.cos(theta1), 14 * Math.sin(theta1));
-						missile.addToStage(SelfMachine.INSTANCE.currentStage);
+						missile.addToStage();
 					}
 				}
 			)
@@ -89,7 +89,7 @@ class C1S7 extends StageBase {
 								.setStartTicks(50)
 								.setTriggerTimes(1)
 							);
-							missile.addToStage(SelfMachine.INSTANCE.currentStage);
+							missile.addToStage();
 						}
 					}
 				}

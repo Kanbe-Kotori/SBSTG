@@ -14,9 +14,9 @@ class Stage2_6 extends StageBase {
                         (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
-                                missile.img.x += Main.X;
+                                missile.setPosX(missile.getX() + Main.X);
                             } else if (side == Side.RIGHT) {
-                                missile.img.x -= Main.X;
+                                missile.setPosX(missile.getX() - Main.X);
                             } else if (side == Side.BOTTOM) {
                                 let theta = (1 + Math.random()) * Math.PI;
                                 let missile1 = new RoundMissile()
@@ -33,7 +33,7 @@ class Stage2_6 extends StageBase {
 									.setStartTicks(90)
 									.setTriggerTimes(1)
 								);
-                                missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+                                missile.addToStage();
                                 missile.setDead();
                             } else {
                                 missile.setDead();
@@ -54,7 +54,7 @@ class Stage2_6 extends StageBase {
 				launcher1,
 				(launcher:Launcher) => {
 					let missile = Stage2_6.initRandomMissile();
-					missile.addToStage(SelfMachine.INSTANCE.currentStage);
+					missile.addToStage();
 				}
 			)
 			.setFreq(250)
@@ -88,7 +88,7 @@ class Stage2_6 extends StageBase {
 										)
 										.setTriggerTimes(40)
 									)
-									missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+									missile.addToStage();
 								}
 							missile.setDead();
                         }
@@ -120,7 +120,7 @@ class Stage2_6 extends StageBase {
 										)
 										.setTriggerTimes(30)
 									)
-									missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+									missile.addToStage();
 								}
 							missile.setDead();
                         }
@@ -144,7 +144,7 @@ class Stage2_6 extends StageBase {
 									.setTexture(TextureNames.MISSILE_PETAL4)
 									.setPos(missile.getPos())
 									.setVelocity(15 * Math.cos(theta), 15 * Math.sin(theta))
-									missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+									missile.addToStage();
 								}
 							missile.setDead();
                         }

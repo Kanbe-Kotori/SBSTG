@@ -48,6 +48,10 @@ class SelfMachine extends egret.Sprite {
         return this._img.y;
     }
 
+    public getPos() {
+        return new egret.Point(this._img.x, this._img.y);
+    }
+
     public setPos(point:egret.Point) {
         this._shape.x = point.x;
         this._shape.y = point.y;

@@ -115,7 +115,7 @@ class C1S7H extends StageBase {
 								.setStartTicks(50)
 								.setTriggerTimes(1)
 							);
-							missile.addToStage(SelfMachine.INSTANCE.currentStage);
+							missile.addToStage();
 						}
 					}
 				}

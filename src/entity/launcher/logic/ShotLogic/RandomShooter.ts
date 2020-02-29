@@ -40,7 +40,7 @@ class RandomShooter extends ShotLogicBase {
 			theta = MyUtils.ang2rad(theta);
             let v = missile.getVelocity();
             missile.setVelocity(v * Math.cos(theta), v * Math.sin(theta));
-            missile.addToStage(SelfMachine.INSTANCE.currentStage);
+            missile.addToStage();
         }
     }
 

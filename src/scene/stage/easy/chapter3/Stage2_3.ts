@@ -19,9 +19,9 @@ class Stage2_3 extends StageBase {
                         (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
-                                missile.img.x += Main.X;
+                                missile.setPosX(missile.getX() + Main.X);
                             } else if (side == Side.RIGHT) {
-                                missile.img.x -= Main.X;
+                                missile.setPosX(missile.getX() - Main.X);
                             } else {
                                 missile.setDead();
                             }
@@ -55,9 +55,9 @@ class Stage2_3 extends StageBase {
                         (missile:MissileBase) => {
                             let side = missile.getEdge();
                             if (side == Side.LEFT) {
-                                missile.img.x += Main.X;
+                                missile.setPosX(missile.getX() + Main.X);
                             } else if (side == Side.RIGHT) {
-                                missile.img.x -= Main.X;
+                                missile.setPosX(missile.getX() - Main.X);
                             } else if (side == Side.BOTTOM) {
                                 let theta = (1 + Math.random()) * Math.PI;
                                 let missile1 = new RoundMissile()
@@ -74,7 +74,7 @@ class Stage2_3 extends StageBase {
 									.setStartTicks(90)
 									.setTriggerTimes(1)
 									);
-                                missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+                                missile.addToStage();
                                 missile.setDead();
                             } else {
                                 missile.setDead();

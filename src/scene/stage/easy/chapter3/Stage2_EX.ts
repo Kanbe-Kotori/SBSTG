@@ -22,12 +22,8 @@ class Stage2_EX extends StageBase {
                     new TickEventHandler(
                         (missile:MissileBase) => {
                             let size = Math.max(missile.getWidth() - 6, 210);
-                            missile.setSize(size, size);
-                            missile.img.width = size;
-		                    missile.img.height = size;
-		                    missile.img.anchorOffsetX = size / 2;
-                            missile.img.anchorOffsetY = size / 2;
-                            missile.img.rotation += 9;
+                            missile.resize(size, size);
+                            missile.rotate(9);
                         }
                     ).setTriggerTimes(100)
                 )

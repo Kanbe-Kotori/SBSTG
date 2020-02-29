@@ -58,7 +58,7 @@ class C1S6H extends StageBase {
 											)
 											.setTriggerTimes(40)
 										)
-										missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+										missile.addToStage();
 									}
 									missile.setDead();
 								}
@@ -66,7 +66,7 @@ class C1S6H extends StageBase {
 							.setStartTicks(20)
 							.setTriggerTimes(1)
 						);
-						missile.addToStage(SelfMachine.INSTANCE.currentStage);
+						missile.addToStage();
 					}
 				}
 			)
@@ -111,7 +111,7 @@ class C1S6H extends StageBase {
 											)
 											.setTriggerTimes(40)
 										)
-										missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+										missile.addToStage();
 									}
 									missile.setDead();
 								}
@@ -119,7 +119,7 @@ class C1S6H extends StageBase {
 							.setStartTicks(20)
 							.setTriggerTimes(1)
 						);
-						missile.addToStage(SelfMachine.INSTANCE.currentStage);
+						missile.addToStage();
 					}
 				}
 			)

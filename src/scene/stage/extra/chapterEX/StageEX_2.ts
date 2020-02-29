@@ -41,13 +41,13 @@ class StageEX_2 extends StageBase {
                                     .setTexture(TextureNames.MISSILE_HAIL)
                                     .setPos(point)
                                     .setVelocity(18 * Math.cos(theta + i), 18 * Math.sin(theta + i));
-                                	missile1.addToStage(SelfMachine.INSTANCE.currentStage);
+                                	missile.addToStage();
 								}
 								missile.setDead();
                         	}
 						)
 					)
-					missile.addToStage(SelfMachine.INSTANCE.currentStage);
+					missile.addToStage();
 				}
 			)
 			.setFreq(400)
