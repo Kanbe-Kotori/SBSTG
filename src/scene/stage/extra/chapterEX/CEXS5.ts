@@ -10,7 +10,7 @@ class CEXS5 extends StageBase {
             new ScatterRotate(
                 launcher1,
                 new RoundMissile()
-                .setTexture(TextureNames.MISSILE_PETAL4)
+                .setTexture(TextureNames.MISSILE_STANDARD)
                 .setTotalVelocity(15)
             )
             .setFreq(250)
@@ -25,11 +25,11 @@ class CEXS5 extends StageBase {
 			new CustomShooter(
 				launcher2,
                 (launcher:Launcher) => {
-					for (let i = 0; i < 24; i++) {
-						let theta = Math.random() * 2 * Math.PI;
+					for (let i = 0; i < 16; i++) {
+						let theta = i / 8 * Math.PI;
 						let pos = new egret.Point(SelfMachine.INSTANCE.getX() + 120 * Math.cos(theta), SelfMachine.INSTANCE.getY() + 120 * Math.sin(theta))
 						let missile = new RoundMissile()
-						.setTexture(i % 2 == 0? TextureNames.MISSILE_STANDARD : TextureNames.MISSILE_RING)
+						.setTexture(i % 2 == 0? TextureNames.MISSILE_RED : TextureNames.MISSILE_BLUE)
 						.setPos(pos)
 						.setVelocity(2 * Math.cos(theta), 2 * Math.sin(theta))
 						.addHandler(
@@ -60,11 +60,11 @@ class CEXS5 extends StageBase {
 						new TickEventHandler(
 							(missile:MissileBase) => {
 								missile.ignoreCollideCheck = false;
-								for (let j = 0; j < 64; j++) {
+								for (let j = 0; j < 100; j++) {
 									let theta = Math.random() * 2 * Math.PI;
 									let v = 5 + 20 * Math.random();
 									let missile1 = new RoundMissile()
-									.setTexture(Math.random() >= 0.5? TextureNames.MISSILE_STANDARD : TextureNames.MISSILE_RING)
+									.setTexture(Math.random() >= 0.5? TextureNames.MISSILE_RED : TextureNames.MISSILE_BLUE)
 									.setPos(missile.getPos())
 									.setVelocity(v * Math.cos(theta), v * Math.sin(theta));
 									missile1.addToStage();
@@ -78,12 +78,12 @@ class CEXS5 extends StageBase {
 					.addHandler(
 						new TickEventHandler(
 							(missile:MissileBase) => {
-								let size = missile.getWidth() + 16;
+								let size = missile.getWidth() + 12;
 								missile.resize(size, size);
 							}
 						)
 						.setStartTicks(25)
-						.setTriggerTimes(20)
+						.setTriggerTimes(25)
 					)
 					.addHandler(
 						new TickEventHandler(
@@ -92,7 +92,7 @@ class CEXS5 extends StageBase {
 							}
 						)
 						.setStartTicks(25)
-						.setTriggerTimes(35)
+						.setTriggerTimes(55)
 					)
 					.addHandler(
 						new TickEventHandler(
@@ -100,14 +100,14 @@ class CEXS5 extends StageBase {
 								missile.setDead();
 							}
 						)
-						.setStartTicks(60)
+						.setStartTicks(80)
 						.setTriggerTimes(1)
 					);
 					missile.ignoreCollideCheck = true;
 					missile.addToStage();
 				}
 			)
-			.setFreq(2500)
+			.setFreq(2000)
 		);
 	}
 }

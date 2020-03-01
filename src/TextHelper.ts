@@ -39,6 +39,7 @@ class TextHelper {
 		StageData.tutorial3.title = "认识弹幕1";
 		StageData.tutorial4.title = "认识弹幕2";
 		StageData.tutorial5.title = "认识弹幕3";
+		StageData.tutorial6.title = "学习跳过";
 
 		StageData.stage1_1.title = "1-1 初探";
 		StageData.stage1_2.title = "1-2 莲子";
@@ -56,11 +57,15 @@ class TextHelper {
 		StageData.stage1_6h.title = "1-6H 花朵炸弹";
 		StageData.stage1_7h.title = "1-EX 快速制导";
 
+		StageData.stageEX_2.title = "ex-2 滴水成冰";
+		StageData.stageEX_5.title = "ex-5 阴阳交错";
+
 		StageData.tutorial1.tutorial_text = "在本游戏中，玩家可以通过拖动游戏画面的任何部分，来1:1地移动自机位置。点击屏幕右下角的i按钮可以查看当前关卡的小贴士。";
 		StageData.tutorial2.tutorial_text = "本关学习自机的判定点。在本游戏中，玩家只有金鱼中间的黑点中弹才算游戏失败，因此本关站着不动即可过关。";
 		StageData.tutorial3.tutorial_text = "本关认识弹幕中最常见的一类——固定弹，即无论如何都不发生变化的弹幕。请点击右下角的i按钮查看帮助。";
 		StageData.tutorial4.tutorial_text = "本关认识弹幕类型中的随机弹，即在一定限制下随机生成的弹幕。请继续点击i按钮查看帮助。";
 		StageData.tutorial5.tutorial_text = "本关认识弹幕类型中的萌新杀手——自机狙，但其实掌握技巧就很很躲。请仍然点击i按钮查看帮助。";
+		StageData.tutorial6.tutorial_text = "本关请您尝试位于选关和死亡界面的关卡跳过功能。请放心，不会有收费或者广告的。（当然，想硬打也可以）";
 		StageData.stage1_1.tutorial_text = "欢迎来到正式关卡！从本关开始本弹出框就不会再出现了，但右下角的i按钮仍然可用，如果卡关了记得去看看！";
 		StageData.stage1_1h.tutorial_text = "欢迎来到困难关卡！从本关开始你将可以感受到车万玩家为什么可以出门不带伞（开玩笑的）";
 

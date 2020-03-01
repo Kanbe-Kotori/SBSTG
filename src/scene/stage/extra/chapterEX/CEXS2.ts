@@ -1,4 +1,7 @@
-class StageEX_2 extends StageBase {
+class CEXS2 extends StageBase {
+	public constructor() {
+        super("cexs2", 30);
+    }
 
     protected initEmitters() {
 		let launcher1 = LauncherFactory.normalLauncher();
@@ -9,7 +12,7 @@ class StageEX_2 extends StageBase {
 					let missile = new RoundMissile()
 					.setSize(32, 32)
 					.setTexture(TextureNames.MISSILE_BLUE)
-					.setPos(StageEX_2.createPos())
+					.setPos(CEXS2.createPos())
 					.setVelocity(0, 0)
 					.addHandler(
 						new TickEventHandler(
@@ -41,7 +44,7 @@ class StageEX_2 extends StageBase {
                                     .setTexture(TextureNames.MISSILE_HAIL)
                                     .setPos(point)
                                     .setVelocity(18 * Math.cos(theta + i), 18 * Math.sin(theta + i));
-                                	missile.addToStage();
+                                	missile1.addToStage();
 								}
 								missile.setDead();
                         	}
@@ -51,6 +54,36 @@ class StageEX_2 extends StageBase {
 				}
 			)
 			.setFreq(400)
+		);
+
+		launcher1.addLogic(
+			new CustomShooter(
+				launcher1,
+				(launcher:Launcher) => {
+					for (let i = 0; i < 32; i++) {
+						let theta = Math.random() * 2 * Math.PI;
+						let pos = new egret.Point(540 + 480 * Math.cos(theta), 960 + 480 * Math.sin(theta));
+						let phi = (Math.random() - 0.5) * Math.PI + theta;
+						let missile = new RoundMissile()
+						.setSize(24, 24)
+                        .setTexture(TextureNames.MISSILE_BLUE)
+						.setPos(pos)
+						.setTotalVelocity(0)
+						.addHandler(
+							new TickEventHandler(
+								(missile:MissileBase) => {
+									missile.setTexture(TextureNames.MISSILE_HAIL);
+									missile.setVelocity(20 * Math.cos(phi), 20 * Math.sin(phi));
+                        		}
+							)
+							.setStartTicks(8)
+							.setTriggerTimes(1)
+						)
+						missile.addToStage();		
+					}
+				}
+			)
+			.setFreq(200)
 		);
     }
 

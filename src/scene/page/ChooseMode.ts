@@ -53,7 +53,7 @@ class ChooseMode extends PageBase {
         ChooseMode.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(StageData.chapter_extra);
-        SelfMachine.INSTANCE.currentChapter = StageData.chapter_tutorial;
+        SelfMachine.INSTANCE.currentChapter = StageData.chapter_extra;
     }
 
     public static click_return(evt:egret.TouchEvent) {

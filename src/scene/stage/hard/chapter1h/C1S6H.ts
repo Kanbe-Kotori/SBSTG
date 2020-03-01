@@ -1,6 +1,6 @@
 class C1S6H extends StageBase {
 	public constructor() {
-        super("c1s6h", 30);
+        super("c1s6h", 25);
     }
 
     protected initEmitters() {
