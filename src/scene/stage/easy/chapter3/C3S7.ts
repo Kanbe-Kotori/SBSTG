@@ -21,11 +21,11 @@ class C3S7 extends StageBase {
 			    new RoundMissile()
                 .setTexture(TextureNames.MISSILE_RING_RED)
 				.setSize(600, 600)
-				.setTotalVelocity(17)
+				.setTotalVelocity(20)
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            let size = Math.max(missile.getWidth() - 6, 210);
+                            let size = Math.max(missile.getWidth() - 7, 150);
                             missile.resize(size, size);
                             missile.rotate(9);
                         }
@@ -36,6 +36,7 @@ class C3S7 extends StageBase {
             .setFreq(250)
             .setStartAngle(90)
             .setNumber(1)
+            //90度下落每次1个
         );
         
 		launcher1.addLogic(
