@@ -1,6 +1,6 @@
 class C3S7H extends StageBase {
     public constructor() {
-        super("c3s7H", 20);
+        super("c3s7h", 20);
     }
 
 	protected initEmitters() {
@@ -21,11 +21,11 @@ class C3S7H extends StageBase {
 			    new RoundMissile()
                 .setTexture(TextureNames.MISSILE_RING_RED)
 				.setSize(600, 600)
-				.setTotalVelocity(20)
+				.setTotalVelocity(30)
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            let size = Math.max(missile.getWidth() - 7, 150);
+                            let size = Math.max(missile.getWidth() - 8, 150);
                             missile.resize(size, size);
                             missile.rotate(9);
                         }
@@ -44,7 +44,7 @@ class C3S7H extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_RED)
-                .setTotalVelocity(15)
+                .setTotalVelocity(20)
             )
             .setFreq(250)
             .setStartAngle(0)

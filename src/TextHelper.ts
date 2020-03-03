@@ -75,6 +75,8 @@ class TextHelper {
 		StageData.stage2_2h.title = "2-2H 快与慢";
 		StageData.stage2_3h.title = "2-3H 三面埋伏";
 
+		StageData.stage3_1h.title = "3-7H 极速天火";
+
 		StageData.stageEX_2.title = "ex-2 滴水成冰";
 		StageData.stageEX_5.title = "ex-5 阴阳交错";
 
