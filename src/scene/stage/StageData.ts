@@ -183,7 +183,7 @@ class StageData {
 		StageData.chapter2h.addStage("c2s2h", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.chapter2h.addStage("c2s3h", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 
-		StageData.chapter2h.addStage("c3s7h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		StageData.chapter3h.addStage("c3s7h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 	}
 
 	private static initRelations() {
