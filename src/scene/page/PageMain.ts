@@ -24,7 +24,8 @@ class PageMain extends PageBase {
         let btnAbout = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.8), "关于游戏");
         btnAbout.setAction(PageMain.click_about);
         this.addChild(btnAbout);
-
+        
+        /*
         if (LocalData.isFirstTime()) {
             MsgBox.setCustomAction(
 			    () => {
@@ -33,10 +34,10 @@ class PageMain extends PageBase {
                     Main.getMain().addChild(PageHelp.INSTANCE);
                 }
 		    );
-            MsgBox.showMsgBox(this, 
-                "欢迎来到小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。"
-            );
+            MsgBox.showMsgBox(this, TextHelper.welcome_text);
         }
+        */
+        MsgBox.showMsgBox(this, TextHelper.warning_text);
     }
 
     public static click_start(evt:egret.TouchEvent) {

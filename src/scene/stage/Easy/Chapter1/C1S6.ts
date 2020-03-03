@@ -58,7 +58,7 @@ class C1S6 extends StageBase {
 											)
 											.setTriggerTimes(30)
 										)
-										missile.addToStage();
+										missile1.addToStage();
 									}
 									missile.setDead();
 								}
@@ -111,7 +111,7 @@ class C1S6 extends StageBase {
 											)
 											.setTriggerTimes(30)
 										)
-										missile.addToStage();
+										missile1.addToStage();
 									}
 									missile.setDead();
 								}

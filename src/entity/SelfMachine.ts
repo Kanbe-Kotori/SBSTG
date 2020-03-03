@@ -9,7 +9,7 @@ class SelfMachine extends egret.Sprite {
 
     public currentStage:StageBase = null;
     public currentChapter:PageChapter = null;
-    public UNDEAD:boolean = true;
+    public UNDEAD:boolean = false;
 
     private constructor() {
         super();

@@ -3,58 +3,67 @@ class C2S1H extends StageBase {
         super("c2s1h", 20);
     }
 
-    protected initEmitters() {
-        let point1 = new egret.Point(540, 600);
+	protected initEmitters() {
+	let point1 = new egret.Point(540, 540);
         let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER0, 160, 120).setInitialPos(point1);
         launcher1.addLogic(
             new ScatterRotate(
                 launcher1,
                 new EllipticalMissile()
                 .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL3)
+                .setTexture(TextureNames.MISSILE_PETAL2)
                 .setTotalVelocity(15)
-				.addHandler(
-                    new EdgeEventHandler(
-                        (missile:MissileBase) => {
-                            let side = missile.getEdge();
-							let point = MyUtils.createReasonablePos(missile.getPos());
-                            if (side == Side.LEFT || side == Side.RIGHT) {
-								missile.setPos(point);
-								missile.setVelocityX(-missile.getVelocityX());
-								missile.setTotalVelocity(12);
-								missile.setTexture(TextureNames.MISSILE_PETAL1);
-							} else if (side == Side.TOP) {
-								missile.setPos(point);
-                                missile.setVelocityY(-missile.getVelocityY());
-								missile.setTotalVelocity(12);
-								missile.setTexture(TextureNames.MISSILE_PETAL1);
-                            } else {
-                                missile.setDead();
-                            }
-                        }
-                    )
-                )
             )
             .setFreq(200)
             .setStartAngle(0)
-            .setStep(10)
-            .setNumber(3)
-            .setPeriod(Math.E)	//随便设置一个无理数
+            .setStep(360 / 24)
+            .setNumber(24)
+            .setPeriod(-72)
         );
-
-        launcher1.addLogic(
-            new ScatterRotate(
+		launcher1.addLogic(
+			new Scatter(
+                launcher1,
+			    new EllipticalMissile()
+                .setSize(30, 36)
+                .setTexture(TextureNames.MISSILE_PETAL1)
+                .setTotalVelocity(20)
+				.addHandler(
+					new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                        }
+					)
+					.setTriggerTimes(20)
+				)
+            )
+            .setDelay(1200)
+            .setStartAngle(0)
+            .setNumber(48)
+            .setStep(360 / 48)
+            .setFreq(600)
+		)
+		launcher1.addLogic(
+			new ScatterRotate(
                 launcher1,
                 new EllipticalMissile()
                 .setSize(30, 36)
-                .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(12)
+                .setTexture(TextureNames.MISSILE_PETAL3)
+                .setTotalVelocity(20)
+				.addHandler(
+					new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 2);
+                        }
+					)
+					.setTriggerTimes(20)
+				)
             )
-            .setFreq(400)
-            .setStartAngle(0)
-            .setStep(360 / 16)
-            .setNumber(16)
-            .setPeriod(-10 * Math.PI)	//随便设置一个无理数
-        );
-    }
+			.setDelay(10000)
+            .setFreq(100)
+            .setStartAngle(45)
+            .setStep(360 / 4)
+            .setNumber(4)
+            .setPeriod(6)
+		)
+	}
 }

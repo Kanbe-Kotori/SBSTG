@@ -1,4 +1,8 @@
-class Stage2_EX extends StageBase {
+class C3S7 extends StageBase {
+    public constructor() {
+        super("c3s7", 20);
+    }
+
 	protected initEmitters() {
         let launcher1 = LauncherFactory.normalLauncher();
         launcher1.addLogic(

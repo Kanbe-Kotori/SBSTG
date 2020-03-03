@@ -1,4 +1,7 @@
-class Stage2_1 extends StageBase {
+class C3S1 extends StageBase {
+    public constructor() {
+        super("c3s1", 20);
+    }
 
     protected initEmitters() {
         let launcher1 = LauncherFactory.normalLauncher();

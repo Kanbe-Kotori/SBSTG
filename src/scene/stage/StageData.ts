@@ -34,6 +34,14 @@ class StageData {
 	public static stage2_6:StageBase;
 	public static stage2_ex:StageBase;
 
+	public static stage3_1:StageBase;
+	public static stage3_2:StageBase;
+	public static stage3_3:StageBase;
+	public static stage3_4:StageBase;
+	public static stage3_5:StageBase;
+	public static stage3_6:StageBase;
+	public static stage3_7:StageBase;
+
 	public static stage1_1h:StageTutorial;
 	public static stage1_2h:StageBase;
 	public static stage1_3h:StageBase;
@@ -43,6 +51,8 @@ class StageData {
 	public static stage1_7h:StageBase;
 
 	public static stage2_1h:StageBase;
+	public static stage2_2h:StageBase;
+	public static stage2_3h:StageBase;
 
 	public static stageEX_1:StageBase;
 	public static stageEX_2:StageBase;
@@ -92,14 +102,15 @@ class StageData {
 		StageData.stage1_7 = new C1S7();
 
 		StageData.stage2_1 = new C2S1();
+		StageData.stage2_3 = new C2S3();
 
-		/*StageData.stage2_1 = new Stage2_1("2-1", 30);
-		StageData.stage2_2 = new Stage2_2("2-2", 20);
-		StageData.stage2_3 = new Stage2_3("2-3", 20);
-		StageData.stage2_4 = new Stage2_4("2-4", 20);
-		StageData.stage2_5 = new Stage2_5("2-5", 30);
-		StageData.stage2_6 = new Stage2_6("2-6", 30);
-		StageData.stage2_ex = new Stage2_EX("2-ex", 30);*/
+		StageData.stage3_1 = new C3S1();
+		StageData.stage3_2 = new C3S2();
+		StageData.stage3_3 = new C3S3();
+		StageData.stage3_4 = new C3S4();
+		StageData.stage3_5 = new C3S5();
+		StageData.stage3_6 = new C3S6();
+		StageData.stage3_7 = new C3S7();
 
 		StageData.stage1_1h = new C1S1H();
 		StageData.stage1_2h = new C1S2H();
@@ -110,11 +121,13 @@ class StageData {
 		StageData.stage1_7h = new C1S7H();
 
 		StageData.stage2_1h = new C2S1H();
+		StageData.stage2_2h = new C2S2H();
+		StageData.stage2_3h = new C2S3H();
 
 		StageData.stageEX_1 = new StageEX_1("ex-1", 30);
 		StageData.stageEX_2 = new CEXS2();
 		StageData.stageEX_3 = new StageEX_3("ex-3", 30);
-		StageData.stageEX_4 = new StageEX_4("ex-4", 30);
+		//StageData.stageEX_4 = ;
 		StageData.stageEX_5 = new CEXS5();
 	}
 
@@ -135,19 +148,20 @@ class StageData {
 		StageData.chapter1.addStage("c1s7", "ex", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 
 		StageData.chapter2.addStage("c2s1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		StageData.chapter2.addStage("c2s3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 
-		/*StageData.chapter3.addStage("2-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
-		StageData.chapter3.addStage("2-2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
-		StageData.chapter3.addStage("2-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
-		StageData.chapter3.addStage("2-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.40));
-		StageData.chapter3.addStage("2-5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.40));
-		StageData.chapter3.addStage("2-6", "6", new egret.Point(Main.X * 0.75, Main.Y * 0.40));
-		StageData.chapter3.addStage("2-ex", "EX", new egret.Point(Main.X * 0.50, Main.Y * 0.55));*/
+		StageData.chapter3.addStage("c3s1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		StageData.chapter3.addStage("c3s2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
+		StageData.chapter3.addStage("c3s3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		StageData.chapter3.addStage("c3s4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.40));
+		StageData.chapter3.addStage("c3s5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.40));
+		StageData.chapter3.addStage("c3s6", "6", new egret.Point(Main.X * 0.75, Main.Y * 0.40));
+		StageData.chapter3.addStage("c3s7", "EX", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 
 		StageData.chapter_extra.addStage("ex-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter_extra.addStage("cexs2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
 		StageData.chapter_extra.addStage("ex-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
-		StageData.chapter_extra.addStage("ex-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
+		//StageData.chapter_extra.addStage("ex-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 		StageData.chapter_extra.addStage("cexs5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.4));
 
 		StageData.chapter1h.addStage("c1s1h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
@@ -159,6 +173,8 @@ class StageData {
 		StageData.chapter1h.addStage("c1s7h", "EX", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 
 		StageData.chapter2h.addStage("c2s1h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		StageData.chapter2h.addStage("c2s2h", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
+		StageData.chapter2h.addStage("c2s3h", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 	}
 
 	private static initRelations() {

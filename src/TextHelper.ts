@@ -1,5 +1,8 @@
 class TextHelper {
 
+	public static welcome_text = "欢迎来到小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。";
+	public static warning_text = "警告：内部测试版ver2.01，第二章还没做完，第三章难度还没歧化，有些关卡难度失调，有bug。";
+
 	public static help_text = 
 		<Array<egret.ITextElement>>[
 			{text: "在本游戏中，你将控制一条小金鱼进行一次紧♂张而刺♂激的冒险。\n\n"},
@@ -49,6 +52,17 @@ class TextHelper {
 		StageData.stage1_6.title = "1-6 爆裂";
 		StageData.stage1_7.title = "1-ex 跟踪";
 
+		StageData.stage2_1.title = "2-1 白给";
+		StageData.stage2_3.title = "2-3 反射";
+
+		StageData.stage3_1.title = "3-1 细雨";
+		StageData.stage3_2.title = "3-2 暴雨";
+		StageData.stage3_3.title = "3-3 狂风";
+		StageData.stage3_4.title = "3-4 旋涡";
+		StageData.stage3_5.title = "3-5 冰雹";
+		StageData.stage3_6.title = "3-6 飞花";
+		StageData.stage3_7.title = "3-ex 天火";
+
 		StageData.stage1_1h.title = "1-1H 下马威";
 		StageData.stage1_2h.title = "1-2H 莲子霰弹";
 		StageData.stage1_3h.title = "1-3H 加特林";
@@ -56,6 +70,10 @@ class TextHelper {
 		StageData.stage1_5h.title = "1-5H 冲击波";
 		StageData.stage1_6h.title = "1-6H 花朵炸弹";
 		StageData.stage1_7h.title = "1-EX 快速制导";
+
+		StageData.stage2_1h.title = "2-1H 瞬间白给";
+		StageData.stage2_2h.title = "2-2H 快与慢";
+		StageData.stage2_3h.title = "2-3H 三面埋伏";
 
 		StageData.stageEX_2.title = "ex-2 滴水成冰";
 		StageData.stageEX_5.title = "ex-5 阴阳交错";
@@ -86,6 +104,8 @@ class TextHelper {
 		StageData.stage1_6.help_text = "本关由粉色自机狙，蓝色随机弹和紫色固定弹构成，和1-3类似，在微移躲自机狙的同时要注意飞来的流矢。";
 		StageData.stage1_7.help_text = "看到这一关，有些车万狗可能已经产生幻视了。没错，本关的灵感来源就是永夜抄中灵梦的符卡——回霊「夢想封印 侘」。\n\n" +
 			"作为第一个EX关卡，本关难度可能偏高，建议普通玩家不要自暴自弃，实在过不了就放弃吧。"
+
+		StageData.stage2_1.help_text = "本关属于制作组的怜悯，目的是让玩家认识固定弹的白给关，注意好粉弹的空隙即可。";
 
 /*
 		new StageInfo(

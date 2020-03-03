@@ -1,4 +1,7 @@
-class Stage2_6 extends StageBase {
+class C3S6 extends StageBase {
+	public constructor() {
+        super("c3s6", 20);
+    }
 
 	protected initEmitters() {
 		let launcher1 = LauncherFactory.normalLauncher();
@@ -33,7 +36,7 @@ class Stage2_6 extends StageBase {
 									.setStartTicks(90)
 									.setTriggerTimes(1)
 								);
-                                missile.addToStage();
+                                missile1.addToStage();
                                 missile.setDead();
                             } else {
                                 missile.setDead();
@@ -53,7 +56,7 @@ class Stage2_6 extends StageBase {
 			new CustomShooter(
 				launcher1,
 				(launcher:Launcher) => {
-					let missile = Stage2_6.initRandomMissile();
+					let missile = C3S6.initRandomMissile();
 					missile.addToStage();
 				}
 			)
@@ -88,7 +91,7 @@ class Stage2_6 extends StageBase {
 										)
 										.setTriggerTimes(40)
 									)
-									missile.addToStage();
+									missile1.addToStage();
 								}
 							missile.setDead();
                         }
@@ -120,7 +123,7 @@ class Stage2_6 extends StageBase {
 										)
 										.setTriggerTimes(30)
 									)
-									missile.addToStage();
+									missile1.addToStage();
 								}
 							missile.setDead();
                         }
@@ -144,7 +147,7 @@ class Stage2_6 extends StageBase {
 									.setTexture(TextureNames.MISSILE_PETAL4)
 									.setPos(missile.getPos())
 									.setVelocity(15 * Math.cos(theta), 15 * Math.sin(theta))
-									missile.addToStage();
+									missile1.addToStage();
 								}
 							missile.setDead();
                         }

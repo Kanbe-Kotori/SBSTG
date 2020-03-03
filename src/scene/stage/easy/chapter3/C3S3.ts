@@ -1,6 +1,9 @@
-class Stage2_2 extends StageBase {
+class C3S3 extends StageBase {
+    public constructor() {
+        super("c3s3", 20);
+    }
 
-    protected initEmitters() {
+	protected initEmitters() {
         let launcher1 = LauncherFactory.normalLauncher();
         launcher1.addLogic(
             new SideShooter(
@@ -8,6 +11,13 @@ class Stage2_2 extends StageBase {
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
                 .setTotalVelocity(15)
+				.addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+							missile.addVelocity(4 * Math.random() - 2, 0);
+                        }
+                    )
+                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -35,8 +45,15 @@ class Stage2_2 extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
-                .setRadius(18)
+                .setSize(36, 36)
                 .setTotalVelocity(20)
+				.addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+							missile.addVelocity(8 * Math.random() - 4, 0);
+                        }
+                    )
+                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -60,8 +77,8 @@ class Stage2_2 extends StageBase {
 									)
 									.setStartTicks(90)
 									.setTriggerTimes(1)
-								);
-                                missile.addToStage();
+									);
+                                missile1.addToStage();
                                 missile.setDead();
                             } else {
                                 missile.setDead();
@@ -74,7 +91,6 @@ class Stage2_2 extends StageBase {
             .setStartAngle(85)
             .setEndAngle(95)
             .setNumber(2)
-            .setExtraVelocity(10)
         );
 	}
 }
