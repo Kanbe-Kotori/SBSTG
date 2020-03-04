@@ -11,13 +11,13 @@ class C2S2H extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_PETAL4)
-                .setTotalVelocity(18)
+                .setTotalVelocity(10) // 顺时针慢蛋速度
             )
             .setFreq(200)
             .setStartAngle(0)
-            .setStep(360 / 12)
+            .setStep(360 / 12) //12
             .setNumber(12)
-            .setPeriod(30)
+            .setPeriod(18) //30
         );
 
         launcher1.addLogic(
@@ -25,13 +25,13 @@ class C2S2H extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_PETAL4)
-                .setTotalVelocity(18)
+                .setTotalVelocity(10) // 逆时针慢蛋速度
             )
             .setFreq(200)
             .setStartAngle(0)
             .setStep(360 / 12)
             .setNumber(12)
-            .setPeriod(-30)
+            .setPeriod(-18)
         );
 
 		launcher1.addLogic(
@@ -40,11 +40,11 @@ class C2S2H extends StageBase {
 			    new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(50)
+                .setTotalVelocity(40) //50红色快蛋速度
 				.addHandler(
 					new TickEventHandler(
 						(missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() - 1);
+                            missile.setTotalVelocity(missile.getVelocity() - 0.5); //速度衰减
                         }
 					)
 					.setTriggerTimes(30)
@@ -61,11 +61,11 @@ class C2S2H extends StageBase {
 			    new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL1)
-                .setTotalVelocity(10)
+                .setTotalVelocity(5) //50蓝色快蛋速度
 				.addHandler(
 					new TickEventHandler(
 						(missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() + 2);
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
                         }
 					)
 					.setTriggerTimes(30)
@@ -104,7 +104,7 @@ class C2S2H extends StageBase {
 				)
             )
             .setDelay(6000)
-            .setStartAngle(0)
+            .setStartAngle(30) //初始角度修改
             .setNumber(24)
             .setStep(360 / 24)
             .setFreq(4000)
