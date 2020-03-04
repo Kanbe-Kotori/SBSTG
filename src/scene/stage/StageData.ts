@@ -54,8 +54,9 @@ class StageData {
 	public static stage2_1h:StageBase;
 	public static stage2_2h:StageBase;
 	public static stage2_3h:StageBase;
+	public static stage2_7h:StageBase;
 	
-	public static stage3_1h:StageBase;
+	public static stage3_7h:StageBase;
 
 	public static stageEX_1:StageBase;
 	public static stageEX_2:StageBase;
@@ -128,12 +129,13 @@ class StageData {
 		StageData.stage2_1h = new C2S1H();
 		StageData.stage2_2h = new C2S2H();
 		StageData.stage2_3h = new C2S3H();
+		StageData.stage2_7h = new C2S7H();
 
-		StageData.stage3_1h = new C3S7H();
+		StageData.stage3_7h = new C3S7H();
 
 		StageData.stageEX_1 = new StageEX_1("ex-1", 30);
 		StageData.stageEX_2 = new CEXS2();
-		StageData.stageEX_3 = new StageEX_3("ex-3", 30);
+		//StageData.stageEX_3 = ;
 		//StageData.stageEX_4 = ;
 		StageData.stageEX_5 = new CEXS5();
 	}
@@ -167,7 +169,7 @@ class StageData {
 
 		StageData.chapter_extra.addStage("ex-1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter_extra.addStage("cexs2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
-		StageData.chapter_extra.addStage("ex-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		//StageData.chapter_extra.addStage("ex-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 		//StageData.chapter_extra.addStage("ex-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 		StageData.chapter_extra.addStage("cexs5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.4));
 
@@ -182,8 +184,9 @@ class StageData {
 		StageData.chapter2h.addStage("c2s1h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter2h.addStage("c2s2h", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.chapter2h.addStage("c2s3h", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		StageData.chapter2h.addStage("c2s7h", "EX", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 
-		StageData.chapter3h.addStage("c3s7h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		StageData.chapter3h.addStage("c3s7h", "EX", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 	}
 
 	private static initRelations() {

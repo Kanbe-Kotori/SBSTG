@@ -80,7 +80,7 @@ class PageChapter extends PageBase {
     private getReturnPage() {
         if (this == StageData.chapter_tutorial || this == StageData.chapter_extra) {
             return ChooseMode.INSTANCE;
-        } else if (this == StageData.chapter1h || this == StageData.chapter2h) {
+        } else if (this == StageData.chapter1h || this == StageData.chapter2h || this == StageData.chapter3h) {
             return ModeHard.INSTANCE;
         } else {
             return ModeEasy.INSTANCE;

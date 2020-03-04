@@ -1,6 +1,6 @@
 class CEXS5 extends StageBase {
 	public constructor() {
-        super("cexs5", 30);
+        super("cexs5", 25);
     }
 
     protected initEmitters() {

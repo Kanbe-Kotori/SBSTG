@@ -40,7 +40,8 @@ class Tutorial6 extends StageTutorial {
                         (missile:MissileBase) => {
                             missile.rotate(-9);
                         }
-                    ).setTriggerTimes(100)
+                    )
+                    .setTriggerTimes(100)
                 )
             )
             .setFreq(800)

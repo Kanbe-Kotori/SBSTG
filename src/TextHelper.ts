@@ -74,8 +74,9 @@ class TextHelper {
 		StageData.stage2_1h.title = "2-1H 瞬间白给";
 		StageData.stage2_2h.title = "2-2H 快与慢";
 		StageData.stage2_3h.title = "2-3H 三面埋伏";
+		StageData.stage2_7h.title = "2-EX 盛夏之花";
 
-		StageData.stage3_1h.title = "3-7H 极速天火";
+		StageData.stage3_7h.title = "3-EX 星陨";
 
 		StageData.stageEX_2.title = "ex-2 滴水成冰";
 		StageData.stageEX_5.title = "ex-5 阴阳交错";
@@ -154,11 +155,6 @@ class TextHelper {
 			"虽然火雨看起来很吓人，其实瑟缩在版底注意不要被封位就好了，难度并没有像看起来那么高。不过毕竟是EX关卡，再怎么也不会完全白给。\n\n" +
 			"这一关本来是想仿爆符『千兆耀斑』，但是有些搞砸了。。"
 		);
-
-		new StageInfo("ex-1", "流矢", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
-		new StageInfo("ex-2", "极寒", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
-		new StageInfo("ex-3", "爆发", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
-		new StageInfo("ex-4", "没想好", "本关为制作组放飞自我的产物，不是给普通玩家玩的，实在过不了建议放弃。");
 		*/
 	}
 
