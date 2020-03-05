@@ -28,10 +28,10 @@ class C1S5H extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL3)
                 .setTotalVelocity(15)
             )
-            .setFreq(1000)
+            .setFreq(900)
             .setStartAngle(0)
             .setEndAngle(360)
-            .setNumber(36)
+            .setNumber(32)
             .setExtraVelocity(20)
         );
 
@@ -42,7 +42,7 @@ class C1S5H extends StageBase {
                 270, 810,
                 480, 600
             )
-            .setFreq(2000)
+            .setFreq(1800)
         )
         launcher2.addLogic(
             new CustomShooter(
@@ -79,7 +79,7 @@ class C1S5H extends StageBase {
                     }
                 }
             )
-            .setFreq(2000)
+            .setFreq(1800)
         )
 	}
 	

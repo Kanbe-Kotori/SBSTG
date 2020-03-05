@@ -5,7 +5,7 @@ class C1S5 extends StageBase {
 
     protected initEmitters() {
         let point1 = new egret.Point(540, 540);
-        let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER0, 160, 120).setInitialPos(point1);
+        let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER2, 160, 120).setInitialPos(point1);
         launcher1.addLogic(
             new ScatterRotate(
                 launcher1,
