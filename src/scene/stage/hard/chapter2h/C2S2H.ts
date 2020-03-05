@@ -1,6 +1,6 @@
 class C2S2H extends StageBase {
     public constructor() {
-        super("c2s2h", 20);
+        super("c2s2h", 25);
     }
 
     protected initEmitters() {
@@ -11,13 +11,13 @@ class C2S2H extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_PETAL4)
-                .setTotalVelocity(10) // 顺时针慢蛋速度
+                .setTotalVelocity(10)
             )
             .setFreq(200)
             .setStartAngle(0)
-            .setStep(360 / 12) //12
+            .setStep(360 / 12)
             .setNumber(12)
-            .setPeriod(18) //30
+            .setPeriod(Math.exp(3))
         );
 
         launcher1.addLogic(
@@ -25,13 +25,13 @@ class C2S2H extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_PETAL4)
-                .setTotalVelocity(10) // 逆时针慢蛋速度
+                .setTotalVelocity(10)
             )
             .setFreq(200)
             .setStartAngle(0)
             .setStep(360 / 12)
             .setNumber(12)
-            .setPeriod(-18)
+            .setPeriod(-Math.exp(3))
         );
 
 		launcher1.addLogic(
@@ -40,11 +40,11 @@ class C2S2H extends StageBase {
 			    new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL2)
-                .setTotalVelocity(40) //50红色快蛋速度
+                .setTotalVelocity(50)
 				.addHandler(
 					new TickEventHandler(
 						(missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() - 0.5); //速度衰减
+                            missile.setTotalVelocity(missile.getVelocity() - 1);
                         }
 					)
 					.setTriggerTimes(30)
@@ -53,6 +53,7 @@ class C2S2H extends StageBase {
             .setNumber(36)
             .setStep(360 / 36)
             .setFreq(600)
+            .setDelay(3000)
         );
 
 		launcher1.addLogic(
@@ -61,17 +62,17 @@ class C2S2H extends StageBase {
 			    new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL1)
-                .setTotalVelocity(5) //50蓝色快蛋速度
+                .setTotalVelocity(10)
 				.addHandler(
 					new TickEventHandler(
 						(missile:MissileBase) => {
-                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                            missile.setTotalVelocity(missile.getVelocity() + 2);
                         }
 					)
 					.setTriggerTimes(30)
 				)
             )
-            .setDelay(400)
+            .setDelay(3300)
             .setStartAngle(360 / 2 / 36)
             .setNumber(36)
             .setStep(360 / 36)
@@ -103,8 +104,8 @@ class C2S2H extends StageBase {
 					.setTriggerTimes(20)
 				)
             )
-            .setDelay(6000)
-            .setStartAngle(30) //初始角度修改
+            .setDelay(10000)
+            .setStartAngle(0)
             .setNumber(24)
             .setStep(360 / 24)
             .setFreq(4000)

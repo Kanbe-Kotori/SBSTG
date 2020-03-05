@@ -108,6 +108,7 @@ class StageData {
 		StageData.stage1_7 = new C1S7();
 
 		StageData.stage2_1 = new C2S1();
+		StageData.stage2_2 = new C2S2();
 		StageData.stage2_3 = new C2S3();
 
 		StageData.stage3_1 = new C3S1();
@@ -157,6 +158,7 @@ class StageData {
 		StageData.chapter1.addStage("c1s7", "ex", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 
 		StageData.chapter2.addStage("c2s1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
+		StageData.chapter2.addStage("c2s2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.chapter2.addStage("c2s3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 
 		StageData.chapter3.addStage("c3s1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
