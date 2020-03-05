@@ -9,7 +9,7 @@ class StageEX_1 extends StageBase {
                 launcher1,
                 new EllipticalMissile()
                 .setSize(15, 120)
-                .setTexture(TextureNames.MISSILE_PETAL3)
+                .setTexture(TextureNames.MISSILE_LEAF)
                 .setTotalVelocity(30)
             )
         .setFreq(200)
