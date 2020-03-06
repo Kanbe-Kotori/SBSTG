@@ -20,18 +20,25 @@ class C1S1H extends StageTutorial {
             .setFreq(300)
         );
         launcher1.addLogic(
-            new ScatterRotate(
-                launcher1,    
-                new EllipticalMissile()
+            new Scatter(
+                launcher1,
+			    new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL3)
-                .setTotalVelocity(18)
+                .setTotalVelocity(20)
+				.addHandler(
+					new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                        }
+					)
+					.setTriggerTimes(30)
+				)
             )
-            .setNumber(2)
-            .setStep(360 / 2)
-            .setFreq(100)
-            .setStartAngle(90)
-            .setPeriod(1)
+            .setStartAngle(0)
+            .setNumber(24)
+            .setStep(180 / 24)
+            .setFreq(1200)
         );
 
 		let point2 = new egret.Point(Main.X * 0.4, 300);
@@ -108,18 +115,25 @@ class C1S1H extends StageTutorial {
             .setFreq(300)
         );
         launcher4.addLogic(
-            new ScatterRotate(
-                launcher4,    
-                new EllipticalMissile()
+            new Scatter(
+                launcher4,
+			    new EllipticalMissile()
                 .setSize(30, 36)
                 .setTexture(TextureNames.MISSILE_PETAL3)
-                .setTotalVelocity(18)
+                .setTotalVelocity(20)
+				.addHandler(
+					new TickEventHandler(
+						(missile:MissileBase) => {
+                            missile.setTotalVelocity(missile.getVelocity() + 1);
+                        }
+					)
+					.setTriggerTimes(30)
+				)
             )
-            .setNumber(2)
-            .setStep(360 / 2)
-            .setFreq(100)
-            .setStartAngle(90)
-            .setPeriod(-1)
+            .setStartAngle(0)
+            .setNumber(24)
+            .setStep(180 / 24)
+            .setFreq(1200)
         );
 	}
 }
