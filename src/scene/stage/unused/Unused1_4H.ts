@@ -1,4 +1,4 @@
-class Unused1h extends StageBase {
+class Unused1H extends StageBase {
     public constructor() {
         super("unused1h", 20);
     }
