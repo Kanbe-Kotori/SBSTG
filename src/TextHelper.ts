@@ -57,7 +57,7 @@ class TextHelper {
 		StageData.stage2_3.title = "2-3 反射";
 
 		StageData.stage3_1.title = "3-1 细雨";
-		StageData.stage3_2.title = "3-2 暴雨";
+		StageData.stage3_2.title = "3-2";
 		StageData.stage3_3.title = "3-3 狂风";
 		StageData.stage3_4.title = "3-4 旋涡";
 		StageData.stage3_5.title = "3-5 冰雹";
@@ -75,8 +75,9 @@ class TextHelper {
 		StageData.stage2_1h.title = "2-1H 瞬间白给";
 		StageData.stage2_2h.title = "2-2H 追云逐月";
 		StageData.stage2_3h.title = "2-3H 三面埋伏";
-		StageData.stage2_7h.title = "2-EX 盛夏之花";
+		StageData.stage2_7h.title = "2-EX 喷涌";
 
+		StageData.stage3_1h.title = "3-1H 暴雨";
 		StageData.stage3_7h.title = "3-EX 星陨";
 
 		StageData.stageEX_2.title = "ex-2 滴水成冰";

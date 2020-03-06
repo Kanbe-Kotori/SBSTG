@@ -56,6 +56,7 @@ class StageData {
 	public static stage2_3h:StageBase;
 	public static stage2_7h:StageBase;
 	
+	public static stage3_1h:StageBase;
 	public static stage3_7h:StageBase;
 
 	public static stageEX_1:StageBase;
@@ -102,7 +103,7 @@ class StageData {
 		StageData.stage1_1 = new C1S1();
 		StageData.stage1_2 = new C1S2();
 		StageData.stage1_3 = new C1S3();
-		StageData.stage1_4 = new C1S4();
+		StageData.stage1_4 = new Unused1();
 		StageData.stage1_5 = new C1S5();
 		StageData.stage1_6 = new C1S6();
 		StageData.stage1_7 = new C1S7();
@@ -112,7 +113,7 @@ class StageData {
 		StageData.stage2_3 = new C2S3();
 
 		StageData.stage3_1 = new C3S1();
-		StageData.stage3_2 = new C3S2();
+		StageData.stage3_2 = new C3S1();
 		StageData.stage3_3 = new C3S3();
 		StageData.stage3_4 = new C3S4();
 		StageData.stage3_5 = new C3S5();
@@ -132,6 +133,7 @@ class StageData {
 		StageData.stage2_3h = new C2S3H();
 		StageData.stage2_7h = new C2S7H();
 
+		StageData.stage3_1h = new C3S1H();
 		StageData.stage3_7h = new C3S7H();
 
 		StageData.stageEX_1 = new StageEX_1("ex-1", 30);
