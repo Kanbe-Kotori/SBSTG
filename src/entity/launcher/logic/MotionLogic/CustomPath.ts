@@ -1,6 +1,7 @@
 class CustomPath extends LauncherLogicBase {
 
 	private _path:Function;
+    private _shouldResetPos:boolean = true;
 
     public constructor(launcher:Launcher, path:Function) {
         super(launcher);
@@ -14,7 +15,13 @@ class CustomPath extends LauncherLogicBase {
 
     public reset() {
 		super.reset();
+        if (this._shouldResetPos)
         this._launcher.setPos(this._path(0));
+    }
+
+    public resetPos(b:boolean) {
+        this._shouldResetPos = b;
+        return this;
     }
 
 }

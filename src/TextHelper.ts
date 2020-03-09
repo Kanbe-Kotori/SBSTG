@@ -65,11 +65,11 @@ class TextHelper {
 		StageData.stage3_7.title = "3-ex 天火";
 
 		StageData.stage1_1h.title = "1-1H 下马威";
-		StageData.stage1_2h.title = "1-2H 莲子霰弹";
-		StageData.stage1_3h.title = "1-3H 加特林";
+		StageData.stage1_2h.title = "1-2H 霰弹";
+		StageData.stage1_3h.title = "1-3H 花之雨";
 		StageData.stage1_4h.title = "1-4H 星桥火树";
-		StageData.stage1_5h.title = "1-5H 花之浪";
-		StageData.stage1_6h.title = "1-6H 花朵炸弹";
+		StageData.stage1_5h.title = "1-5H 花浪";
+		StageData.stage1_6h.title = "1-6H 花朵加农";
 		StageData.stage1_7h.title = "1-EX 多重制导";
 
 		StageData.stage2_1h.title = "2-1H 瞬间白给";
@@ -103,8 +103,9 @@ class TextHelper {
 		StageData.stage1_2.help_text = "本关和1-1解法类似，但在微移躲自机狙（莲子）时，也要注意把握好穿过慢速花瓣固定弹的时机。\n\n" + 
 			"由于莲子自机狙是逐渐减速的，因此在屏幕下方进行规避会稍微简单一些。"
 		StageData.stage1_3.help_text = "本关的弹幕包括紫色固定弹，粉色自机狙和蓝色白给弹，其中蓝色弹不乱走的话是不会击中你哒，只需要注意微移躲自机狙的时候不要被紫色固定弹击中。";
-		StageData.stage1_4.help_text = "本关在设计时就觉得有点迷。。虽然最后发现可以躲在版底强扭，但我一开始想的是绕屏幕转圈引自机狙，结果由于需要多次穿越紫色弹幕所以反而更难了。\n\n" + 
-			"如果你是车万狗的话，本关应该难不倒你。但假如实在过不去的话，建议跳过本关。";
+		/*StageData.stage1_4.help_text = "本关在设计时就觉得有点迷。。虽然最后发现可以躲在版底强扭，但我一开始想的是绕屏幕转圈引自机狙，结果由于需要多次穿越紫色弹幕所以反而更难了。\n\n" + 
+			"如果你是车万狗的话，本关应该难不倒你。但假如实在过不去的话，建议跳过本关。";*/
+		StageData.stage1_4.help_text = "本关也是乍一看很恐怖的类型，其实只需要在弹幕扩散开时找好红弹的缝隙微移穿过去即可，多试试很容易过的。";
 		StageData.stage1_5.help_text = "本关逐渐扩大的自机狙可以选择微移擦弹，也可以选择快速移动躲开。但前者容易走太慢暴毙，后者容易撞流矢翻车，要权衡利弊。" + 
 			"一点题外话，如果是更新之前玩过本游戏的老玩家的话，应该发现这一关彻底改了，因为之前实在凑不出关卡了。";
 		StageData.stage1_6.help_text = "本关由粉色自机狙，蓝色随机弹和紫色固定弹构成，和1-3类似，在微移躲自机狙的同时要注意飞来的流矢。";
@@ -112,6 +113,8 @@ class TextHelper {
 			"作为第一个EX关卡，本关难度可能偏高，建议普通玩家不要自暴自弃，实在过不了就放弃吧。"
 
 		StageData.stage2_1.help_text = "本关属于制作组的怜悯，目的是让玩家认识固定弹的白给关，注意好粉弹的空隙即可。";
+
+		StageData.stage1_4h.help_text = "这一关在过去是凑数关，在重制时我其实在几个版本之间纠结了很多次，最后还是选择了这个设计。";
 
 /*
 		new StageInfo(

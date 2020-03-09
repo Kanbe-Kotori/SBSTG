@@ -80,7 +80,7 @@ class C1S4H extends StageBase {
 								new TickEventHandler(
 									(missile:MissileBase) => {
 										let theta1 = theta + (Math.random() - 0.5) * Math.PI;
-										let v1 = 12 + 6 * i;
+										let v1 = 12 + 4 * i;
 										missile.setVelocity(v1 * Math.cos(theta1), v1 * Math.sin(theta1));
 									}
 								)

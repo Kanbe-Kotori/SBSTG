@@ -9,7 +9,11 @@ class C3S7H extends StageBase {
             new CustomPath(
                 launcher1,
                 (t:number) => {
-				    return new egret.Point(90 + Math.random() * 360 + (t % 10)/5 * 540, Math.random() * 180 + Main.UPPER_Y);
+				    if (t % 10 < 5) {
+                        return new egret.Point(90 + Math.random() * 450, Math.random() * 180 + Main.UPPER_Y);
+                    } else {
+                        return new egret.Point(990 - Math.random() * 450, Math.random() * 180 + Main.UPPER_Y);
+                    }
 			    }
             )
             .setFreq(250)
