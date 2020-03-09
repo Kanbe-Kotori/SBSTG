@@ -47,8 +47,8 @@ class TextHelper {
 		StageData.stage1_1.title = "1-1 初探";
 		StageData.stage1_2.title = "1-2 莲子";
 		StageData.stage1_3.title = "1-3 旋转";
-		StageData.stage1_4.title = "1-4 瞄准";
-		StageData.stage1_5.title = "1-5 绽放";
+		StageData.stage1_4.title = "1-4 夏花";
+		StageData.stage1_5.title = "1-5 冲击";
 		StageData.stage1_6.title = "1-6 爆裂";
 		StageData.stage1_7.title = "1-ex 跟踪";
 
@@ -58,7 +58,7 @@ class TextHelper {
 
 		StageData.stage3_1.title = "3-1 细雨";
 		StageData.stage3_2.title = "3-2";
-		StageData.stage3_3.title = "3-3 狂风";
+		StageData.stage3_3.title = "3-3 水华";
 		StageData.stage3_4.title = "3-4 旋涡";
 		StageData.stage3_5.title = "3-5 冰雹";
 		StageData.stage3_6.title = "3-6 飞花";
@@ -67,10 +67,10 @@ class TextHelper {
 		StageData.stage1_1h.title = "1-1H 下马威";
 		StageData.stage1_2h.title = "1-2H 莲子霰弹";
 		StageData.stage1_3h.title = "1-3H 加特林";
-		StageData.stage1_4h.title = "1-4H 花瓣扫射";
-		StageData.stage1_5h.title = "1-5H 冲击波";
+		StageData.stage1_4h.title = "1-4H 星桥火树";
+		StageData.stage1_5h.title = "1-5H 花之浪";
 		StageData.stage1_6h.title = "1-6H 花朵炸弹";
-		StageData.stage1_7h.title = "1-EX 快速制导";
+		StageData.stage1_7h.title = "1-EX 多重制导";
 
 		StageData.stage2_1h.title = "2-1H 瞬间白给";
 		StageData.stage2_2h.title = "2-2H 追云逐月";
@@ -78,6 +78,7 @@ class TextHelper {
 		StageData.stage2_7h.title = "2-EX 喷涌";
 
 		StageData.stage3_1h.title = "3-1H 暴雨";
+		StageData.stage3_3h.title = "3-3H 赤潮";
 		StageData.stage3_7h.title = "3-EX 星陨";
 
 		StageData.stageEX_2.title = "ex-2 滴水成冰";

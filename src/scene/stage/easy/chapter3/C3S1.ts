@@ -10,7 +10,7 @@ class C3S1 extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
-                .setTotalVelocity(15)
+                .setTotalVelocity(10)
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -29,7 +29,7 @@ class C3S1 extends StageBase {
             .setFreq(250)
             .setStartAngle(75)
             .setEndAngle(105)
-            .setNumber(8)
+            .setNumber(5)
             .setExtraVelocity(5)
         );
     }

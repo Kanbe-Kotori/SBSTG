@@ -1,9 +1,9 @@
-class C3S1H extends StageBase {
+class Unused_Rainwind extends StageBase {
     public constructor() {
-        super("c3s1h", 20);
+        super("unused3_3", 20);
     }
 
-    protected initEmitters() {
+	protected initEmitters() {
         let launcher1 = LauncherFactory.normalLauncher();
         launcher1.addLogic(
             new SideShooter(
@@ -11,6 +11,13 @@ class C3S1H extends StageBase {
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
                 .setTotalVelocity(15)
+				.addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+							missile.addVelocity(4 * Math.random() - 2, 0);
+                        }
+                    )
+                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -29,7 +36,7 @@ class C3S1H extends StageBase {
             .setFreq(250)
             .setStartAngle(75)
             .setEndAngle(105)
-            .setNumber(8)
+            .setNumber(5)
             .setExtraVelocity(5)
         );
 
@@ -38,8 +45,15 @@ class C3S1H extends StageBase {
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_BLUE)
-                .setRadius(18)
+                .setSize(36, 36)
                 .setTotalVelocity(20)
+				.addHandler(
+                    new TickEventHandler(
+                        (missile:MissileBase) => {
+							missile.addVelocity(8 * Math.random() - 4, 0);
+                        }
+                    )
+                )
                 .addHandler(
                     new EdgeEventHandler(
                         (missile:MissileBase) => {
@@ -63,7 +77,7 @@ class C3S1H extends StageBase {
 									)
 									.setStartTicks(90)
 									.setTriggerTimes(1)
-								);
+									);
                                 missile1.addToStage();
                                 missile.setDead();
                             } else {
@@ -76,8 +90,7 @@ class C3S1H extends StageBase {
             .setFreq(250)
             .setStartAngle(85)
             .setEndAngle(95)
-            .setNumber(4)
-            .setExtraVelocity(10)
+            .setNumber(2)
         );
 	}
 }

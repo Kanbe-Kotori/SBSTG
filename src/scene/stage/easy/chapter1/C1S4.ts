@@ -1,20 +1,20 @@
-class C1S4H extends StageBase {
+class C1S4 extends StageBase {
     public constructor() {
-        super("c1s4h", 20);
+        super("c1s4", 20);
     }
 
     protected initEmitters() {
-		let point1 = new egret.Point(540, 690);
+		let point1 = new egret.Point(540, 600);
         let launcher1 = LauncherFactory.texturedLauncher(TextureNames.FLOWER1, 160, 120).setInitialPos(point1);
 		launcher1.addLogic(
 			new CustomShooter(
 				launcher1,
                 (launcher:Launcher) => {
-					for (let i = 0; i <= 4; i++) {
+					for (let i = 0; i <= 3; i++) {
 						let div = Math.random() * 2 * Math.PI;
-						for (let j = 0; j < 48; j++) {
+						for (let j = 0; j < 24; j++) {
 							let v = 24 + 16 * i + 0.01;
-							let theta = j * 2 * Math.PI / 48 + div;
+							let theta = j * 2 * Math.PI / 24 + div;
 							let missile = new EllipticalMissile()
                 			.setSize(30, 36)
                 			.setTexture(TextureNames.MISSILE_PETAL2)
@@ -32,7 +32,7 @@ class C1S4H extends StageBase {
 								new TickEventHandler(
 									(missile:MissileBase) => {
 										let theta1 = MissileUtils.getSniperAngle(missile.getPos());
-										missile.setVelocity(20 * Math.cos(theta1), 20 * Math.sin(theta1));
+										missile.setVelocity(15 * Math.cos(theta1), 15 * Math.sin(theta1));
 									}
 								)
 								.setTriggerTimes(1)
@@ -52,7 +52,7 @@ class C1S4H extends StageBase {
 					}
 				}
 			)
-			.setFreq(1600)
+			.setFreq(2500)
 		)
 
 		launcher1.addLogic(
@@ -61,9 +61,9 @@ class C1S4H extends StageBase {
                 (launcher:Launcher) => {
 					for (let i = 0; i <= 4; i++) {
 						let div = Math.random() * 2 * Math.PI;
-						for (let j = 0; j < 72; j++) {
+						for (let j = 0; j < 36; j++) {
 							let v = 32 + 16 * i + 0.01;
-							let theta = j * 2 * Math.PI / 72 + div;
+							let theta = j * 2 * Math.PI / 36 + div;
 							let missile = new RoundMissile()
                 			.setTexture(TextureNames.MISSILE_RED)
 							.setPos(launcher.getPos())
@@ -80,7 +80,7 @@ class C1S4H extends StageBase {
 								new TickEventHandler(
 									(missile:MissileBase) => {
 										let theta1 = theta + (Math.random() - 0.5) * Math.PI;
-										let v1 = 12 + 6 * i;
+										let v1 = 10 + 5 * i;
 										missile.setVelocity(v1 * Math.cos(theta1), v1 * Math.sin(theta1));
 									}
 								)
@@ -92,7 +92,7 @@ class C1S4H extends StageBase {
 					}
 				}
 			)
-			.setFreq(1600)
+			.setFreq(2500)
 		)
 	}
 }

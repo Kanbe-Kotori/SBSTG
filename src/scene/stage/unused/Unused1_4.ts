@@ -1,6 +1,6 @@
 class Unused1 extends StageBase {
     public constructor() {
-        super("unused1", 20);
+        super("unused1_4", 20);
     }
 
     protected initEmitters() {
