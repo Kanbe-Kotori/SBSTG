@@ -1,6 +1,6 @@
-class C3S5 extends StageBase {
+class C3S2H extends StageBase {
     public constructor() {
-        super("c3s5", 20);
+        super("c3s2h", 20);
     }
 
      protected initEmitters() {
