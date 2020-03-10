@@ -47,12 +47,13 @@ class TextHelper {
 		StageData.stage1_1.title = "1-1 初探";
 		StageData.stage1_2.title = "1-2 莲子";
 		StageData.stage1_3.title = "1-3 旋转";
-		StageData.stage1_4.title = "1-4 夏花";
+		StageData.stage1_4.title = "1-4 花火";
 		StageData.stage1_5.title = "1-5 冲击";
 		StageData.stage1_6.title = "1-6 爆裂";
 		StageData.stage1_7.title = "1-ex 跟踪";
 
 		StageData.stage2_1.title = "2-1 白给";
+		StageData.stage2_2.title = "2-2 飞絮";
 		StageData.stage2_3.title = "2-3 反射";
 		StageData.stage2_4.title = "2-4 快与慢";
 
@@ -73,6 +74,7 @@ class TextHelper {
 		StageData.stage1_7h.title = "1-EX 多重制导";
 
 		StageData.stage2_1h.title = "2-1H 瞬间白给";
+		StageData.stage2_2h.title = "2-2H 飞絮落花";
 		StageData.stage2_3h.title = "2-3H 三面埋伏";
 		StageData.stage2_4h.title = "2-4H 追云逐月";
 		StageData.stage2_7h.title = "2-EX 喷涌";
@@ -92,7 +94,7 @@ class TextHelper {
 		StageData.tutorial5.tutorial_text = "本关认识弹幕类型中的萌新杀手——自机狙，但其实掌握技巧就很很躲。请仍然点击i按钮查看帮助。";
 		StageData.tutorial6.tutorial_text = "本关请您尝试位于选关和死亡界面的关卡跳过功能。请放心，不会有收费或者广告的。（当然，想硬打也可以）";
 		StageData.stage1_1.tutorial_text = "欢迎来到正式关卡！从本关开始本弹出框就不会再出现了，但右下角的i按钮仍然可用，如果卡关了记得去看看！";
-		StageData.stage1_1h.tutorial_text = "欢迎来到困难关卡！从本关开始你将可以感受到车万玩家为什么可以出门不带伞（开玩笑的）";
+		StageData.stage1_1h.tutorial_text = "欢迎来到困难关卡！困难关卡难度很高，不要妄想一次通过，建议反复尝试。";
 
 		StageData.tutorial1.help_text = "这里是关卡的帮助文本，会有一些过关的小技巧，可以帮助你更容易地过关。每一关的帮助文本都不同，如果卡关了记得常来看看。";
 		StageData.tutorial2.help_text = "虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。\n\n" +

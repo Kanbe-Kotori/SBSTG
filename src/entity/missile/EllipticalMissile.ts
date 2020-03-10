@@ -45,14 +45,7 @@ class EllipticalMissile extends MissileBase {
     }
 
 	public onUpdate(event: egret.TimerEvent) {
-        let ang = 0;
-        if (this._vy == 0) {
-            ang = this._vx >= 0? Math.PI / 2 : -Math.PI / 2;
-        } else if (this._vy > 0) {
-            ang = Math.atan(this._vx / this._vy);        
-        } else {
-            ang = Math.atan(this._vx / this._vy) + Math.PI;
-        }
+        let ang = Math.PI / 2 - this.getDirection();
         this.img.rotation = - ang / Math.PI * 180;
         this._ang = ang;
 		super.onUpdate(event);
