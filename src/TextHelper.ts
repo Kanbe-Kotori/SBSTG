@@ -55,7 +55,7 @@ class TextHelper {
 		StageData.stage2_1.title = "2-1 白给";
 		StageData.stage2_2.title = "2-2 飞絮";
 		StageData.stage2_3.title = "2-3 反射";
-		StageData.stage2_4.title = "2-4 快与慢";
+		StageData.stage2_4.title = "2-4 快慢";
 
 		StageData.stage3_1.title = "3-1 细雨";
 		//StageData.stage3_2.title = "3-2 落雪";
@@ -66,10 +66,10 @@ class TextHelper {
 		StageData.stage3_7.title = "3-ex 天火";
 
 		StageData.stage1_1h.title = "1-1H 下马威";
-		StageData.stage1_2h.title = "1-2H 霰弹";
+		StageData.stage1_2h.title = "1-2H 流矢霰弹";
 		StageData.stage1_3h.title = "1-3H 花之雨";
 		StageData.stage1_4h.title = "1-4H 星桥火树";
-		StageData.stage1_5h.title = "1-5H 花浪";
+		StageData.stage1_5h.title = "1-5H 二重冲击";
 		StageData.stage1_6h.title = "1-6H 花朵加农";
 		StageData.stage1_7h.title = "1-EX 多重制导";
 
@@ -82,8 +82,10 @@ class TextHelper {
 		StageData.stage3_1h.title = "3-1H 暴雨";
 		StageData.stage3_2h.title = "3-2H 冰雹";
 		StageData.stage3_3h.title = "3-3H 赤潮";
+		StageData.stage3_4h.title = "3-4H 百慕大";
 		StageData.stage3_7h.title = "3-EX 星陨";
 
+		StageData.stageEX_1.title = "ex-1 二象性";
 		StageData.stageEX_2.title = "ex-2 滴水成冰";
 		StageData.stageEX_5.title = "ex-5 阴阳交错";
 
@@ -92,33 +94,56 @@ class TextHelper {
 		StageData.tutorial3.tutorial_text = "本关认识弹幕中最常见的一类——固定弹，即无论如何都不发生变化的弹幕。请点击右下角的i按钮查看帮助。";
 		StageData.tutorial4.tutorial_text = "本关认识弹幕类型中的随机弹，即在一定限制下随机生成的弹幕。请继续点击i按钮查看帮助。";
 		StageData.tutorial5.tutorial_text = "本关认识弹幕类型中的萌新杀手——自机狙，但其实掌握技巧就很很躲。请仍然点击i按钮查看帮助。";
-		StageData.tutorial6.tutorial_text = "本关请您尝试位于选关和死亡界面的关卡跳过功能。请放心，不会有收费或者广告的。（当然，想硬打也可以）";
+		StageData.tutorial6.tutorial_text = "本关请您尝试位于选关和死亡界面的关卡跳过功能。请放心，不会有收费或者广告的。（当然，如果想试试硬打也可以）";
 		StageData.stage1_1.tutorial_text = "欢迎来到正式关卡！从本关开始本弹出框就不会再出现了，但右下角的i按钮仍然可用，如果卡关了记得去看看！";
-		StageData.stage1_1h.tutorial_text = "欢迎来到困难关卡！困难关卡难度很高，不要妄想一次通过，建议反复尝试。";
+		StageData.stage1_1h.tutorial_text = "欢迎来到困难关卡！可以说，这才是游戏真正的开始。请不要妄想一次通过，反复尝试攻略吧。";
+		StageData.stageEX_1.tutorial_text = "欢迎来到额外关卡！额外关卡难度并不比困难更高，它们只是一系列与主题无关的、很多都是从别处借鉴而来的弹幕，请尽情游玩吧。";
 
 		StageData.tutorial1.help_text = "这里是关卡的帮助文本，会有一些过关的小技巧，可以帮助你更容易地过关。每一关的帮助文本都不同，如果卡关了记得常来看看。";
-		StageData.tutorial2.help_text = "虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。\n\n" +
-			"小金鱼的中弹判定范围只有中心的黑点，并不是整条鱼，所以本关中看起来花里胡哨的弹幕根本打不到你。"
+		StageData.tutorial2.help_text = "虽然在帮助中已经写过了，但我估计没人看，所以这里再说一遍。小金鱼的中弹判定范围只有中心的黑点，并不是整条鱼，所以本关中看起来花里胡哨的弹幕根本打不到你。"
+		StageData.tutorial3.help_text = "所谓固定弹，即和自机位置没有任何关系，亦没有任何随机性的子弹，甚至每次重开关卡位置都不变。固定弹的破解要点通常是提前找好安定的位置。"
+		StageData.tutorial4.help_text = "随机弹是一种很拼运气的子弹，有时运气不好就会被随机弹完全堵死。此时只需心平气和，重启关卡即可。";
 		StageData.tutorial5.help_text = "自机狙属于不掌握技巧就很难应付的类型，因此是STG类游戏中劝退新人的第一道难关。这里教大家一个通用解法，单向微移法。\n\n" +
 			"由于自机狙子弹在瞄准之后，飞行轨迹就不再改变，因此玩家只需要从屏幕的一角向另一个方向缓慢移动，就可以让所有子弹从玩家另一侧擦过。";
 
-		StageData.stage1_1.help_text = "本关乍一看虽然非常恐怖，但如果你有看过教程关《认识弹幕3》中的单向微移法，本关就是完全白给。如果没看过的，给我老老实实回去看啦~";
-		StageData.stage1_2.help_text = "本关和1-1解法类似，但在微移躲自机狙（莲子）时，也要注意把握好穿过慢速花瓣固定弹的时机。\n\n" + 
-			"由于莲子自机狙是逐渐减速的，因此在屏幕下方进行规避会稍微简单一些。"
-		StageData.stage1_3.help_text = "本关的弹幕包括紫色固定弹，粉色自机狙和蓝色白给弹，其中蓝色弹不乱走的话是不会击中你哒，只需要注意微移躲自机狙的时候不要被紫色固定弹击中。";
+		StageData.stage1_1.help_text = "本关虽然乍一看非常恐怖，但其实所有屏幕上的子弹都是单数自机狙，如果你会单向微移法的话，本关就是完全白给。"
+		+ "\n\n如果不会的话，你肯定跳教程了，请重新打开教程关《认识弹幕3》查看右下角帮助。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_2.help_text = "本关和上一关解法类似。由于莲子是逐渐减速的，因此在屏幕下方进行规避会稍微简单一些。"
+		+ "\n\n需要特别注意的是，在屏幕下方微移躲自机狙时，请注意把握好穿过慢速花瓣固定弹的时机。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_3.help_text = "本关的弹幕包括紫色固定弹，粉色自机狙和蓝色白给弹，其中蓝色白给弹如果你不乱走的话是不会击中你哒，只需要注意微移躲自机狙的时候不要被紫色固定弹击中。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_4.help_text = "本关也是乍一看很恐怖的类型，其实只需要在弹幕扩散开时找好红弹的缝隙微移穿过去即可，多试试很容易过的。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_5.help_text = "本关逐渐扩大的自机狙可以选择微移擦弹，也可以选择快速移动躲开。但前者容易走太慢暴毙，后者容易撞流矢翻车，要权衡利弊。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_6.help_text = "本关由粉色自机狙，蓝色随机弹和紫色固定弹构成，和1-3类似，在微移躲自机狙的同时要注意飞来的流矢。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_7.help_text = "本关作为第一个EX关卡，难度（比之前的白给关）可能稍高，建议之前没接触过弹幕游戏的普通玩家不要自暴自弃，实在过不了就跳过吧。"
+		+ "\n\n本关设计者：zun(笑)";
+
+		StageData.stage2_1.help_text = "本关属于制作组的怜悯，目的是让玩家认识固定弹的白给关，注意好粉弹的空隙即可。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage2_2.help_text = "本关也不是很难，解法有版底强扭或者跟着发射器旋转两种，但前者容易被封位暴毙，后者比较吃操作，自行选择吧。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage2_3.help_text = "本关虽然不是很难，但应该没什么逃课小技巧，至少我是没找到安定点，老老实实扭吧。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage2_4.help_text = "本关有很多个可以站很多轮的安定点，多玩几次就能找到了。"
+		+ "\n\n本关设计者：chitose";
+
+		StageData.stage1_1h.help_text = "鉴于能打hard的人水平应该都不需要看提示了，这个难度下这里就用来碎碎念吧。"
+		+ "\n\n其实游戏制作者只是一个车万菜鸟，所以制作这个游戏的目的也只是希望能让更多人接触STG、了解STG，而不是把它作为骗钱的工具。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_2h.help_text = "这一关其实历史非常悠久了，当我第一次做出这个游戏的原型，甚至还没有选关和胜利界面的时候，屏幕上用来测试的就是这一关。"
+		+ "\n\n如果各位有兴趣看看这个游戏最初长什么德行，可以去本游戏的taptap论坛上看看。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_4h.help_text = "这一关在过去是凑数关，在重制时我其实在几个版本之间纠结了很多次，最后还是选择了这个设计。";
+		StageData.stage1_5h.help_text = "一点题外话，如果是更新之前玩过本游戏的老玩家的话，应该发现这一关彻底改了，因为之前实在凑不出关卡了。";
+		StageData.stage1_7h.help_text = "看到这一关，有些车万狗可能已经产生幻视了。没错，本关的灵感来源就是永夜抄中灵梦的符卡——回霊「夢想封印 侘」。\n\n"
+
 		/*StageData.stage1_4.help_text = "本关在设计时就觉得有点迷。。虽然最后发现可以躲在版底强扭，但我一开始想的是绕屏幕转圈引自机狙，结果由于需要多次穿越紫色弹幕所以反而更难了。\n\n" + 
 			"如果你是车万狗的话，本关应该难不倒你。但假如实在过不去的话，建议跳过本关。";*/
-		StageData.stage1_4.help_text = "本关也是乍一看很恐怖的类型，其实只需要在弹幕扩散开时找好红弹的缝隙微移穿过去即可，多试试很容易过的。";
-		StageData.stage1_5.help_text = "本关逐渐扩大的自机狙可以选择微移擦弹，也可以选择快速移动躲开。但前者容易走太慢暴毙，后者容易撞流矢翻车，要权衡利弊。" + 
-			"一点题外话，如果是更新之前玩过本游戏的老玩家的话，应该发现这一关彻底改了，因为之前实在凑不出关卡了。";
-		StageData.stage1_6.help_text = "本关由粉色自机狙，蓝色随机弹和紫色固定弹构成，和1-3类似，在微移躲自机狙的同时要注意飞来的流矢。";
-		StageData.stage1_7.help_text = "看到这一关，有些车万狗可能已经产生幻视了。没错，本关的灵感来源就是永夜抄中灵梦的符卡——回霊「夢想封印 侘」。\n\n" +
-			"作为第一个EX关卡，本关难度可能偏高，建议普通玩家不要自暴自弃，实在过不了就放弃吧。"
-
-		StageData.stage2_1.help_text = "本关属于制作组的怜悯，目的是让玩家认识固定弹的白给关，注意好粉弹的空隙即可。";
-
-		StageData.stage1_4h.help_text = "这一关在过去是凑数关，在重制时我其实在几个版本之间纠结了很多次，最后还是选择了这个设计。";
-
 /*
 		new StageInfo(
 			"2-1",

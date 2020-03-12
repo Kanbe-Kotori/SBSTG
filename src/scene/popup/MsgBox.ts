@@ -17,9 +17,9 @@ class MsgBox extends Popup {
 
         let text = new egret.TextField();
         text.x = 300;
-        text.y = 780;
+        text.y = 760;
         text.width = 480;
-        text.height = 360;
+        text.height = 380;
         text.text = this._text;
         text.size = 48;
         text.textColor = 0x000000;

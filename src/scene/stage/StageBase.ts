@@ -85,6 +85,17 @@ abstract class StageBase extends PageBase {
         sky.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
         sky.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
 
+        /*
+        //本来想加一道横线，但太难看了还是不加了，果然还是直接在背景上画吧。
+        let line = new egret.Shape();
+        line.x = 0;
+        line.y = Main.UPPER_Y - 4;
+        line.graphics.beginFill(0x000000, 1);
+        line.graphics.drawRect(0, 0, Main.X, 4);
+        line.graphics.endFill();
+        this.addChildAtLayer(line, DrawingLayer.CONTROL);
+        */
+
         this._titleText = new egret.TextField();
         this._titleText.width = 1080;
         this._titleText.height = 120;
