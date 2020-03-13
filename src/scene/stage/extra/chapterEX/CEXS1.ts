@@ -18,7 +18,7 @@ class CEXS1 extends StageTutorial {
                         .setSize(30, 36)
                         .setTexture(TextureNames.MISSILE_PETAL2)
                         .setPos(launcher.getPos())
-                        .setVelocity(v * Math.cos(theta), v *Math.sin(theta))
+                        .setVelocity(v * Math.cos(theta), v * Math.sin(theta))
                         missile.addToStage();
                     }
 				}

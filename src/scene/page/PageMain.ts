@@ -1,17 +1,30 @@
 class PageMain extends PageBase {
 
     public static readonly INSTANCE:PageMain = new PageMain();
+    public click_title_times:number = 10;
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
     }
 
     protected doRender() {
+        this.click_title_times = 10;
+
         let sky = MyUtils.createBitmapByName(TextureNames.MAIN_PAGE);
         sky.width = Main.X;
         sky.height = Main.Y;
         sky.alpha = 1;
         this.addChild(sky);
+
+        let title = MyUtils.createBitmapByName(TextureNames.GAME_TITLE);
+        title.width = 720;
+        title.height = 240;
+        title.alpha = 1;
+        title.x = 180;
+        title.y = 400;
+        title.touchEnabled = true;
+        this.addChild(title);
+        title.addEventListener(egret.TouchEvent.TOUCH_TAP, PageMain.click_title, this);
 
         let btnStart = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.5), "开始游戏");
         btnStart.setAction(PageMain.click_start);
@@ -38,6 +51,14 @@ class PageMain extends PageBase {
         }
         */
         MsgBox.showMsgBox(this, TextHelper.warning_text);
+    }
+
+    public static click_title(evt:egret.TouchEvent) {
+        if (--PageMain.INSTANCE.click_title_times <= 0) {
+            PageMain.INSTANCE.click_title_times = 10;
+            SelfMachine.INSTANCE.UNDEAD = !SelfMachine.INSTANCE.UNDEAD;
+            MsgBox.showMsgBox(PageMain.INSTANCE, "作弊成功，当前自机无敌情况为：" + SelfMachine.INSTANCE.UNDEAD);
+        }
     }
 
     public static click_start(evt:egret.TouchEvent) {

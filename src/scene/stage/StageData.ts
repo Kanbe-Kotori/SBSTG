@@ -33,7 +33,7 @@ class StageData {
 	public static stage2_4:StageBase;
 	public static stage2_5:StageBase;
 	public static stage2_6:StageBase;
-	public static stage2_ex:StageBase;
+	public static stage2_7:StageBase;
 
 	public static stage3_1:StageBase;
 	public static stage3_2:StageBase;
@@ -73,7 +73,7 @@ class StageData {
 	public static init() {
 		StageData.initChapters();
 		StageData.initStages();
-		StageData.addStageToChapers();
+		StageData.addStageToChapters();
 		TextHelper.initStageText();
 		StageData.initRelations();
 	}
@@ -119,7 +119,7 @@ class StageData {
 		StageData.stage2_4 = new C2S4();
 
 		StageData.stage3_1 = new C3S1();
-		//StageData.stage3_2 = new C3S1();
+		StageData.stage3_2 = new C3S2();
 		StageData.stage3_3 = new C3S3();
 		StageData.stage3_4 = new C3S4();
 		//StageData.stage3_5 = new C3S2H();
@@ -154,7 +154,7 @@ class StageData {
 		StageData.test = new Test();
 	}
 
-	private static addStageToChapers() {
+	private static addStageToChapters() {
 		StageData.chapter_tutorial.addStage("tut1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter_tutorial.addStage("tut2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.chapter_tutorial.addStage("tut3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
@@ -176,7 +176,7 @@ class StageData {
 		StageData.chapter2.addStage("c2s4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.40));
 
 		StageData.chapter3.addStage("c3s1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
-		//StageData.chapter3.addStage("c3s2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
+		StageData.chapter3.addStage("c3s2", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.chapter3.addStage("c3s3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 		StageData.chapter3.addStage("c3s4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.40));
 		//StageData.chapter3.addStage("c3s5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.40));

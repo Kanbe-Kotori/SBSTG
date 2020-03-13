@@ -58,7 +58,7 @@ class TextHelper {
 		StageData.stage2_4.title = "2-4 快慢";
 
 		StageData.stage3_1.title = "3-1 细雨";
-		//StageData.stage3_2.title = "3-2 落雪";
+		StageData.stage3_2.title = "3-2 落雪";
 		StageData.stage3_3.title = "3-3 水华";
 		StageData.stage3_4.title = "3-4 旋涡";
 		//StageData.stage3_5.title = "3-5 冰雹";
@@ -85,7 +85,7 @@ class TextHelper {
 		StageData.stage3_4h.title = "3-4H 百慕大";
 		StageData.stage3_7h.title = "3-EX 星陨";
 
-		StageData.stageEX_1.title = "ex-1 二象性";
+		StageData.stageEX_1.title = "ex-1 波与粒";
 		StageData.stageEX_2.title = "ex-2 滴水成冰";
 		StageData.stageEX_5.title = "ex-5 阴阳交错";
 
