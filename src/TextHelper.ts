@@ -1,7 +1,7 @@
 class TextHelper {
 
 	public static welcome_text = "欢迎来到小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。";
-	public static warning_text = "警告：内部测试版ver2.01，第二章还没做完，第三章难度还没歧化，有些关卡难度失调，有bug。";
+	public static warning_text = "警告：\n内部测试版ver2.02，第二章还没做完，关卡提示还差不少，有些关卡难度令人迷惑，有更多的bug。";
 
 	public static help_text = 
 		<Array<egret.ITextElement>>[
@@ -61,13 +61,13 @@ class TextHelper {
 		StageData.stage3_2.title = "3-2 落雪";
 		StageData.stage3_3.title = "3-3 水华";
 		StageData.stage3_4.title = "3-4 旋涡";
-		//StageData.stage3_5.title = "3-5 冰雹";
+		StageData.stage3_5.title = "3-5 夹击";
 		StageData.stage3_6.title = "3-6 飞花";
 		StageData.stage3_7.title = "3-ex 天火";
 
 		StageData.stage1_1h.title = "1-1H 下马威";
 		StageData.stage1_2h.title = "1-2H 流矢霰弹";
-		StageData.stage1_3h.title = "1-3H 花之雨";
+		StageData.stage1_3h.title = "1-3H 花吹雪";
 		StageData.stage1_4h.title = "1-4H 星桥火树";
 		StageData.stage1_5h.title = "1-5H 二重冲击";
 		StageData.stage1_6h.title = "1-6H 花朵加农";
@@ -79,10 +79,12 @@ class TextHelper {
 		StageData.stage2_4h.title = "2-4H 追云逐月";
 		StageData.stage2_7h.title = "2-EX 喷涌";
 
-		StageData.stage3_1h.title = "3-1H 暴雨";
-		StageData.stage3_2h.title = "3-2H 冰雹";
+		StageData.stage3_1h.title = "3-1H 决河倾";
+		StageData.stage3_2h.title = "3-2H 珠径雨";
 		StageData.stage3_3h.title = "3-3H 赤潮";
 		StageData.stage3_4h.title = "3-4H 百慕大";
+		StageData.stage3_5h.title = "3-5H 万花丛中";
+		StageData.stage3_6h.title = "3-6H 想不出名";
 		StageData.stage3_7h.title = "3-EX 星陨";
 
 		StageData.stageEX_1.title = "ex-1 波与粒";
@@ -112,15 +114,19 @@ class TextHelper {
 		StageData.stage1_2.help_text = "本关和上一关解法类似。由于莲子是逐渐减速的，因此在屏幕下方进行规避会稍微简单一些。"
 		+ "\n\n需要特别注意的是，在屏幕下方微移躲自机狙时，请注意把握好穿过慢速花瓣固定弹的时机。"
 		+ "\n\n本关设计者：chitose";
-		StageData.stage1_3.help_text = "本关的弹幕包括紫色固定弹，粉色自机狙和蓝色白给弹，其中蓝色白给弹如果你不乱走的话是不会击中你哒，只需要注意微移躲自机狙的时候不要被紫色固定弹击中。"
+		StageData.stage1_3.help_text = "本关像加特林一样的发射器发射的弹幕包括紫色固定弹，粉色自机狙和蓝色白给弹。所谓白给弹，又名偶数自机狙，如果你不乱走的话是不会击中你哒。"
+		+ "因此，本关只需要注意在版底微移时，不要被（很瞎眼的）紫色固定弹击中。"
 		+ "\n\n本关设计者：chitose";
 		StageData.stage1_4.help_text = "本关也是乍一看很恐怖的类型，其实只需要在弹幕扩散开时找好红弹的缝隙微移穿过去即可，多试试很容易过的。"
 		+ "\n\n本关设计者：chitose";
 		StageData.stage1_5.help_text = "本关逐渐扩大的自机狙可以选择微移擦弹，也可以选择快速移动躲开。但前者容易走太慢暴毙，后者容易撞流矢翻车，要权衡利弊。"
-		+ "\n\n本关设计者：chitose";
+		+ "\n\n本关制作者：chitose"
+		+ "\n\n本关设计者：花花";
 		StageData.stage1_6.help_text = "本关由粉色自机狙，蓝色随机弹和紫色固定弹构成，和1-3类似，在微移躲自机狙的同时要注意飞来的流矢。"
 		+ "\n\n本关设计者：chitose";
-		StageData.stage1_7.help_text = "本关作为第一个EX关卡，难度（比之前的白给关）可能稍高，建议之前没接触过弹幕游戏的普通玩家不要自暴自弃，实在过不了就跳过吧。"
+		StageData.stage1_7.help_text = "本关作为第一个EX关卡，难度比之前的（白给）关可能稍高，实在过不了就跳过吧。"
+		+ "\n\n如果非要击破的话，本关一定不能微移，而是要在版底大幅度反复横跳，二阶自机狙可不会白给。"
+		+ "\n\n本关制作者：chitose"
 		+ "\n\n本关设计者：zun(笑)";
 
 		StageData.stage2_1.help_text = "本关属于制作组的怜悯，目的是让玩家认识固定弹的白给关，注意好粉弹的空隙即可。"
@@ -138,9 +144,20 @@ class TextHelper {
 		StageData.stage1_2h.help_text = "这一关其实历史非常悠久了，当我第一次做出这个游戏的原型，甚至还没有选关和胜利界面的时候，屏幕上用来测试的就是这一关。"
 		+ "\n\n如果各位有兴趣看看这个游戏最初长什么德行，可以去本游戏的taptap论坛上看看。"
 		+ "\n\n本关设计者：chitose";
-		StageData.stage1_4h.help_text = "这一关在过去是凑数关，在重制时我其实在几个版本之间纠结了很多次，最后还是选择了这个设计。";
-		StageData.stage1_5h.help_text = "一点题外话，如果是更新之前玩过本游戏的老玩家的话，应该发现这一关彻底改了，因为之前实在凑不出关卡了。";
-		StageData.stage1_7h.help_text = "看到这一关，有些车万狗可能已经产生幻视了。没错，本关的灵感来源就是永夜抄中灵梦的符卡——回霊「夢想封印 侘」。\n\n"
+		StageData.stage1_3h.help_text = "这一关似乎也有很悠久的历史了，印象中已经跟随了我很多个版本。这期间机制越加越多，但这一关始终牢牢占住1-3的位置，也许这就是我设计的初心吧（笑）"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_4h.help_text = "和1-3不同，这一关在过去设计得很差，完全就是凑数关。重制时我在几个版本之间反复纠结了很多次，最后还是选择了这个设计。"
+		+ "\n\n这个设计的灵感来源是夏天的花盛开时好像喷火一样，结果没想到写着写着就变成真的烟花了。。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_5h.help_text = "上个版本的1-5关卡甚至比1-4还要差，因为之前实在凑不出关卡了，其实手感很差扭起来也很糟，完全属于硬加难度了。"
+		+ "\n\n在b站闲逛的时候，无意中看到了花花的CS自制弹幕，感觉这张符卡有点像逐渐绽放的一瓣莲花花瓣，就顺手抄了下来，顺便混进了他的粉丝群。"
+		+ "\n\n本关设计者：花花";
+		StageData.stage1_6h.help_text = "说来惭愧，这一关其实并不完全是我设计出来的，而是参考了uuz「完全墨染的樱花」，作了一些调整和简化最终完成的。"
+		+ "\n\n虽然我不敢妄称STG大佬，但原版中先扭再爆的花实在是很瞎（而且很难写），于是就改成了现在这样。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stage1_7h.help_text = "看到这一关，有些车万狗可能已经产生幻视了。没错，这一关就是本人车万入坑作，th08中灵梦的符卡——回霊「夢想封印 侘」。"
+		+ "\n\n总之非常感谢某个酒鬼程序员对本游戏的大力支持（笑）"
+		+ "\n\n本关设计者：zun(笑)";
 
 		/*StageData.stage1_4.help_text = "本关在设计时就觉得有点迷。。虽然最后发现可以躲在版底强扭，但我一开始想的是绕屏幕转圈引自机狙，结果由于需要多次穿越紫色弹幕所以反而更难了。\n\n" + 
 			"如果你是车万狗的话，本关应该难不倒你。但假如实在过不去的话，建议跳过本关。";*/

@@ -96,8 +96,9 @@ class C1S6H extends StageBase {
 						.addHandler(
 							new TickEventHandler(
 								(missile:MissileBase) => {
-									for (let j = 0; j < 12; j++) {
-										let theta = Math.random() * 360;
+									let randomTheta = Math.random() * 2 * Math.PI;
+									for (let j = 0; j < 24; j++) {
+										let theta = randomTheta + MyUtils.ang2rad(15 * j + 4 * Math.random() - 2);
 										let missile1 = new EllipticalMissile()
 										.setSize(30, 36)
 										.setTexture(TextureNames.MISSILE_PETAL1)

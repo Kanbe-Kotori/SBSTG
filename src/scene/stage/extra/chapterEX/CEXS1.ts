@@ -10,10 +10,10 @@ class CEXS1 extends StageTutorial {
 			new CustomShooter(
 				launcher1,
                 (launcher:Launcher) => {
-                    for(let i = 0; i < 8; i++){
-                        let v = 20;
+                    for(let i = 0; i < 7; i++){
+                        let v = 30;
                         let dett = SelfMachine.INSTANCE.currentStage.getCurrentTick() / 20;
-                        let theta = i * 2 * Math.PI / 8 + dett * dett;
+                        let theta = i * 2 * Math.PI / 7 + dett * dett;
                         let missile = new EllipticalMissile()
                         .setSize(30, 36)
                         .setTexture(TextureNames.MISSILE_PETAL2)

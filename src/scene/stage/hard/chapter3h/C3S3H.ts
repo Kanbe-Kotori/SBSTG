@@ -29,7 +29,7 @@ class C3S3H extends StageBase {
             .setFreq(250)
             .setStartAngle(75)
             .setEndAngle(105)
-            .setNumber(8)
+            .setNumber(6)
             .setExtraVelocity(5)
         );
 

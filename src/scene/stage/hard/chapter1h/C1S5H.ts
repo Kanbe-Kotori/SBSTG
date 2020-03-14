@@ -13,23 +13,23 @@ class C1S5H extends StageBase {
                 .setTexture(TextureNames.MISSILE_PETAL4)
                 .setTotalVelocity(20)
             )
-            .setFreq(300)
+            .setFreq(200)
             .setStartAngle(0)
             .setStep(360 / 12)
             .setNumber(12)
-            .setPeriod(-20)
+            .setPeriod(-10)
         );
         launcher1.addLogic(
             new RandomShooter(
                 launcher1,
                 new RoundMissile()
                 .setTexture(TextureNames.MISSILE_GREEN)
-                .setTotalVelocity(15)
+                .setTotalVelocity(10)
             )
             .setFreq(900)
             .setStartAngle(0)
             .setEndAngle(360)
-            .setNumber(32)
+            .setNumber(48)
             .setExtraVelocity(20)
         );
 
