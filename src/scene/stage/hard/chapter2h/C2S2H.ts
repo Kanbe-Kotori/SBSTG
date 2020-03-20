@@ -15,8 +15,8 @@ class C2S2H extends StageBase {
                 .addHandler(
                     new TickEventHandler(
                         (missile:MissileBase) => {
-                            for (let i = 0; i < 24; i++) {
-                                let theta = i / 24 * 2 * Math.PI;
+                            for (let i = 0; i < 18; i++) {
+                                let theta = i / 18 * 2 * Math.PI;
                                 let missile1 =  new RoundMissile()
                                 .setTexture(TextureNames.MISSILE_PETAL4)
                                 .setPos(missile.getPos())

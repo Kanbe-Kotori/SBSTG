@@ -152,9 +152,10 @@ class StageData {
 
 		StageData.stageEX_1 = new CEXS1();
 		StageData.stageEX_2 = new CEXS2();
-		//StageData.stageEX_3 = ;
-		//StageData.stageEX_4 = ;
+		StageData.stageEX_3 = new CEXS3();
+		StageData.stageEX_4 = new CEXS4();
 		StageData.stageEX_5 = new CEXS5();
+
 		StageData.test = new Test();
 	}
 
@@ -189,8 +190,8 @@ class StageData {
 
 		StageData.chapter_extra.addStage("cexs1", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));
 		StageData.chapter_extra.addStage("cexs2", "2", new egret.Point(Main.X * 0.5, Main.Y * 0.25));
-		//StageData.chapter_extra.addStage("ex-3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
-		//StageData.chapter_extra.addStage("ex-4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
+		StageData.chapter_extra.addStage("cexs3", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
+		StageData.chapter_extra.addStage("cexs4", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.4));
 		StageData.chapter_extra.addStage("cexs5", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.4));
 		StageData.chapter_extra.addStage("test", "T", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 

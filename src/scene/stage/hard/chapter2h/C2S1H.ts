@@ -40,7 +40,7 @@ class C2S1H extends StageBase {
             .setStartAngle(0)
             .setNumber(48)
             .setStep(360 / 48)
-            .setFreq(600)
+            .setFreq(400)
 		);
 		launcher1.addLogic(
 			new ScatterRotate(
@@ -60,9 +60,9 @@ class C2S1H extends StageBase {
             )
 			.setDelay(10000)
             .setFreq(100)
-            .setStartAngle(45)
-            .setStep(360 / 4)
-            .setNumber(4)
+            .setStartAngle(30)
+            .setStep(360 / 6)
+            .setNumber(6)
             .setPeriod(6)
 		);
 	}
