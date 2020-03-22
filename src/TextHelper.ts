@@ -1,7 +1,7 @@
 class TextHelper {
 
 	public static welcome_text = "欢迎来到小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。";
-	public static warning_text = "警告：\n内部测试版ver2.02，第二章还没做完，关卡提示还差不少，有些关卡难度令人迷惑，有更多的bug。";
+	public static warning_text = "警告：\n内部测试版ver2.03，第二章还没做完，关卡提示还差不少，有些关卡难度令人迷惑，有更多的bug。";
 
 	public static help_text = 
 		<Array<egret.ITextElement>>[
@@ -56,6 +56,7 @@ class TextHelper {
 		StageData.stage2_2.title = "2-2 飞絮";
 		StageData.stage2_3.title = "2-3 反射";
 		StageData.stage2_4.title = "2-4 快慢";
+		StageData.stage2_5.title = "2-5 横跳";
 
 		StageData.stage3_1.title = "3-1 细雨";
 		StageData.stage3_2.title = "3-2 落雪";

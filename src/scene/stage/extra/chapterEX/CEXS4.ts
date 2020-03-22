@@ -77,7 +77,7 @@ class CEXS4 extends StageBase {
         let tick = SelfMachine.INSTANCE.currentStage.getCurrentTick();
         let clock = tick % 100 >= 25;
         for (let i = 0; i <= 20; i++) {
-            if (!con && i >= 7 && i <= 14) {
+            if (!con && i >= 7 && i <= 13) {
                 continue;
             }
             let point = CEXS4.getRelativePoint(dist, ang, 160, i);

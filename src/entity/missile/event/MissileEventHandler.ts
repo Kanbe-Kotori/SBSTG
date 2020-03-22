@@ -14,18 +14,17 @@ abstract class MissileEventHandler {
 	public trigger(missile:MissileBase) {
 		if (this.shouldTrigger(missile)) {
 			this._func(missile);
-			if (this.triggerTimes > 0)
-				this.triggerTimes--;
+			if (this.triggerTimes > 0) {
+				if (--this.triggerTimes == 0) {
+					missile.removeHandler(this);
+				}
+			}
 		}
 	}
 
 	public setTriggerTimes(times:number) {
 		this.triggerTimes = times;
 		return this;
-	}
-
-	public shouldSetDead() {
-		return this.triggerTimes == 0;
 	}
 
 }

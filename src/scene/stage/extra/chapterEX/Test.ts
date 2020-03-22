@@ -4,7 +4,7 @@ class Test extends StageBase {
     }
 
     protected initEmitters() {
-        //测试关卡用
+        //测试关卡用        
     }
 
 }

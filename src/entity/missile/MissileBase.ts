@@ -54,6 +54,10 @@ abstract class MissileBase {
         return this;
     }
 
+    public removeHandler(handler:MissileEventHandler) {
+        return MyUtils.removeObjectFromArray(handler, this._handler);
+    }
+
     public setTexture(texture:string) {
         this._texture = texture;
         if (this.img != null) {
