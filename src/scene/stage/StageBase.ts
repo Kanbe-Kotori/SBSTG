@@ -30,8 +30,8 @@ abstract class StageBase extends PageBase {
         this._total_time = time;
         StageData.registerStage(this);
 
-        this.addEventListener(MissileEvent.TICK, MissileBase.TickLogic, this);
-        this.addEventListener(MissileEvent.EDGE, MissileBase.EdgeLogic, this);
+        this.addEventListener(MissileEvent.TICK, MissileBase.tickLogic, this);
+        this.addEventListener(MissileEvent.EDGE, MissileBase.edgeLogic, this);
     }
 
     public addChildAtLayer(container, layer) {

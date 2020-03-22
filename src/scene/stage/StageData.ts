@@ -55,6 +55,7 @@ class StageData {
 	public static stage2_2h:StageBase;
 	public static stage2_3h:StageBase;
 	public static stage2_4h:StageBase;
+	public static stage2_5h:StageBase;
 	public static stage2_7h:StageBase;
 	
 	public static stage3_1h:StageBase;
@@ -141,6 +142,7 @@ class StageData {
 		StageData.stage2_2h = new C2S2H();
 		StageData.stage2_3h = new C2S3H();
 		StageData.stage2_4h = new C2S4H();
+		StageData.stage2_5h = new C2S5H();
 		StageData.stage2_7h = new C2S7H();
 
 		StageData.stage3_1h = new C3S1H();
@@ -209,6 +211,7 @@ class StageData {
 		StageData.chapter2h.addStage("c2s2h", "2", new egret.Point(Main.X * 0.50, Main.Y * 0.25));
 		StageData.chapter2h.addStage("c2s3h", "3", new egret.Point(Main.X * 0.75, Main.Y * 0.25));
 		StageData.chapter2h.addStage("c2s4h", "4", new egret.Point(Main.X * 0.25, Main.Y * 0.40));
+		StageData.chapter2h.addStage("c2s5h", "5", new egret.Point(Main.X * 0.50, Main.Y * 0.40));
 		StageData.chapter2h.addStage("c2s7h", "EX", new egret.Point(Main.X * 0.50, Main.Y * 0.55));
 
 		StageData.chapter3h.addStage("c3s1h", "1", new egret.Point(Main.X * 0.25, Main.Y * 0.25));

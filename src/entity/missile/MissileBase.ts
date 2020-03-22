@@ -180,7 +180,7 @@ abstract class MissileBase {
         }
     }
 
-    public static TickLogic(event: MissileTickEvent) {
+    public static tickLogic(event: MissileTickEvent) {
         for (let i of event.getMissile()._handler) {
             if (i instanceof TickEventHandler) {
                 i.trigger(event.getMissile());
@@ -188,7 +188,7 @@ abstract class MissileBase {
         }
     }
 
-    public static EdgeLogic(event: MissileEdgeEvent) {
+    public static edgeLogic(event: MissileEdgeEvent) {
         for (let i of event.getMissile()._handler) {
             if (i instanceof EdgeEventHandler) {
                 i.trigger(event.getMissile());
