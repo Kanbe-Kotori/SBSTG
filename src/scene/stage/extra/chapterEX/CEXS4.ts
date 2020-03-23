@@ -10,8 +10,8 @@ class CEXS4 extends StageBase {
             new CustomShooter(
                 launcher1,
                 (launcher:Launcher) => {
-                    let num = 8 * Math.random();
-                    num -= num % 1;
+                    let tick = SelfMachine.INSTANCE.currentStage.getCurrentTick();
+                    let num = (tick - tick % 64) / 64;
                     CEXS4.createLine(240, 0 + 45 * num, true);
                     CEXS4.createLine(300, 0 + 45 * num, true);
                     CEXS4.createLine(360, 0 + 45 * num, false);
@@ -45,7 +45,7 @@ class CEXS4 extends StageBase {
                     CEXS4.createLine(360, 315 + 45 * num, false);
                 }
             )
-            .setFreq(2500)
+            .setFreq(3200)
         )
         /*launcher1.addLogic(
             new CustomShooter(
@@ -75,7 +75,7 @@ class CEXS4 extends StageBase {
     public static createLine(dist:number, ang:number, con:boolean) {
         ang = MyUtils.ang2rad(ang);
         let tick = SelfMachine.INSTANCE.currentStage.getCurrentTick();
-        let clock = tick % 100 >= 25;
+        let clock = tick % 128 >= 32;
         for (let i = 0; i <= 20; i++) {
             if (!con && i >= 7 && i <= 13) {
                 continue;
@@ -98,7 +98,7 @@ class CEXS4 extends StageBase {
                 new TickEventHandler(
                     (missile:MissileBase) => {
                         let num = missile.getLife() - 20;
-                        let point1 = CEXS4.getRelativePoint(dist + 6 * num, clock? ang + num * MyUtils.ang2rad(6) : ang - num * MyUtils.ang2rad(6), 160 + 5 * num, i);
+                        let point1 = CEXS4.getRelativePoint(dist + 4 * num, clock? ang + num * MyUtils.ang2rad(4) : ang - num * MyUtils.ang2rad(5), 160 + 3 * num, i);
                         let dx = 540 + point1.x - missile.getX();
 						let dy = 720 + point1.y - missile.getY();
 						missile.setVelocity(dx, dy);

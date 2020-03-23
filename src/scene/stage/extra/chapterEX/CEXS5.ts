@@ -60,11 +60,11 @@ class CEXS5 extends StageBase {
 						new TickEventHandler(
 							(missile:MissileBase) => {
 								missile.ignoreCollideCheck = false;
-								for (let j = 0; j < 100; j++) {
+								for (let j = 0; j < 160; j++) {
 									let theta = Math.random() * 2 * Math.PI;
 									let v = 5 + 20 * Math.random();
 									let missile1 = new RoundMissile()
-									.setTexture(Math.random() >= 0.5? TextureNames.MISSILE_RED : TextureNames.MISSILE_BLUE)
+									.setTexture(j % 2 == 0? TextureNames.MISSILE_RED : TextureNames.MISSILE_BLUE)
 									.setPos(missile.getPos())
 									.setVelocity(v * Math.cos(theta), v * Math.sin(theta));
 									missile1.addToStage();
@@ -78,12 +78,12 @@ class CEXS5 extends StageBase {
 					.addHandler(
 						new TickEventHandler(
 							(missile:MissileBase) => {
-								let size = missile.getWidth() + 12;
+								let size = missile.getWidth() + 20;
 								missile.resize(size, size);
 							}
 						)
-						.setStartTicks(25)
-						.setTriggerTimes(25)
+						.setStartTicks(20)
+						.setTriggerTimes(20)
 					)
 					.addHandler(
 						new TickEventHandler(
@@ -91,8 +91,8 @@ class CEXS5 extends StageBase {
 								missile.rotate(18);
 							}
 						)
-						.setStartTicks(25)
-						.setTriggerTimes(55)
+						.setStartTicks(20)
+						.setTriggerTimes(80)
 					)
 					.addHandler(
 						new TickEventHandler(

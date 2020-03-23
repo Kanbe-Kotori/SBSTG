@@ -1,7 +1,7 @@
 class TextHelper {
 
-	public static welcome_text = "欢迎来到小金鱼的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。";
-	public static warning_text = "警告：\n内部测试版ver2.03，第二章还没做完，关卡提示还差不少，有些关卡难度令人迷惑，有更多的bug。";
+	public static welcome_text = "欢迎来到小金鱼历险记的世界！由于您是第一次打开本游戏，因此请先查看游戏帮助。";
+	public static warning_text = "欢迎来到小金鱼历险记的世界！很抱歉游戏还没完全完成，但由于开发者迫切地想要知道玩家对难度的看法，所以接下来全靠你们了。";
 
 	public static help_text = 
 		<Array<egret.ITextElement>>[
@@ -57,6 +57,8 @@ class TextHelper {
 		StageData.stage2_3.title = "2-3 反射";
 		StageData.stage2_4.title = "2-4 快慢";
 		StageData.stage2_5.title = "2-5 横跳";
+		StageData.stage2_6.title = "2-6 绽放";
+		StageData.stage2_7.title = "2-7 喷涌";
 
 		StageData.stage3_1.title = "3-1 细雨";
 		StageData.stage3_2.title = "3-2 落雪";
@@ -78,7 +80,9 @@ class TextHelper {
 		StageData.stage2_2h.title = "2-2H 飞絮落花";
 		StageData.stage2_3h.title = "2-3H 三面埋伏";
 		StageData.stage2_4h.title = "2-4H 追云逐月";
-		StageData.stage2_7h.title = "2-EX 喷涌";
+		StageData.stage2_5h.title = "2-5H 反复横跳";
+		StageData.stage2_6h.title = "2-6H 死亡绽放";
+		StageData.stage2_7h.title = "2-EX 花团锦簇";
 
 		StageData.stage3_1h.title = "3-1H 决河倾";
 		StageData.stage3_2h.title = "3-2H 珠径雨";
@@ -130,7 +134,7 @@ class TextHelper {
 		StageData.stage1_6.help_text = "本关由粉色自机狙，蓝色随机弹和紫色固定弹构成，和1-3类似，在微移躲自机狙的同时要注意飞来的流矢。"
 		+ "\n\n本关设计者：chitose";
 		StageData.stage1_7.help_text = "本关作为第一个EX关卡，难度比之前的（白给）关可能稍高，实在过不了就跳过吧。"
-		+ "\n\n如果非要击破的话，本关一定不能微移，而是要在版底大幅度反复横跳，二阶自机狙可不会白给。"
+		+ "\n\n如果非要击破的话，本关一定不能微移，而是要在版底大幅度反复横跳，二阶自机狙可不会轻易白给。"
 		+ "\n\n本关制作者：chitose"
 		+ "\n\n本关设计者：zun(笑)";
 
@@ -144,12 +148,13 @@ class TextHelper {
 		+ "\n\n本关设计者：chitose";
 
 		StageData.stage1_1h.help_text = "鉴于能打hard的人水平应该都不需要看提示了，这个难度下这里就用来碎碎念吧。"
-		+ "\n\n其实游戏制作者只是一个车万菜鸟，所以制作这个游戏的目的也只是希望能让更多人接触STG、了解STG，而不是把它作为骗钱的工具。"
+		+ "\n\n据说国内真正了解东方project的只有600人，而我绝对算不上其中之一。所以我也希望能借这个游戏让更多人接触到STG和这个圈子。"
 		+ "\n\n本关设计者：chitose";
 		StageData.stage1_2h.help_text = "这一关其实历史非常悠久了，当我第一次做出这个游戏的原型，甚至还没有选关和胜利界面的时候，屏幕上用来测试的就是这一关。"
 		+ "\n\n如果各位有兴趣看看这个游戏最初长什么德行，可以去本游戏的taptap论坛上看看。"
 		+ "\n\n本关设计者：chitose";
-		StageData.stage1_3h.help_text = "这一关似乎也有很悠久的历史了，印象中已经跟随了我很多个版本。这期间机制越加越多，但这一关始终牢牢占住1-3的位置，也许这就是我设计的初心吧（笑）"
+		StageData.stage1_3h.help_text = "这一关历史比1-2稍微短一点，但印象中也已经跟随了我很多个版本没有被删掉。"
+		+ "\n\n这期间机制越加越多，但这一关始终牢牢占住1-3的位置，也许是因为这关确实很好看吧。"
 		+ "\n\n本关设计者：chitose";
 		StageData.stage1_4h.help_text = "和1-3不同，这一关在过去设计得很差，完全就是凑数关。重制时我在几个版本之间反复纠结了很多次，最后还是选择了这个设计。"
 		+ "\n\n这个设计的灵感来源是夏天的花盛开时好像喷火一样，结果没想到写着写着就变成真的烟花了。。"
@@ -163,6 +168,20 @@ class TextHelper {
 		StageData.stage1_7h.help_text = "看到这一关，有些车万狗可能已经产生幻视了。没错，这一关就是本人车万入坑作，th08中灵梦的符卡——回霊「夢想封印 侘」。"
 		+ "\n\n总之非常感谢某个酒鬼程序员对本游戏的大力支持(笑)"
 		+ "\n\n本关设计者：zun(笑)";
+
+		StageData.stageEX_1.help_text = "据说，每一个接触到自制STG的初学者都会做出一张他们自己的「波与粒子的境界」，就好像每个MAD初学者都会做一个仿青空一样。"
+		+ "\n\n(此处应有：滑与稽的境界.gif"
+		+ "\n\n本关制作者：kaguya"
+		+ "\n\n本关设计者：zun(笑)";
+		StageData.stageEX_2.help_text = "想象一下，你正处在一个昏暗而寒冷的洞穴中，岩石般坚硬的寒冰把你围在了一个狭窄的圈子中间。"
+		+ "\n\n突然，前一秒还在滴答滴答的水珠也冻成了坚冰，像子弹一样朝你袭来..."
+		+ "\n\n果然我不太擅长讲鬼故事呢。"
+		+ "\n\n本关设计者：chitose";
+		StageData.stageEX_3.help_text = "“百川东到海，何时复西归。”古人曾经这样感叹时间的一去不返。然而此时此刻，就让我们来感受一下时光倒流，奔流的河水向源头席卷而来的恐惧吧。"
+		+ "\n\n本关制作者：chitose"
+		+ "\n\n本关设计者：花花";
+		StageData.stageEX_4.help_text = "";
+		StageData.stageEX_5.help_text = "";
 
 		/*StageData.stage1_4.help_text = "本关在设计时就觉得有点迷。。虽然最后发现可以躲在版底强扭，但我一开始想的是绕屏幕转圈引自机狙，结果由于需要多次穿越紫色弹幕所以反而更难了。\n\n" + 
 			"如果你是车万狗的话，本关应该难不倒你。但假如实在过不去的话，建议跳过本关。";*/

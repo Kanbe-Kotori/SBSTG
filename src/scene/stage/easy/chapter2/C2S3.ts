@@ -35,10 +35,9 @@ class C2S3 extends StageBase {
                     )
                 )
             )
-            .setFreq(200)
+            .setFreq(100)
             .setStartAngle(0)
-            .setStep(10)
-            .setNumber(2)
+            .setNumber(1)
             .setPeriod(Math.E)	//随便设置一个无理数
         );
     }
