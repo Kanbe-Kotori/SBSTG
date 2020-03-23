@@ -76,13 +76,13 @@ class CEXS3 extends StageBase {
                 new CustomPath(
                     launcher,
                     (tick:number) => {
-                        let theta = initTheta - Math.abs(tick % (10 * 20) - 5 * 20) * MyUtils.ang2rad(3.6);
+                        let theta = initTheta - Math.abs(tick % (10 * 20) - 5 * 20) * MyUtils.ang2rad(1.8);
                         return new egret.Point(540 + 300 * Math.cos(theta), 900 + 300 * Math.sin(theta));
                     }
                 )
             );
             launcher.addLogic(
-                new CustomShooter(launcher,func).setFreq(200)
+                new CustomShooter(launcher,func).setFreq(100)
             );
         }
 	}
