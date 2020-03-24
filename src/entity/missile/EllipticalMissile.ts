@@ -29,6 +29,11 @@ class EllipticalMissile extends MissileBase {
         if (this.ignoreCollideCheck) {
             return false;
         }
+        let x2 = (SelfMachine.INSTANCE.getX() - this.getX()) *  Math.cos(this._ang) + (SelfMachine.INSTANCE.getY() - this.getY()) * Math.sin(this._ang);
+        let y2 = (SelfMachine.INSTANCE.getX() - this.getX()) * -Math.sin(this._ang) + (SelfMachine.INSTANCE.getY() - this.getY()) * Math.cos(this._ang);
+        let z = 1 / Math.sqrt(4 / Math.pow(this.getWidth(), 2) + 4 * Math.pow(y2, 2) / Math.pow(this.getHeight(), 2) / Math.pow(x2, 2) )
+        return SelfMachine.SIZE / Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2)) + z / x2 >= 1;
+        /*
         let dx:number = this.getX() - SelfMachine.INSTANCE.getX();
         let dy:number = this.getY() - SelfMachine.INSTANCE.getY();
         let dist = Math.sqrt(dx * dx + dy * dy);
@@ -42,6 +47,7 @@ class EllipticalMissile extends MissileBase {
             return true;
         }
         return false;
+        */
     }
 
 	public onUpdate(event: egret.TimerEvent) {

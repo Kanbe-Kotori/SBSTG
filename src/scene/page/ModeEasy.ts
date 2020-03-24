@@ -30,7 +30,11 @@ class ModeEasy extends PageBase {
 
 	public static createFunc(chapter:PageChapter) {
 		let func:Function = () => {
-			ChooseMode.INSTANCE.removeChildren();
+            if (chapter.front_stage != null && LocalData.getStageData(chapter.front_stage) == STAGE_DATA.UNFINISHED) {
+                MsgBox.showMsgBox(ModeEasy.INSTANCE, "本章节将在通关或跳过该关卡后解锁：\n" + chapter.front_stage.title);
+                return;
+            }
+			ModeEasy.INSTANCE.removeChildren();
         	Main.getMain().removeChildren();
         	Main.getMain().addChild(chapter);
             SelfMachine.INSTANCE.currentChapter = chapter;

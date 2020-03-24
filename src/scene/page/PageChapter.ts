@@ -6,6 +6,8 @@ class PageChapter extends PageBase {
     public chapter_name:string;
     protected titleText:egret.TextField;
 
+    public front_stage:StageBase = null;
+
     public constructor(name:string) {
         super();
         this.chapter_name = name;

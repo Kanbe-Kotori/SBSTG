@@ -231,6 +231,13 @@ class StageData {
 	}
 
 	private static initRelations() {
+		StageData.chapter2.front_stage = StageData.stage1_6;
+		StageData.chapter3.front_stage = StageData.stage2_6;
+		StageData.chapter1h.front_stage = StageData.stage1_6;
+		StageData.chapter2h.front_stage = StageData.stage2_6;
+		StageData.chapter3h.front_stage = StageData.stage3_6;
+		StageData.chapter_extra.front_stage = StageData.stage1_6;
+
 		StageData.stage1_1.next_stage = StageData.stage1_2;
 		StageData.stage1_2.next_stage = StageData.stage1_3;
 		StageData.stage1_3.next_stage = StageData.stage1_4;

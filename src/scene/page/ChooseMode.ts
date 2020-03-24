@@ -50,6 +50,10 @@ class ChooseMode extends PageBase {
     }
 
     public static click_enter_ex(evt:egret.TouchEvent) {
+        if (StageData.chapter_extra.front_stage != null && LocalData.getStageData(StageData.chapter_extra.front_stage) == STAGE_DATA.UNFINISHED) {
+            MsgBox.showMsgBox(ChooseMode.INSTANCE, "本章节将在通关或跳过该关卡后解锁：\n" + StageData.chapter_extra.front_stage.title);
+            return;
+        }
         ChooseMode.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(StageData.chapter_extra);

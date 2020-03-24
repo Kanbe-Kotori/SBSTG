@@ -1,7 +1,6 @@
 class Unused2 extends StageBase {
 
     protected initEmitters() {
-        //测试关卡用
         let point1 = new egret.Point(540, 900);
         let launcher1= LauncherFactory.texturedLauncher(TextureNames.FLOWER0, 160, 120).setInitialPos(point1);
         launcher1.addLogic(
