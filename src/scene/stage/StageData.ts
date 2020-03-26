@@ -238,6 +238,12 @@ class StageData {
 		StageData.chapter3h.front_stage = StageData.stage3_6;
 		StageData.chapter_extra.front_stage = StageData.stage1_6;
 
+		StageData.tutorial1.next_stage = StageData.tutorial2;
+		StageData.tutorial2.next_stage = StageData.tutorial3;
+		StageData.tutorial3.next_stage = StageData.tutorial4;
+		StageData.tutorial4.next_stage = StageData.tutorial5;
+		StageData.tutorial5.next_stage = StageData.tutorial6;
+
 		StageData.stage1_1.next_stage = StageData.stage1_2;
 		StageData.stage1_2.next_stage = StageData.stage1_3;
 		StageData.stage1_3.next_stage = StageData.stage1_4;

@@ -85,16 +85,13 @@ abstract class StageBase extends PageBase {
         sky.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
         sky.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
 
-        /*
-        //本来想加一道横线，但太难看了还是不加了，果然还是直接在背景上画吧。
-        let line = new egret.Shape();
-        line.x = 0;
-        line.y = Main.UPPER_Y - 4;
-        line.graphics.beginFill(0x000000, 1);
-        line.graphics.drawRect(0, 0, Main.X, 4);
-        line.graphics.endFill();
-        this.addChildAtLayer(line, DrawingLayer.CONTROL);
-        */
+        let square_upper = new egret.Shape();
+        square_upper.x = 0;
+        square_upper.y = 0;
+        square_upper.graphics.beginFill(0xFFFFFF, 0.1);
+        square_upper.graphics.drawRect(0, 0, Main.X, Main.UPPER_Y);
+        square_upper.graphics.endFill();
+        this.addChildAtLayer(square_upper, DrawingLayer.CONTROL);
 
         this._titleText = new egret.TextField();
         this._titleText.width = 1080;
@@ -120,6 +117,14 @@ abstract class StageBase extends PageBase {
         this._timeText.textAlign = egret.HorizontalAlign.CENTER;
         this._timeText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChildAtLayer(this._timeText, DrawingLayer.CONTROL);
+
+        let square_bottom = new egret.Shape();
+        square_bottom.x = 0;
+        square_bottom.y = Main.BELOW_Y;
+        square_bottom.graphics.beginFill(0xFFFFFF, 1);
+        square_bottom.graphics.drawRect(0, 0, Main.X, Main.Y - Main.BELOW_Y);
+        square_bottom.graphics.endFill();
+        this.addChildAtLayer(square_bottom, DrawingLayer.CONTROL);
 
         let btnPause = new Button(180, 180, new egret.Point(180, 1800)).setTexture(TextureNames.BUTTON_PAUSE);
         btnPause.setAction(StageBase.click_pause);
@@ -314,10 +319,10 @@ enum StageState {
 
 enum DrawingLayer {
 	BACKGROUND = 0,
-	CONTROL = 1,
-	EMITTER = 2,
-    BOTTOM_MISSILE = 3,
-	SELF_MACHINE = 4,
-    UPPER_MISSILE = 5,
+	EMITTER = 1,
+    BOTTOM_MISSILE = 2,
+	SELF_MACHINE = 3,
+    UPPER_MISSILE = 4,
+    CONTROL = 5,
     POPUP = 6
 }

@@ -5,7 +5,8 @@ class RoundMissile extends MissileBase {
     }
 
     protected shouldSetDead() {
-        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y || this.getX() < 0 || this.getX() > Main.X) {
+        let r = this._missile_width / 2;
+        if (this.getY() < Main.UPPER_Y - r || this.getY() > Main.BELOW_Y + r || this.getX() < -r || this.getX() > Main.X + r) {
             if (!this.hasSpecialLogic(EdgeEventHandler)) {
                 return true;
             } else {

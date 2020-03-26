@@ -3,7 +3,8 @@ class EllipticalMissile extends MissileBase {
 	protected _ang = 0;
 
     protected shouldSetDead() {
-        if (this.getY() < Main.UPPER_Y || this.getY() > Main.BELOW_Y || this.getX() < 0 || this.getX() > Main.X) {
+        let r = Math.max(this._missile_width, this._missile_height) / 2;
+        if (this.getY() < Main.UPPER_Y - r || this.getY() > Main.BELOW_Y + r || this.getX() < -r || this.getX() > Main.X + r) {
             if (!this.hasSpecialLogic(EdgeEventHandler)) {
                 return true;
             } else {
