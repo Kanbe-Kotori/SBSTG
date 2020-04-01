@@ -109,20 +109,24 @@ class CEXS4 extends StageBase {
             .addHandler(
                 new EdgeEventHandler(
                     (missile:MissileBase) => {
-                        let dx = 540 - missile.getX();
-						let dy = 720 - missile.getY();
-                        let d = Math.sqrt(dx * dx + dy * dy);
-                        if (d > 960)
-                            missile.setDead();
+                        //加个边缘逻辑防止随便消弹
                     }
                 )
             )
             .addHandler(
                 new TickEventHandler(
                     (missile:MissileBase) => {
+                        let dx = 540 - missile.getX();
+						let dy = 720 - missile.getY();
+                        let d = Math.sqrt(dx * dx + dy * dy);
+                        if (d > 1140) {
+                            missile.setDead();
+                            return;
+                        }
+
                         if (missile.getY() < Main.UPPER_Y) {
                             missile.resize(0, 0);
-                        } else {
+                        } else if (missile.getWidth() != 24) {
                             missile.resize(24, 24);
                         }
                     }
