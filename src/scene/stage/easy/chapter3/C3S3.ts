@@ -29,7 +29,7 @@ class C3S3 extends StageBase {
             .setFreq(250)
             .setStartAngle(75)
             .setEndAngle(105)
-            .setNumber(4)
+            .setNumber(3)
             .setExtraVelocity(5)
         );
 
@@ -53,7 +53,7 @@ class C3S3 extends StageBase {
                 .addHandler(
 					new TickEventHandler(
 						(missile:MissileBase) => {
-                            for (let i = 0; i < 16; i++) {
+                            for (let i = 0; i < 12; i++) {
                                 let theta = Math.random() * 2 * Math.PI;
                                 let v = 6 + Math.random() * 6;
                                 let missile1 = new RoundMissile()

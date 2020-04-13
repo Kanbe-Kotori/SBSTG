@@ -3,7 +3,6 @@ class PageAboutGame extends PageBase {
     public static readonly INSTANCE:PageAboutGame = new PageAboutGame();
 
 	protected titleText:egret.TextField;
-	protected contentText:egret.TextField;
 
     protected onAddToStage(event:egret.Event) {
         super.onAddToStage(event);
@@ -29,38 +28,44 @@ class PageAboutGame extends PageBase {
         this.titleText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.addChild(this.titleText);
 
-		this.contentText = new egret.TextField();
-        this.contentText.width = 1000;
-        this.contentText.height = 1320;
-        this.contentText.x = 40;
-        this.contentText.y = 360;
-        this.contentText.size = 48;
-        this.contentText.textFlow = TextHelper.about_text;
-        this.contentText.textColor = 0x000000;
-        this.contentText.strokeColor = 0xffffff;
-        this.contentText.stroke = 2;
-        this.contentText.fontFamily = "KaiTi";
-        this.contentText.textAlign = egret.HorizontalAlign.LEFT;
-        this.contentText.verticalAlign = egret.VerticalAlign.TOP;
-        this.addChild(this.contentText);
+        let btnGameInfo = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.2), "游戏信息");
+        btnGameInfo.setAction(PageAboutGame.click_game_info);
+        this.addChild(btnGameInfo);
 
-        let btnReturn = new ButtonWithText(550, 150, new egret.Point(540, 1620), "返回");
-        btnReturn.setAction(PageAboutGame.click_return);
-        this.addChild(btnReturn);
+        let btnDeveloper = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.4), "开发者的话");
+        btnDeveloper.setAction(PageAboutGame.click_developer_words);
+        this.addChild(btnDeveloper);
 
-        let btnClear = new ButtonWithText(550, 150, new egret.Point(540, 1800), "清除数据");
+        let btnClear = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.6), "清除数据");
         btnClear.setAction(PageAboutGame.click_clear);
         this.addChild(btnClear);
+
+        let btnReturn = new ButtonWithText(550, 150, new egret.Point(Main.X * 0.5, Main.Y * 0.8), "返回");
+        btnReturn.setAction(PageAboutGame.click_return);
+        this.addChild(btnReturn);
+        
     }
 
-    public static click_return(evt:egret.TouchEvent) {
+    public static click_game_info(evt:egret.TouchEvent) {
+        PageAboutGame.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(PageGameInfo.INSTANCE);
+    }
+
+    public static click_developer_words(evt:egret.TouchEvent) {
+        PageAboutGame.INSTANCE.removeChildren();
+        Main.getMain().removeChildren();
+        Main.getMain().addChild(PageDeveloperWords.INSTANCE);
+    }
+
+    public static click_clear(evt:egret.TouchEvent) {
+        LocalData.clear();
 		PageAboutGame.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(PageMain.INSTANCE);
     }
 
-    public static click_clear(evt:egret.TouchEvent) {
-        LocalData.clear();
+    public static click_return(evt:egret.TouchEvent) {
 		PageAboutGame.INSTANCE.removeChildren();
         Main.getMain().removeChildren();
         Main.getMain().addChild(PageMain.INSTANCE);

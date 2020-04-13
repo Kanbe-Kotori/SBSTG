@@ -38,19 +38,9 @@ class PageMain extends PageBase {
         btnAbout.setAction(PageMain.click_about);
         this.addChild(btnAbout);
         
-        /*
         if (LocalData.isFirstTime()) {
-            MsgBox.setCustomAction(
-			    () => {
-                    PageMain.INSTANCE.removeChildren();
-                    Main.getMain().removeChildren();
-                    Main.getMain().addChild(PageHelp.INSTANCE);
-                }
-		    );
             MsgBox.showMsgBox(this, TextHelper.welcome_text);
         }
-        */
-        MsgBox.showMsgBox(this, TextHelper.warning_text);
     }
 
     public static click_title(evt:egret.TouchEvent) {

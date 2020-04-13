@@ -14,7 +14,7 @@ class C3S6 extends StageBase {
 					missile.addToStage();
 				}
 			)
-			.setFreq(400)
+			.setFreq(300)
 		);
 	}
 
