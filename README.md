@@ -1,2 +1,4 @@
 # SBSTG
-SB cai hui wan de STG
++ SB才会玩的STG。
++ 使用Egret引擎制作。
++ 不怎么样的底层实现，低完成度，高难易度。
