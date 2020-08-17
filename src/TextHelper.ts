@@ -26,6 +26,8 @@ class TextHelper {
 		<Array<egret.ITextElement>>[
 			{text: "游戏名：小金鱼历险记\n"},
 			{text: "软著号：2019SR1107678\n"},
+			{text: "版本号：release-2.2.0\n"},
+			{text: "更新日期：2020.4.13\n"},
 			{text: "开发：Nulladev开发组\n"},
 			{text: "策划：chitose@nulladev\n"},
 			{text: "开发：chitose@nulladev\n"},

@@ -1,6 +1,7 @@
 /libs
 /.wing
 /bin-debug
+/bin-release
 /template
 egretProperties.json
 index.html
