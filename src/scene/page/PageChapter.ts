@@ -35,6 +35,17 @@ class PageChapter extends PageBase {
         this.addChild(this.titleText);
 
 		for (let i in this._stage_map) {
+            if (i == "custom") {
+                let button = this._stage_map[i];
+                let func:Function = () => {
+                    this.removeChildren();
+                    Main.getMain().removeChildren();
+                    Main.getMain().addChild(PageCustomStage.INSTANCE);
+                };
+                button.setAction(func);
+                this.addChild(button);
+                continue;
+            }
             let stage = StageData.getStage(i);
             let front = stage.front_stage;
             if (front == null || LocalData.getStageData(front) == STAGE_DATA.FINISHED || LocalData.getStageData(front) == STAGE_DATA.SKIPPED) {
@@ -56,11 +67,14 @@ class PageChapter extends PageBase {
     }
 
     public addStage(stage_id:string, button_text:string, point:egret.Point) {
+        if (stage_id == "custom") {
+            let button = new ButtonWithText(550, 150, point, "自定义关卡！");
+            this._stage_map[stage_id] = button;
+            return;
+        }
         let button = new ButtonWithText(160, 160, point, button_text).setTexture(TextureNames.STAGE_UNFINISHED);
         button.setColor(0x000000);
         this._stage_map[stage_id] = button;
-        //button.setAction(PageChapter.createFunc(stage, this));
-		//this.arrayButton.push(button);
     }
 
 	public static createFunc(stage:StageBase, chapter:PageChapter) {

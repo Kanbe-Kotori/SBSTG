@@ -10,7 +10,7 @@ class CEXS6 extends StageBase {
                 launcher1,
                 (launcher:Launcher) => {
 					let tick = SelfMachine.INSTANCE.currentStage.getCurrentTick();
-        			let clock = tick % 100 >= 25;
+					let clock = tick % 100 >= 25;
 					let left = new RoundMissile()
 					.setTexture(TextureNames.MISSILE_RING_RED)
 					.setSize(240, 240)

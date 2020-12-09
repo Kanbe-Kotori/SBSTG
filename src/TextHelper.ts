@@ -111,8 +111,6 @@ class TextHelper {
 		StageData.stageEX_4.title = "ex-4 九宫八卦";
 		StageData.stageEX_5.title = "ex-5 阴阳交错";
 
-		StageData.test.title = "测试关卡";
-
 		StageData.tutorial1.tutorial_text = "在本游戏中，玩家可以通过拖动游戏画面的任何部分，来1:1地移动自机位置。点击屏幕右下角的i按钮可以查看当前关卡的小贴士。";
 		StageData.tutorial2.tutorial_text = "本关学习自机的判定点。在本游戏中，玩家只有金鱼中间的黑点中弹才算游戏失败，因此本关站着不动即可过关。";
 		StageData.tutorial3.tutorial_text = "本关认识弹幕中最常见的一类——固定弹，即无论如何都不发生变化的弹幕。请点击右下角的i按钮查看帮助。";
@@ -288,8 +286,6 @@ class TextHelper {
 		StageData.stageEX_5.help_text = "实在不知道该写什么，等花花来帮我写..."
 		+ "\n\n本关制作者：chitose"
 		+ "\n\n本关设计者：花花";
-
-		StageData.test.help_text = "本关是开发者用来测试临时关卡用的，不要过于好奇哦";
 
 		/*
 		"本关在设计时就觉得有点迷。。虽然最后发现可以躲在版底强扭，但我一开始想的是绕屏幕转圈引自机狙，结果由于需要多次穿越紫色弹幕所以反而更难了。\n\n" + 
